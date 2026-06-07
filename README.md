@@ -6,7 +6,7 @@ A personal workout tracker PWA — log sets, follow plans, chart progress, and t
 
 After deployment, the app is available at:
 
-**https://romanzdiarsky.github.io/gym-tracker/**
+**https://af-roman.github.io/gym-tracker/**
 
 ## Install on your phone
 
