@@ -1,5 +1,9 @@
 import type { DurationUnit, Exercise, ExerciseType, PlanExercise, SetLog } from '../db/schema'
-import { getPlanDuration, resolveExerciseType } from '../lib/exercises'
+import {
+  getPlanDuration,
+  isDurationExerciseType,
+  resolveExerciseType,
+} from '../lib/exercises'
 import { rpeLabel } from '../lib/rpe'
 
 export interface SetDraft {
@@ -40,12 +44,13 @@ export function SetLogger({
     onChange(next)
   }
 
-  const valueLabel =
-    exerciseType === 'cardio'
-      ? durationUnit === 'min'
-        ? 'Minutes'
-        : 'Seconds'
-      : 'Reps'
+  const durationType = isDurationExerciseType(exerciseType)
+
+  const valueLabel = durationType
+    ? durationUnit === 'min'
+      ? 'Minutes'
+      : 'Seconds'
+    : 'Reps'
 
   return (
     <div className="space-y-4">
@@ -59,9 +64,9 @@ export function SetLogger({
             <div className="flex items-center gap-3">
               <span className="text-sm text-slate-500">
                 Target:{' '}
-                {exerciseType === 'cardio'
+                {durationType
                   ? `${set.targetReps} ${durationUnit}`
-                  : exerciseType === 'strength' && set.targetWeight != null
+                  : set.targetWeight != null
                     ? `${set.targetReps} @ ${set.targetWeight} kg`
                     : set.targetReps}
               </span>
@@ -78,14 +83,14 @@ export function SetLogger({
           </div>
 
           <div
-            className={`grid gap-3 ${exerciseType === 'strength' ? 'grid-cols-2' : 'grid-cols-1'}`}
+            className={`grid gap-3 ${durationType ? 'grid-cols-1' : 'grid-cols-2'}`}
           >
             <label className="block">
               <span className="text-xs text-slate-500">{valueLabel}</span>
               <input
                 type="number"
                 inputMode="numeric"
-                step={exerciseType === 'cardio' && durationUnit === 'min' ? '0.5' : '1'}
+                step={durationType && durationUnit === 'min' ? '0.5' : '1'}
                 value={set.actualReps || ''}
                 onChange={(e) =>
                   updateSet(index, {
@@ -96,7 +101,7 @@ export function SetLogger({
               />
             </label>
 
-            {exerciseType === 'strength' && (
+            {!durationType && (
               <label className="block">
                 <span className="text-xs text-slate-500">Weight (kg)</span>
                 <input
@@ -161,13 +166,13 @@ export function SetLogger({
 
 function defaultTarget(exercise: Exercise, pe: PlanExercise) {
   const type = resolveExerciseType(exercise)
-  if (type === 'cardio') {
+  if (isDurationExerciseType(type)) {
     const { value } = getPlanDuration(exercise, pe)
     return { targetReps: value, targetWeight: undefined as number | undefined }
   }
   return {
     targetReps: pe.defaultReps ?? exercise.defaultReps ?? 10,
-    targetWeight: type === 'strength' ? pe.defaultWeight : undefined,
+    targetWeight: pe.defaultWeight,
   }
 }
 
@@ -191,13 +196,9 @@ export function setsToDrafts(
   const { targetReps, targetWeight } = defaultTarget(exercise, pe)
   const type = resolveExerciseType(exercise)
   const defaultActual =
-    type === 'cardio'
-      ? typeof targetReps === 'number'
-        ? targetReps
-        : 0
-      : typeof targetReps === 'number'
-        ? targetReps
-        : 0
+    isDurationExerciseType(type) || typeof targetReps === 'number'
+      ? Number(targetReps) || 0
+      : 0
 
   return Array.from({ length: pe.defaultSets }, (_, i) => ({
     setNumber: i + 1,
@@ -222,7 +223,9 @@ export function newSetDraft(
     targetReps,
     targetWeight,
     actualReps:
-      type === 'cardio' || typeof targetReps === 'number' ? Number(targetReps) || 0 : 0,
+      isDurationExerciseType(type) || typeof targetReps === 'number'
+        ? Number(targetReps) || 0
+        : 0,
     actualWeight: targetWeight,
     rpe: 5,
     notes: '',

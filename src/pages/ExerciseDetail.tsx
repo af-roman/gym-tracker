@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, PlanExercise } from '../db/schema'
-import { assetUrl } from '../lib/assets'
 import {
   SetLogger,
   setsToDrafts,
   newSetDraft,
   type SetDraft,
 } from '../components/SetLogger'
+import { PhotoLightbox } from '../components/PhotoLightbox'
 import { getLastSessionSummary, isPersonalBest } from '../lib/progress'
-import { resolveExerciseType } from '../lib/exercises'
+import {
+  formatExerciseMeta,
+  isDurationExerciseType,
+  resolveExerciseType,
+} from '../lib/exercises'
 
 export function ExerciseDetail() {
   const { sessionId, exerciseId } = useParams<{
@@ -24,6 +28,7 @@ export function ExerciseDetail() {
   const [lastSummary, setLastSummary] = useState<string | null>(null)
   const [showPb, setShowPb] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const sid = parseInt(sessionId ?? '0', 10)
 
@@ -87,7 +92,7 @@ export function ExerciseDetail() {
     }
 
     const type = resolveExerciseType(exercise)
-    if (type === 'strength') {
+    if (!isDurationExerciseType(type)) {
       const maxWeight = Math.max(...sets.map((s) => s.actualWeight ?? 0))
       if (await isPersonalBest(exerciseId, maxWeight, sid)) {
         setShowPb(true)
@@ -106,6 +111,7 @@ export function ExerciseDetail() {
   }
 
   const exerciseType = resolveExerciseType(exercise)
+  const instructionPhotos = exercise.instructionPhotos ?? []
 
   return (
     <div>
@@ -122,14 +128,8 @@ export function ExerciseDetail() {
         </div>
       )}
 
-      <img
-        src={assetUrl(exercise.illustration)}
-        alt={exercise.name}
-        className="mx-auto mb-4 h-40 w-40 rounded-2xl bg-slate-100 object-contain p-2 dark:bg-slate-800"
-      />
-
       <h1 className="text-2xl font-bold">{exercise.name}</h1>
-      <p className="text-sm text-slate-500">{exercise.muscleGroup}</p>
+      <p className="text-sm text-slate-500">{formatExerciseMeta(exercise)}</p>
 
       {lastSummary && (
         <p className="mt-2 rounded-xl bg-slate-100 px-3 py-2 text-sm dark:bg-slate-800">
@@ -142,12 +142,53 @@ export function ExerciseDetail() {
         <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
           {exercise.instructions}
         </p>
+        {instructionPhotos.length > 0 && (
+          <div className="mt-4 grid grid-cols-3 gap-2">
+            {instructionPhotos.map((photo, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setLightboxIndex(index)}
+                className="text-left"
+              >
+                <img
+                  src={photo}
+                  alt={`Step ${index + 1}`}
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+                <p className="mt-1 text-center text-xs text-slate-500">
+                  Step {index + 1}
+                </p>
+              </button>
+            ))}
+          </div>
+        )}
+        {exercise.tutorialVideoUrl && (
+          <a
+            href={exercise.tutorialVideoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-3 text-sm font-semibold text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
+          >
+            <span aria-hidden>▶</span>
+            Watch tutorial on YouTube
+          </a>
+        )}
         {exercise.startingWeightNote && (
           <p className="mt-2 text-sm text-emerald-700 dark:text-emerald-400">
             💡 {exercise.startingWeightNote}
           </p>
         )}
       </div>
+
+      {lightboxIndex != null && (
+        <PhotoLightbox
+          photos={instructionPhotos}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onChangeIndex={setLightboxIndex}
+        />
+      )}
 
       <h2 className="mb-3 mt-6 text-lg font-semibold">Log your sets</h2>
       <SetLogger

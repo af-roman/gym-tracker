@@ -2,18 +2,21 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { DurationUnit, Exercise, ExerciseType } from '../db/schema'
-import { assetUrl } from '../lib/assets'
 import {
   DURATION_UNITS,
   EXERCISE_TYPES,
   MUSCLE_GROUPS,
   createEmptyExercise,
   exerciseSummaryLine,
+  formatExerciseMeta,
+  isDurationExerciseType,
   getPlansUsingExercise,
   resolveExerciseType,
   uniqueExerciseId,
 } from '../lib/exercises'
-import { IllustrationPicker } from '../components/IllustrationPicker'
+import { parseYoutubeUrl } from '../lib/youtube'
+import { ExercisePhotoPicker } from '../components/ExercisePhotoPicker'
+import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
 
 export function ExerciseManager() {
   const [exercises, setExercises] = useState<Exercise[]>([])
@@ -39,7 +42,12 @@ export function ExerciseManager() {
   }
 
   const startEdit = (exercise: Exercise) => {
-    setEditing({ ...exercise, exerciseType: resolveExerciseType(exercise) })
+    setEditing({
+      ...exercise,
+      exerciseType: resolveExerciseType(exercise),
+      instructionPhotos: exercise.instructionPhotos ?? [],
+      thumbnailPhotoIndex: exercise.thumbnailPhotoIndex ?? 0,
+    })
     setIsNew(false)
     setError('')
   }
@@ -47,16 +55,11 @@ export function ExerciseManager() {
   const setExerciseType = (type: ExerciseType) => {
     if (!editing) return
     const next: Exercise = { ...editing, exerciseType: type }
-    if (type === 'cardio') {
+    if (isDurationExerciseType(type)) {
       next.defaultDuration = next.defaultDuration ?? 30
       next.durationUnit = next.durationUnit ?? 'sec'
       delete next.defaultWeight
       delete next.defaultReps
-    } else if (type === 'bodyweight') {
-      next.defaultReps = next.defaultReps ?? 10
-      delete next.defaultWeight
-      delete next.defaultDuration
-      delete next.durationUnit
     } else {
       next.defaultReps = next.defaultReps ?? 10
       delete next.defaultDuration
@@ -77,25 +80,51 @@ export function ExerciseManager() {
     }
 
     const type = resolveExerciseType(editing)
-    if (type === 'cardio' && !editing.defaultDuration) {
-      setError('Default duration is required for cardio exercises.')
+    if (isDurationExerciseType(type) && !editing.defaultDuration) {
+      setError('Default duration is required for cardio and stretch exercises.')
       return
+    }
+
+    const videoUrl = editing.tutorialVideoUrl?.trim()
+    let tutorialVideoUrl: string | undefined
+    if (videoUrl) {
+      const parsed = parseYoutubeUrl(videoUrl)
+      if (!parsed) {
+        setError('Please enter a valid YouTube link.')
+        return
+      }
+      tutorialVideoUrl = parsed
     }
 
     setSaving(true)
     setError('')
 
-    let record: Exercise = { ...editing, name: editing.name.trim() }
-    if (type === 'cardio') {
+    let record: Exercise = {
+      ...editing,
+      name: editing.name.trim(),
+      instructionPhotos: editing.instructionPhotos ?? [],
+      thumbnailPhotoIndex:
+        (editing.instructionPhotos?.length ?? 0) > 0
+          ? Math.min(
+              editing.thumbnailPhotoIndex ?? 0,
+              (editing.instructionPhotos?.length ?? 1) - 1,
+            )
+          : undefined,
+      tutorialVideoUrl,
+    }
+    if (!tutorialVideoUrl) {
+      delete record.tutorialVideoUrl
+    }
+    if (isDurationExerciseType(type)) {
       delete record.defaultReps
       delete record.defaultWeight
-    } else if (type === 'bodyweight') {
-      delete record.defaultWeight
-      delete record.defaultDuration
-      delete record.durationUnit
     } else {
       delete record.defaultDuration
       delete record.durationUnit
+    }
+    if ((record.instructionPhotos?.length ?? 0) === 0) {
+      delete record.instructionPhotos
+      delete record.thumbnailPhotoIndex
     }
     delete record.weightUnit
 
@@ -168,15 +197,6 @@ export function ExerciseManager() {
           </p>
         )}
 
-        <IllustrationPicker
-          value={editing.illustration}
-          onChange={(illustration) => {
-            setError('')
-            updateField('illustration', illustration)
-          }}
-          onError={setError}
-        />
-
         <div className="space-y-4">
           <label className="block">
             <span className="text-sm font-medium">Name</span>
@@ -242,6 +262,35 @@ export function ExerciseManager() {
             />
           </label>
 
+          <ExercisePhotoPicker
+            photos={editing.instructionPhotos ?? []}
+            thumbnailIndex={editing.thumbnailPhotoIndex ?? 0}
+            onChange={(photos, thumbnailIndex) => {
+              setError('')
+              setEditing({
+                ...editing,
+                instructionPhotos: photos,
+                thumbnailPhotoIndex: thumbnailIndex,
+              })
+            }}
+            onError={setError}
+          />
+
+          <label className="block">
+            <span className="text-sm font-medium">
+              YouTube tutorial (optional)
+            </span>
+            <input
+              type="url"
+              value={editing.tutorialVideoUrl ?? ''}
+              onChange={(e) =>
+                updateField('tutorialVideoUrl', e.target.value || undefined)
+              }
+              placeholder="https://www.youtube.com/watch?v=..."
+              className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
+            />
+          </label>
+
           <label className="block">
             <span className="text-sm font-medium">Default sets</span>
             <input
@@ -255,7 +304,7 @@ export function ExerciseManager() {
             />
           </label>
 
-          {type === 'cardio' && (
+          {isDurationExerciseType(type) && (
             <div className="grid grid-cols-2 gap-3">
               <label className="block">
                 <span className="text-sm font-medium">Default duration</span>
@@ -292,7 +341,7 @@ export function ExerciseManager() {
             </div>
           )}
 
-          {(type === 'strength' || type === 'bodyweight') && (
+          {!isDurationExerciseType(type) && (
             <label className="block">
               <span className="text-sm font-medium">Default reps</span>
               <input
@@ -311,46 +360,40 @@ export function ExerciseManager() {
             </label>
           )}
 
-          {type === 'strength' && (
-            <label className="block">
-              <span className="text-sm font-medium">Default weight (kg)</span>
-              <input
-                type="number"
-                step="0.5"
-                value={editing.defaultWeight ?? ''}
-                onChange={(e) =>
-                  updateField(
-                    'defaultWeight',
-                    e.target.value ? parseFloat(e.target.value) : undefined,
-                  )
-                }
-                placeholder="Optional starting weight"
-                className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
-              />
-            </label>
-          )}
+          {!isDurationExerciseType(type) && (
+            <>
+              <label className="block">
+                <span className="text-sm font-medium">Default weight (kg)</span>
+                <input
+                  type="number"
+                  step="0.5"
+                  value={editing.defaultWeight ?? ''}
+                  onChange={(e) =>
+                    updateField(
+                      'defaultWeight',
+                      e.target.value ? parseFloat(e.target.value) : undefined,
+                    )
+                  }
+                  placeholder="Optional starting weight"
+                  className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
+                />
+              </label>
 
-          {type !== 'cardio' && (
-            <label className="block">
-              <span className="text-sm font-medium">
-                {type === 'strength'
-                  ? 'Starting weight note (optional)'
-                  : 'Notes (optional)'}
-              </span>
-              <textarea
-                value={editing.startingWeightNote ?? ''}
-                onChange={(e) =>
-                  updateField('startingWeightNote', e.target.value || undefined)
-                }
-                rows={3}
-                placeholder={
-                  type === 'strength'
-                    ? 'e.g. Start with 8–12 kg'
-                    : 'e.g. 10 reps per side'
-                }
-                className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
-              />
-            </label>
+              <label className="block">
+                <span className="text-sm font-medium">
+                  Starting weight note (optional)
+                </span>
+                <textarea
+                  value={editing.startingWeightNote ?? ''}
+                  onChange={(e) =>
+                    updateField('startingWeightNote', e.target.value || undefined)
+                  }
+                  rows={3}
+                  placeholder="e.g. Start with 8–12 kg"
+                  className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
+                />
+              </label>
+            </>
           )}
         </div>
 
@@ -403,21 +446,11 @@ export function ExerciseManager() {
               key={exercise.id}
               className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
             >
-              <img
-                src={assetUrl(exercise.illustration)}
-                alt=""
-                className="h-14 w-14 shrink-0 rounded-xl bg-slate-100 object-contain p-1 dark:bg-slate-800"
-                onError={(e) => {
-                  e.currentTarget.src = assetUrl('/illustrations/placeholder.svg')
-                }}
-              />
+              <ExerciseThumbnail exercise={exercise} className="h-14 w-14" />
               <div className="min-w-0 flex-1">
                 <h2 className="font-bold">{exercise.name}</h2>
                 <p className="text-sm text-slate-500">
-                  {exercise.muscleGroup} ·{' '}
-                  {EXERCISE_TYPES.find(
-                    (t) => t.value === resolveExerciseType(exercise),
-                  )?.label.split(' ')[0]}
+                  {formatExerciseMeta(exercise)}
                 </p>
                 <p className="text-xs text-slate-400">
                   {exerciseSummaryLine(exercise)}

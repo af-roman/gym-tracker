@@ -1,6 +1,16 @@
 import Dexie, { type EntityTable } from 'dexie'
 
-export type ExerciseType = 'strength' | 'bodyweight' | 'cardio'
+export type ExerciseType =
+  | 'squat'
+  | 'hinge'
+  | 'horizontal-push'
+  | 'horizontal-pull'
+  | 'vertical-push'
+  | 'vertical-pull'
+  | 'accessory'
+  | 'core'
+  | 'cardio'
+  | 'stretch'
 export type DurationUnit = 'sec' | 'min'
 
 export interface Exercise {
@@ -8,15 +18,16 @@ export interface Exercise {
   name: string
   muscleGroup: string
   instructions: string
-  illustration: string
+  instructionPhotos?: string[]
+  thumbnailPhotoIndex?: number
+  tutorialVideoUrl?: string
   exerciseType: ExerciseType
   defaultSets: number
-  /** Strength & bodyweight */
+  /** Reps + kg types */
   defaultReps?: number | string
-  /** Cardio */
+  /** Cardio & stretch */
   defaultDuration?: number
   durationUnit?: DurationUnit
-  /** Strength only (kg) */
   defaultWeight?: number
   startingWeightNote?: string
   /** @deprecated migrated to exerciseType */
@@ -109,7 +120,7 @@ class GymTrackerDB extends Dexie {
         await tx
           .table('exercises')
           .toCollection()
-          .modify((ex: Exercise & { weightUnit?: string }) => {
+          .modify((ex: Exercise & { weightUnit?: string; exerciseType?: string }) => {
             if (ex.exerciseType) return
 
             if (ex.weightUnit === 'sec') {
@@ -124,9 +135,9 @@ class GymTrackerDB extends Dexie {
                 }
               }
             } else if (ex.weightUnit === 'bodyweight') {
-              ex.exerciseType = 'bodyweight'
+              ;(ex as { exerciseType: string }).exerciseType = 'bodyweight'
             } else {
-              ex.exerciseType = 'strength'
+              ;(ex as { exerciseType: string }).exerciseType = 'strength'
             }
             delete ex.weightUnit
           })
@@ -149,6 +160,146 @@ class GymTrackerDB extends Dexie {
                 pe.durationUnit = 'sec'
                 delete pe.defaultReps
               }
+            }
+          })
+      })
+    this.version(3)
+      .stores({
+        exercises: 'id, name, muscleGroup',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        const LEGACY_TYPE_MAP: Record<string, ExerciseType> = {
+          strength: 'accessory',
+          bodyweight: 'core',
+          cardio: 'cardio',
+        }
+
+        const SEED_TYPE_MAP: Record<string, ExerciseType> = {
+          'goblet-squat': 'squat',
+          'walking-lunges': 'squat',
+          'romanian-deadlift': 'hinge',
+          'dumbbell-bench-press': 'horizontal-push',
+          'incline-dumbbell-press': 'horizontal-push',
+          'dumbbell-row': 'horizontal-pull',
+          'lat-pulldown': 'vertical-pull',
+          'dumbbell-shoulder-press': 'vertical-push',
+          'dead-bug': 'core',
+          plank: 'core',
+        }
+
+        const isDurationType = (type: ExerciseType) =>
+          type === 'cardio' || type === 'stretch'
+
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify((ex: Exercise) => {
+            const raw = ex.exerciseType as string
+            if (SEED_TYPE_MAP[ex.id]) {
+              ex.exerciseType = SEED_TYPE_MAP[ex.id]
+            } else if (LEGACY_TYPE_MAP[raw]) {
+              ex.exerciseType = LEGACY_TYPE_MAP[raw]
+            } else if (
+              ![
+                'squat',
+                'hinge',
+                'horizontal-push',
+                'horizontal-pull',
+                'vertical-push',
+                'vertical-pull',
+                'accessory',
+                'core',
+                'cardio',
+                'stretch',
+              ].includes(raw)
+            ) {
+              ex.exerciseType = 'accessory'
+            }
+
+            if (isDurationType(ex.exerciseType)) {
+              if (ex.defaultDuration == null) {
+                const rawReps = ex.defaultReps
+                if (typeof rawReps === 'number') ex.defaultDuration = rawReps
+                else {
+                  const parsed = parseInt(String(rawReps ?? ''), 10)
+                  ex.defaultDuration = Number.isNaN(parsed) ? 30 : parsed
+                }
+              }
+              ex.durationUnit = ex.durationUnit ?? 'sec'
+              delete ex.defaultReps
+              delete ex.defaultWeight
+            } else {
+              if (ex.defaultReps == null && ex.defaultDuration != null) {
+                ex.defaultReps = ex.defaultDuration
+              }
+              if (ex.defaultReps == null) ex.defaultReps = 10
+              delete ex.defaultDuration
+              delete ex.durationUnit
+            }
+          })
+
+        await tx
+          .table('workoutPlans')
+          .toCollection()
+          .modify(async (plan: WorkoutPlan) => {
+            for (const pe of plan.exercises) {
+              if (pe.defaultDuration == null) continue
+              const ex = (await tx.table('exercises').get(pe.exerciseId)) as
+                | Exercise
+                | undefined
+              const type = ex?.exerciseType ?? 'accessory'
+              if (isDurationType(type)) continue
+              if (pe.defaultReps == null) pe.defaultReps = pe.defaultDuration
+              delete pe.defaultDuration
+              delete pe.durationUnit
+            }
+          })
+      })
+    this.version(4)
+      .stores({
+        exercises: 'id, name, muscleGroup',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify((ex: Exercise & { illustration?: string }) => {
+            if (!ex.instructionPhotos) ex.instructionPhotos = []
+
+            if (ex.illustration?.startsWith('data:')) {
+              ex.instructionPhotos = [
+                ex.illustration,
+                ...ex.instructionPhotos,
+              ].slice(0, 3)
+              ex.thumbnailPhotoIndex = 0
+            }
+
+            delete ex.illustration
+          })
+      })
+    this.version(5)
+      .stores({
+        exercises: 'id, name, muscleGroup',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify((ex: Exercise) => {
+            if (ex.muscleGroup === 'Cardio') {
+              ex.muscleGroup = 'Other'
             }
           })
       })

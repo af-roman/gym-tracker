@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gym-tracker-v2'
+const CACHE_NAME = 'gym-tracker-v3'
 
 function asset(path) {
   return new URL(path, self.location).href
@@ -10,17 +10,6 @@ const ASSETS = [
   './404.html',
   './manifest.webmanifest',
   './icon.svg',
-  './illustrations/goblet-squat.svg',
-  './illustrations/dumbbell-bench-press.svg',
-  './illustrations/dumbbell-row.svg',
-  './illustrations/dumbbell-shoulder-press.svg',
-  './illustrations/plank.svg',
-  './illustrations/romanian-deadlift.svg',
-  './illustrations/incline-dumbbell-press.svg',
-  './illustrations/lat-pulldown.svg',
-  './illustrations/walking-lunges.svg',
-  './illustrations/dead-bug.svg',
-  './illustrations/placeholder.svg',
 ]
 
 self.addEventListener('install', (event) => {

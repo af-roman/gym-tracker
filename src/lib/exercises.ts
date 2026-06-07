@@ -1,19 +1,8 @@
 import type { DurationUnit, Exercise, ExerciseType, PlanExercise } from '../db/schema'
 import { db } from '../db/schema'
 
-export const BUILT_IN_ILLUSTRATIONS = [
-  '/illustrations/goblet-squat.svg',
-  '/illustrations/dumbbell-bench-press.svg',
-  '/illustrations/dumbbell-row.svg',
-  '/illustrations/dumbbell-shoulder-press.svg',
-  '/illustrations/plank.svg',
-  '/illustrations/romanian-deadlift.svg',
-  '/illustrations/incline-dumbbell-press.svg',
-  '/illustrations/lat-pulldown.svg',
-  '/illustrations/walking-lunges.svg',
-  '/illustrations/dead-bug.svg',
-  '/illustrations/placeholder.svg',
-]
+export const MAX_INSTRUCTION_PHOTOS = 3
+export const MAX_INSTRUCTION_PHOTO_BYTES = 2 * 1024 * 1024
 
 export const MUSCLE_GROUPS = [
   'Legs',
@@ -22,24 +11,59 @@ export const MUSCLE_GROUPS = [
   'Shoulders',
   'Arms',
   'Core',
-  'Cardio',
   'Full body',
   'Other',
 ]
 
 export const EXERCISE_TYPES: { value: ExerciseType; label: string }[] = [
-  { value: 'strength', label: 'Strength (reps + kg)' },
-  { value: 'bodyweight', label: 'Bodyweight (reps)' },
-  { value: 'cardio', label: 'Cardio (duration)' },
+  { value: 'squat', label: 'Squat' },
+  { value: 'hinge', label: 'Hinge' },
+  { value: 'horizontal-push', label: 'Horizontal push' },
+  { value: 'horizontal-pull', label: 'Horizontal pull' },
+  { value: 'vertical-push', label: 'Vertical push' },
+  { value: 'vertical-pull', label: 'Vertical pull' },
+  { value: 'accessory', label: 'Accessory' },
+  { value: 'core', label: 'Core' },
+  { value: 'cardio', label: 'Cardio' },
+  { value: 'stretch', label: 'Stretch' },
 ]
 
 export const DURATION_UNITS: DurationUnit[] = ['sec', 'min']
 
+const LEGACY_TYPE_MAP: Record<string, ExerciseType> = {
+  strength: 'accessory',
+  bodyweight: 'core',
+  cardio: 'cardio',
+}
+
+export function isDurationExerciseType(type: ExerciseType): boolean {
+  return type === 'cardio' || type === 'stretch'
+}
+
+export function exerciseTypeLabel(type: ExerciseType): string {
+  return EXERCISE_TYPES.find((t) => t.value === type)?.label ?? type
+}
+
+export function formatExerciseMeta(exercise: Exercise): string {
+  return `${exerciseTypeLabel(resolveExerciseType(exercise))} · ${exercise.muscleGroup}`
+}
+
+export function getExerciseThumbnail(exercise: Exercise): string | undefined {
+  const photos = exercise.instructionPhotos ?? []
+  if (photos.length === 0) return undefined
+  const index = exercise.thumbnailPhotoIndex ?? 0
+  return photos[Math.min(index, photos.length - 1)]
+}
+
 export function resolveExerciseType(exercise: Exercise): ExerciseType {
-  if (exercise.exerciseType) return exercise.exerciseType
+  const raw = exercise.exerciseType as string | undefined
+  if (raw && LEGACY_TYPE_MAP[raw]) return LEGACY_TYPE_MAP[raw]
+  if (raw && EXERCISE_TYPES.some((t) => t.value === raw)) {
+    return raw as ExerciseType
+  }
   if (exercise.weightUnit === 'sec') return 'cardio'
-  if (exercise.weightUnit === 'bodyweight') return 'bodyweight'
-  return 'strength'
+  if (exercise.weightUnit === 'bodyweight') return 'core'
+  return 'accessory'
 }
 
 export function slugifyExerciseName(name: string): string {
@@ -71,8 +95,9 @@ export function createEmptyExercise(id: string): Exercise {
     name: '',
     muscleGroup: 'Other',
     instructions: '',
-    illustration: '/illustrations/placeholder.svg',
-    exerciseType: 'strength',
+    instructionPhotos: [],
+    thumbnailPhotoIndex: 0,
+    exerciseType: 'accessory',
     defaultSets: 3,
     defaultReps: 10,
   }
@@ -91,7 +116,7 @@ export function planExerciseFromTemplate(exercise: Exercise): PlanExercise {
   const type = resolveExerciseType(exercise)
   const base = { exerciseId: exercise.id, defaultSets: exercise.defaultSets }
 
-  if (type === 'cardio') {
+  if (isDurationExerciseType(type)) {
     return {
       ...base,
       defaultDuration: exercise.defaultDuration ?? 30,
@@ -99,17 +124,10 @@ export function planExerciseFromTemplate(exercise: Exercise): PlanExercise {
     }
   }
 
-  if (type === 'strength') {
-    return {
-      ...base,
-      defaultReps: exercise.defaultReps ?? 10,
-      defaultWeight: exercise.defaultWeight,
-    }
-  }
-
   return {
     ...base,
     defaultReps: exercise.defaultReps ?? 10,
+    defaultWeight: exercise.defaultWeight,
   }
 }
 
@@ -132,17 +150,13 @@ export function formatPlanTarget(
   pe: PlanExercise,
 ): string {
   const type = resolveExerciseType(exercise)
-  if (type === 'cardio') {
+  if (isDurationExerciseType(type)) {
     const { value, unit } = getPlanDuration(exercise, pe)
     return `${pe.defaultSets} × ${formatDuration(value, unit)}`
   }
   const reps = pe.defaultReps ?? exercise.defaultReps ?? '—'
   const weight =
-    type === 'strength' && pe.defaultWeight != null
-      ? ` @ ${pe.defaultWeight} kg`
-      : type === 'strength'
-        ? ' · kg'
-        : ''
+    pe.defaultWeight != null ? ` @ ${pe.defaultWeight} kg` : ' · kg'
   return `${pe.defaultSets} × ${reps}${weight}`
 }
 
@@ -151,7 +165,7 @@ export function formatSetTarget(
   targetReps: number | string,
   targetWeight?: number,
 ): string {
-  if (resolveExerciseType(exercise) === 'cardio') {
+  if (isDurationExerciseType(resolveExerciseType(exercise))) {
     const unit = exercise.durationUnit ?? 'sec'
     return formatDuration(Number(targetReps) || 0, unit)
   }
@@ -164,7 +178,7 @@ export function formatLoggedSet(
   actualReps: number,
   actualWeight?: number,
 ): string {
-  if (resolveExerciseType(exercise) === 'cardio') {
+  if (isDurationExerciseType(resolveExerciseType(exercise))) {
     const unit = exercise.durationUnit ?? 'sec'
     return formatDuration(actualReps, unit)
   }
@@ -174,14 +188,14 @@ export function formatLoggedSet(
 
 export function exerciseSummaryLine(exercise: Exercise): string {
   const type = resolveExerciseType(exercise)
-  if (type === 'cardio') {
+  if (isDurationExerciseType(type)) {
     return `${exercise.defaultSets} × ${formatDuration(
       exercise.defaultDuration ?? 30,
       exercise.durationUnit ?? 'sec',
     )}`
   }
   const weight =
-    type === 'strength' && exercise.defaultWeight != null
+    exercise.defaultWeight != null
       ? ` @ ${exercise.defaultWeight} kg`
       : ''
   return `${exercise.defaultSets} × ${exercise.defaultReps ?? '—'}${weight}`

@@ -1,14 +1,59 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type DragEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
-import { planExerciseFromTemplate, resolveExerciseType } from '../lib/exercises'
+import {
+  formatExerciseMeta,
+  isDurationExerciseType,
+  planExerciseFromTemplate,
+  resolveExerciseType,
+} from '../lib/exercises'
+
+function startExerciseRowDrag(
+  event: DragEvent<HTMLButtonElement>,
+  index: number,
+  onStart: (index: number) => void,
+) {
+  onStart(index)
+  const row = event.currentTarget.closest('[data-exercise-row]') as
+    | HTMLElement
+    | null
+  if (!row || !event.dataTransfer) return
+
+  const clone = row.cloneNode(true) as HTMLElement
+  clone.setAttribute('data-drag-clone', 'true')
+  clone.style.position = 'fixed'
+  clone.style.top = '-10000px'
+  clone.style.left = '0'
+  clone.style.width = `${row.offsetWidth}px`
+  clone.style.opacity = '0.95'
+  clone.style.pointerEvents = 'none'
+  clone.style.boxShadow = '0 16px 40px rgba(15, 23, 42, 0.18)'
+  document.body.appendChild(clone)
+
+  const rowRect = row.getBoundingClientRect()
+  const handleRect = event.currentTarget.getBoundingClientRect()
+  const offsetX = handleRect.left - rowRect.left + handleRect.width / 2
+  const offsetY = rowRect.height / 2
+
+  event.dataTransfer.effectAllowed = 'move'
+  event.dataTransfer.setData('text/plain', String(index))
+  event.dataTransfer.setDragImage(clone, offsetX, offsetY)
+}
+
+function clearExerciseRowDragPreview() {
+  document
+    .querySelectorAll('[data-drag-clone]')
+    .forEach((element) => element.remove())
+}
 
 export function PlanEditor() {
   const [plans, setPlans] = useState<WorkoutPlan[]>([])
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [editing, setEditing] = useState<WorkoutPlan | null>(null)
   const [saving, setSaving] = useState(false)
+  const [dragIndex, setDragIndex] = useState<number | null>(null)
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
 
   const load = async () => {
     setPlans(await db.workoutPlans.toArray())
@@ -119,6 +164,14 @@ export function PlanEditor() {
     })
   }
 
+  const reorderExercises = (fromIndex: number, toIndex: number) => {
+    if (!editing || fromIndex === toIndex) return
+    const next = [...editing.exercises]
+    const [moved] = next.splice(fromIndex, 1)
+    next.splice(toIndex, 0, moved)
+    setEditing({ ...editing, exercises: next })
+  }
+
   if (editing) {
     return (
       <div>
@@ -156,17 +209,48 @@ export function PlanEditor() {
           />
         </label>
 
-        <h2 className="mb-3 font-semibold">Exercises</h2>
+        <h2 className="mb-1 font-semibold">Exercises</h2>
+        <p className="mb-3 text-xs text-slate-500">
+          Drag the handle to reorder exercises
+        </p>
         <div className="space-y-3">
           {editing.exercises.map((pe, index) => {
             const template = exercises.find((e) => e.id === pe.exerciseId)
-            const type = template ? resolveExerciseType(template) : 'strength'
+            const type = template ? resolveExerciseType(template) : 'accessory'
+            const durationType = isDurationExerciseType(type)
+            const isDragging = dragIndex === index
+            const isDragOver = dragOverIndex === index && dragIndex !== index
 
             return (
             <div
-              key={index}
-              className="rounded-2xl border border-slate-200 p-4 dark:border-slate-800"
+              key={`${pe.exerciseId}-${index}`}
+              data-exercise-row
+              onDragOver={(e) => {
+                e.preventDefault()
+                setDragOverIndex(index)
+              }}
+              onDragLeave={() => {
+                if (dragOverIndex === index) setDragOverIndex(null)
+              }}
+              onDrop={(e) => {
+                e.preventDefault()
+                if (dragIndex !== null) reorderExercises(dragIndex, index)
+                clearExerciseRowDragPreview()
+                setDragIndex(null)
+                setDragOverIndex(null)
+              }}
+              className={`flex overflow-hidden rounded-2xl border transition-colors dark:border-slate-800 ${
+                isDragOver
+                  ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
+                  : 'border-slate-200'
+              } ${isDragging ? 'opacity-50' : ''}`}
             >
+              <div className="min-w-0 flex-1 p-4">
+              {template && (
+                <p className="mb-2 text-xs text-slate-500">
+                  {formatExerciseMeta(template)}
+                </p>
+              )}
               <label className="mb-2 block">
                 <span className="text-xs font-medium text-slate-500">
                   Exercise
@@ -185,9 +269,7 @@ export function PlanEditor() {
                   ))}
                 </select>
               </label>
-              <div
-                className={`grid gap-3 ${type === 'cardio' ? 'grid-cols-3' : type === 'strength' ? 'grid-cols-3' : 'grid-cols-2'}`}
-              >
+              <div className="grid grid-cols-3 gap-3">
                 <label className="block">
                   <span className="text-xs font-medium text-slate-500">
                     Sets
@@ -205,7 +287,7 @@ export function PlanEditor() {
                     className="mt-1 w-full rounded-xl border border-slate-200 px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
                   />
                 </label>
-                {type === 'cardio' ? (
+                {durationType ? (
                   <>
                     <label className="block">
                       <span className="text-xs font-medium text-slate-500">
@@ -262,25 +344,23 @@ export function PlanEditor() {
                         className="mt-1 w-full rounded-xl border border-slate-200 px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
                       />
                     </label>
-                    {type === 'strength' && (
-                      <label className="block">
-                        <span className="text-xs font-medium text-slate-500">
-                          Weight (kg)
-                        </span>
-                        <input
-                          type="number"
-                          value={pe.defaultWeight ?? ''}
-                          onChange={(e) =>
-                            updateExerciseInPlan(
-                              index,
-                              'defaultWeight',
-                              parseFloat(e.target.value),
-                            )
-                          }
-                          className="mt-1 w-full rounded-xl border border-slate-200 px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
-                        />
-                      </label>
-                    )}
+                    <label className="block">
+                      <span className="text-xs font-medium text-slate-500">
+                        Weight (kg)
+                      </span>
+                      <input
+                        type="number"
+                        value={pe.defaultWeight ?? ''}
+                        onChange={(e) =>
+                          updateExerciseInPlan(
+                            index,
+                            'defaultWeight',
+                            parseFloat(e.target.value),
+                          )
+                        }
+                        className="mt-1 w-full rounded-xl border border-slate-200 px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
+                      />
+                    </label>
                   </>
                 )}
               </div>
@@ -289,6 +369,23 @@ export function PlanEditor() {
                 className="mt-2 text-sm text-red-500"
               >
                 Remove
+              </button>
+              </div>
+              <button
+                type="button"
+                draggable
+                onDragStart={(e) =>
+                  startExerciseRowDrag(e, index, setDragIndex)
+                }
+                onDragEnd={() => {
+                  clearExerciseRowDragPreview()
+                  setDragIndex(null)
+                  setDragOverIndex(null)
+                }}
+                className="flex w-11 shrink-0 cursor-grab touch-none items-center justify-center self-stretch border-l border-slate-200 bg-slate-50 text-slate-400 active:cursor-grabbing dark:border-slate-700 dark:bg-slate-800/50"
+                aria-label={`Reorder ${template?.name ?? 'exercise'}`}
+              >
+                ⠿
               </button>
             </div>
           )})}
