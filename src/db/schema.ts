@@ -11,6 +11,8 @@ export type ExerciseType =
   | 'core'
   | 'cardio'
   | 'stretch'
+  | 'joint-mobility'
+  | 'roller-massage'
 export type DurationUnit = 'sec' | 'min'
 
 export interface Exercise {

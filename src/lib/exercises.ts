@@ -1,5 +1,6 @@
 import type { DurationUnit, Exercise, ExerciseType, PlanExercise } from '../db/schema'
 import { db } from '../db/schema'
+import { assetUrl } from './assets'
 
 export const MAX_INSTRUCTION_PHOTOS = 3
 export const MAX_INSTRUCTION_PHOTO_BYTES = 2 * 1024 * 1024
@@ -26,6 +27,8 @@ export const EXERCISE_TYPES: { value: ExerciseType; label: string }[] = [
   { value: 'core', label: 'Core' },
   { value: 'cardio', label: 'Cardio' },
   { value: 'stretch', label: 'Stretch' },
+  { value: 'joint-mobility', label: 'Joint mobility' },
+  { value: 'roller-massage', label: 'Roller massage' },
 ]
 
 export const DURATION_UNITS: DurationUnit[] = ['sec', 'min']
@@ -37,7 +40,12 @@ const LEGACY_TYPE_MAP: Record<string, ExerciseType> = {
 }
 
 export function isDurationExerciseType(type: ExerciseType): boolean {
-  return type === 'cardio' || type === 'stretch'
+  return (
+    type === 'cardio' ||
+    type === 'stretch' ||
+    type === 'joint-mobility' ||
+    type === 'roller-massage'
+  )
 }
 
 export function exerciseTypeLabel(type: ExerciseType): string {
@@ -48,11 +56,15 @@ export function formatExerciseMeta(exercise: Exercise): string {
   return `${exerciseTypeLabel(resolveExerciseType(exercise))} · ${exercise.muscleGroup}`
 }
 
+export function instructionPhotoSrc(path: string): string {
+  return assetUrl(path)
+}
+
 export function getExerciseThumbnail(exercise: Exercise): string | undefined {
   const photos = exercise.instructionPhotos ?? []
   if (photos.length === 0) return undefined
   const index = exercise.thumbnailPhotoIndex ?? 0
-  return photos[Math.min(index, photos.length - 1)]
+  return instructionPhotoSrc(photos[Math.min(index, photos.length - 1)])
 }
 
 export function resolveExerciseType(exercise: Exercise): ExerciseType {
@@ -110,6 +122,22 @@ export async function getPlansUsingExercise(
   return plans
     .filter((p) => p.exercises.some((e) => e.exerciseId === exerciseId))
     .map((p) => p.name)
+}
+
+export async function addExerciseToPlan(
+  exercise: Exercise,
+  planId: string,
+): Promise<{ ok: true } | { ok: false; reason: 'not-found' | 'duplicate' }> {
+  const plan = await db.workoutPlans.get(planId)
+  if (!plan) return { ok: false, reason: 'not-found' }
+  if (plan.exercises.some((pe) => pe.exerciseId === exercise.id)) {
+    return { ok: false, reason: 'duplicate' }
+  }
+  await db.workoutPlans.put({
+    ...plan,
+    exercises: [...plan.exercises, planExerciseFromTemplate(exercise)],
+  })
+  return { ok: true }
 }
 
 export function planExerciseFromTemplate(exercise: Exercise): PlanExercise {

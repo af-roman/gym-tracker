@@ -14,6 +14,7 @@ import {
   formatExerciseMeta,
   isDurationExerciseType,
   resolveExerciseType,
+  instructionPhotoSrc,
 } from '../lib/exercises'
 
 export function ExerciseDetail() {
@@ -152,7 +153,7 @@ export function ExerciseDetail() {
                 className="text-left"
               >
                 <img
-                  src={photo}
+                  src={instructionPhotoSrc(photo)}
                   alt={`Step ${index + 1}`}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
@@ -183,7 +184,7 @@ export function ExerciseDetail() {
 
       {lightboxIndex != null && (
         <PhotoLightbox
-          photos={instructionPhotos}
+          photos={instructionPhotos.map(instructionPhotoSrc)}
           index={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onChangeIndex={setLightboxIndex}

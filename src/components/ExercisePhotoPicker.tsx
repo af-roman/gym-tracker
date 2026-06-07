@@ -1,5 +1,9 @@
 import { useRef } from 'react'
-import { MAX_INSTRUCTION_PHOTO_BYTES, MAX_INSTRUCTION_PHOTOS } from '../lib/exercises'
+import {
+  instructionPhotoSrc,
+  MAX_INSTRUCTION_PHOTO_BYTES,
+  MAX_INSTRUCTION_PHOTOS,
+} from '../lib/exercises'
 
 interface ExercisePhotoPickerProps {
   photos: string[]
@@ -67,7 +71,7 @@ export function ExercisePhotoPicker({
           <div key={index} className="flex flex-col gap-1">
             <div className="relative aspect-square overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
               <img
-                src={photo}
+                src={instructionPhotoSrc(photo)}
                 alt={`Step ${index + 1}`}
                 className={`h-full w-full object-cover ${
                   thumbnailIndex === index

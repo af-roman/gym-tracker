@@ -1,0 +1,1228 @@
+id,name,muscleGroup,exerciseType,defaultSets,defaultReps,defaultDuration,durationUnit,defaultWeight,startingWeightNote,tutorialVideoUrl,instructionPhotos,thumbnailPhotoIndex,instructions
+rowing,Rowing,Full body,cardio,1,,5.0,min,,5-8 min,,/exercise-photos/rowing/1.jpg,0,"Choose 1 of the following activities - according to taste or available equipment. The goal is to increase the heart rate, sweat slightly, move the whole body and prepare the muscles for the next part of the training (mobility, activation, main part).
+
+Great for the whole body, engages arms, back, legs and core. Start slower and gradually increase the intensity."
+treadmill,Treadmill,Full body,cardio,1,,5.0,min,,5-10 min brisk walking or light jogging,,/exercise-photos/treadmill/1.jpg,0,Suitable for complete beginners and advanced users. Adjust the incline or speed according to your fitness level.
+elliptical-trainer,Elliptical trainer,Full body,cardio,1,,5.0,min,,5-8 min,,/exercise-photos/elliptical-trainer/1.jpg,0,"Gentle on the joints, excellent for warming up the legs and arms. Set a moderate resistance."
+fitness-stairs,Fitness stairs,Full body,cardio,1,,3.0,min,,3-6 min,,/exercise-photos/fitness-stairs/1.jpg,0,Intensive heating of the lower body. Excellent for activating the buttocks and thighs. You can change the pace.
+jump-lunges,Jump lunges,Full body,cardio,3,,30.0,sec,,3×30 s (with pauses),,/exercise-photos/jump-lunges/1.jpg,0,"Dynamic exercise for the more advanced. Significantly activates the buttocks, legs and mid-body. For beginners, replace with classic lunges."
+exercise-with-ropes,Exercise with ropes,Full body,cardio,3,,20.0,sec,,3×20–30 s,,,,"Explosive warm-up with an emphasis on the upper body. It engages the shoulders, back and mid-body. Excellent for circuit training."
+foot-massage-activation-with-a-mini-roller-or-ball,Foot massage/activation with a mini roller or ball,Full body,stretch,3,,30.0,sec,,Each foot 30-60 s,,/exercise-photos/foot-massage-activation-with-a-mini-roller-or-ball/1.jpg,0,"Massage using a roller (so-called self-myofascial release) serves to:
+🌀 Release of muscle tension and fascia
+🌀Improving blood flow and faster muscle activation
+🌀Improving range of motion
+🌀Reducing the risk of injury during subsequent training
+It is advisable to include it after a light warm-up and before dynamic mobility. It is a good idea to massage each area for about 30-60 seconds or until the tension is relieved.
+
+Target area: Foot
+
+Great for foot activation, relieves flat feet, hallux valgus, heel pain."
+calf-massage-activation,Calf massage/activation,Full body,stretch,3,,30.0,sec,,30–60 s each leg,,/exercise-photos/calf-massage-activation/1.jpg,0,"Target area: Calf
+
+Relieves tension after walking or running, often overloaded with a sedentary lifestyle."
+massage-activation-back-of-thigh-hamstrings,Massage/activation - back of thigh (hamstrings),Full body,stretch,3,,30.0,sec,,30–60 s each leg,,/exercise-photos/massage-activation-back-of-thigh-hamstrings/1.jpg,0,"Target area: The back of the thighs / buttocks
+
+It helps with mobility and prepares the legs for squats and pull-ups."
+massage-activation-buttocks,Massage/activation - buttocks,Full body,stretch,3,,30.0,sec,,30–60 s each side,,/exercise-photos/massage-activation-buttocks/1.jpg,0,"Target area: The back of the thighs / buttocks
+
+Relaxing your glutes will improve activation in exercises like squats and hip thrusts."
+massage-activation-shins,Massage/activation - shins,Full body,stretch,3,,30.0,sec,,30 s each leg,,/exercise-photos/massage-activation-shins/1.jpg,0,"Target area: Front of thighs
+
+Helps with shin splints, suitable for e.g. runners."
+massage-activation-tfl-itb,Massage/Activation - TFL / ITB,Full body,stretch,3,,30.0,sec,,30–60 s each leg,,/exercise-photos/massage-activation-tfl-itb/1.jpg,0,"Target area: Front of thighs
+
+A frequent source of tension in women, overloaded with weak activation of the buttocks. Light pressure, not through pain!"
+massage-activation-front-thigh,Massage/activation - Front thigh,Full body,stretch,3,,30.0,sec,,30–60 s each leg,,/exercise-photos/massage-activation-front-thigh/1.jpg,0,"Target area: Front of thighs
+
+Quadriceps release, suitable before squats or leg presses. If the area is very sensitive, start with less pressure."
+inner-thigh-massage-activation,Inner thigh massage/activation,Full body,stretch,3,,30.0,sec,,30–60 s each leg,,/exercise-photos/inner-thigh-massage-activation/1.jpg,0,"Target area: Inner thighs
+
+Suitable for improving hip mobility and activating adductors. Take it slow and breathe deeply."
+lower-back-massage,Lower back massage,Full body,stretch,3,,20.0,sec,,"20-30 seconds, gently",,/exercise-photos/lower-back-massage/1.jpg,0,"Target area: Lower back
+
+Carefully! Rather use a soft roller, do not exercise through pain. The goal is gentle mobilization, not forceful pressure."
+massage-the-chest-part-of-the-back,Massage the chest part of the back,Full body,stretch,3,,30.0,sec,,30–60 s,,/exercise-photos/massage-the-chest-part-of-the-back/1.jpg,0,"Target area: Back
+
+Excellent for posture, relaxes the thoracic spine after long periods of sitting. You can bend your back slightly over the roller."
+neck-massage,Neck massage,Full body,stretch,3,,20.0,sec,,20-30 s each side,,,,"Target area: Neck
+
+Gentle pressure with a ball or hands. Great for tension or headaches. Don't use too much pressure, avoid the spine."
+extensions-with-an-emphasis-on-ankle-movement,Extensions with an emphasis on ankle movement,Full body,stretch,3,,2.0,sec,,2-3 sets x 12-15 reps,,/exercise-photos/extensions-with-an-emphasis-on-ankle-movement/1.jpg,0,"Sufficient range of motion in the ankle is key to:
+
+🦶 Correct technique of squatting, lunges and walking
+🦶Prevention of knee and back pain - with limited movement in the ankle, compensation occurs in another part of the body
+🦶Improving stability and balance
+🦶Reducing the risk of injury (e.g. sprain)
+
+➡️ It is recommended to include ankle mobility especially before lower body training. Perform the exercises slowly, with control and focus on forward movement (dorsal flexion).
+
+Target area: ankle mobility
+
+Excellent for activating the ankles and calves. When lifting, focus on a slow, controlled movement. It will also help with balance and ankle stability. Can be performed on a mat or the edge of a step."
+ankle-dorsiflexion-with-a-kettlebell,Ankle dorsiflexion with a kettlebell,Full body,stretch,3,,30,sec,,8-10 reps on each leg,,/exercise-photos/ankle-dorsiflexion-with-a-kettlebell/1.jpg,0,"Target area: ankle mobility
+
+Place a barbell on your knee and gently push forward. Increases range of motion and stability. Pay attention to the correct axis of the foot."
+endurance-in-a-deep-squat,Endurance in a deep squat,Full body,stretch,3,,30.0,sec,,30-60 seconds,,/exercise-photos/endurance-in-a-deep-squat/1.jpg,0,"Target area: ankle mobility
+
+Combines ankle and hip mobility. Make sure your heels stay on the ground. If range is limited, use a heel wedge. It will help improve your squatting position."
+toe-tapping-on-the-wall,Toe tapping on the wall,Full body,stretch,3,,30,sec,,8-10 reps on each leg,,,,"Target area: Ankle (dorsiflexion)
+
+Try to keep the entire sole of your foot on the ground. Move only to the point where there is no heel lift. Gradually move your leg further away from the wall."
+deep-lunge,Deep lunge,Full body,stretch,3,,2.0,sec,,2-3 sets x 30-40 s each leg,,/exercise-photos/deep-lunge/1.jpg | /exercise-photos/deep-lunge/2.jpg,0,"Well-moving hips are the basis of healthy and efficient movement. With their limited mobility, they often compensate in the knees or hips, which can lead to overload and pain.
+
+💡 Benefits of hip mobilization:
+
+🦵Improving range of motion in the squat, lunge and deadlift
+🦵Better activation of the buttocks and reduced risk of lower back pain
+🦵 Greater stability and control in movement
+
+Recommended to include before lower body training or as part of a mobility routine.
+
+Target area: hip mobility
+
+Stretches the hip flexors (mainly the iliopsoas muscle). Leaning increases the intensity."
+seated-hip-rotation-hands-in-front,Seated hip rotation hands in front,Full body,stretch,3,,30,sec,,8-10 reps each side,,/exercise-photos/seated-hip-rotation-hands-in-front/1.jpg,0,"Target area: hip mobility
+
+Exercise in the 90-90 position. Actively roll your legs from one side to the other - keep your chest upright. Suitable for checking rotation in the hip."
+seated-hip-rotation-in-90-90-position-with-hand-support,Seated hip rotation In 90-90 position with hand support,Full body,stretch,3,,30,sec,,8-10 reps each side,,/exercise-photos/seated-hip-rotation-in-90-90-position-with-hand-support/1.jpg,0,"Target area: hip mobility
+
+Hand support helps balance. Actively roll your legs from one side to the other - keep your chest upright"
+deep-squat-we-move-the-knees-apart-with-the-arms,Deep squat (we move the knees apart with the arms),Full body,stretch,3,,30.0,sec,,30-60 seconds,,/exercise-photos/deep-squat-we-move-the-knees-apart-with-the-arms/1.jpg,0,"Target area: hip mobility
+
+Actively staying in the lower squat position, elbows gently push the knees apart. It helps loosen the hips while keeping the torso upright. The heels stay on the ground."
+endurance-in-a-deep-squat-2,Endurance in a deep squat,Full body,stretch,3,,30.0,sec,,30-60 seconds,,/exercise-photos/endurance-in-a-deep-squat-2/1.jpg,0,"Target area: hip mobility
+
+The exercise combines mobility of the hips, ankles and trunk stability. Make sure that the pelvis is not lowered, keep the natural curve of the back. It will help prepare the body for squats."
+trunk-rotation-in-a-deep-squat,Trunk rotation in a deep squat,Full body,stretch,3,,30,sec,,5-6 reps on each side,,/exercise-photos/trunk-rotation-in-a-deep-squat/1.jpg,0,"Target area: hip mobility
+
+Start in a deep squat, one hand resting on the ground, the other rotating upwards. Follow the hand with your eyes. Excellent for combining hip mobility and spine rotation. Breathe slowly and consciously."
+dynamic-frog-stretching-frog-rocking-i-move-forward-and-backward,Dynamic frog stretching (Frog Rocking) - I move forward and backward,Full body,stretch,3,,30,sec,,8-12 slow forward/backward movements,,/exercise-photos/dynamic-frog-stretching-frog-rocking-i-move-forward-and-backward/1.jpg | /exercise-photos/dynamic-frog-stretching-frog-rocking-i-move-forward-and-backward/2.jpg,0,"Target area: hip mobility
+
+Great for opening the hips into abduction. Keep your knees wide, pelvis in neutral. Move in a controlled manner, it must not hurt in the groin."
+leg-swings,Leg swings,Full body,stretch,3,,30,sec,,10-15 reps each leg,,/exercise-photos/leg-swings/1.jpg | /exercise-photos/leg-swings/2.jpg,0,"Target area: hip mobility
+
+A dynamic movement that activates the hip joints and prepares them for running, squats or lunges. Keep your core tight."
+lunges-to-the-sides,Lunges to the sides,Full body,stretch,3,,30,sec,,6-10 reps on each side,,/exercise-photos/lunges-to-the-sides/1.jpg | /exercise-photos/lunges-to-the-sides/2.jpg,0,"Target area: hip mobility
+
+Opens the inner thighs and improves control of movement in the lateral direction. Keep your torso straight and your knee over your toe. Slowly move from one side to the other."
+hip-mobility-cars-controlled-movements,"Hip mobility, CARs controlled movements",Full body,stretch,1,,30,sec,,,,,,"2-3 reps each leg (1 slow circle forward and back)
+Active full rotation of the hip joint. Slowly, with maximum control and without trunk compensation. Improves coordination and activation."
+shoulder-rotation,Shoulder rotation,Full body,stretch,3,,30,sec,,10-15 repetitions,,/exercise-photos/shoulder-rotation/1.jpg | /exercise-photos/shoulder-rotation/2.jpg | /exercise-photos/shoulder-rotation/3.jpg,0,"The shoulders and thoracic spine are key to:
+
+🤸‍♀️ Correct body posture and technique of push and pull exercises (e.g. push-ups, push-ups, pull-ups)
+🤸‍♀️Full range of motion when raising your arms above your head
+🤸 ♀️ Prevention of pain in the cervical spine, shoulder blades and shoulders
+🤸‍♀️Increasing the stability of the scapula and activating the deeper muscles of the torso
+
+⚠️ Most clients (especially those who work at the computer) have stiff shoulders and a blocked chest → before strength training, the area needs to be opened and moved.
+
+Recommended especially before upper body training, stretching and pressure exercises.
+
+Target area: shoulder mobility
+
+A warming and relaxing movement. Perform to the full extent, slowly. Pay attention to the flexion of the shoulder blades."
+dislocation-of-the-shoulders-with-bar-or-rubber,Dislocation of the shoulders (with bar or rubber),Full body,stretch,3,,30,sec,,6-10 repetitions,,/exercise-photos/dislocation-of-the-shoulders-with-bar-or-rubber/1.jpg | /exercise-photos/dislocation-of-the-shoulders-with-bar-or-rubber/2.jpg | /exercise-photos/dislocation-of-the-shoulders-with-bar-or-rubber/3.jpg,0,"Target area: shoulder mobility
+
+Keep your back straight and your arms bent. Basic shoulder opening exercise, very effective before pressure exercises."
+arm-circling-against-the-wall,Arm circling against the wall,Full body,stretch,3,,30,sec,,5-6 rings each hand,,/exercise-photos/arm-circling-against-the-wall/1.jpg | /exercise-photos/arm-circling-against-the-wall/2.jpg | /exercise-photos/arm-circling-against-the-wall/3.jpg,0,"Target area: shoulder mobility
+
+For the more advanced - activates the blade stabilizers. Keep your back and ribs against the wall, we guide your arms in an arc with minimal compensation. Great for push-ups and pull-ups."
+cars-controlled-shoulder-joint-rotations,CARs – controlled shoulder joint rotations,Full body,stretch,3,,30,sec,,1-2 slow circles in each direction / each arm,,/exercise-photos/cars-controlled-shoulder-joint-rotations/1.jpg,0,"Target area: shoulder mobility
+
+Slowly guide the arm through the maximum possible range of motion, without compensating with the torso. Keep your core active. Excellent for conscious joint control."
+shoulder-mobilization-with-a-roller,Shoulder mobilization with a roller,Full body,stretch,3,,30.0,sec,,30-60 seconds,,/exercise-photos/shoulder-mobilization-with-a-roller/1.jpg,0,"Target area: shoulder mobility
+
+Opens the shoulder and chest area. Place your palms on the roller and move forward with exhalation.  Don't slouch at the hips. Also suitable as a recovery exercise."
+shoulder-mobilization-with-bench-support,Shoulder mobilization with bench support,Full body,stretch,1,,30,sec,,,,/exercise-photos/shoulder-mobilization-with-bench-support/1.jpg | /exercise-photos/shoulder-mobilization-with-bench-support/2.jpg,0,"Target area: Mobility of shoulders & thoracic spine
+
+Resting her hands on a bench (or chair), she pressed her chest down towards the ground. You can hold a figure eight or a bar. Pay attention to an active abdomen and smooth breathing."
+cat-s-back,Cat's back,Full body,stretch,3,,30,sec,,6-10 slow reps,,/exercise-photos/cat-s-back/1.jpg | /exercise-photos/cat-s-back/2.jpg,0,"Target area: mobility of the thoracic spine
+
+Slowly transition between slouching and arching your spine. Breathe deeply, move with the rhythm of your breath. It relaxes the spine from the neck to the hips."
+chest-rotation-on-all-fours-threading-the-needle,Chest rotation on all fours - Threading the needle,Full body,stretch,3,,30,sec,,6-8 reps on each side,,/exercise-photos/chest-rotation-on-all-fours-threading-the-needle/1.jpg | /exercise-photos/chest-rotation-on-all-fours-threading-the-needle/2.jpg,0,"Target area: mobility of the thoracic spine
+
+Active trunk rotation, head follows movement. Improves rotation between shoulder blades. Move slowly, with control."
+torso-rotation-on-all-fours-from-head-to-neck,Torso rotation on all fours from head to neck,Full body,stretch,3,,30,sec,,6-8 reps on each side,,/exercise-photos/torso-rotation-on-all-fours-from-head-to-neck/1.jpg | /exercise-photos/torso-rotation-on-all-fours-from-head-to-neck/2.jpg,0,"Target area: mobility of the thoracic spine
+
+One hand behind the head, rotate the elbow upwards. Try to keep a stable pelvis. Suitable for pressures and pulls."
+side-bows-with-a-foam-roller-pressed-under-the-chest,Side bows with a foam roller pressed under the chest,Full body,stretch,3,,30,sec,,6-8 bows to each side,,/exercise-photos/side-bows-with-a-foam-roller-pressed-under-the-chest/1.jpg,0,"Target area: mobility of the thoracic spine
+
+The roller fixes the chest - the movement comes from the torso. It helps to open the chest and improve the lateral bending of the spine. Breathe into the ribs, keep the center of the body active."
+trunk-rotation-in-a-deep-squat-2,Trunk rotation in a deep squat,Full body,stretch,3,,30,sec,,5-6 reps on each side,,,,"Target area: Mobility of the thoracic spine and hips
+
+It combines spine rotation and hip mobility. Make sure your heels stay on the ground. Follow the upper arm with your eyes, don't bend your hips. Excellent for squats, presses and pull-ups."
+stretching-forearms-on-all-fours,Stretching forearms on all fours,Full body,stretch,3,,20.0,sec,,20-30 seconds,,/exercise-photos/stretching-forearms-on-all-fours/1.jpg | /exercise-photos/stretching-forearms-on-all-fours/2.jpg,0,"The wrists are often neglected, but in functional training and exercises with your own weight (push-ups, planks, pull-ups, presses) they carry a large load.
+If their mobility is limited, there is an overload of the joints, compensation in the elbows, shoulders or cervical spine.
+
+🔎 What wrist mobility brings:
+
+✋Improve comfort and range when leaning on your palms
+✋ It will reduce the risk of pain and joint overload
+✋Enables safer execution of exercises on the ground (e.g. push-ups, planks)
+✋Supports grip strength and work with a barbell, barbell or kettlebell
+
+➡️ Include before upper body training, when working with your own weight or as part of preparation for handstands / gymnastics.
+
+Target area: wrist mobility
+
+The backs of the hands on the mat, gently push the elbows down. A slow, passive pull on the back of the wrist and forearm. Don't pull, it shouldn't hurt."
+stretching-in-false-grip,Stretching in false grip,Full body,stretch,3,,20.0,sec,,20-30 seconds,,/exercise-photos/stretching-in-false-grip/1.jpg | /exercise-photos/stretching-in-false-grip/2.jpg,0,"Target area: wrist mobility
+
+Suitable as a preparation for push-ups, pull-ups or exercises on circles. Wrists slightly bent, palms weighted. Keep your shoulders steady."
+kneeling-wrist-extension-palms-turned-with-fingers-towards-the-body,Kneeling wrist extension - palms turned with fingers towards the body,Full body,stretch,3,,20.0,sec,,20-30 seconds,,/exercise-photos/kneeling-wrist-extension-palms-turned-with-fingers-towards-the-body/1.jpg | /exercise-photos/kneeling-wrist-extension-palms-turned-with-fingers-towards-the-body/2.jpg,0,"Target area: wrist mobility
+
+A gentle pull on the wrist flexors. She pushed her torso back – the weight moves the body, not the wrist directly. Make sure your palms don't come off."
+transferring-weight-to-the-sides,Transferring weight to the sides,Full body,stretch,3,,30,sec,,8-10 reps on each side,,/exercise-photos/transferring-weight-to-the-sides/1.jpg | /exercise-photos/transferring-weight-to-the-sides/2.jpg,0,"Target area: wrist mobility
+
+Active exercise - dynamically transfer your body weight from one hand to the other. It will improve the natural load tolerance and get the joint fluid flowing."
+denial-of-the-fist-mobility-of-the-wrist-extensors,"Denial of the fist, Mobility of the wrist extensors",Full body,stretch,3,,30,sec,,8-10 slow weight transfers,,/exercise-photos/denial-of-the-fist-mobility-of-the-wrist-extensors/1.jpg | /exercise-photos/denial-of-the-fist-mobility-of-the-wrist-extensors/2.jpg,0,"Target area: wrist mobility
+
+Close your fists, the backs of your wrists facing down. She hunched her shoulders slightly over her hands. Releases tension in the upper part of the forearms (extensors)."
+denial-of-the-fist-mobility-of-the-wrist-extensors-2,"Denial of the fist, Mobility of the wrist extensors",Full body,stretch,3,,30,sec,,8-10 slow weight transfers,,,,"Target area: wrist mobility
+
+Active mobilization. Lean your body slightly forward/backward when pushing. Keep your fists firm, the movement should come from your body, not your wrists. Also great as a prevention during strength training."
+breathing-while-lying-on-your-back-with-your-legs-bent,Breathing while lying on your back with your legs bent,Core,core,3,6-10,,,,6-10 deep breaths,,/exercise-photos/breathing-while-lying-on-your-back-with-your-legs-bent/1.jpg,0,"The core is not just the ""abdomen"", but the entire complex of muscles around the spine, ribs, pelvis and loins. It acts as a natural stabilizer that protects the spine and transfers power between the upper and lower body.
+
+If the center of the body is inactive:
+
+🧍‍♀️ It's harder to maintain the correct technique (e.g. in a squat or deadlift)
+🧍‍♀️The body will compensate in the hips, hips or shoulders
+🧍‍♀️The risk of overload or injury will increase
+
+🌬️ Breathing activation exercises will improve the connection with the deep stabilization system (diaphragm, pelvic floor, deep abdominal muscles) and prepare the body for performance.
+
+✅ When to activate the center of the body?
+- After warm-up and mobility
+- Before the main part of the training
+- Or as part of a regular routine for back pain
+
+Target area: Activating the center of the body
+
+Place your hands on your lower ribs. During inhalation, the ribs open to the sides, exhalation activates the deep abdominal muscles. Basic breath activation (diaphragm + deep core)."
+breath-activation-while-lying-on-the-stomach-crocodile-breath,Breath activation while lying on the stomach - crocodile breath,Core,core,3,6-10,,,,6-10 breath cycles,,/exercise-photos/breath-activation-while-lying-on-the-stomach-crocodile-breath/1.jpg,0,"Target area: Activating the center of the body
+
+Feel the breath in your belly against the mat. A great way to engage the diaphragm."
+position-of-the-child-with-breathing-to-the-hips,Position of the child with breathing to the hips,Core,core,3,3-5,,,,3-5 breath cycles on each side,,/exercise-photos/position-of-the-child-with-breathing-to-the-hips/1.jpg,0,"Target area: Core + Chest Mobility + Trunk Fascia
+
+From the child's position, move the body to the side, extend the arms to the side. Inhale purposefully into your ribs and side, release tension with your exhale. Great at the end of activation or before an upper body workout."
+walking-on-all-fours-bear-walk,"Walking on all fours, Bear walk",Core,core,2,10-15,,,,2x10-15 steps forward/backward,,/exercise-photos/walking-on-all-fours-bear-walk/1.jpg,0,"Target area: Activation + core stability
+
+A more demanding stabilization exercise. Palms under the shoulders, knees under the hips - slow, smooth movement. Keep the tension in the abdomen and do not sag in the hips."
+dead-bug,Dead bug,Core,core,3,6-8,,,,6-8 reps on each side,,/exercise-photos/dead-bug/1.jpg,0,"Target area: Activating the deep center of the body
+
+Arms and legs at right angles, slowly lower the opposite arm and leg. Keep your hips pressed into the mat. Slowly, exhaling as you start."
+active-rebellion-on-all-fours,Active rebellion on all fours,Core,core,3,,20.0,sec,,3×20–30 s,,/exercise-photos/active-rebellion-on-all-fours/1.jpg,0,"Target area: Core stability + strength
+
+Palms under the shoulders, knees just above the ground. The whole body is active - shoulders, core, pelvis. Perfect before training with body weight or dumbbells."
+pressure-of-the-palms-against-the-knees-on-the-back-activation-of-the-deep-abdomen-in-the-beetle-position,"Pressure of the palms against the knees on the back, Activation of the deep abdomen in the beetle position",Core,core,3,,20.0,sec,,3×20 s static pressure,,/exercise-photos/pressure-of-the-palms-against-the-knees-on-the-back-activation-of-the-deep-abdomen-in-the-beetle-position/1.jpg,0,"Target area: Activating the center of the body
+
+Hands and knees push against each other - no movement. Exhale to activate the abdominal wall. Also suitable for beginners and clients with back pain."
+toe-fat-from-without-lifting-arms,Toe Fat (from - without lifting arms),Core,core,3,6-8,,,,6-8 reps each leg,,/exercise-photos/toe-fat-from-without-lifting-arms/1.jpg,0,"Target area: Activating the center of the body
+
+Hands fixed, lower your legs alternately and lightly ""tap"" the toe on the ground. Don't stick your hips out. Excellent for mastering tension in the core."
+lifting-limbs-on-all-fours-superman-arms-and-legs,"Lifting limbs on all fours, Superman - arms and legs",Core,core,3,6-8,,,,6-8 reps each side,,,,"Target area: Activating the center of the body
+
+From a position on all fours, lift the opposite arm and leg. Pay attention to a stable pelvis, do not bend at the hips. Deep core and balance activation."
+crate-squat,Crate squat,Legs,squat,3,10,,,,"Beginner, complete",,/exercise-photos/crate-squat/1.jpg | /exercise-photos/crate-squat/2.jpg,0,"What is it:
+Movements such as squatting and lunging are among the basic human movement patterns. We use them every day – when getting up from a chair, lifting objects, walking up stairs or getting up from a squat.
+
+✅ Why include them in training:
+Develops the strength of the lower half of the body (thighs, buttocks, calves)
+🏋️ They improve the stability of knees and hips
+🏋️ They support coordination, mobility and balance
+🏋️ They help prevent injuries (especially knees and back)
+🏋️ It teaches the body to manage the load in different levels of movement
+
+🔁 What they affect:
+🏋️Strength and volume of the muscles of the lower limbs
+🏋️ Mobility and mobility of hips, knees and ankles
+🏋️Postural stability and posture
+🏋️Ability to handle functional load in everyday life
+
+📌 Suitable for beginners and advanced, they can be easily adapted to individual fitness (e.g. using TRX, support, or adding weight).
+
+⚠️ What to watch out for when performing a squat:
+
+⚠️ Foot position:
+The toes point slightly outwards, the feet remain in contact with the ground all the time (including the thumb, little finger and heel).
+⚠️ Knees:
+They follow the direction of the tips - they do not sink in (valgus). In the lunge, the knee does not go beyond the toe significantly forward.
+⚠️ Pan:
+Do not lean or lean too much. The pelvis is neutral - we don't slouch, but we don't bend at the hips either.
+⚠️ Back:
+Keep your back straight, your core active, your head in an extension of your spine - don't look up or down.
+⚠️ Squat depth:
+The squat should be as deep as the mobility of the hips and ankles will allow. Quality is preferred over quantity.
+⚠️ Breathing:
+Inhale before moving, exhale when lifting up. Don't hold your breath.
+⚠️ Pace:
+Keep a controlled pace. You don't fall down, but you walk consciously and steadily.
+
+Muscles worked: Quadriceps, glutes, hamstrings, core
+
+Level: Beginner, complete
+
+Great for practicing proper range of motion, helps maintain control"
+squats-with-trx,Squats with TRX,Legs,squat,3,10,,,,"Beginner, complete",,/exercise-photos/squats-with-trx/1.jpg | /exercise-photos/squats-with-trx/2.jpg,0,"Muscles worked: Quadriceps, glutes, core
+
+Level: Beginner, complete
+
+It helps to stabilize the movement and strengthen the technique"
+so-far-on-one-leg,So far on one leg,Legs,squat,3,10,,,,"Beginner, complete",,/exercise-photos/so-far-on-one-leg/1.jpg,0,"Muscles worked: Quadriceps, glutes, hamstrings
+
+Level: Beginner, complete
+
+Beginning of training on one leg, strengthens stability"
+sit-by-the-wall,Sit by the wall,Legs,squat,3,10,,,,"Beginner, complete",,/exercise-photos/sit-by-the-wall/1.jpg | /exercise-photos/sit-by-the-wall/2.jpg,0,"Muscles worked: Quadriceps, isometric activation of the buttocks
+
+Level: Beginner, complete
+
+Great at the end of training, activation without movement"
+wall-squat-hack-with-a-ball,Wall Squat Hack with a Ball,Legs,squat,3,10,,,,Beginner,,/exercise-photos/wall-squat-hack-with-a-ball/1.jpg | /exercise-photos/wall-squat-hack-with-a-ball/2.jpg,0,"Muscles worked: Quadriceps, glutes
+
+Level: Beginner
+
+It allows good range and stability"
+goblet-squat,Goblet squat,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/goblet-squat/1.jpg | /exercise-photos/goblet-squat/2.jpg,0,"Muscles worked: Quadriceps, glutes, core
+
+Level: from Beginner to every level
+
+Excellent for learning proper weight technique"
+sumo-goblet-squat,Sumo goblet squat,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/sumo-goblet-squat/1.jpg,0,"Muscles worked: Buttocks, inner thighs, core
+
+Level: from Beginner to every level
+
+Suitable for limited ankle mobility"
+lunges-while-walking,Lunges while walking,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/lunges-while-walking/1.jpg,0,"Muscles worked: Quadriceps, glutes, hamstrings, core
+
+Level: from Beginner to every level
+
+Coordination more demanding, improves balance"
+lunges-forward-without-walking,Lunges forward without walking,Legs,squat,3,10,,,,,,/exercise-photos/lunges-forward-without-walking/1.jpg,0,Perform Lunges forward without walking with controlled form.
+back-lunges,Back lunges,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/back-lunges/1.jpg | /exercise-photos/back-lunges/2.jpg,0,"Muscles worked: Buttocks, hamstrings
+
+Level: from Beginner to every level
+
+More gentle on the knees than classic forward lunges"
+leg-press,Leg press,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/leg-press/1.jpg | /exercise-photos/leg-press/2.jpg,0,"Muscles worked: Quadriceps, glutes
+
+Level: from Beginner to every level
+
+Machine - safe to start with heavier loads"
+leg-press-with-one-leg,Leg press with one leg,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/leg-press-with-one-leg/1.jpg,0,"Muscles worked: Quadriceps, glutes
+
+Level: from Beginner to every level
+
+Machine - safe to start with heavier loads"
+back-lunges-crosswise,Back lunges crosswise,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/back-lunges-crosswise/1.jpg | /exercise-photos/back-lunges-crosswise/2.jpg,0,"Muscles worked: Glutes, quadriceps, obliques
+
+Level: from Beginner to every level
+
+Great for pelvic stability and glute activation"
+backward-lunges-with-weight-support,Backward lunges with weight support,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/backward-lunges-with-weight-support/1.jpg | /exercise-photos/backward-lunges-with-weight-support/2.jpg,0,"Muscles worked: Glutes, quadriceps, obliques
+
+Level: from Beginner to every level
+
+Great for pelvic stability and glute activation"
+lunges-to-the-side-with-weights,Lunges to the side with weights,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/lunges-to-the-side-with-weights/1.jpg | /exercise-photos/lunges-to-the-side-with-weights/2.jpg,0,"Muscles worked: Inner and outer thighs, buttocks
+
+Level: from Beginner to every level
+
+Develops strength in other planes of motion"
+squat-machine-hack,Squat Machine Hack,Legs,squat,3,10,,,,from Beginner to every level,,/exercise-photos/squat-machine-hack/1.jpg | /exercise-photos/squat-machine-hack/2.jpg,0,"Muscles worked: Quadriceps, glutes, hamstrings
+
+Level: from Beginner to every level
+
+Suitable for maintaining technique and greater load on the lower limbs"
+squats-on-one-leg-with-support-e-g-trx,Squats on one leg with support (e.g. TRX),Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/squats-on-one-leg-with-support-e-g-trx/1.jpg | /exercise-photos/squats-on-one-leg-with-support-e-g-trx/2.jpg,0,"Muscles worked: Quadriceps, glutes, core
+
+Level: from Intermediate to every level
+
+Excellent for developing balance and single leg strength"
+bulgarian-squat,Bulgarian squat,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/bulgarian-squat/1.jpg | /exercise-photos/bulgarian-squat/2.jpg,0,"Muscles worked: Quadriceps, glutes, hamstrings
+
+Level: from Intermediate to every level
+
+Excellent for unilateral lower limb training"
+jump-squats,Jump squats,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/jump-squats/1.jpg,0,"Muscles worked: Quadriceps, glutes, calves
+
+Level: from Intermediate to every level
+
+Explosive power, dynamics, excellent for HIIT"
+jump-lunges-2,Jump lunges,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/jump-lunges-2/1.jpg | /exercise-photos/jump-lunges-2/2.jpg,0,"Muscles worked: Quadriceps, glutes, core
+
+Level: from Intermediate to every level
+
+Explosiveness, coordination, cardio effect"
+front-squat,Front squat,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/front-squat/1.jpg | /exercise-photos/front-squat/2.jpg,0,"Muscles worked: Quadriceps, core, glutes
+
+Level: from Intermediate to every level
+
+Excellent for frontal activation and posture"
+squat,Squat,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/squat/1.jpg | /exercise-photos/squat/2.jpg,0,"Muscles worked: Quadriceps, core, glutes
+
+Level: from Intermediate to every level
+
+The technique requires flexibility of the shoulders, a better hold of the trunk"
+squat-low-bar-axis-below,Squat - low bar - axis below,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/squat-low-bar-axis-below/1.jpg | /exercise-photos/squat-low-bar-axis-below/2.jpg,0,"Muscles worked: Buttocks, hamstrings, quadriceps
+
+Level: from Intermediate to every level
+
+Shifting the center of gravity back, heavier weights"
+safety-bar-squat,Safety bar squat,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/safety-bar-squat/1.jpg | /exercise-photos/safety-bar-squat/2.jpg,0,"Muscles worked: Quadriceps, core, glutes
+
+Level: from Intermediate to every level
+
+Safe for shoulders and neck, more stable"
+sumo-squat,Sumo squat,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/sumo-squat/1.jpg,0,"Muscles worked: Buttocks, inner thighs
+
+Level: from Intermediate to every level
+
+Wide stance, suitable for limited ankle mobility"
+back-lunges-with-safety-bar,Back lunges with safety bar,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/back-lunges-with-safety-bar/1.jpg | /exercise-photos/back-lunges-with-safety-bar/2.jpg,0,"Muscles worked: Quadriceps, glutes, hamstrings, core
+
+Level: from Intermediate to every level
+
+One-sided load with axis"
+outlets-on-the-crate,Outlets on the crate,Legs,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/outlets-on-the-crate/1.jpg | /exercise-photos/outlets-on-the-crate/2.jpg,0,"Muscles worked: Quadriceps, glutes
+
+Level: from Intermediate to every level
+
+Functional strength, excellent for coordination"
+overhead-squat-unilateral,Overhead Squat (Unilateral),Shoulders,squat,3,10,,,,from Intermediate to every level,,/exercise-photos/overhead-squat-unilateral/1.jpg,0,"Muscles worked: Quadriceps, core, shoulders, stabilizers
+
+Level: from Intermediate to every level
+
+Great for trunk stability, coordination"
+squats-on-one-leg,Squats on one leg,Legs,squat,3,10,,,,from Advanced to every level,,/exercise-photos/squats-on-one-leg/1.jpg | /exercise-photos/squats-on-one-leg/2.jpg,0,"Muscles worked: Quadriceps, glutes, core
+
+Level: from Advanced to every level
+
+Very demanding on strength, mobility and balance"
+squats-on-one-leg-on-a-crate,Squats on one leg on a crate,Legs,squat,3,10,,,,from Advanced to every level,,/exercise-photos/squats-on-one-leg-on-a-crate/1.jpg | /exercise-photos/squats-on-one-leg-on-a-crate/2.jpg,0,"Muscles worked: Quadriceps, glutes, core
+
+Level: from Advanced to every level
+
+Higher difficulty, transition from the classic pistol squat"
+sissy-squat-with-weights,Sissy squat with weights,Core,squat,3,10,,,,From advanced to every level (recommended for those who can do basic squats without difficulty and have good knee and trunk control),,,,"Muscles worked: Quadriceps, core, knee stabilizers, small muscles of the foot and ankle
+
+Level: From advanced to every level (recommended for those who can do basic squats without difficulty and have good knee and trunk control)
+
+A very demanding quadriceps isolation exercise, especially during the eccentric phase.
+Not suitable for knee pain or poor stabilization.
+Ideal as a supplement to regular squats, not as the main volume exercise."
+good-morning-biceps-with-a-barbell-behind-the-head,Good morning (Biceps with a barbell behind the head),Legs,hinge,3,10,,,,Intermediate and above,,/exercise-photos/good-morning-biceps-with-a-barbell-behind-the-head/1.jpg | /exercise-photos/good-morning-biceps-with-a-barbell-behind-the-head/2.jpg,0,"What is a hip flexor?
+Hip flexion is a basic movement pattern in which the torso leans forward with minimal knee bend while the hips move backward. The spine remains in a neutral position. A typical exercise is the Romanian deadlift (RDL), swing or ""good morning"".
+
+Why is it important?
+
+🍑 Strengthens the buttocks and the back of the thighs (hamstrings), which are key for pelvic stability and back pain prevention.
+🍑 Teaches the correct movement when lifting loads - i.e. instead of bending at the back, bends at the hip.
+🍑 Helps improve posture and movement efficiency.
+🍑 It also strengthens the deep stabilization muscles of the trunk (core).
+
+ Muscles involved:
+
+Gluteus maximus, Hamstrings, Erector spinae, Core, Adductors and Calves
+
+❗ What to watch out for when exercising with hip flexion
+❗Keep your back straight (do not slouch) - maintain a neutral spine without rounding or bending at the hips.
+❗The movement comes from the hips, not the knees - the knees bend slightly, but the torso leans forward due to the movement in the hips.
+❗Tense your stomach (core activation) - this will protect your lumbar area.
+❗Movement Control – No quick or jerky movements, especially when coming back up.
+❗Squeeze your buttocks when returning to the starting position - this will engage the right muscles.
+❗Inhale when going down, exhale when returning up.
+
+Muscles worked: Buttocks, hamstrings, spine erectors, core
+
+Level: Intermediate and above
+
+Pay attention to technique - appropriate weight, straight back, smooth movement."
+good-morning-sitting,Good Morning sitting,Legs,hinge,3,10,,,,Intermediate,,/exercise-photos/good-morning-sitting/1.jpg | /exercise-photos/good-morning-sitting/2.jpg,0,"Muscles worked: Buttocks, hamstrings, spine erectors
+
+Level: Intermediate
+
+Smaller range, good for practice."
+romanian-deadlift-rdl-with-big-axis,Romanian Deadlift (RDL) with big axis,Legs,hinge,3,10,,,,Intermediate-Advanced,,/exercise-photos/romanian-deadlift-rdl-with-big-axis/1.jpg | /exercise-photos/romanian-deadlift-rdl-with-big-axis/2.jpg,0,"Muscles worked: Buttocks, hamstrings, spine erectors, core
+
+Level: Intermediate-Advanced
+
+Excellent complex exercise, keep the spine neutral, barbell close to the thighs."
+romanian-deadlift-rdl-with-one-arm,Romanian deadlift (RDL) with one arm,Legs,hinge,3,10,,,,Beginner-Advanced,,/exercise-photos/romanian-deadlift-rdl-with-one-arm/1.jpg | /exercise-photos/romanian-deadlift-rdl-with-one-arm/2.jpg,0,"Muscles worked: Buttocks, hamstrings, spine erectors
+
+Level: Beginner-Advanced
+
+A lighter option, also suitable for beginners."
+landmine-romanian-deadlift,Landmine Romanian Deadlift,Legs,hinge,3,10,,,,Beginner-intermediate,,/exercise-photos/landmine-romanian-deadlift/1.jpg | /exercise-photos/landmine-romanian-deadlift/2.jpg,0,"Muscles worked: Buttocks, hamstrings, spine erectors
+
+Level: Beginner-intermediate
+
+Stable trajectory thanks to the landmine - suitable for learning the technique."
+romanian-big-axis-deadlift-with-support-on-the-back-leg,Romanian big axis deadlift with support on the back leg,Legs,hinge,3,10,,,,Intermediate,,/exercise-photos/romanian-big-axis-deadlift-with-support-on-the-back-leg/1.jpg | /exercise-photos/romanian-big-axis-deadlift-with-support-on-the-back-leg/2.jpg,0,"Muscles worked: Buttocks, hamstrings, core, lower limb stabilizers
+
+Level: Intermediate
+
+Unilateral variant - helps balance muscle imbalances."
+romanian-deadlift-rdl-with-one-arm-supported-on-the-back-leg,Romanian deadlift (RDL) with one arm supported on the back leg,Legs,hinge,3,10,,,,Intermediate,,/exercise-photos/romanian-deadlift-rdl-with-one-arm-supported-on-the-back-leg/1.jpg,0,"Muscles worked: Buttocks, hamstrings, core
+
+Level: Intermediate
+
+Suitable for training movement control for each leg separately."
+romanian-deadlift-rdl-with-one-arm-on-one-leg,Romanian deadlift (RDL) with one arm on one leg,Legs,hinge,3,10,,,,Advanced,,/exercise-photos/romanian-deadlift-rdl-with-one-arm-on-one-leg/1.jpg | /exercise-photos/romanian-deadlift-rdl-with-one-arm-on-one-leg/2.jpg,0,"Muscles worked: Buttocks, hamstrings, core, ankle and knee stabilization
+
+Level: Advanced
+
+Very demanding on balance and stability."
+kettlebell-deadlift-classic,"Kettlebell Deadlift, Classic",Legs,hinge,3,10,,,,Beginner-intermediate,,/exercise-photos/kettlebell-deadlift-classic/1.jpg | /exercise-photos/kettlebell-deadlift-classic/2.jpg,0,"Muscles worked: Buttocks, hamstrings, back muscles
+
+Level: Beginner-intermediate
+
+Suitable for learning to move and activate the posterior chain."
+classic-deadlift,Classic deadlift,Back,hinge,3,10,,,,Intermediate-Advanced,,/exercise-photos/classic-deadlift/1.jpg | /exercise-photos/classic-deadlift/2.jpg,0,"Muscles worked: The entire posterior chain (buttocks, hamstrings, back), quadriceps, core
+
+Level: Intermediate-Advanced
+
+Excellent strength exercise - pay attention to the correct starting position."
+trap-bar-deadlift,Trap bar deadlift,Legs,hinge,3,10,,,,Intermediate,,/exercise-photos/trap-bar-deadlift/1.jpg | /exercise-photos/trap-bar-deadlift/2.jpg,0,"Muscles worked: Glutes, hamstrings, quadriceps, core
+
+Level: Intermediate
+
+A light learning option, convenient position of the handles - less strain on the back."
+sumo-deadlift,Sumo deadlift,Legs,hinge,3,10,,,,Intermediate,,/exercise-photos/sumo-deadlift/1.jpg | /exercise-photos/sumo-deadlift/2.jpg,0,"Muscles worked: Adductors, glutes, hamstrings, spine erectors, core
+
+Level: Intermediate
+
+Wider stance – greater engagement of the inner thighs."
+kettlebell-swing,Kettlebell swing,Legs,hinge,3,10,,,,Advanced,,/exercise-photos/kettlebell-swing/1.jpg | /exercise-photos/kettlebell-swing/2.jpg,0,"Muscles worked: Buttocks, hamstrings, core, cardiovascular system
+
+Level: Advanced
+
+Dynamic movement - an exercise for explosiveness and endurance."
+one-handed-kettlebell-swing,One-handed kettlebell swing,Shoulders,hinge,3,10,,,,Advanced,,,,"Muscles worked: Buttocks, hamstrings, core, shoulders (stabilization), bilateral balance
+
+Level: Advanced
+
+Suitable for advanced - more demanding on coordination and stability."
+attachments-to-trx,Attachments to trx,Arms,horizontal-pull,3,10,,,,Beginner,,/exercise-photos/attachments-to-trx/1.jpg | /exercise-photos/attachments-to-trx/2.jpg,0,"What is it:
+The horizontal pull is a group of exercises in which we pull the weight towards the torso in a horizontal plane - typically from front to back. This mainly includes pull-ups in a forward bend, on the TRX, rowing machines or pull-ups in a seated position.
+
+Why include this movement in training:
+◀️ Strong back = healthy back. The horizontal pull strengthens the interscapular muscles and lower trapezius, which help maintain a healthy posture.
+◀️ Compensates chest dominance. Most people have overloaded pectoral muscles - horizontal pulls compensate for this imbalance.
+◀️ Shoulder and shoulder blade stability support. A strong upper back improves arm control and protects the shoulder joint.
+◀️ Basic movement pattern. Along with squats, presses and pull-ups, they are among the main patterns that should be part of any balanced strength program.
+
+Muscles involved:
+Primary: latissimus dorsi, trapezius, rear deltoids, rhomboids
+Secondary: biceps, deep back muscles, forearm muscles, core
+
+What to watch out for when performing:
+
+⚠️ Keep your back straight (don't slouch).
+⚠️ Do not extend your shoulders excessively forward.
+⚠️ Consciously activate the shoulder blades - pull them towards you and down.
+⚠️ When doing TRX or rowing, keep your body in a straight line.
+⚠️ The wrists remain in a neutral position, do not break them.
+⚠️Don't use inertia - movement should be controlled.
+
+Muscles worked: back muscles, interscapularis, biceps, mid-body
+
+Level: Beginner
+
+The more vertical the position, the harder"
+one-arm-trx-pull-ups,One arm trx pull ups,Arms,horizontal-pull,3,10,,,,Slightly advanced,,/exercise-photos/one-arm-trx-pull-ups/1.jpg | /exercise-photos/one-arm-trx-pull-ups/2.jpg,0,"Muscles worked: back muscles, biceps, core stabilization
+
+Level: Slightly advanced
+
+Greater demands on balance"
+dumbbell-pull-ups-in-a-forward-bend,Dumbbell pull-ups in a forward bend,Back,horizontal-pull,3,10,,,,Moderately advanced - advanced,,/exercise-photos/dumbbell-pull-ups-in-a-forward-bend/1.jpg | /exercise-photos/dumbbell-pull-ups-in-a-forward-bend/2.jpg,0,"Muscles worked: latissimus, trapezius, rhomboids, rear delts, biceps
+
+Level: Moderately advanced - advanced
+
+Focus on spinal fixation"
+one-arm-pull-ups-in-a-forward-bend,One-arm pull-ups in a forward bend,Back,horizontal-pull,3,10,,,,Slightly advanced,,/exercise-photos/one-arm-pull-ups-in-a-forward-bend/1.jpg | /exercise-photos/one-arm-pull-ups-in-a-forward-bend/2.jpg,0,"Muscles worked: same as above
+
+Level: Slightly advanced
+
+Unilateral loading - suitable for balancing imbalances"
+trx-pull-ups-elevated-legs,Trx pull-ups (elevated legs),Core,horizontal-pull,3,10,,,,Advanced,,/exercise-photos/trx-pull-ups-elevated-legs/1.jpg | /exercise-photos/trx-pull-ups-elevated-legs/2.jpg,0,"Muscles worked: back muscles, core
+
+Level: Advanced
+
+More demanding due to stabilization"
+seated-back-pull-ups-lower-pulley-pull-ups,Seated back pull-ups / Lower pulley pull-ups,Back,horizontal-pull,3,10,,,,Beginner - Advanced,,/exercise-photos/seated-back-pull-ups-lower-pulley-pull-ups/1.jpg | /exercise-photos/seated-back-pull-ups-lower-pulley-pull-ups/2.jpg,0,"Muscles worked: latissimus dorsi, interscapularis, trapezius, biceps
+
+Level: Beginner - Advanced
+
+Ideal for controlled execution"
+seated-back-pull-ups-wide-grip,Seated back pull-ups wide grip,Shoulders,horizontal-pull,3,10,,,,Advanced,,/exercise-photos/seated-back-pull-ups-wide-grip/1.jpg | /exercise-photos/seated-back-pull-ups-wide-grip/2.jpg,0,"Muscles worked: they engage the upper back and rear delts more
+
+Level: Advanced
+
+Ideal for controlled execution"
+half-kneeling-back-pull-ups-one-arm-kneeling-lower-pulley-pull-ups,Half-kneeling back pull-ups / One-arm kneeling lower pulley pull-ups,Core,horizontal-pull,3,10,,,,Slightly advanced,,/exercise-photos/half-kneeling-back-pull-ups-one-arm-kneeling-lower-pulley-pull-ups/1.jpg | /exercise-photos/half-kneeling-back-pull-ups-one-arm-kneeling-lower-pulley-pull-ups/2.jpg,0,"Muscles worked: unilateral activation of the back, core
+
+Level: Slightly advanced
+
+Torso rotation must not be excessive"
+back-pull-ups-with-landmine,Back pull-ups with Landmine,Core,horizontal-pull,3,10,,,,Intermediate,,/exercise-photos/back-pull-ups-with-landmine/1.jpg | /exercise-photos/back-pull-ups-with-landmine/2.jpg,0,"Muscles worked: posterior chain, center of body
+
+Level: Intermediate"
+gorilla-pull-ups,Gorilla pull-ups,Back,horizontal-pull,3,10,,,,Advanced,,/exercise-photos/gorilla-pull-ups/1.jpg | /exercise-photos/gorilla-pull-ups/2.jpg,0,"Muscles worked: back muscles, lower back, deep stabilization system
+
+Level: Advanced
+
+Excellent for developing brute strength"
+one-arm-rows-on-an-incline-bench,One-arm rows on an incline bench,Shoulders,horizontal-pull,3,10,,,,Beginner - slightly advanced,,/exercise-photos/one-arm-rows-on-an-incline-bench/1.jpg | /exercise-photos/one-arm-rows-on-an-incline-bench/2.jpg,0,"Muscles worked: rear delts, interscapular muscles, biceps
+
+Level: Beginner - slightly advanced
+
+Minimizes the involvement of the lower back"
+one-arm-rows-on-an-inclined-bench-unilaterally,One-arm rows on an inclined bench unilaterally,Back,horizontal-pull,3,10,,,,Slightly advanced,,/exercise-photos/one-arm-rows-on-an-inclined-bench-unilaterally/1.jpg | /exercise-photos/one-arm-rows-on-an-inclined-bench-unilaterally/2.jpg,0,"Muscles worked: same as above, with an emphasis on unilateral stabilization
+
+Level: Slightly advanced
+
+Core must remain engaged"
+rowing-machine,Rowing machine,Back,horizontal-pull,3,10,,,,Beginner - everyone,,/exercise-photos/rowing-machine/1.jpg | /exercise-photos/rowing-machine/2.jpg,0,"Muscles worked: latissimus dorsi, trapezius, rhomboids, biceps
+
+Level: Beginner - everyone
+
+A smooth stroke, not a jerk"
+unilateral-rowing-machine,Unilateral rowing machine,Back,horizontal-pull,3,10,,,,Slightly advanced,,/exercise-photos/unilateral-rowing-machine/1.jpg | /exercise-photos/unilateral-rowing-machine/2.jpg,0,"Muscles worked: same as above, with asymmetric loading
+
+Level: Slightly advanced"
+dumbbell-pull-ups-in-a-forward-bend-unilaterally,Dumbbell pull-ups in a forward bend unilaterally,Back,horizontal-pull,3,10,,,,Advanced,,/exercise-photos/dumbbell-pull-ups-in-a-forward-bend-unilaterally/1.jpg | /exercise-photos/dumbbell-pull-ups-in-a-forward-bend-unilaterally/2.jpg,0,"Muscles worked: as with a classic pull-up in a forward bend
+
+Level: Advanced
+
+One-sided loading, greater stabilization requirements"
+pull-ups-with-rubber-in-a-sitting-position,Pull-ups with rubber in a sitting position,Back,horizontal-pull,3,10,,,,Beginner,,,,"Muscles worked: upper back, interscapular muscles, biceps
+
+Level: Beginner
+
+Suitable as compensation or warm-up"
+overhand-push-ups,Overhand push-ups,Back,vertical-pull,3,10,,,,Advanced,,/exercise-photos/overhand-push-ups/1.jpg | /exercise-photos/overhand-push-ups/2.jpg,0,"A vertical pull is one of the basic movement patterns in which we pull or pull resistance from top to bottom. It is one of the most effective exercises for developing the back muscles, especially the latissimus dorsi, but it also strengthens the arms, grip and core.
+
+👉 As part of strength training, it helps:
+⬇️ improve posture (e.g. extended shoulders),
+⬇️ compensate for a sedentary lifestyle (hunched over the computer),
+⬇️ increase functional strength for normal daily movements (e.g. lifting a child),
+⬇️ prepare the body for more demanding exercises (e.g. push-ups, pull-ups on the bar).
+
+What to watch out for when performing:
+⚠️ The shoulders should be pulled down and back (not pulled towards the neck).
+⚠️ Do not sag at the hips (active center of the body).
+⚠️ Movement starts from the shoulder blades, not just the arms.
+⚠️ When pulling the pulley: do not bend the elbows back, but towards the torso.
+
+Choose a grip according to your abilities - a wider grip engages more of the back, a narrower more biceps.
+
+Muscles worked: Latissimus dorsi, interscapular muscles, trapezius, biceps
+
+Level: Advanced
+
+The back is involved more, the grip is more demanding on strength"
+shyby-by-touch,Shyby by touch,Back,vertical-pull,3,10,,,,Advanced,,/exercise-photos/shyby-by-touch/1.jpg | /exercise-photos/shyby-by-touch/2.jpg,0,"Muscles worked: Latissimus dorsi, biceps more than back
+
+Level: Advanced
+
+Suitable for beginners to strengthen their arms"
+push-ups-with-a-neutral-grip,Push-ups with a neutral grip,Back,vertical-pull,3,10,,,,Intermediate,,/exercise-photos/push-ups-with-a-neutral-grip/1.jpg | /exercise-photos/push-ups-with-a-neutral-grip/2.jpg,0,"Muscles worked: Latissimus dorsi, interscapular muscles, biceps
+
+Level: Intermediate
+
+Gentlest on the shoulders, recommended for beginners"
+push-ups-on-the-machine-with-assistance-on-the-knees,Push-ups on the machine with assistance on the knees,Back,vertical-pull,3,10,,,,Beginner,,/exercise-photos/push-ups-on-the-machine-with-assistance-on-the-knees/1.jpg | /exercise-photos/push-ups-on-the-machine-with-assistance-on-the-knees/2.jpg,0,"Muscles worked: Latissimus dorsi, biceps
+
+Level: Beginner
+
+Help with lifting your own weight - builds a foundation"
+push-ups-with-the-help-of-a-rubber-band,Push-ups with the help of a rubber band,Back,vertical-pull,3,10,,,,Beginner - Intermediate,,/exercise-photos/push-ups-with-the-help-of-a-rubber-band/1.jpg | /exercise-photos/push-ups-with-the-help-of-a-rubber-band/2.jpg,0,"Muscles worked: Latissimus dorsi, biceps
+
+Level: Beginner - Intermediate
+
+The rubber band relieves the lower part of the movement"
+lowering-the-top-pulley-with-one-arm-kneels,Lowering the top pulley with one arm kneels,Back,vertical-pull,3,10,,,,Beginner - Advanced,,/exercise-photos/lowering-the-top-pulley-with-one-arm-kneels/1.jpg | /exercise-photos/lowering-the-top-pulley-with-one-arm-kneels/2.jpg,0,"Muscles worked: Latissimus, interscapular muscles, mid-body
+
+Level: Beginner - Advanced
+
+Unilateral – helps reveal muscle imbalances"
+wide-grip-seated-upper-pulley-pull-down,Wide grip seated upper pulley pull-down,Back,vertical-pull,3,10,,,,Beginner - Advanced,,/exercise-photos/wide-grip-seated-upper-pulley-pull-down/1.jpg | /exercise-photos/wide-grip-seated-upper-pulley-pull-down/2.jpg,0,"Muscles worked: Latissimus dorsi (more), trapezius
+
+Level: Beginner - Advanced
+
+Wider grip = emphasis on back muscles"
+parallel-grip-pull-down-pulley,Parallel grip pull down pulley,Back,vertical-pull,3,10,,,,Beginner,,/exercise-photos/parallel-grip-pull-down-pulley/1.jpg | /exercise-photos/parallel-grip-pull-down-pulley/2.jpg,0,"Muscles worked: Latissimus, biceps
+
+Level: Beginner
+
+A neutral (narrow) grip saves the shoulders"
+pulling-the-pulley-by-underhand-grip,Pulling the pulley by underhand grip,Back,vertical-pull,3,10,,,,Beginner,,/exercise-photos/pulling-the-pulley-by-underhand-grip/1.jpg | /exercise-photos/pulling-the-pulley-by-underhand-grip/2.jpg,0,"Muscles worked: Latissimus, biceps (more)
+
+Level: Beginner
+
+The touch will highlight the engagement of the biceps"
+pulling-the-v-holder-pulley,Pulling the V-holder pulley,Back,vertical-pull,3,10,,,,Beginner,,,,"Muscles worked: Latissimus, mid back, biceps
+
+Level: Beginner
+
+Good ratio between back and arm work"
+cranks,Cranks,Chest,horizontal-push,3,10,,,,From a beginner,,/exercise-photos/cranks/1.jpg | /exercise-photos/cranks/2.jpg,0,"What is horizontal pressure?
+A horizontal press is a movement where you push a weight forward from your chest – either standing, sitting or lying down. This includes, for example, push-ups, bench press or machine presses. The main difference with vertical pressures (overhead pressures) is the direction of movement.
+
+Why is it important:
+➡️ Strengthens pectoral muscles, triceps and the front part of the shoulders.
+➡️ Helps improve posture, especially if you have a weak upper body.
+➡️ It is essential for the overall strength of the upper half of the body and for balance with stretching exercises (e.g. pull-ups).
+
+Muscles involved:
+Chest muscles (pectoralis major and minor), Triceps brachii, Anterior deltoid (front part of the shoulders), Stabilization: core, shoulder blades
+
+What to watch out for when performing:
+⚠️ Pull your shoulders down and back to avoid overloading the shoulder joint.
+⚠️ Strengthen the center of the body - you will prevent sagging in the hips.
+⚠️ Elbows do not point too high (ideally approx. 45° from the body during bench press).
+⚠️ Breathe smoothly - inhale when starting, exhale when pressing.
+
+Muscles worked: Pectorals, triceps, anterior deltoid, core
+
+Level: From a beginner
+
+Keep your body straight, don't bend your hips."
+knee-push-ups,Knee push ups,Chest,horizontal-push,3,10,,,,Beginner,,/exercise-photos/knee-push-ups/1.jpg | /exercise-photos/knee-push-ups/2.jpg,0,"Muscles worked: The same, but with a lower intensity
+
+Level: Beginner
+
+Suitable as a first step to the classic handle."
+push-up-with-raised-arms,Push up with raised arms,Chest,horizontal-push,3,10,,,,Beginner,,/exercise-photos/push-up-with-raised-arms/1.jpg | /exercise-photos/push-up-with-raised-arms/2.jpg,0,"Muscles worked: Pectoral muscles (greater involvement of the upper part), triceps, shoulders
+
+Level: Beginner
+
+Suitable for reducing difficulty."
+seated-chest-presses,Seated chest presses,Chest,horizontal-push,3,10,,,,From beginner to every level,,/exercise-photos/seated-chest-presses/1.jpg | /exercise-photos/seated-chest-presses/2.jpg,0,"Muscles worked: Chest muscles, triceps, shoulders
+
+Level: From beginner to every level
+
+Stable movement path, less demanding on coordination."
+unilateral-seated-chest-presses,Unilateral seated chest presses,Core,horizontal-push,3,10,,,,Slightly advanced,,/exercise-photos/unilateral-seated-chest-presses/1.jpg | /exercise-photos/unilateral-seated-chest-presses/2.jpg,0,"Muscles worked: The same, increased activation of the center of the body
+
+Level: Slightly advanced
+
+It helps to detect and balance muscle imbalances."
+bench-press-on-a-horizontal-bench,Bench press on a horizontal bench,Chest,horizontal-push,3,10,,,,Moderately advanced to advanced,,/exercise-photos/bench-press-on-a-horizontal-bench/1.jpg | /exercise-photos/bench-press-on-a-horizontal-bench/2.jpg,0,"Muscles worked: Pectoral muscles, triceps, anterior deltoid
+
+Level: Moderately advanced to advanced
+
+Classic strength exercise, pay attention to stable shoulder blades and range of motion."
+bench-press-on-an-inclined-bench,Bench press on an inclined bench,Chest,horizontal-push,3,10,,,,Slightly advanced,,/exercise-photos/bench-press-on-an-inclined-bench/1.jpg | /exercise-photos/bench-press-on-an-inclined-bench/2.jpg,0,"Muscles worked: Chest muscles - upper part, triceps, shoulders
+
+Level: Slightly advanced
+
+More emphasis on the upper part of the breast."
+horizontal-chest-press,Horizontal chest press,Chest,horizontal-push,3,10,,,,Slightly advanced,,/exercise-photos/horizontal-chest-press/1.jpg | /exercise-photos/horizontal-chest-press/2.jpg,0,"Muscles worked: Chest muscles, triceps, core stabilization
+
+Level: Slightly advanced
+
+Freer path of movement, greater activation of stabilizers."
+bench-press-with-one-arms,Bench press with one arms,Chest,horizontal-push,3,10,,,,Moderately advanced to advanced,,/exercise-photos/bench-press-with-one-arms/1.jpg | /exercise-photos/bench-press-with-one-arms/2.jpg,0,"Muscles worked: Pectorals, triceps, shoulders, core
+
+Level: Moderately advanced to advanced
+
+It requires stability and coordination."
+one-arm-bench-press,One arm bench press,Core,horizontal-push,3,10,,,,Advanced,,/exercise-photos/one-arm-bench-press/1.jpg | /exercise-photos/one-arm-bench-press/2.jpg,0,"Muscles worked: The same + significant activation of the center of the body
+
+Level: Advanced
+
+Ideal for developing unilateral strength and stabilization."
+flat-press-chest-presses,Flat Press Chest Presses,Chest,horizontal-push,3,10,,,,From moderately advanced,,,,"Muscles worked: Chest muscles, triceps, shoulders
+
+Level: From moderately advanced
+
+An alternative to the classic bench press."
+landmine-shoulder-presses-with-the-axis-in-a-semi-kneeling-position,Landmine shoulder presses with the axis in a semi-kneeling position,Shoulders,vertical-push,3,10,,,,Beginner - Intermediate,,/exercise-photos/landmine-shoulder-presses-with-the-axis-in-a-semi-kneeling-position/1.jpg | /exercise-photos/landmine-shoulder-presses-with-the-axis-in-a-semi-kneeling-position/2.jpg,0,"Why include vertical presses in training?
+Overhead presses are a fundamental movement for developing shoulder strength, core stability and proper shoulder blade function. We use this movement in everyday life - from putting things on top shelves to handling heavy loads. At the same time, it tests shoulder mobility, thoracic spine and trunk stability.
+
+By regularly including overhead presses:
+⬆️ you will strengthen the deltoid muscles, trapezius and deep stabilizers of the shoulder blades,
+⬆️ you will improve shoulder position and body posture,
+⬆️ you will increase the functional strength of the upper half of the body.
+
+What to watch out for when performing:
+
+⚠️ Avoid bending in the hips - activate the abdominal muscles and lower the pelvis.
+⚠️ Keep your elbows under the axis/handles - don't tilt them to the sides.
+⚠️ The wrist should remain in a neutral position (do not fall back).
+⚠️ Don't push the range - start in a position where you are in control.
+⚠️ Breathe: exhale when pressing up, inhale when lowering.
+
+Muscles worked: anterior and middle deltoids, triceps, body collision, scapular stabilizers
+
+Level: Beginner - Intermediate
+
+Great for beginners - less range of motion and more control"
+landmine-pressures-with-vertical-axis,Landmine pressures with vertical axis,Shoulders,vertical-push,3,10,,,,Intermediate,,/exercise-photos/landmine-pressures-with-vertical-axis/1.jpg | /exercise-photos/landmine-pressures-with-vertical-axis/2.jpg,0,"Muscles worked: deltoids, core, shoulder rotators
+
+Level: Intermediate
+
+An excellent transitional exercise between machine and free presses"
+shoulder-presses-on-the-machine,Shoulder presses on the machine,Back,vertical-push,3,10,,,,Beginner,,/exercise-photos/shoulder-presses-on-the-machine/1.jpg | /exercise-photos/shoulder-presses-on-the-machine/2.jpg,0,"Muscles worked: front delts, triceps, upper trapezius
+
+Level: Beginner
+
+Stable guided movement, suitable for building strength in beginners"
+shoulder-presses-on-a-unilateral-machine,Shoulder presses on a unilateral machine,Shoulders,vertical-push,3,10,,,,Beginner - Intermediate,,/exercise-photos/shoulder-presses-on-a-unilateral-machine/1.jpg | /exercise-photos/shoulder-presses-on-a-unilateral-machine/2.jpg,0,"Muscles worked: the same + more emphasis on torso stability and asymmetry
+
+Level: Beginner - Intermediate
+
+It helps balance muscle imbalances"
+overhead-pressures-with-axis,Overhead pressures with axis,Shoulders,vertical-push,3,10,,,,Intermediate to advanced,,/exercise-photos/overhead-pressures-with-axis/1.jpg | /exercise-photos/overhead-pressures-with-axis/2.jpg,0,"Muscles worked: whole deltas, triceps, core, shoulder blade stabilizers
+
+Level: Intermediate to advanced
+
+Be sure to activate the center and control the lumbar region"
+seated-shoulder-presses,Seated shoulder presses,Shoulders,vertical-push,3,10,,,,Intermediate,,/exercise-photos/seated-shoulder-presses/1.jpg | /exercise-photos/seated-shoulder-presses/2.jpg,0,"Muscles worked: front and middle delts, triceps
+
+Level: Intermediate
+
+Less demands on balance, more isolates the shoulders"
+seated-unilateral-shoulder-presses,Seated unilateral shoulder presses,Shoulders,vertical-push,3,10,,,,Intermediate,,/exercise-photos/seated-unilateral-shoulder-presses/1.jpg | /exercise-photos/seated-unilateral-shoulder-presses/2.jpg,0,"Muscles worked: same + body clash, obliques
+
+Level: Intermediate
+
+Excellent for eliminating power imbalances between parties"
+standing-shoulder-presses,Standing shoulder presses,Shoulders,vertical-push,3,10,,,,Intermediate to advanced,,,,"Muscles worked: deltoids, triceps, mid-body, back stabilizers
+
+Level: Intermediate to advanced
+
+More technically demanding - a good test of strength and mobility"
+kneeling-on-a-pulley-kneeling-in-a-forward-bend-glute-kickbacks-on-a-pulley,Kneeling on a pulley / Kneeling in a forward bend / glute kickbacks on a pulley,Legs,accessory,3,10,,,,,,/exercise-photos/kneeling-on-a-pulley-kneeling-in-a-forward-bend-glute-kickbacks-on-a-pulley/1.jpg | /exercise-photos/kneeling-on-a-pulley-kneeling-in-a-forward-bend-glute-kickbacks-on-a-pulley/2.jpg,0,"Why include lower body isolation exercises:
+
+Isolated exercises target specific muscle groups, helping to:
+🦵Improve the activation of weakened or less involved muscles (e.g. hamstrings, buttocks, calves).
+🦵 Increase the volume or shape of specific parts (e.g. shaped butt, round calves).
+🦵 To promote a healthy movement pattern and balance between the quadriceps, hamstrings and gluteal muscles.
+🦵 Reduce the risk of overload or pain in dominant muscles during complex movements.
+🦵They are ideal as supplementary exercises after the main multi-joint exercises or at the end of training.
+
+Target area: Hamstrings
+
+Muscles worked: Gluteus maximus (large gluteal muscle) – the main target muscle
+Hamstrings – as auxiliary muscles when putting on shoes
+The center of the body (core) – stabilization of the trunk and pelvis during movement)
+
+Pay attention to the firm strengthening of the trunk, do not sag in the hips. The movement should come from the hip, not the lower back or hips. Higher engagement does not mean better activation - conscious engagement of the buttocks and controlled movement is important. Can be performed with hands resting on the machine or in a slightly forward position. Ideal at the end of training to activate the buttocks or as an isolated exercise on lower body days."
+standing-calf-raises-on-a-machine,Standing calf raises on a machine,Other,accessory,3,10,,,,,,/exercise-photos/standing-calf-raises-on-a-machine/1.jpg | /exercise-photos/standing-calf-raises-on-a-machine/2.jpg,0,"Target area: Calf
+
+Muscles worked: Gastrocnemius (mainly)
+
+It is important to keep the knees bent to engage the superficial calf muscles."
+seated-calf-raises-on-a-machine,Seated calf raises on a machine,Legs,accessory,3,10,,,,,,/exercise-photos/seated-calf-raises-on-a-machine/1.jpg | /exercise-photos/seated-calf-raises-on-a-machine/2.jpg,0,"Target area: Calf
+
+Muscles worked: Soleus (deep calf muscle)
+
+For better results, I recommend a larger number of repetitions (12-20)."
+standing-calf-raises,Standing calf raises,Other,accessory,3,10,,,,,,/exercise-photos/standing-calf-raises/1.jpg | /exercise-photos/standing-calf-raises/2.jpg,0,"Target area: Calf
+
+Muscles worked: Gastrocnemius
+
+It can also be performed without a machine - with your own weight, e.g. on a step."
+hyperextension-back-and-hamstrings,"Hyperextension, back and hamstrings",Legs,accessory,3,10,,,,,,/exercise-photos/hyperextension-back-and-hamstrings/1.jpg | /exercise-photos/hyperextension-back-and-hamstrings/2.jpg,0,"Target area: Hamstrings, buttocks
+
+Muscles worked: Hamstrings, glutes, spinal extensors
+
+If we want to engage more glutes, a round back (torso flexion) is needed."
+hip-thrust-with-axis,Hip thrust with axis,Legs,accessory,3,10,,,,,,/exercise-photos/hip-thrust-with-axis/1.jpg | /exercise-photos/hip-thrust-with-axis/2.jpg,0,"Target area: Buttocks
+
+Muscles worked: Gluteus maximus, hamstrings
+
+An excellent basic exercise for building the volume of the buttocks. Pelvic inspection required."
+hip-thrust-with-one-arm,Hip thrust with one arm,Other,accessory,3,10,,,,,,/exercise-photos/hip-thrust-with-one-arm/1.jpg | /exercise-photos/hip-thrust-with-one-arm/2.jpg,0,"Target area: Buttocks
+
+Muscles worked: Gluteus maximus
+
+Also suitable for home training. Possible to alternate legs."
+hip-thrust-with-one-arm-on-one-leg,Hip thrust with one arm on one leg,Legs,accessory,3,10,,,,,,/exercise-photos/hip-thrust-with-one-arm-on-one-leg/1.jpg | /exercise-photos/hip-thrust-with-one-arm-on-one-leg/2.jpg,0,"Target area: Buttocks
+
+Muscles worked: Gluteus maximus, hamstrings, trunk stabilization
+
+Advanced variant. Emphasis on pelvic axis control."
+hip-thrust-on-one-leg,Hip thrust on one leg,Legs,accessory,3,10,,,,,,/exercise-photos/hip-thrust-on-one-leg/1.jpg | /exercise-photos/hip-thrust-on-one-leg/2.jpg,0,"Target area: Buttocks
+
+Muscles worked: Gluteus maximus, hamstrings
+
+High difficulty - ideal for the end of training."
+pre-digging-on-a-seated-machine,Pre-digging on a seated machine,Other,accessory,3,10,,,,,,/exercise-photos/pre-digging-on-a-seated-machine/1.jpg | /exercise-photos/pre-digging-on-a-seated-machine/2.jpg,0,"Target area: Quadriceps
+
+Muscles worked: Quadriceps (especially rectus femoris)
+
+Do not lift your butt from the bench - risk of overloading the knee."
+casting-with-a-pulley,Casting with a pulley,Other,accessory,3,10,,,,,,/exercise-photos/casting-with-a-pulley/1.jpg | /exercise-photos/casting-with-a-pulley/2.jpg,0,"Target area: Abductors (outer thighs)
+
+Muscles worked: Gluteus medius, gluteus minimus
+
+It helps shape the outer part of the buttocks."
+cutting-on-the-machine,Cutting on the machine,Other,accessory,3,10,,,,,,/exercise-photos/cutting-on-the-machine/1.jpg | /exercise-photos/cutting-on-the-machine/2.jpg,0,"Target area: Adductors (inner thighs)
+
+Muscles worked: Adductors
+
+With regular exercise, it improves the tone and firmness of the inner thighs. For women - Don't be afraid of this exercise - it won't make your thighs bigger unless you train with heavy weight and high volume. Keep your back supported, control the movement."
+spreading-on-the-machine,Spreading on the machine,Other,accessory,3,10,,,,,,/exercise-photos/spreading-on-the-machine/1.jpg | /exercise-photos/spreading-on-the-machine/2.jpg,0,"Target area: Abductors
+
+Muscles worked: Gluteus medius/minimus
+
+Pay attention to the slow return - movement control."
+stomping-while-lying-on-stomach,Stomping while lying on stomach,Legs,accessory,3,10,,,,,,/exercise-photos/stomping-while-lying-on-stomach/1.jpg | /exercise-photos/stomping-while-lying-on-stomach/2.jpg,0,"Target area: Hamstrings
+
+Muscles worked: Hamstrings
+
+Emphasis on full range of motion and tempo control."
+tripping-on-the-seated-machine,Tripping on the seated machine,Legs,accessory,3,10,,,,,,,,"Target area: Hamstrings
+
+Muscles worked: Hamstrings
+
+More gentle on the lumbar spine than the supine option."
+face-pulls,Face pulls,Back,accessory,3,10,,,,,,/exercise-photos/face-pulls/1.jpg | /exercise-photos/face-pulls/2.jpg,0,"Isolated exercises target one specific muscle or a small group of muscles and minimize the involvement of others. They are ideal for:
+💪 Targeting weak or lagging muscle parts
+💪 Improvement of muscle symmetry (e.g. right vs. left hand)
+💪 Increase in muscle volume (hypertrophy due to higher isolated load)
+💪 Prehabilitation and rehabilitation
+💪 Beginners as a transition between body weight and complex exercises
+
+Isolated exercises are not the basis of training, but are a supplement to complex movement stereotypes (squat, pull, press, hip flexion, rotation, core stability).
+
+💡 Recommended categories for clarity:
+💪 Shoulders (deltoids)
+💪 Back (especially interscapulars and erectors)
+💪 Chest (less movement isolation of the chest)
+💪 Biceps
+💪Triceps - note: you can distinguish between short vs. long head according to arm position
+
+Target area: Shoulders / Interscapular muscles
+
+Muscles worked: Rear delts, trapezius, rhomboids, rotators
+
+Great for posture, to include at the end of a back or shoulder workout"
+trx-reverse-fly,TRX Reverse Fly,Back,accessory,3,10,,,,,,/exercise-photos/trx-reverse-fly/1.jpg | /exercise-photos/trx-reverse-fly/2.jpg,0,"Target area: Shoulders / Back
+
+Muscles worked: Rear delts, rhomboids
+
+More demanding on stability, suitable for advanced users"
+playing-with-one-handers,Playing with one-handers,Shoulders,accessory,3,10,,,,,,/exercise-photos/playing-with-one-handers/1.jpg | /exercise-photos/playing-with-one-handers/2.jpg,0,"Target area: Shoulders
+
+Muscles worked: Middle head of the deltoid muscle
+
+Light weight, slow execution, goal: hypertrophy"
+pulley-application,Pulley application,Shoulders,accessory,3,10,,,,,,/exercise-photos/pulley-application/1.jpg | /exercise-photos/pulley-application/2.jpg,0,"Target area: Shoulders
+
+Muscles worked: Middle head of the deltoid muscle
+
+Continuous resistance, also suitable for super series"
+dumbbell-pull-ups-in-front-of-the-body,Dumbbell pull-ups in front of the body,Back,accessory,3,10,,,,,,/exercise-photos/dumbbell-pull-ups-in-front-of-the-body/1.jpg | /exercise-photos/dumbbell-pull-ups-in-front-of-the-body/2.jpg,0,"Target area: Shoulders
+
+Muscles worked: Front delts, upper trapezius
+
+Necessary caution - do not perform too high due to the shoulders"
+inverted-furnace-deck,Inverted furnace deck,Back,accessory,3,10,,,,,,/exercise-photos/inverted-furnace-deck/1.jpg | /exercise-photos/inverted-furnace-deck/2.jpg,0,"Target area: Back
+
+Muscles worked: Rear delts, rhomboids, trapezius
+
+Suitable for insulating the back of the shoulders"
+hyperextension,Hyperextension,Legs,accessory,3,10,,,,,,/exercise-photos/hyperextension/1.jpg | /exercise-photos/hyperextension/2.jpg,0,"Target area: Back
+
+Muscles worked: Spine erectors, glutes, hamstrings
+
+Can be performed with or without weights"
+lowering-the-upper-pulley-with-extended-arms,Lowering the upper pulley with extended arms,Back,accessory,3,10,,,,,,/exercise-photos/lowering-the-upper-pulley-with-extended-arms/1.jpg | /exercise-photos/lowering-the-upper-pulley-with-extended-arms/2.jpg,0,"Target area: Back
+
+Muscles worked: Broad back muscle (latissimus), teres major
+
+Great for mind-muscle connection"
+bake-the-deck,Bake the deck,Other,accessory,3,10,,,,,,/exercise-photos/bake-the-deck/1.jpg | /exercise-photos/bake-the-deck/2.jpg,0,"Target area: Thorax
+
+Muscles worked: Chest muscles - mainly the inner part
+
+An alternative to spreads"
+spreaders-on-a-pulley,Spreaders on a pulley,Other,accessory,3,10,,,,,,/exercise-photos/spreaders-on-a-pulley/1.jpg | /exercise-photos/spreaders-on-a-pulley/2.jpg,0,"Target area: Thorax
+
+Muscles worked: Chest - outer area
+
+Slower execution increases efficiency"
+pullover,Pullover,Other,accessory,3,10,,,,,,/exercise-photos/pullover/1.jpg | /exercise-photos/pullover/2.jpg,0,"Target area: Chest / Back
+
+Muscles worked: Big chest, broad back muscle
+
+One of the few isolated exercises for both muscles"
+biceps-lifts,Biceps lifts,Arms,accessory,3,10,,,,,,/exercise-photos/biceps-lifts/1.jpg | /exercise-photos/biceps-lifts/2.jpg,0,"Target area: Biceps
+
+Muscles worked: Long and short head of the biceps
+
+Basic isolated exercise"
+biceps-hammer-raise,Biceps Hammer Raise,Other,accessory,3,10,,,,,,/exercise-photos/biceps-hammer-raise/1.jpg | /exercise-photos/biceps-hammer-raise/2.jpg,0,"Target area: Biceps
+
+Muscles worked: Brachialis, brachioradialis
+
+It thickens the arms and engages the forearms"
+standing-lower-pulley-biceps-lift,Standing lower pulley biceps lift,Arms,accessory,3,10,,,,,,/exercise-photos/standing-lower-pulley-biceps-lift/1.jpg | /exercise-photos/standing-lower-pulley-biceps-lift/2.jpg,0,"Target area: Biceps
+
+Muscles worked: Biceps brachii (long and short head), brachialis
+
+Constant tension thanks to the pulley, suitable for hypertrophy"
+unilateral-pulley-biceps-lifts,Unilateral pulley biceps lifts,Arms,accessory,3,10,,,,,,/exercise-photos/unilateral-pulley-biceps-lifts/1.jpg | /exercise-photos/unilateral-pulley-biceps-lifts/2.jpg,0,"Target area: Biceps
+
+Muscles worked: Biceps brachii, brachialis
+
+Focus on the weaker hand, isolation and symmetry"
+biceps-lifts-on-the-machine,Biceps lifts on the machine,Arms,accessory,3,10,,,,,,/exercise-photos/biceps-lifts-on-the-machine/1.jpg | /exercise-photos/biceps-lifts-on-the-machine/2.jpg,0,"Target area: Biceps
+
+Muscles worked: Biceps brachii
+
+Stable position, ideal for beginners or the end of training"
+trx-bicep-lifts,TRX Bicep Lifts,Arms,accessory,3,10,,,,,,/exercise-photos/trx-bicep-lifts/1.jpg | /exercise-photos/trx-bicep-lifts/2.jpg,0,"Target area: Biceps
+
+Muscles worked: Biceps brachii, brachialis, forearm
+
+Suitable for beginners and advanced, depends on the angle of the body"
+overhead-elbow-extension-pulley,Overhead Elbow Extension (Pulley),Arms,accessory,3,10,,,,,,/exercise-photos/overhead-elbow-extension-pulley/1.jpg | /exercise-photos/overhead-elbow-extension-pulley/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Long head of the triceps
+
+Suitable for greater range and stretching"
+overhead-elbow-extension-pulley-unilateral,Overhead elbow extension (pulley) unilateral,Arms,accessory,3,10,,,,,,/exercise-photos/overhead-elbow-extension-pulley-unilateral/1.jpg | /exercise-photos/overhead-elbow-extension-pulley-unilateral/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Long head of the triceps
+
+Keep your elbow steady above your head. The long head works more when the arm is raised."
+seated-french-presses,Seated French Presses,Arms,accessory,3,10,,,,,,/exercise-photos/seated-french-presses/1.jpg | /exercise-photos/seated-french-presses/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Long head of the triceps
+
+Wide range of motion, elbow fixation is key."
+french-supine-presses,French supine presses,Arms,accessory,3,10,,,,,,/exercise-photos/french-supine-presses/1.jpg | /exercise-photos/french-supine-presses/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Short and long head of the triceps
+
+Do not go too deep - we protect the elbows"
+one-arm-elbow-extension,One-arm elbow extension,Arms,accessory,3,10,,,,,,/exercise-photos/one-arm-elbow-extension/1.jpg | /exercise-photos/one-arm-elbow-extension/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Long head of the triceps
+
+Slow pace, isolation. Keep your elbow close to your body"
+two-handed-standing-one-handed-kickback,Two-handed standing one-handed kickback,Back,accessory,3,10,,,,,,/exercise-photos/two-handed-standing-one-handed-kickback/1.jpg | /exercise-photos/two-handed-standing-one-handed-kickback/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Lateral, medial head
+
+Arms higher than torso, maximum contraction at the top."
+upper-pulley-tricep-pulldown,Upper pulley tricep pulldown,Other,accessory,3,10,,,,,,/exercise-photos/upper-pulley-tricep-pulldown/1.jpg | /exercise-photos/upper-pulley-tricep-pulldown/2.jpg,0,"Target area: Triceps
+
+Muscles worked: All heads
+
+Classic design. Elbows close to the body, wrists straight."
+unilateral-upper-pulley-tricep-pulldown,Unilateral upper pulley tricep pulldown,Other,accessory,3,10,,,,,,/exercise-photos/unilateral-upper-pulley-tricep-pulldown/1.jpg | /exercise-photos/unilateral-upper-pulley-tricep-pulldown/2.jpg,0,"Target area: Triceps
+
+Muscles worked: All heads
+
+Great accessory for left/right arm control."
+upper-pulley-tricep-pulldown-2,Upper pulley tricep pulldown,Back,accessory,3,10,,,,,,/exercise-photos/upper-pulley-tricep-pulldown-2/1.jpg | /exercise-photos/upper-pulley-tricep-pulldown-2/2.jpg,0,"Target area: Triceps
+
+Muscles worked: Especially the lateral head
+
+At the end, stretch the rope to the sides for maximum activation."
+triceps-push-ups-on-parallel-bars,Triceps push-ups on parallel bars,Chest,accessory,3,10,,,,,,/exercise-photos/triceps-push-ups-on-parallel-bars/1.jpg | /exercise-photos/triceps-push-ups-on-parallel-bars/2.jpg,0,"Target area: Triceps
+
+Muscles worked: long head + pectoral muscles
+
+Body upright, do not lean forward - otherwise the chest is more involved."
+seated-triceps-presses-on-a-machine,Seated triceps presses on a machine,Back,accessory,3,10,,,,,,,,"Target area: Triceps
+
+Muscles worked: Lateral + medial head
+
+Steady movement. Suitable for beginners."
+slanted-pulls-on-the-pulley-downwards,Slanted pulls on the pulley downwards,Other,accessory,3,8-10,,,,8-10 reps each side,,/exercise-photos/slanted-pulls-on-the-pulley-downwards/1.jpg | /exercise-photos/slanted-pulls-on-the-pulley-downwards/2.jpg,0,"Why include rotation exercises in training?
+Rotational and dynamic core exercises engage the center of the body in functional movements – power transmission, trunk stabilization, spinal rotation and movement control in various planes.
+While classic ""core"" exercises often target static stability, these movements teach the body to work in motion, respond to changes in direction, and transfer power from the lower body to the upper body - which is key both in sports and in everyday life.
+
+Recommendations:
+Include them at the end of training or as a separate core/conditioning block
+Work in lower sets (2-4) and higher effort or dynamics
+Alternate rotation directions, stances, and different implements (ball, disc, cable, body)
+
+Muscles worked: Oblique abdominal muscles, serratus, shoulder blades
+
+Standing, trunk rotation against pulley resistance, check hips"
+incline-pulls-on-the-pulley-upwards,Incline pulls on the pulley upwards,Shoulders,accessory,3,8-10,,,,8-10 repetitions,,/exercise-photos/incline-pulls-on-the-pulley-upwards/1.jpg | /exercise-photos/incline-pulls-on-the-pulley-upwards/2.jpg | /exercise-photos/incline-pulls-on-the-pulley-upwards/3.jpg,0,"Muscles worked: Abdominal obliques, shoulders, mid-body
+
+Stroke diagonally across the body, exhale at the top"
+landmine-rotation-while-standing,Landmine rotation while standing,Legs,accessory,3,6-8,,,,6-8 reps per side,,/exercise-photos/landmine-rotation-while-standing/1.jpg | /exercise-photos/landmine-rotation-while-standing/2.jpg,0,"Muscles worked: Core + legs + torso rotation
+
+Basic rotation through the hips, do not rotate the knees"
+board-with-rotation,Board with rotation,Shoulders,accessory,3,2-3,,,,2-3 series x 6-8 pages,,/exercise-photos/board-with-rotation/1.jpg | /exercise-photos/board-with-rotation/2.jpg,0,"Muscles worked: Core, obliques, shoulder stabilizers
+
+The shoulder goes under the body and up, keeping the hips high"
+throwing-the-ball-against-the-wall-with-spin,throwing the ball against the wall with spin,Core,accessory,3,5-8,,,,5-8 throws each side,,/exercise-photos/throwing-the-ball-against-the-wall-with-spin/1.jpg | /exercise-photos/throwing-the-ball-against-the-wall-with-spin/2.jpg,0,"Muscles worked: Core, explosiveness, trunk rotators
+
+Dynamic movement from rotation, suitable for the end of training"
+throwing-the-ball-against-the-wall-from-the-front,Throwing the ball against the wall from the front,Shoulders,accessory,3,5-8,,,,5-8 throws,,/exercise-photos/throwing-the-ball-against-the-wall-from-the-front/1.jpg | /exercise-photos/throwing-the-ball-against-the-wall-from-the-front/2.jpg,0,"Muscles worked: Core + shoulders + timing
+
+Explosive involvement of the whole torso, breath in preparation"
+torso-rotation-with-weights-russian-twist,"Torso rotation (with weights), Russian twist",Other,accessory,3,10-16,,,,10-16 reps,,/exercise-photos/torso-rotation-with-weights-russian-twist/1.jpg | /exercise-photos/torso-rotation-with-weights-russian-twist/2.jpg | /exercise-photos/torso-rotation-with-weights-russian-twist/3.jpg,0,"Muscles worked: Oblique abdominal muscles
+
+Can also be performed with feet on the ground (for stability)"
+carrying-weights-farmer-s-walk,Carrying weights (farmer's walk),Core,accessory,3,,30.0,sec,,20–30 m / 30 s,,/exercise-photos/carrying-weights-farmer-s-walk/1.jpg | /exercise-photos/carrying-weights-farmer-s-walk/2.jpg,0,"Muscles worked: Abs, deep core, grip
+
+One-sided load, maintain an upright posture"
+abdominal-strengthening-with-a-wheel,Abdominal strengthening with a wheel,Core,accessory,3,8-12,,,,8-12 repetitions,,/exercise-photos/abdominal-strengthening-with-a-wheel/1.jpg | /exercise-photos/abdominal-strengthening-with-a-wheel/2.jpg,0,"Muscles worked: Rectus abdominis, deep core
+
+Challenging - start with only a small range of motion"
+trx-leg-pulls,TRX leg pulls,Shoulders,accessory,3,8-12,,,,8-12 repetitions,,/exercise-photos/trx-leg-pulls/1.jpg | /exercise-photos/trx-leg-pulls/2.jpg,0,"Muscles worked: Lower abdomen, shoulder stability
+
+Hold the tension in the abdomen, do not sag in the hips"
+climber,Climber,Other,accessory,2,,20.0,sec,,2×20–30 s,,/exercise-photos/climber/1.jpg | /exercise-photos/climber/2.jpg | /exercise-photos/climber/3.jpg,0,"Muscles worked: rectus abdominis, oblique abdominis, transverse abdominis
+
+Dynamic core exercise - alternately pull your knees under your chest. Don't raise your hips, keep the tension in your stomach. Activates the center of the body + increases heart rate."
+side-plank,Side plank,Other,accessory,3,,20.0,sec,,20–40 s each side,,/exercise-photos/side-plank/1.jpg | /exercise-photos/side-plank/2.jpg,0,"Muscles worked: Abdominal obliques, trunk stabilization
+
+Keep body level, hips up"
+weighted-side-bows,Weighted Side Bows,Other,accessory,3,10-12,,,,10-12 reps each side,,/exercise-photos/weighted-side-bows/1.jpg | /exercise-photos/weighted-side-bows/2.jpg,0,"Muscles worked: Abdominal obliques, quadratus lumborum
+
+Slowly, exhaling in the extreme position"
+ball-throw,Ball throw,Core,accessory,3,6-10,,,,6-10 repetitions,,/exercise-photos/ball-throw/1.jpg | /exercise-photos/ball-throw/2.jpg,0,"Muscles worked: Whole core, explosiveness, coordination
+
+Actively engage the abdominal muscles during the swing"
+paloff-pressures,Paloff pressures,Other,accessory,3,8-10,,,,8-10 reps each side,,/exercise-photos/paloff-pressures/1.jpg | /exercise-photos/paloff-pressures/2.jpg,0,"Muscles worked: Transversus, trunk stability
+
+Palms in front of the body, pulling the pulley into rotation"
+flag,Flag,Other,accessory,3,6-10,,,,6-10 repetitions,,/exercise-photos/flag/1.jpg | /exercise-photos/flag/2.jpg | /exercise-photos/flag/3.jpg,0,"Muscles worked: Rectus abdominis, oblique muscles
+
+Advanced, check the lumbar spine"
+inverted-shortcuts,Inverted Shortcuts,Core,accessory,3,10-15,,,,10-15 repetitions,,/exercise-photos/inverted-shortcuts/1.jpg | /exercise-photos/inverted-shortcuts/2.jpg,0,"Muscles worked: Lower abdomen
+
+Do not allow the trunk to sway"
+shortening-machines-kneel-on-the-pulley,Shortening machines kneel on the pulley,Other,accessory,3,10-15,,,,10-15 repetitions,,/exercise-photos/shortening-machines-kneel-on-the-pulley/1.jpg | /exercise-photos/shortening-machines-kneel-on-the-pulley/2.jpg,0,"Muscles worked: Rectus abdominis
+
+Do not move the pelvis, exhalation in the extreme phase"
+lehsedy-on-an-inclined-bench,Lehsedy on an inclined bench,Other,accessory,3,10-15,,,,10-15 repetitions,,/exercise-photos/lehsedy-on-an-inclined-bench/1.jpg | /exercise-photos/lehsedy-on-an-inclined-bench/2.jpg,0,"Muscles worked: Rectus abdominis
+
+Pay attention to the control of the pace of movement"
+moving-the-weight-in-the-plank-position,Moving the weight in the plank position,Core,accessory,3,10,,,,10 transfers per side,,/exercise-photos/moving-the-weight-in-the-plank-position/1.jpg | /exercise-photos/moving-the-weight-in-the-plank-position/2.jpg,0,"Muscles worked: Core + stability + asymmetry
+
+Move slowly - don't raise your hips"
+elbow-plank,Elbow plank,Core,accessory,3,,30.0,sec,,30–60 s,,/exercise-photos/elbow-plank/1.jpg | /exercise-photos/elbow-plank/2.jpg,0,"Muscles worked: Transversus, rectus abdominis, entire core
+
+Do not slouch, active exhalation into the abdomen"
+endurance-in-the-hollow-position,Endurance in the hollow position,Other,accessory,3,,20.0,sec,,20–40 s,,,,"Muscles worked: Rectus abdominis, trunk stability
+
+Advanced exercise - push your hips into the ground"
+tibialis-raises,Tibialis Raises,Other,accessory,3,10-15,,,,10-15 repetitions,,/exercise-photos/tibialis-raises/1.jpg | /exercise-photos/tibialis-raises/2.jpg,0,"This section contains a selection of exercises that may not be part of every training session, but are very important in specific situations – such as pain prevention, unilateral load compensation, or targeted activation of weakened muscles.
+
+🔹 They are suitable as:
+🧩 supplement to the main strength training (e.g. at the beginning or end of the lesson)
+🧩 part of rehabilitation or postural care
+🧩 targeted activation of muscles that the client does not normally ""feel""
+🧩 compensation for a sedentary lifestyle
+
+🛠 Each of these exercises has its specific place in training - if correctly included, it can significantly improve technique, stability and long-term performance.
+
+I recommend choosing according to the needs of a specific client - for some they will be ideal as part of a warm-up, for others as regeneration or targeted activation.
+
+Target area: Prevention of shin pain, strengthening of the front side of the lower leg
+
+Suitable for runners, with weak tibialis anterior. Slowly lift your toes, keeping your heels on the ground."
+exercise-with-a-rubber-band-on-your-fingers,Exercise with a rubber band on your fingers,Other,accessory,3,10-12,,,,10-12 repetitions,,/exercise-photos/exercise-with-a-rubber-band-on-your-fingers/1.jpg | /exercise-photos/exercise-with-a-rubber-band-on-your-fingers/2.jpg,0,"Target area: Activating the feet, improving arch control
+
+Spread your fingers against the resistance of the rubber band. Prevention of flat feet, suitable for people with hallux valgus, for example"
+stretching-the-fingers-without-an-aid,Stretching the fingers without an aid,Other,accessory,3,,10.0,sec,,10-15 s hold or 10 reps,,/exercise-photos/stretching-the-fingers-without-an-aid/1.jpg | /exercise-photos/stretching-the-fingers-without-an-aid/2.jpg,0,"Target area: Foot mobility and proprioception
+
+Toe awareness and activation – helps with arch elevation and stability while standing."
+seashells-activation,"Seashells, activation",Other,accessory,3,10-12,,,,10-12 reps on each side,,/exercise-photos/seashells-activation/1.jpg | /exercise-photos/seashells-activation/2.jpg,0,"Target area: Activation of the middle gluteal muscles
+
+Important for pelvic and knee stability, especially for women. Knees apart without pelvic rotation."
+bridge-glute-bridge,Bridge (glute bridge),Other,accessory,3,10-15,,,,10-15 repetitions,,/exercise-photos/bridge-glute-bridge/1.jpg | /exercise-photos/bridge-glute-bridge/2.jpg,0,"Target area: Activation of the buttocks and stability of the pelvis
+
+A basic exercise to engage the glutes before training the legs. Don't slouch at the hips."
+bridge-glute-bridge-on-one-leg,Bridge (glute bridge) on one leg,Other,accessory,3,6-8,,,,6-8 reps each leg,,/exercise-photos/bridge-glute-bridge-on-one-leg/1.jpg | /exercise-photos/bridge-glute-bridge-on-one-leg/2.jpg,0,"Target area: Asymmetric activation of the buttocks and hamstrings
+
+Keep the pelvis straight, the knee of the other leg extended. It can serve as an imbalance test."
+hang-on-the-trapeze-passive,Hang on the trapeze (passive),Other,accessory,3,,20.0,sec,,20–30 s,,/exercise-photos/hang-on-the-trapeze-passive/1.jpg | /exercise-photos/hang-on-the-trapeze-passive/2.jpg,0,"Target area: Release of the spine, shoulders, decompression
+
+Ideal after sitting, improves posture. Arms free, relax shoulder blades."
+hang-on-the-crossbar-active,Hang on the crossbar (active),Other,accessory,3,,10.0,sec,,10-15 seconds or 3-5 repetitions of the hold,,/exercise-photos/hang-on-the-crossbar-active/1.jpg | /exercise-photos/hang-on-the-crossbar-active/2.jpg,0,"Target area: Activation of shoulder blades, preparation for push-ups
+
+Lift your chest, pull your shoulder blades down and towards you. Teaches basic upper body control."
+chin-tuck-on-mat,Chin tuck on mat,Other,accessory,3,,20.0,sec,,6-8 reps or 20s hold,,/exercise-photos/chin-tuck-on-mat/1.jpg | /exercise-photos/chin-tuck-on-mat/2.jpg,0,"Target area: Postural correction of the head and neck
+
+Improves head and spine alignment. Suitable for slouching or neck pain. Do not push with force, just a slight backward movement of the chin."
+external-rotation-both-hands-at-the-same-time-with-strength-rubber,External rotation both hands at the same time with strength rubber,Other,accessory,3,2-3,,,,2-3 sets x 10-15 repetitions with slow and controlled movement,,,,"Target area: Activation of deep shoulder stabilizers (rotator cuff). It helps to improve the position of the shoulders, prevents overloading and injuries, especially in pulling and pressing exercises. Also suitable for a sedentary lifestyle.
+
+Include at the beginning of training as an activation and stabilization exercise before pulling or pressing exercises for the upper half of the body (e.g. push-ups, bench press). Don't use heavy resistance - the goal is control, not power."
+head-bows-stretching-of-the-upper-part-of-the-trapezius-muscle,"Head bows, Stretching of the upper part of the trapezius muscle",Full body,stretch,3,,20.0,sec,,20-30 seconds on each side,,/exercise-photos/head-bows-stretching-of-the-upper-part-of-the-trapezius-muscle/1.jpg,0,"Static stretching involves a slow, controlled stretch held in a given position, usually 30-60 seconds. Unlike a dynamic warm-up, the goal is not to prepare the body for performance, but rather to calm it down, relax overworked muscles and promote regeneration.
+
+💡 It is important to know that static stretching is not always necessary immediately after strength training. In many cases, it is more effective and pleasant to perform it later — for example, in the evening at home, or the next day as part of a recovery routine (eg after a walk, shower or mobilization exercises). This not only helps with muscle recovery, but also improves flexibility and prevents overuse.
+
+When to recommend static stretching:
+
+🧘‍♀️ when the client is extremely tight (e.g. hamstrings, hips, chest),
+🧘‍♀️as part of an evening routine or a day without strength training,
+🧘‍♀️after long sitting, traveling or one-sided load,
+🧘‍♀️ during the period of increased regeneration (e.g. after a demanding training block).
+
+Target area: Neck, back - relaxation of the upper back, prevention of neck pain
+
+Perform slowly, without pulling the head"
+approaching-the-chin-to-the-sternum,Approaching the chin to the sternum),Full body,stretch,3,,20.0,sec,,20–30 s,,/exercise-photos/approaching-the-chin-to-the-sternum/1.jpg,0,"Target area: Neck, back - relief for the cervical spine, stiff trapezius
+
+Can be combined with deep breathing"
+rotation-of-the-head-to-the-sides-with-a-sideways-look-up,Rotation of the head to the sides with a sideways look up,Full body,stretch,3,,20.0,sec,,20-30 seconds on each side,,/exercise-photos/rotation-of-the-head-to-the-sides-with-a-sideways-look-up/1.jpg,0,"Target area: Neck, back – stretching the oblique muscles of the neck and improving rotation
+
+Suitable for pain from working on the PC"
+shoulder-stretch,Shoulder stretch,Full body,stretch,3,,20.0,sec,,20-30 seconds on each side,,/exercise-photos/shoulder-stretch/1.jpg,0,"Target area: Shoulders – relief of tension in the shoulder girdle
+
+Active exhalation into the pose"
+stretching-the-pectoral-muscles-against-the-wall,Stretching the pectoral muscles against the wall,Full body,stretch,3,,20.0,sec,,20-30 seconds on each side,,/exercise-photos/stretching-the-pectoral-muscles-against-the-wall/1.jpg,0,"Target area: Chest - opening of the chest, support of correct posture
+
+Do not rotate the torso, only the shoulder"
+stretching-of-the-pectoral-muscles,Stretching of the pectoral muscles,Full body,stretch,3,,20.0,sec,,20–30 s,,/exercise-photos/stretching-of-the-pectoral-muscles/1.jpg,0,"Target area: Chest – alleviation of shortening, suitable after pressures
+
+Also suitable during the day by the wall"
+triceps-stretch,Triceps stretch,Full body,stretch,3,,20.0,sec,,20-30 s each hand,,/exercise-photos/triceps-stretch/1.jpg,0,"Target area: Triceps – relaxation of the back of the arm, prevention of withdrawal after push-ups
+
+The elbow points straight up"
+position-of-the-child,Position of the child,Full body,stretch,3,,30.0,sec,,30–60 s,,/exercise-photos/position-of-the-child/1.jpg,0,"Target area: Back – relaxation of the lumbar region and the entire torso
+
+Breathe freely, calm position"
+position-of-the-child-with-lateral-bending,Position of the child with lateral bending,Full body,stretch,3,,20.0,sec,,20-30 seconds on each side,,/exercise-photos/position-of-the-child-with-lateral-bending/1.jpg,0,"Target area: Back – lateral release of the torso, especially the broad back muscle
+
+Breathe into the side"
+hip-flexors,Hip flexors,Full body,stretch,3,,30.0,sec,,30 s each leg,,/exercise-photos/hip-flexors/1.jpg,0,"Target area: Front of thighs - prevention of shortening, important when sitting for a long time
+
+Pelvis low, torso upright"
+stretching-in-cobra,Stretching in cobra,Full body,stretch,3,,20.0,sec,,20–30 s,,/exercise-photos/stretching-in-cobra/1.jpg,0,"Target area: Abdomen/Core – gentle stretching of the abdominal muscles, mobility of the spine
+
+Don't tilt your head, breathe"
+inner-thighs-2,Inner thighs 2,Full body,stretch,3,,30.0,sec,,30–60 s,,/exercise-photos/inner-thighs-2/1.jpg,0,"Target area: Inner thighs - release of adductors, suitable after squats and lunges
+
+Straight spine, slight forward bending"
+cross-legged-seat-lean-forward-pancake,"Cross-legged seat
+lean forward, Pancake",Full body,stretch,3,,30.0,sec,,30 s,,/exercise-photos/cross-legged-seat-lean-forward-pancake/1.jpg,0,"Target area: Inner thighs - intensive stretching in a deeper range
+
+Don't hunch your back, rather breathe into the tension"
+quadriceps-lying-on-side,Quadriceps lying on side,Full body,stretch,3,,30.0,sec,,30 s each leg,,/exercise-photos/quadriceps-lying-on-side/1.jpg,0,"Target area: Front of thighs - release after squats, lunges, running
+
+Lower the pelvis, align the knees"
+stretching-the-back-on-the-ball,Stretching the back on the ball,Full body,stretch,3,,30.0,sec,,30–60 s,,/exercise-photos/stretching-the-back-on-the-ball/1.jpg,0,"Target area: Chest + spine mobility - release after pressure or a sedentary day
+
+Breathe freely, watch out for overloading the lumbar part"
+buttock-recumbent,Buttock recumbent,Full body,stretch,3,,30.0,sec,,30 s each side,,/exercise-photos/buttock-recumbent/1.jpg,0,"Target area: Back of thighs / buttocks - prevention of stiffness after lunges and squats
+
+Ankle over knee, push knee out"
+hamstring-stretch-with-the-help-of-a-belt-rubber-band,Hamstring stretch with the help of a belt/rubber band,Full body,stretch,3,,30.0,sec,,30 s each leg,,/exercise-photos/hamstring-stretch-with-the-help-of-a-belt-rubber-band/1.jpg,0,"Target area: Back of Thighs / Buttocks – improving flexibility and reducing the risk of injury
+
+Do not raise the pelvis, the heel is directed to the ceiling"
+standing-calf-stretch,Standing calf stretch,Full body,stretch,3,,30.0,sec,,30 s each leg,,/exercise-photos/standing-calf-stretch/1.jpg,0,"Target area: Calves - release after running, jumping or strength training
+
+Heels on the ground, body straight"
+calf-stretch-against-the-wall,Calf stretch against the wall,Full body,stretch,3,,30.0,sec,,30 s each leg,,/exercise-photos/calf-stretch-against-the-wall/1.jpg,0,"Target area: Calves - more intensive stretching with support
+
+Toes on the wall, heel on the ground"
+double-knee-shin-stretch,Double knee shin stretch,Full body,stretch,3,,20.0,sec,,20–30 s,,,,"Target area: Front of thighs / shins - suitable for runners or tendon overload
+
+More advanced, not for everyone - pay attention to the knee joints"
