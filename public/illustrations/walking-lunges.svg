@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="16" fill="#ecfdf5"/>
+  <circle cx="45" cy="35" r="7" fill="#334155"/>
+  <line x1="45" y1="42" x2="45" y2="58" stroke="#334155" stroke-width="3"/>
+  <line x1="45" y1="48" x2="38" y2="55" stroke="#334155" stroke-width="2"/>
+  <line x1="45" y1="48" x2="52" y2="55" stroke="#334155" stroke-width="2"/>
+  <rect x="34" y="52" width="6" height="8" rx="1" fill="#10b981"/>
+  <rect x="50" y="52" width="6" height="8" rx="1" fill="#10b981"/>
+  <line x1="45" y1="58" x2="55" y2="75" stroke="#334155" stroke-width="3"/>
+  <line x1="55" y1="75" x2="55" y2="92" stroke="#334155" stroke-width="3"/>
+  <line x1="55" y1="58" x2="55" y2="42" stroke="#334155" stroke-width="3" stroke-dasharray="4 3"/>
+  <line x1="55" y1="75" x2="70" y2="92" stroke="#334155" stroke-width="3"/>
+  <circle cx="70" cy="55" r="5" fill="#334155" opacity="0.5"/>
+  <text x="60" y="112" text-anchor="middle" fill="#64748b" font-size="7" font-family="system-ui">Lunges</text>
+</svg>

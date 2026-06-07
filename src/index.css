@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+  min-height: 100dvh;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+input[type='range'] {
+  @apply accent-emerald-500;
+}
+
+input[type='date'] {
+  -webkit-appearance: none;
+  appearance: none;
+  max-width: 100%;
+}

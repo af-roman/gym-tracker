@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="16" fill="#ecfdf5"/>
+  <circle cx="60" cy="28" r="8" fill="#334155"/>
+  <line x1="60" y1="36" x2="60" y2="55" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+  <line x1="60" y1="42" x2="48" y2="52" stroke="#334155" stroke-width="3"/>
+  <line x1="60" y1="42" x2="72" y2="52" stroke="#334155" stroke-width="3"/>
+  <rect x="44" y="48" width="8" height="10" rx="2" fill="#10b981"/>
+  <rect x="68" y="48" width="8" height="10" rx="2" fill="#10b981"/>
+  <line x1="60" y1="55" x2="58" y2="75" stroke="#334155" stroke-width="4"/>
+  <line x1="58" y1="75" x2="55" y2="95" stroke="#334155" stroke-width="3"/>
+  <line x1="60" y1="55" x2="62" y2="95" stroke="#334155" stroke-width="3"/>
+  <path d="M55 55 Q70 70 62 95" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="3 2"/>
+  <text x="60" y="112" text-anchor="middle" fill="#64748b" font-size="7" font-family="system-ui">RDL</text>
+</svg>
