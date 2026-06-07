@@ -63,48 +63,41 @@ export function ExercisePhotoPicker({
     <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
       <span className="text-sm font-medium">Instruction photos</span>
       <p className="mt-1 text-xs text-slate-500">
-        Add up to 3 step-by-step photos. Choose one as the exercise thumbnail.
+        Add up to 3 step-by-step photos. Tap a photo to set it as the thumbnail.
       </p>
 
       <div className="mt-3 grid grid-cols-3 gap-2">
         {photos.map((photo, index) => (
           <div key={index} className="flex flex-col gap-1">
-            <div className="relative aspect-square overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+            <button
+              type="button"
+              onClick={() => onChange(photos, index)}
+              className={`relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 ${
+                thumbnailIndex === index
+                  ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900'
+                  : ''
+              }`}
+              aria-label={`Set step ${index + 1} as thumbnail`}
+              aria-pressed={thumbnailIndex === index}
+            >
               <img
                 src={instructionPhotoSrc(photo)}
                 alt={`Step ${index + 1}`}
-                className={`h-full w-full object-cover ${
-                  thumbnailIndex === index
-                    ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900'
-                    : ''
-                }`}
+                className="h-full w-full object-cover"
               />
               {thumbnailIndex === index && (
                 <span className="absolute left-1 top-1 rounded bg-emerald-600 px-1.5 py-0.5 text-[10px] font-semibold text-white">
                   Thumb
                 </span>
               )}
-            </div>
-            <div className="flex gap-1">
-              <button
-                type="button"
-                onClick={() => onChange(photos, index)}
-                className={`flex-1 rounded-lg px-1 py-1 text-[10px] font-medium ${
-                  thumbnailIndex === index
-                    ? 'bg-emerald-600 text-white'
-                    : 'border border-slate-200 dark:border-slate-700'
-                }`}
-              >
-                Thumbnail
-              </button>
-              <button
-                type="button"
-                onClick={() => removePhoto(index)}
-                className="rounded-lg border border-red-200 px-1 py-1 text-[10px] font-medium text-red-600 dark:border-red-900 dark:text-red-400"
-              >
-                Remove
-              </button>
-            </div>
+            </button>
+            <button
+              type="button"
+              onClick={() => removePhoto(index)}
+              className="w-full rounded-lg border border-red-200 px-1 py-1 text-[10px] font-medium text-red-600 dark:border-red-900 dark:text-red-400"
+            >
+              Remove
+            </button>
           </div>
         ))}
 

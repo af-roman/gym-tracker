@@ -6,29 +6,29 @@ export const MAX_INSTRUCTION_PHOTOS = 3
 export const MAX_INSTRUCTION_PHOTO_BYTES = 2 * 1024 * 1024
 
 export const MUSCLE_GROUPS = [
-  'Legs',
-  'Chest',
-  'Back',
-  'Shoulders',
   'Arms',
+  'Back',
+  'Chest',
   'Core',
   'Full body',
+  'Legs',
   'Other',
+  'Shoulders',
 ]
 
 export const EXERCISE_TYPES: { value: ExerciseType; label: string }[] = [
-  { value: 'squat', label: 'Squat' },
-  { value: 'hinge', label: 'Hinge' },
-  { value: 'horizontal-push', label: 'Horizontal push' },
-  { value: 'horizontal-pull', label: 'Horizontal pull' },
-  { value: 'vertical-push', label: 'Vertical push' },
-  { value: 'vertical-pull', label: 'Vertical pull' },
   { value: 'accessory', label: 'Accessory' },
-  { value: 'core', label: 'Core' },
   { value: 'cardio', label: 'Cardio' },
-  { value: 'stretch', label: 'Stretch' },
+  { value: 'core', label: 'Core' },
+  { value: 'hinge', label: 'Hinge' },
+  { value: 'horizontal-pull', label: 'Horizontal pull' },
+  { value: 'horizontal-push', label: 'Horizontal push' },
   { value: 'joint-mobility', label: 'Joint mobility' },
   { value: 'roller-massage', label: 'Roller massage' },
+  { value: 'squat', label: 'Squat' },
+  { value: 'stretch', label: 'Stretch' },
+  { value: 'vertical-pull', label: 'Vertical pull' },
+  { value: 'vertical-push', label: 'Vertical push' },
 ]
 
 export const DURATION_UNITS: DurationUnit[] = ['sec', 'min']

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface PhotoLightboxProps {
   photos: string[]
@@ -7,12 +7,16 @@ interface PhotoLightboxProps {
   onChangeIndex: (index: number) => void
 }
 
+const SWIPE_THRESHOLD_PX = 50
+
 export function PhotoLightbox({
   photos,
   index,
   onClose,
   onChangeIndex,
 }: PhotoLightboxProps) {
+  const touchStartX = useRef<number | null>(null)
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
@@ -28,6 +32,23 @@ export function PhotoLightbox({
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [index, onChangeIndex, onClose, photos.length])
+
+  const handleTouchStart = (clientX: number) => {
+    touchStartX.current = clientX
+  }
+
+  const handleTouchEnd = (clientX: number) => {
+    if (touchStartX.current === null) return
+    const delta = clientX - touchStartX.current
+    touchStartX.current = null
+
+    if (Math.abs(delta) < SWIPE_THRESHOLD_PX) return
+    if (delta < 0 && index < photos.length - 1) {
+      onChangeIndex(index + 1)
+    } else if (delta > 0 && index > 0) {
+      onChangeIndex(index - 1)
+    }
+  }
 
   return (
     <div
@@ -51,35 +72,18 @@ export function PhotoLightbox({
       </div>
 
       <div
-        className="flex flex-1 items-center justify-center px-4 pb-6"
+        className="flex flex-1 touch-pan-y items-center justify-center px-4 pb-6"
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => handleTouchStart(e.touches[0].clientX)}
+        onTouchEnd={(e) => handleTouchEnd(e.changedTouches[0].clientX)}
       >
-        {index > 0 && (
-          <button
-            type="button"
-            onClick={() => onChangeIndex(index - 1)}
-            className="mr-2 shrink-0 rounded-full bg-white/10 px-3 py-2 text-white"
-            aria-label="Previous photo"
-          >
-            ‹
-          </button>
-        )}
         <img
           src={photos[index]}
           alt={`Step ${index + 1}`}
-          className="max-h-[80vh] max-w-full rounded-xl object-contain"
+          className="max-h-[80vh] max-w-full select-none rounded-xl object-contain"
+          draggable={false}
           onClick={onClose}
         />
-        {index < photos.length - 1 && (
-          <button
-            type="button"
-            onClick={() => onChangeIndex(index + 1)}
-            className="ml-2 shrink-0 rounded-full bg-white/10 px-3 py-2 text-white"
-            aria-label="Next photo"
-          >
-            ›
-          </button>
-        )}
       </div>
     </div>
   )

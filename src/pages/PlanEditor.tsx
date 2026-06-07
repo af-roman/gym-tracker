@@ -453,29 +453,42 @@ export function PlanEditor() {
         {plans.map((plan) => (
           <div
             key={plan.id}
-            className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+            role="button"
+            tabIndex={0}
+            onClick={() => setEditing(plan)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                setEditing(plan)
+              }
+            }}
+            className="flex cursor-pointer items-start gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-emerald-300 hover:bg-emerald-50/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/20"
           >
-            <h2 className="font-bold">{plan.name}</h2>
-            <p className="text-sm text-slate-500">{plan.description}</p>
-            <p className="mt-1 text-xs text-slate-400">
-              {plan.exercises.length} exercises
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="min-w-0 flex-1">
+              <h2 className="font-bold">{plan.name}</h2>
+              <p className="text-sm text-slate-500">{plan.description}</p>
+              <p className="mt-1 text-xs text-slate-400">
+                {plan.exercises.length} exercises
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-2">
               <button
-                onClick={() => setEditing(plan)}
-                className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium dark:border-slate-700"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => duplicatePlan(plan)}
-                className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium dark:border-slate-700"
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  duplicatePlan(plan)
+                }}
+                className="rounded-xl border border-slate-200 px-3 py-1.5 text-sm dark:border-slate-700"
               >
                 Duplicate
               </button>
               <button
-                onClick={() => removePlan(plan)}
-                className="rounded-xl border border-red-200 px-4 py-2 text-sm font-medium text-red-600 dark:border-red-900 dark:text-red-400"
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  removePlan(plan)
+                }}
+                className="rounded-xl border border-red-200 px-3 py-1.5 text-sm text-red-600 dark:border-red-900 dark:text-red-400"
               >
                 Delete
               </button>

@@ -74,9 +74,9 @@ export function SetLogger({
                 <button
                   type="button"
                   onClick={() => removeSet(index)}
-                  className="text-sm font-medium text-red-500"
+                  className="rounded-xl border border-red-200 px-3 py-1.5 text-sm text-red-600 dark:border-red-900 dark:text-red-400"
                 >
-                  Remove
+                  Delete
                 </button>
               )}
             </div>
