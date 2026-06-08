@@ -1,4 +1,4 @@
-import { useEffect, useState, type DragEvent } from 'react'
+import { Fragment, useEffect, useRef, useState, type PointerEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
@@ -9,42 +9,113 @@ import {
   resolveExerciseType,
 } from '../lib/exercises'
 
-function startExerciseRowDrag(
-  event: DragEvent<HTMLButtonElement>,
-  index: number,
-  onStart: (index: number) => void,
-) {
-  onStart(index)
-  const row = event.currentTarget.closest('[data-exercise-row]') as
-    | HTMLElement
-    | null
-  if (!row || !event.dataTransfer) return
+const AUTO_SCROLL_EDGE_PX = 72
+const AUTO_SCROLL_MAX_SPEED = 16
+const GHOST_GRAB_OFFSET_Y = 36
+const POINTER_LISTENER_OPTS = { capture: true, passive: false } as const
 
-  const clone = row.cloneNode(true) as HTMLElement
-  clone.setAttribute('data-drag-clone', 'true')
-  clone.style.position = 'fixed'
-  clone.style.top = '-10000px'
-  clone.style.left = '0'
-  clone.style.width = `${row.offsetWidth}px`
-  clone.style.opacity = '0.95'
-  clone.style.pointerEvents = 'none'
-  clone.style.boxShadow = '0 16px 40px rgba(15, 23, 42, 0.18)'
-  document.body.appendChild(clone)
-
-  const rowRect = row.getBoundingClientRect()
-  const handleRect = event.currentTarget.getBoundingClientRect()
-  const offsetX = handleRect.left - rowRect.left + handleRect.width / 2
-  const offsetY = rowRect.height / 2
-
-  event.dataTransfer.effectAllowed = 'move'
-  event.dataTransfer.setData('text/plain', String(index))
-  event.dataTransfer.setDragImage(clone, offsetX, offsetY)
+function clearTextSelection() {
+  window.getSelection()?.removeAllRanges()
 }
 
-function clearExerciseRowDragPreview() {
-  document
-    .querySelectorAll('[data-drag-clone]')
-    .forEach((element) => element.remove())
+/**
+ * Insert slot 0..n in the full list (before row i = slot i, after last row = slot n).
+ * Pointer in the top half of a row (or gap above it) → slot = row index.
+ * Pointer in the bottom half (or gap below) → slot = row index + 1.
+ */
+function findInsertSlot(
+  listEl: HTMLElement,
+  clientY: number,
+  rowCount: number,
+): number {
+  if (rowCount === 0) return 0
+
+  const rows = Array.from(
+    listEl.querySelectorAll<HTMLElement>('[data-exercise-row]'),
+  )
+    .map((row) => ({
+      index: parseInt(row.dataset.rowIndex ?? '-1', 10),
+      rect: row.getBoundingClientRect(),
+    }))
+    .filter((row) => row.index >= 0 && row.rect.height > 0)
+    .sort((a, b) => a.index - b.index)
+
+  if (rows.length === 0) return rowCount
+
+  for (const { index, rect } of rows) {
+    const midY = rect.top + rect.height / 2
+    if (clientY < midY) {
+      return index
+    }
+  }
+
+  return rowCount
+}
+
+function insertSlotToIndex(
+  insertSlot: number,
+  fromIndex: number,
+  rowCount: number,
+): number {
+  if (rowCount === 0) return 0
+  if (insertSlot >= rowCount) return rowCount - 1
+  return insertSlot > fromIndex ? insertSlot - 1 : insertSlot
+}
+
+/** Slots dragIndex and dragIndex+1 share one visual gap while the row is lifted. */
+function normalizeInsertSlot(
+  slot: number,
+  dragIndex: number,
+  rowCount: number,
+): number {
+  if (slot === dragIndex + 1 && slot < rowCount) {
+    return dragIndex
+  }
+  return slot
+}
+
+function createDragGhost(
+  row: HTMLElement,
+  clientX: number,
+  clientY: number,
+): HTMLElement {
+  const clone = row.cloneNode(true) as HTMLElement
+  clone.setAttribute('data-drag-ghost', 'true')
+  clone.querySelectorAll('input, select, textarea, button').forEach((el) => {
+    el.remove()
+  })
+
+  const rect = row.getBoundingClientRect()
+  clone.style.position = 'fixed'
+  clone.style.left = '0'
+  clone.style.top = '0'
+  clone.style.width = `${rect.width}px`
+  clone.style.zIndex = '9999'
+  clone.style.pointerEvents = 'none'
+  clone.style.opacity = '0.95'
+  clone.style.boxShadow = '0 16px 40px rgba(15, 23, 42, 0.22)'
+  clone.style.transform = `translate(${clientX - rect.width / 2}px, ${clientY - GHOST_GRAB_OFFSET_Y}px)`
+
+  document.body.appendChild(clone)
+  return clone
+}
+
+function updateDragGhost(
+  ghost: HTMLElement,
+  clientX: number,
+  clientY: number,
+  width: number,
+) {
+  ghost.style.transform = `translate(${clientX - width / 2}px, ${clientY - GHOST_GRAB_OFFSET_Y}px)`
+}
+
+function DropPlaceholder() {
+  return (
+    <div
+      className="flex min-h-[4.5rem] items-center justify-center rounded-2xl border-2 border-dashed border-emerald-400 bg-emerald-50/60 transition-[height,opacity,margin] duration-150 ease-out dark:border-emerald-700 dark:bg-emerald-950/30 motion-reduce:transition-none"
+      aria-hidden
+    />
+  )
 }
 
 export function PlanEditor() {
@@ -53,7 +124,98 @@ export function PlanEditor() {
   const [editing, setEditing] = useState<WorkoutPlan | null>(null)
   const [saving, setSaving] = useState(false)
   const [dragIndex, setDragIndex] = useState<number | null>(null)
-  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
+  const [insertSlot, setInsertSlot] = useState<number | null>(null)
+
+  const dragIndexRef = useRef<number | null>(null)
+  const insertSlotRef = useRef<number | null>(null)
+  const rowCountRef = useRef(0)
+  const exerciseListRef = useRef<HTMLDivElement>(null)
+  const dragGhostRef = useRef<HTMLElement | null>(null)
+  const ghostWidthRef = useRef(0)
+  const lastPointerRef = useRef({ x: 0, y: 0 })
+  const autoScrollRafRef = useRef<number | null>(null)
+  const scrollLockRef = useRef<{ body: string; html: string } | null>(null)
+  const pointerSessionRef = useRef<{
+    moveHandler: (event: globalThis.PointerEvent) => void
+    upHandler: (event: globalThis.PointerEvent) => void
+    cancelHandler: (event: globalThis.PointerEvent) => void
+    captureTarget: HTMLElement | null
+    pointerId: number
+  } | null>(null)
+
+  const lockPageScroll = () => {
+    if (scrollLockRef.current) return
+    scrollLockRef.current = {
+      body: document.body.style.touchAction,
+      html: document.documentElement.style.touchAction,
+    }
+    document.body.style.touchAction = 'none'
+    document.documentElement.style.touchAction = 'none'
+  }
+
+  const unlockPageScroll = () => {
+    if (!scrollLockRef.current) return
+    document.body.style.touchAction = scrollLockRef.current.body
+    document.documentElement.style.touchAction = scrollLockRef.current.html
+    scrollLockRef.current = null
+  }
+
+  const removeDragGhost = () => {
+    dragGhostRef.current?.remove()
+    dragGhostRef.current = null
+    ghostWidthRef.current = 0
+  }
+
+  const stopAutoScroll = () => {
+    if (autoScrollRafRef.current !== null) {
+      cancelAnimationFrame(autoScrollRafRef.current)
+      autoScrollRafRef.current = null
+    }
+  }
+
+  const updateDropTarget = (clientY: number) => {
+    const list = exerciseListRef.current
+    if (!list || dragIndexRef.current === null) return
+
+    const slot = normalizeInsertSlot(
+      findInsertSlot(list, clientY, rowCountRef.current),
+      dragIndexRef.current,
+      rowCountRef.current,
+    )
+    if (insertSlotRef.current !== slot) {
+      insertSlotRef.current = slot
+      setInsertSlot(slot)
+    }
+  }
+
+  const startAutoScrollLoop = () => {
+    const tick = () => {
+      if (dragIndexRef.current === null) {
+        stopAutoScroll()
+        return
+      }
+
+      const { y } = lastPointerRef.current
+      if (y < AUTO_SCROLL_EDGE_PX) {
+        const speed =
+          ((AUTO_SCROLL_EDGE_PX - y) / AUTO_SCROLL_EDGE_PX) *
+          AUTO_SCROLL_MAX_SPEED
+        window.scrollBy(0, -speed)
+      } else if (y > window.innerHeight - AUTO_SCROLL_EDGE_PX) {
+        const speed =
+          ((y - (window.innerHeight - AUTO_SCROLL_EDGE_PX)) /
+            AUTO_SCROLL_EDGE_PX) *
+          AUTO_SCROLL_MAX_SPEED
+        window.scrollBy(0, speed)
+      }
+
+      updateDropTarget(lastPointerRef.current.y)
+      autoScrollRafRef.current = requestAnimationFrame(tick)
+    }
+
+    stopAutoScroll()
+    autoScrollRafRef.current = requestAnimationFrame(tick)
+  }
 
   const load = async () => {
     setPlans(await db.workoutPlans.toArray())
@@ -63,6 +225,38 @@ export function PlanEditor() {
   useEffect(() => {
     load()
   }, [])
+
+  const cancelPointerSession = () => {
+    const session = pointerSessionRef.current
+    if (session) {
+      window.removeEventListener(
+        'pointermove',
+        session.moveHandler,
+        POINTER_LISTENER_OPTS,
+      )
+      window.removeEventListener(
+        'pointerup',
+        session.upHandler,
+        POINTER_LISTENER_OPTS,
+      )
+      window.removeEventListener(
+        'pointercancel',
+        session.cancelHandler,
+        POINTER_LISTENER_OPTS,
+      )
+      if (
+        session.captureTarget?.hasPointerCapture(session.pointerId)
+      ) {
+        session.captureTarget.releasePointerCapture(session.pointerId)
+      }
+      pointerSessionRef.current = null
+    }
+    unlockPageScroll()
+    stopAutoScroll()
+    removeDragGhost()
+  }
+
+  useEffect(() => () => cancelPointerSession(), [])
 
   const startNewPlan = () => {
     setEditing({
@@ -172,6 +366,116 @@ export function PlanEditor() {
     setEditing({ ...editing, exercises: next })
   }
 
+  const endReorder = (
+    fromIndex: number | null,
+    slot: number | null,
+    rowCount: number,
+  ) => {
+    cancelPointerSession()
+    if (fromIndex !== null && slot !== null) {
+      const toIndex = insertSlotToIndex(slot, fromIndex, rowCount)
+      reorderExercises(fromIndex, toIndex)
+    }
+    dragIndexRef.current = null
+    insertSlotRef.current = null
+    setDragIndex(null)
+    setInsertSlot(null)
+  }
+
+  const startDragFromHandle = (
+    event: PointerEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    if (dragIndexRef.current !== null) return
+    if (event.button !== 0) return
+
+    event.preventDefault()
+    event.stopPropagation()
+    clearTextSelection()
+
+    cancelPointerSession()
+    lockPageScroll()
+
+    const captureTarget = event.currentTarget
+    const pointerId = event.pointerId
+    lastPointerRef.current = { x: event.clientX, y: event.clientY }
+
+    const row = captureTarget.closest('[data-exercise-row]') as HTMLElement | null
+    if (row) {
+      const rect = row.getBoundingClientRect()
+      ghostWidthRef.current = rect.width
+      removeDragGhost()
+      dragGhostRef.current = createDragGhost(
+        row,
+        event.clientX,
+        event.clientY,
+      )
+    }
+
+    rowCountRef.current = editing?.exercises.length ?? 0
+
+    dragIndexRef.current = index
+    insertSlotRef.current = index
+    setDragIndex(index)
+    setInsertSlot(index)
+    startAutoScrollLoop()
+
+    try {
+      captureTarget.setPointerCapture(pointerId)
+    } catch {
+      // Pointer capture may fail on some browsers; fall back to window listeners.
+    }
+
+    const moveHandler = (ev: globalThis.PointerEvent) => {
+      if (ev.pointerId !== pointerId) return
+
+      lastPointerRef.current = { x: ev.clientX, y: ev.clientY }
+      ev.preventDefault()
+      ev.stopPropagation()
+      clearTextSelection()
+
+      if (dragGhostRef.current) {
+        updateDragGhost(
+          dragGhostRef.current,
+          ev.clientX,
+          ev.clientY,
+          ghostWidthRef.current,
+        )
+      }
+      updateDropTarget(ev.clientY)
+    }
+
+    const upHandler = (ev: globalThis.PointerEvent) => {
+      if (ev.pointerId !== pointerId) return
+      endReorder(
+        dragIndexRef.current,
+        insertSlotRef.current,
+        rowCountRef.current,
+      )
+    }
+
+    const cancelHandler = (ev: globalThis.PointerEvent) => {
+      if (ev.pointerId !== pointerId) return
+      // Ignore pointercancel during an active drag — mobile browsers often
+      // fire it when scroll is attempted; we block scroll via touch-action.
+    }
+
+    pointerSessionRef.current = {
+      moveHandler,
+      upHandler,
+      cancelHandler,
+      captureTarget,
+      pointerId,
+    }
+    window.addEventListener('pointermove', moveHandler, POINTER_LISTENER_OPTS)
+    window.addEventListener('pointerup', upHandler, POINTER_LISTENER_OPTS)
+    window.addEventListener(
+      'pointercancel',
+      cancelHandler,
+      POINTER_LISTENER_OPTS,
+    )
+  }
+
   if (editing) {
     return (
       <div>
@@ -213,61 +517,64 @@ export function PlanEditor() {
         <p className="mb-3 text-xs text-slate-500">
           Drag the handle to reorder exercises
         </p>
-        <div className="space-y-3">
+        <div ref={exerciseListRef} className="flex flex-col gap-3">
           {editing.exercises.map((pe, index) => {
             const template = exercises.find((e) => e.id === pe.exerciseId)
             const type = template ? resolveExerciseType(template) : 'accessory'
             const durationType = isDurationExerciseType(type)
             const isDragging = dragIndex === index
-            const isDragOver = dragOverIndex === index && dragIndex !== index
+            const showPlaceholder =
+              dragIndex !== null && insertSlot === index
 
             return (
+            <Fragment key={`${pe.exerciseId}-${index}`}>
+              {showPlaceholder && <DropPlaceholder />}
+            {!isDragging && (
             <div
-              key={`${pe.exerciseId}-${index}`}
               data-exercise-row
-              onDragOver={(e) => {
-                e.preventDefault()
-                setDragOverIndex(index)
-              }}
-              onDragLeave={() => {
-                if (dragOverIndex === index) setDragOverIndex(null)
-              }}
-              onDrop={(e) => {
-                e.preventDefault()
-                if (dragIndex !== null) reorderExercises(dragIndex, index)
-                clearExerciseRowDragPreview()
-                setDragIndex(null)
-                setDragOverIndex(null)
-              }}
-              className={`flex overflow-hidden rounded-2xl border transition-colors dark:border-slate-800 ${
-                isDragOver
-                  ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
-                  : 'border-slate-200'
-              } ${isDragging ? 'opacity-50' : ''}`}
+              data-row-index={index}
+              className="flex overflow-hidden rounded-2xl border border-slate-200 bg-white transition-[transform,opacity] duration-150 ease-out dark:border-slate-800 dark:bg-slate-900 motion-reduce:transition-none"
             >
               <div className="min-w-0 flex-1 p-4">
-              {template && (
-                <p className="mb-2 text-xs text-slate-500">
-                  {formatExerciseMeta(template)}
-                </p>
-              )}
+              <div className="mb-2 flex items-start justify-between gap-2">
+                {template ? (
+                  <p className="text-xs text-slate-500">
+                    {formatExerciseMeta(template)}
+                  </p>
+                ) : (
+                  <span />
+                )}
+                <button
+                  type="button"
+                  onClick={() => removeExercise(index)}
+                  className="shrink-0 rounded-lg border border-red-200 px-2 py-0.5 text-xs text-red-600 dark:border-red-900 dark:text-red-400"
+                >
+                  Delete
+                </button>
+              </div>
               <label className="mb-2 block">
                 <span className="text-xs font-medium text-slate-500">
                   Exercise
                 </span>
-                <select
-                  value={pe.exerciseId}
-                  onChange={(e) =>
-                    updateExerciseInPlan(index, 'exerciseId', e.target.value)
-                  }
-                  className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 dark:border-slate-700 dark:bg-slate-900"
-                >
-                  {exercises.map((ex) => (
-                    <option key={ex.id} value={ex.id}>
-                      {ex.name}
-                    </option>
-                  ))}
-                </select>
+                {dragIndex !== null ? (
+                  <div className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900">
+                    {template?.name ?? 'Exercise'}
+                  </div>
+                ) : (
+                  <select
+                    value={pe.exerciseId}
+                    onChange={(e) =>
+                      updateExerciseInPlan(index, 'exerciseId', e.target.value)
+                    }
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 dark:border-slate-700 dark:bg-slate-900"
+                  >
+                    {exercises.map((ex) => (
+                      <option key={ex.id} value={ex.id}>
+                        {ex.name}
+                      </option>
+                    ))}
+                  </select>
+                )}
               </label>
               <div className="grid grid-cols-3 gap-3">
                 <label className="block">
@@ -364,31 +671,22 @@ export function PlanEditor() {
                   </>
                 )}
               </div>
-              <button
-                onClick={() => removeExercise(index)}
-                className="mt-2 text-sm text-red-500"
-              >
-                Remove
-              </button>
               </div>
               <button
                 type="button"
-                draggable
-                onDragStart={(e) =>
-                  startExerciseRowDrag(e, index, setDragIndex)
-                }
-                onDragEnd={() => {
-                  clearExerciseRowDragPreview()
-                  setDragIndex(null)
-                  setDragOverIndex(null)
-                }}
+                onPointerDown={(e) => startDragFromHandle(e, index)}
+                style={{ touchAction: 'none' }}
                 className="flex w-11 shrink-0 cursor-grab touch-none items-center justify-center self-stretch border-l border-slate-200 bg-slate-50 text-slate-400 active:cursor-grabbing dark:border-slate-700 dark:bg-slate-800/50"
                 aria-label={`Reorder ${template?.name ?? 'exercise'}`}
               >
                 ⠿
               </button>
             </div>
+            )}
+            </Fragment>
           )})}
+          {dragIndex !== null &&
+            insertSlot === editing.exercises.length && <DropPlaceholder />}
         </div>
 
         <button

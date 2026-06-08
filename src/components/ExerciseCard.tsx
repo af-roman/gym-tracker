@@ -8,6 +8,7 @@ interface ExerciseCardProps {
   planExercise: PlanExercise
   completed: boolean
   sessionId: number
+  swappedFromName?: string
 }
 
 export function ExerciseCard({
@@ -15,6 +16,7 @@ export function ExerciseCard({
   planExercise,
   completed,
   sessionId,
+  swappedFromName,
 }: ExerciseCardProps) {
   return (
     <Link
@@ -39,6 +41,11 @@ export function ExerciseCard({
           {formatPlanTarget(exercise, planExercise)}
         </p>
         <p className="text-xs text-slate-400">{formatExerciseMeta(exercise)}</p>
+        {swappedFromName && (
+          <p className="mt-0.5 text-xs text-amber-700 dark:text-amber-400">
+            Swapped from {swappedFromName}
+          </p>
+        )}
       </div>
       <span className="text-slate-400">›</span>
     </Link>

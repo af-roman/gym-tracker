@@ -11,6 +11,8 @@ import { Dashboard } from './pages/Dashboard'
 import { BodyMetrics } from './pages/BodyMetrics'
 import { PlanEditor } from './pages/PlanEditor'
 import { ExerciseManager } from './pages/ExerciseManager'
+import { WorkoutHistory } from './pages/WorkoutHistory'
+import { WorkoutRecord } from './pages/WorkoutRecord'
 
 function App() {
   const [ready, setReady] = useState(false)
@@ -44,6 +46,8 @@ function App() {
           />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/metrics" element={<BodyMetrics />} />
+          <Route path="/history" element={<WorkoutHistory />} />
+          <Route path="/history/:sessionId" element={<WorkoutRecord />} />
           <Route path="/plans" element={<PlanEditor />} />
           <Route path="/plans/exercises" element={<ExerciseManager />} />
         </Routes>

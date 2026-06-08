@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react'
 import { db } from '../db/schema'
 import type { Exercise } from '../db/schema'
+import { MuscleGroupRadarChart } from '../components/MuscleGroupRadarChart'
 import { ProgressChart } from '../components/ProgressChart'
-import { getExerciseProgress } from '../lib/progress'
+import { getExerciseProgress, getMuscleGroupStats } from '../lib/progress'
+import type { MuscleGroupStat } from '../lib/progress'
 import { exportAllData, importAllData } from '../lib/export'
 
-type Tab = 'lifts' | 'body'
+type Tab = 'exercises' | 'body'
+
+const TABS: { id: Tab; label: string }[] = [
+  { id: 'exercises', label: 'Exercises' },
+  { id: 'body', label: 'Body' },
+]
 
 export function Dashboard() {
-  const [tab, setTab] = useState<Tab>('lifts')
+  const [tab, setTab] = useState<Tab>('exercises')
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [selectedExercise, setSelectedExercise] = useState('')
   const [liftData, setLiftData] = useState<
@@ -17,6 +24,7 @@ export function Dashboard() {
   const [bodyData, setBodyData] = useState<
     { date: string; weightKg: number; waistCm: number }[]
   >([])
+  const [muscleGroupData, setMuscleGroupData] = useState<MuscleGroupStat[]>([])
 
   useEffect(() => {
     async function load() {
@@ -36,6 +44,7 @@ export function Dashboard() {
             waistCm: m.waistCm ?? 0,
           })),
       )
+      setMuscleGroupData(await getMuscleGroupStats())
     }
     load()
   }, [])
@@ -83,27 +92,29 @@ export function Dashboard() {
     <div>
       <h1 className="mb-2 text-2xl font-bold">Progress</h1>
       <p className="mb-6 text-sm text-slate-500">
-        Track your lifts and body metrics over time
+        Track your exercises and body metrics over time
       </p>
 
       <div className="mb-6 flex rounded-xl bg-slate-100 p-1 dark:bg-slate-800">
-        {(['lifts', 'body'] as Tab[]).map((t) => (
+        {TABS.map((t) => (
           <button
-            key={t}
-            onClick={() => setTab(t)}
-            className={`flex-1 rounded-lg py-2 text-sm font-medium capitalize transition-colors ${
-              tab === t
+            key={t.id}
+            onClick={() => setTab(t.id)}
+            className={`flex-1 rounded-lg py-2 text-sm font-medium transition-colors ${
+              tab === t.id
                 ? 'bg-white text-emerald-700 shadow dark:bg-slate-900 dark:text-emerald-400'
                 : 'text-slate-500'
             }`}
           >
-            {t}
+            {t.label}
           </button>
         ))}
       </div>
 
-      {tab === 'lifts' && (
+      {tab === 'exercises' && (
         <>
+          <MuscleGroupRadarChart data={muscleGroupData} />
+
           <label className="mb-4 block">
             <span className="text-sm font-medium">Exercise</span>
             <select

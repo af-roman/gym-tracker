@@ -3,11 +3,13 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, SetLog, WorkoutPlan } from '../db/schema'
 import { formatLoggedSet } from '../lib/exercises'
+import { resolveSessionExerciseId } from '../lib/session'
 
 export function SessionSummary() {
   const { sessionId } = useParams<{ sessionId: string }>()
   const navigate = useNavigate()
   const [plan, setPlan] = useState<WorkoutPlan | null>(null)
+  const [swaps, setSwaps] = useState<Record<string, string>>({})
   const [logs, setLogs] = useState<(SetLog & { exercise?: Exercise })[]>([])
   const [notes, setNotes] = useState('')
   const [overallRpe, setOverallRpe] = useState(5)
@@ -31,6 +33,7 @@ export function SessionSummary() {
         })),
       )
       setPlan(workoutPlan ?? null)
+      setSwaps(session.exerciseSwaps ?? {})
       setLogs(enriched)
       setNotes(session.notes ?? '')
       setOverallRpe(session.overallRpe ?? 5)
@@ -54,10 +57,15 @@ export function SessionSummary() {
     return <p className="text-center text-slate-500">Loading...</p>
   }
 
-  const grouped = plan.exercises.map((pe) => ({
-    exercise: logs.find((l) => l.exerciseId === pe.exerciseId)?.exercise,
-    sets: logs.filter((l) => l.exerciseId === pe.exerciseId),
-  }))
+  const grouped = plan.exercises.map((pe) => {
+    const resolvedId = resolveSessionExerciseId(pe.exerciseId, swaps)
+    return {
+      resolvedId,
+      swapped: resolvedId !== pe.exerciseId,
+      exercise: logs.find((l) => l.exerciseId === resolvedId)?.exercise,
+      sets: logs.filter((l) => l.exerciseId === resolvedId),
+    }
+  })
 
   return (
     <div>
@@ -65,17 +73,22 @@ export function SessionSummary() {
       <p className="mb-6 text-sm text-slate-500">{plan.name}</p>
 
       <div className="space-y-4">
-        {grouped.map(({ exercise, sets }) => {
-          if (!exercise) return null
-          return (
+        {grouped.map(({ resolvedId, swapped, exercise, sets }) => (
             <div
-              key={exercise.id}
+              key={resolvedId}
               className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
             >
-              <h3 className="font-semibold">{exercise.name}</h3>
+              <h3 className="font-semibold">
+                {exercise?.name ?? 'Exercise'}
+              </h3>
+              {swapped && (
+                <p className="text-xs text-amber-700 dark:text-amber-400">
+                  Substituted for this session
+                </p>
+              )}
               {sets.length === 0 ? (
                 <p className="text-sm text-slate-400">Not logged</p>
-              ) : (
+              ) : exercise ? (
                 <ul className="mt-2 space-y-1 text-sm">
                   {sets.map((s) => (
                     <li
@@ -88,10 +101,9 @@ export function SessionSummary() {
                     </li>
                   ))}
                 </ul>
-              )}
+              ) : null}
             </div>
-          )
-        })}
+        ))}
       </div>
 
       <label className="mt-6 block">

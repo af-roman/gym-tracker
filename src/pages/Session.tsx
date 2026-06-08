@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { db } from '../db/schema'
-import type { Exercise, WorkoutPlan } from '../db/schema'
+import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
 import { ExerciseCard } from '../components/ExerciseCard'
+import { resolveSessionExerciseId } from '../lib/session'
+
+interface SessionExerciseEntry {
+  planExercise: PlanExercise
+  exercise: Exercise
+  swappedFromName?: string
+}
 
 export function Session() {
   const { sessionId } = useParams<{ sessionId: string }>()
   const navigate = useNavigate()
   const [plan, setPlan] = useState<WorkoutPlan | null>(null)
-  const [exercises, setExercises] = useState<Exercise[]>([])
+  const [entries, setEntries] = useState<SessionExerciseEntry[]>([])
   const [completedIds, setCompletedIds] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -24,11 +31,24 @@ export function Session() {
       const workoutPlan = await db.workoutPlans.get(session.planId)
       if (!workoutPlan) return
 
-      const exs = await Promise.all(
-        workoutPlan.exercises.map((pe) => db.exercises.get(pe.exerciseId)),
-      )
+      const swaps = session.exerciseSwaps ?? {}
+      const loaded: SessionExerciseEntry[] = []
+      for (const pe of workoutPlan.exercises) {
+        const resolvedId = resolveSessionExerciseId(pe.exerciseId, swaps)
+        const exercise = await db.exercises.get(resolvedId)
+        if (!exercise) continue
+        const original =
+          resolvedId !== pe.exerciseId
+            ? await db.exercises.get(pe.exerciseId)
+            : null
+        loaded.push({
+          planExercise: pe,
+          exercise,
+          swappedFromName: original?.name,
+        })
+      }
       setPlan(workoutPlan)
-      setExercises(exs.filter((e): e is Exercise => e != null))
+      setEntries(loaded)
       setCompletedIds(session.completedExerciseIds)
       setLoading(false)
     }
@@ -48,7 +68,7 @@ export function Session() {
     navigate('/')
   }
 
-  const total = exercises.length
+  const total = entries.length
   const done = completedIds.length
   const allDone = total > 0 && done === total
 
@@ -84,19 +104,16 @@ export function Session() {
       </div>
 
       <div className="space-y-3">
-        {plan.exercises.map((pe) => {
-          const exercise = exercises.find((e) => e.id === pe.exerciseId)
-          if (!exercise) return null
-          return (
-            <ExerciseCard
-              key={pe.exerciseId}
-              exercise={exercise}
-              planExercise={pe}
-              completed={completedIds.includes(pe.exerciseId)}
-              sessionId={id}
-            />
-          )
-        })}
+        {entries.map(({ planExercise, exercise, swappedFromName }) => (
+          <ExerciseCard
+            key={planExercise.exerciseId}
+            exercise={exercise}
+            planExercise={planExercise}
+            completed={completedIds.includes(exercise.id)}
+            sessionId={id}
+            swappedFromName={swappedFromName}
+          />
+        ))}
       </div>
 
       {allDone ? (

@@ -61,6 +61,8 @@ export interface Session {
   completed: boolean
   overallRpe?: number
   completedExerciseIds: string[]
+  /** Plan slot exercise id → replacement exercise id for this session only */
+  exerciseSwaps?: Record<string, string>
 }
 
 export interface SetLog {
@@ -305,6 +307,13 @@ class GymTrackerDB extends Dexie {
             }
           })
       })
+    this.version(6).stores({
+      exercises: 'id, name, muscleGroup',
+      workoutPlans: 'id, name',
+      sessions: '++id, planId, startedAt, completed',
+      setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+      bodyMetrics: '++id, date',
+    })
   }
 }
 

@@ -97,6 +97,13 @@ export function Home() {
           <span className="font-medium">Log body metrics</span>
           <span className="text-slate-400">›</span>
         </Link>
+        <Link
+          to="/history"
+          className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+        >
+          <span className="font-medium">Browse workout history</span>
+          <span className="text-slate-400">›</span>
+        </Link>
       </div>
     </div>
   )
