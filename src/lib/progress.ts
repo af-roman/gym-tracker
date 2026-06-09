@@ -98,7 +98,7 @@ export async function getMuscleGroupStats(): Promise<MuscleGroupStat[]> {
       volume,
       score: Math.round((volume / maxVolume) * 100),
     }
-  })
+  }).filter((stat) => stat.volume > 0)
 }
 
 export async function getLastSessionSummary(

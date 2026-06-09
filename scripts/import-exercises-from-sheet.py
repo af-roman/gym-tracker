@@ -11,8 +11,12 @@ import zipfile
 import xml.etree.ElementTree as ET
 from io import BytesIO
 from pathlib import Path
+import sys
 
 from deep_translator import GoogleTranslator
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from muscle_groups import infer_muscle_groups
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -109,35 +113,6 @@ def infer_difficulties(level: str, instructions: str, starting_note: str = '') -
     if 'from beginner to every level' in text or 'every level' in text:
         return ['beginner', 'intermediate', 'advanced']
     return levels
-
-
-def infer_muscle_group(muscles: str, exercise_type: str) -> str:
-    text = normalize(muscles or '')
-    if any(k in text for k in ['prs', 'pect']):
-        return 'Chest'
-    if any(k in text for k in ['zada', 'lat', 'trap', 'rhomb']):
-        return 'Back'
-    if any(k in text for k in ['ramen', 'delt']):
-        return 'Shoulders'
-    if any(k in text for k in ['biceps', 'triceps', 'predlok', 'paze']):
-        return 'Arms'
-    if any(k in text for k in ['stehn', 'hyzd', 'noh', 'lytk', 'kyc', 'hamstring']):
-        return 'Legs'
-    if any(k in text for k in ['stred', 'brus', 'core', 'brich']):
-        return 'Core'
-    fallback = {
-        'squat': 'Legs',
-        'hinge': 'Legs',
-        'horizontal-push': 'Chest',
-        'vertical-push': 'Shoulders',
-        'horizontal-pull': 'Back',
-        'vertical-pull': 'Back',
-        'core': 'Core',
-        'cardio': 'Full body',
-        'stretch': 'Full body',
-        'accessory': 'Other',
-    }
-    return fallback.get(exercise_type, 'Other')
 
 
 def parse_prescription(text: str | None, exercise_type: str) -> dict:
@@ -464,7 +439,6 @@ def main() -> None:
         intro_en = translator.t(item['intro']) if include_intro else ''
 
         exercise_id = slugify(name_en, used_ids)
-        muscle_group = infer_muscle_group(item['muscles'], exercise_type)
         instruction_parts = []
         if intro_en:
             instruction_parts.append(intro_en)
@@ -476,6 +450,15 @@ def main() -> None:
             instruction_parts.append(f'Level: {level_en}')
         if notes_en:
             instruction_parts.append(notes_en)
+
+        instructions = '\n\n'.join(instruction_parts) or f'Perform {name_en} with controlled form.'
+        muscle_groups = infer_muscle_groups(
+            muscles=muscles_en,
+            exercise_type=exercise_type,
+            instructions=instructions,
+            name=name_en,
+            starting_weight_note=prescription_en or level_en,
+        )
 
         prescription = parse_prescription(item['prescription'] or prescription_en, exercise_type)
         images_by_row = drawing_images_for_sheet(zf, item['sheet_index'])
@@ -489,13 +472,13 @@ def main() -> None:
         exercise: dict = {
             'id': exercise_id,
             'name': name_en,
-            'muscleGroups': [muscle_group],
+            'muscleGroups': muscle_groups,
             'difficulties': infer_difficulties(
                 level_en,
-                '\n\n'.join(instruction_parts),
+                instructions,
                 starting_note,
             ),
-            'instructions': '\n\n'.join(instruction_parts) or f'Perform {name_en} with controlled form.',
+            'instructions': instructions,
             'exerciseType': exercise_type,
             **prescription,
         }

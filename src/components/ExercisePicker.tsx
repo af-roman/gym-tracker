@@ -6,8 +6,8 @@ import {
   EXERCISE_TYPES,
   MUSCLE_GROUPS,
   filterExercises,
-  formatExerciseMeta,
 } from '../lib/exercises'
+import { ExerciseMetaRows } from './ExerciseMetaRows'
 import { ExerciseThumbnail } from './ExerciseThumbnail'
 
 interface ExercisePickerProps {
@@ -169,7 +169,7 @@ export function ExercisePicker({
                       key={exercise.id}
                       type="button"
                       onClick={() => onSelect(exercise)}
-                      className={`flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition ${
+                      className={`flex w-full items-start gap-3 rounded-2xl border p-3 text-left transition ${
                         isSelected
                           ? 'border-emerald-400 bg-emerald-50 dark:border-emerald-700 dark:bg-emerald-950/30'
                           : 'border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 dark:border-slate-800 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/20'
@@ -177,13 +177,13 @@ export function ExercisePicker({
                     >
                       <ExerciseThumbnail
                         exercise={exercise}
-                        className="h-12 w-12"
+                        className="h-12 w-12 shrink-0"
                       />
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium">{exercise.name}</p>
-                        <p className="text-xs text-slate-500">
-                          {formatExerciseMeta(exercise)}
+                        <p className="font-medium leading-tight break-words">
+                          {exercise.name}
                         </p>
+                        <ExerciseMetaRows exercise={exercise} className="mt-0.5" />
                       </div>
                       {isSelected && (
                         <span className="shrink-0 text-xs font-medium text-emerald-600">

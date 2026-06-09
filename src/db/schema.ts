@@ -1,4 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie'
+import { normalizeMuscleGroups } from '../lib/muscleGroups'
 
 export type ExerciseType =
   | 'squat'
@@ -386,6 +387,56 @@ class GymTrackerDB extends Dexie {
               delete ex.difficulty
             },
           )
+      })
+    this.version(9)
+      .stores({
+        exercises: 'id, name',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        const order: ExerciseDifficulty[] = [
+          'beginner',
+          'intermediate',
+          'advanced',
+        ]
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify((ex: Exercise) => {
+            const indices = [
+              ...new Set(
+                (ex.difficulties ?? [])
+                  .filter((level): level is ExerciseDifficulty =>
+                    order.includes(level),
+                  )
+                  .map((level) => order.indexOf(level)),
+              ),
+            ].sort((a, b) => a - b)
+            if (indices.length === 0) {
+              ex.difficulties = ['intermediate']
+              return
+            }
+            ex.difficulties = order.slice(indices[0], indices[indices.length - 1] + 1)
+          })
+      })
+    this.version(10)
+      .stores({
+        exercises: 'id, name',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify((ex: Exercise) => {
+            ex.muscleGroups = normalizeMuscleGroups(ex.muscleGroups ?? [])
+          })
       })
   }
 }

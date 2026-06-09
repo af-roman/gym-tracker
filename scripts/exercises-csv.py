@@ -12,6 +12,11 @@ ROOT = Path(__file__).resolve().parents[1]
 JSON_PATH = ROOT / 'src' / 'data' / 'exercises.json'
 DEFAULT_CSV = ROOT / 'src' / 'data' / 'exercises.csv'
 
+import sys
+
+sys.path.insert(0, str(ROOT / 'scripts'))
+from muscle_groups import MUSCLE_GROUPS, normalize_muscle_groups
+
 PHOTO_SEP = ' | '
 LIST_SEP = ' + '
 
@@ -34,6 +39,61 @@ COLUMNS = [
 ]
 
 DIFFICULTIES = {'beginner', 'intermediate', 'advanced'}
+DIFFICULTY_ORDER = ['beginner', 'intermediate', 'advanced']
+DIFFICULTY_SHORT = {
+    'beginner': 'Beg',
+    'intermediate': 'Int',
+    'advanced': 'Adv',
+}
+DIFFICULTY_ALIASES = {
+    'beg': 'beginner',
+    'beginner': 'beginner',
+    'int': 'intermediate',
+    'intermediate': 'intermediate',
+    'adv': 'advanced',
+    'advanced': 'advanced',
+}
+
+
+def normalize_difficulty_range(levels: list[str]) -> list[str]:
+    indices = sorted(
+        {
+            DIFFICULTY_ORDER.index(level)
+            for level in levels
+            if level in DIFFICULTY_ORDER
+        }
+    )
+    if not indices:
+        return ['intermediate']
+    return DIFFICULTY_ORDER[indices[0] : indices[-1] + 1]
+
+
+def format_difficulties_cell(levels: list[str]) -> str:
+    normalized = normalize_difficulty_range(levels)
+    if len(normalized) == 1:
+        return DIFFICULTY_SHORT[normalized[0]]
+    return f'{DIFFICULTY_SHORT[normalized[0]]}+'
+
+
+def parse_difficulty_token(token: str) -> str:
+    value = token.strip().lower()
+    if value.endswith('+'):
+        value = value[:-1].strip()
+    return DIFFICULTY_ALIASES.get(value, value)
+
+
+def parse_difficulties_cell(value: str) -> list[str]:
+    value = value.strip()
+    if not value:
+        return ['intermediate']
+    if value.endswith('+'):
+        base = parse_difficulty_token(value)
+        if base not in DIFFICULTY_ORDER:
+            raise ValueError(f'Invalid difficulty range {value!r}')
+        start = DIFFICULTY_ORDER.index(base)
+        return DIFFICULTY_ORDER[start:]
+    levels = [parse_difficulty_token(part) for part in parse_list_cell(value)]
+    return normalize_difficulty_range(levels)
 
 EXERCISE_TYPES = {
     'squat',
@@ -66,20 +126,24 @@ def parse_list_cell(value: str) -> list[str]:
 def muscle_groups_from_exercise(ex: dict) -> list[str]:
     groups = ex.get('muscleGroups')
     if isinstance(groups, list) and groups:
-        return [str(group).strip() for group in groups if str(group).strip()]
+        return normalize_muscle_groups(
+            [str(group).strip() for group in groups if str(group).strip()]
+        )
     legacy = ex.get('muscleGroup')
     if legacy:
-        return [str(legacy).strip()]
+        return normalize_muscle_groups([str(legacy).strip()])
     return ['Other']
 
 
 def difficulties_from_exercise(ex: dict) -> list[str]:
     levels = ex.get('difficulties')
     if isinstance(levels, list) and levels:
-        return [str(level).strip() for level in levels if str(level).strip()]
+        return normalize_difficulty_range(
+            [str(level).strip().lower() for level in levels if str(level).strip()]
+        )
     legacy = ex.get('difficulty')
     if legacy:
-        return [str(legacy).strip()]
+        return normalize_difficulty_range([str(legacy).strip().lower()])
     return ['intermediate']
 
 
@@ -89,7 +153,7 @@ def exercise_to_row(ex: dict) -> dict[str, str]:
         'id': ex.get('id', ''),
         'name': ex.get('name', ''),
         'muscleGroups': list_to_cell(muscle_groups_from_exercise(ex)),
-        'difficulties': list_to_cell(difficulties_from_exercise(ex)),
+        'difficulties': format_difficulties_cell(difficulties_from_exercise(ex)),
         'exerciseType': ex.get('exerciseType', ''),
         'defaultSets': '' if ex.get('defaultSets') is None else str(ex['defaultSets']),
         'defaultReps': '' if ex.get('defaultReps') is None else str(ex['defaultReps']),
@@ -135,20 +199,23 @@ def parse_optional_reps(value: str) -> int | str | None:
 
 
 def row_to_exercise(row: dict[str, str]) -> dict:
-    muscle_groups = parse_list_cell(
-        row.get('muscleGroups', '') or row.get('muscleGroup', '')
+    muscle_groups = normalize_muscle_groups(
+        parse_list_cell(row.get('muscleGroups', '') or row.get('muscleGroup', ''))
     )
     if not muscle_groups:
         raise ValueError(f"Missing muscle groups for id {row['id']!r}")
+    for muscle_group in muscle_groups:
+        if muscle_group not in MUSCLE_GROUPS:
+            raise ValueError(
+                f"Invalid muscle group {muscle_group!r} for id {row['id']!r}"
+            )
 
-    difficulties = [
-        part.lower()
-        for part in parse_list_cell(
+    try:
+        difficulties = parse_difficulties_cell(
             row.get('difficulties', '') or row.get('difficulty', 'intermediate')
         )
-    ]
-    if not difficulties:
-        difficulties = ['intermediate']
+    except ValueError as exc:
+        raise ValueError(f"Invalid difficulties for id {row['id']!r}: {exc}") from exc
     for difficulty in difficulties:
         if difficulty not in DIFFICULTIES:
             raise ValueError(

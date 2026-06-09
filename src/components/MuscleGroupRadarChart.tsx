@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
+import { muscleGroupShortLabel } from '../lib/muscleGroups'
 import type { MuscleGroupStat } from '../lib/progress'
 
 function useDarkMode(): boolean {
@@ -48,7 +49,8 @@ export function MuscleGroupRadarChart({ data }: MuscleGroupRadarChartProps) {
   }
 
   const chartData = data.map((d) => ({
-    muscleGroup: d.muscleGroup,
+    muscleGroup: muscleGroupShortLabel(d.muscleGroup),
+    fullMuscleGroup: d.muscleGroup,
     score: d.score,
     volume: d.volume,
   }))
@@ -84,7 +86,8 @@ export function MuscleGroupRadarChart({ data }: MuscleGroupRadarChartProps) {
               itemStyle={{ color: labelColor }}
               formatter={(value, _name, item) => {
                 const volume = item.payload?.volume ?? 0
-                return [`${value}% (${Math.round(volume)} total)`, 'Relative volume']
+                const label = item.payload?.fullMuscleGroup ?? item.payload?.muscleGroup
+                return [`${value}% (${Math.round(volume)} total)`, label]
               }}
             />
             <Radar

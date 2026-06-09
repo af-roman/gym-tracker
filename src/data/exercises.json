@@ -37,6 +37,7 @@
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -98,6 +99,7 @@
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -151,7 +153,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings",
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -171,7 +175,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -191,7 +199,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s each side",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -211,7 +223,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -231,7 +244,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -251,7 +266,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -271,7 +287,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -291,7 +308,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds, gently",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Lower back"
     ],
     "difficulties": [
       "intermediate"
@@ -311,7 +330,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -347,7 +368,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "2-3 sets x 12-15 reps",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -367,7 +390,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 reps on each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -403,7 +427,8 @@
     "durationUnit": "sec",
     "startingWeightNote": "8-10 reps on each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -424,7 +449,12 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "2-3 sets x 30-40 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Lower back",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -444,7 +474,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 reps each side",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -464,7 +496,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 reps each side",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -484,7 +518,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30-60 seconds",
     "muscleGroups": [
-      "Full body"
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -504,7 +539,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30-60 seconds",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -524,7 +561,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "5-6 reps on each side",
     "muscleGroups": [
-      "Full body"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -566,7 +603,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 reps each leg",
     "muscleGroups": [
-      "Full body"
+      "Core",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -587,7 +626,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-10 reps on each side",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -602,7 +642,11 @@
     "defaultDuration": 30,
     "durationUnit": "sec",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Core",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -624,7 +668,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 repetitions",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Delts",
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -646,7 +693,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-10 repetitions",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Delts",
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -668,7 +719,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "5-6 rings each hand",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Delts",
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "advanced"
@@ -688,7 +743,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "1-2 slow circles in each direction / each arm",
     "muscleGroups": [
-      "Full body"
+      "Delts",
+      "Biceps",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -708,7 +766,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30-60 seconds",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -728,7 +787,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -749,7 +809,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-10 slow reps",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -770,7 +831,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-8 reps on each side",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Delts",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -811,7 +874,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-8 bows to each side",
     "muscleGroups": [
-      "Full body"
+      "Chest"
     ],
     "difficulties": [
       "intermediate"
@@ -827,7 +890,9 @@
     "durationUnit": "sec",
     "startingWeightNote": "5-6 reps on each side",
     "muscleGroups": [
-      "Full body"
+      "Biceps",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -848,7 +913,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Delts",
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -869,7 +937,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds",
     "muscleGroups": [
-      "Full body"
+      "Delts",
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -890,7 +959,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -911,7 +982,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 reps on each side",
     "muscleGroups": [
-      "Full body"
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -932,7 +1003,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 slow weight transfers",
     "muscleGroups": [
-      "Full body"
+      "Delts",
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -948,7 +1020,7 @@
     "durationUnit": "sec",
     "startingWeightNote": "8-10 slow weight transfers",
     "muscleGroups": [
-      "Full body"
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -967,7 +1039,12 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-10 deep breaths",
     "muscleGroups": [
-      "Core"
+      "Lats",
+      "Upper back",
+      "Delts",
+      "Core",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1005,6 +1082,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "3-5 breath cycles on each side",
     "muscleGroups": [
+      "Chest",
+      "Biceps",
+      "Triceps",
       "Core"
     ],
     "difficulties": [
@@ -1024,6 +1104,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "2x10-15 steps forward/backward",
     "muscleGroups": [
+      "Delts",
       "Core"
     ],
     "difficulties": [
@@ -1043,7 +1124,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-8 reps on each side",
     "muscleGroups": [
-      "Core"
+      "Biceps",
+      "Triceps",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1063,6 +1147,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "3×20–30 s",
     "muscleGroups": [
+      "Delts",
       "Core"
     ],
     "difficulties": [
@@ -1083,6 +1168,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "3×20 s static pressure",
     "muscleGroups": [
+      "Lats",
+      "Upper back",
       "Core"
     ],
     "difficulties": [
@@ -1102,7 +1189,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-8 reps each leg",
     "muscleGroups": [
-      "Core"
+      "Biceps",
+      "Triceps",
+      "Core",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1117,7 +1208,11 @@
     "defaultReps": "6-8",
     "startingWeightNote": "6-8 reps each side",
     "muscleGroups": [
-      "Core"
+      "Biceps",
+      "Triceps",
+      "Core",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1137,10 +1232,14 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner, complete",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -1158,7 +1257,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner, complete",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner"
@@ -1177,7 +1278,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner, complete",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner"
@@ -1197,7 +1300,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner, complete",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner"
@@ -1217,7 +1321,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner"
@@ -1237,7 +1342,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1258,7 +1365,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1279,7 +1389,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1299,7 +1412,9 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1319,7 +1434,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1341,7 +1457,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1362,7 +1479,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1384,7 +1502,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1406,7 +1526,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1428,7 +1550,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1450,7 +1574,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Beginner to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1472,7 +1598,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1494,7 +1622,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1515,7 +1645,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Calves"
     ],
     "difficulties": [
       "beginner",
@@ -1537,7 +1669,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1559,7 +1693,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1581,7 +1717,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1603,7 +1741,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1625,7 +1765,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1646,7 +1788,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1668,7 +1812,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1690,7 +1837,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1711,7 +1859,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Intermediate to every level",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Core",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1733,7 +1883,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Advanced to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1755,7 +1907,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "from Advanced to every level",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1772,7 +1926,8 @@
     "defaultReps": 10,
     "startingWeightNote": "From advanced to every level (recommended for those who can do basic squats without difficulty and have good knee and trunk control)",
     "muscleGroups": [
-      "Core"
+      "Core",
+      "Quads"
     ],
     "difficulties": [
       "beginner",
@@ -1794,7 +1949,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate and above",
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1814,7 +1972,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1834,7 +1994,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate-Advanced",
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate",
@@ -1855,10 +2018,13 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner-Advanced",
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -1876,7 +2042,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner-intermediate",
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1897,7 +2065,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1916,7 +2086,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -1936,7 +2108,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "advanced"
@@ -1956,7 +2130,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner-intermediate",
     "muscleGroups": [
-      "Legs"
+      "Lats",
+      "Upper back",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "beginner",
@@ -1977,7 +2154,12 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate-Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate",
@@ -1998,7 +2180,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -2018,7 +2203,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Core",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -2038,7 +2227,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "advanced"
@@ -2053,7 +2244,10 @@
     "defaultReps": 10,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "advanced"
@@ -2073,7 +2267,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Arms"
+      "Lats",
+      "Upper back",
+      "Biceps",
+      "Core"
     ],
     "difficulties": [
       "beginner"
@@ -2093,7 +2290,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Arms"
+      "Lats",
+      "Upper back",
+      "Biceps",
+      "Core"
     ],
     "difficulties": [
       "advanced"
@@ -2113,7 +2313,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Moderately advanced - advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Delts",
+      "Biceps"
     ],
     "difficulties": [
       "advanced"
@@ -2133,7 +2336,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Back"
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "advanced"
@@ -2153,6 +2357,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
+      "Lats",
+      "Upper back",
       "Core"
     ],
     "difficulties": [
@@ -2173,10 +2379,13 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Biceps"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -2194,7 +2403,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Shoulders"
+      "Lats",
+      "Upper back",
+      "Delts"
     ],
     "difficulties": [
       "advanced"
@@ -2214,6 +2425,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
+      "Lats",
+      "Upper back",
       "Core"
     ],
     "difficulties": [
@@ -2234,7 +2447,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Core"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -2254,7 +2468,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Lower back"
     ],
     "difficulties": [
       "advanced"
@@ -2274,10 +2490,12 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - slightly advanced",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Biceps"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -2295,7 +2513,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Back"
+      "Biceps",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "advanced"
@@ -2315,7 +2535,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - everyone",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -2335,7 +2557,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "advanced"
@@ -2355,7 +2578,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "advanced"
@@ -2370,7 +2594,9 @@
     "defaultReps": 10,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -2390,7 +2616,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Biceps"
     ],
     "difficulties": [
       "advanced"
@@ -2410,10 +2638,13 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Biceps"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -2431,7 +2662,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Biceps"
     ],
     "difficulties": [
       "beginner",
@@ -2452,7 +2684,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -2472,7 +2705,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - Intermediate",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Biceps"
     ],
     "difficulties": [
       "beginner",
@@ -2493,10 +2727,12 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Core"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -2514,10 +2750,12 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - Advanced",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -2535,7 +2773,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -2555,7 +2794,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -2570,7 +2810,9 @@
     "defaultReps": 10,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back",
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -2590,7 +2832,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "From a beginner",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "beginner"
@@ -2630,7 +2875,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "beginner"
@@ -2650,7 +2897,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "From beginner to every level",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "beginner",
@@ -2672,7 +2921,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Core"
+      "Chest"
     ],
     "difficulties": [
       "advanced"
@@ -2692,7 +2941,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Moderately advanced to advanced",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "advanced"
@@ -2712,7 +2963,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "advanced"
@@ -2732,7 +2985,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Slightly advanced",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "advanced"
@@ -2752,7 +3007,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Moderately advanced to advanced",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "advanced"
@@ -2772,7 +3030,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Advanced",
     "muscleGroups": [
-      "Core"
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "advanced"
@@ -2787,7 +3046,9 @@
     "defaultReps": 10,
     "startingWeightNote": "From moderately advanced",
     "muscleGroups": [
-      "Chest"
+      "Chest",
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "advanced"
@@ -2807,7 +3068,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - Intermediate",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "beginner",
@@ -2828,7 +3090,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -2848,7 +3111,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner",
     "muscleGroups": [
-      "Back"
+      "Upper back",
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "beginner"
@@ -2868,7 +3133,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Beginner - Intermediate",
     "muscleGroups": [
-      "Shoulders"
+      "Delts"
     ],
     "difficulties": [
       "beginner",
@@ -2889,7 +3154,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate to advanced",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "intermediate",
@@ -2910,7 +3177,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -2930,7 +3198,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "Intermediate",
     "muscleGroups": [
-      "Shoulders"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -2945,7 +3213,11 @@
     "defaultReps": 10,
     "startingWeightNote": "Intermediate to advanced",
     "muscleGroups": [
-      "Shoulders"
+      "Lats",
+      "Upper back",
+      "Delts",
+      "Triceps",
+      "Core"
     ],
     "difficulties": [
       "intermediate",
@@ -2965,7 +3237,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Glutes"
     ],
     "difficulties": [
       "intermediate"
@@ -2984,7 +3256,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -3003,7 +3275,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -3022,7 +3294,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -3041,7 +3313,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3060,7 +3333,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3079,7 +3353,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Glutes"
     ],
     "difficulties": [
       "intermediate"
@@ -3098,7 +3372,9 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "advanced"
@@ -3117,7 +3393,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3136,7 +3413,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Core",
+      "Quads"
     ],
     "difficulties": [
       "intermediate"
@@ -3155,7 +3433,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Glutes"
     ],
     "difficulties": [
       "intermediate"
@@ -3174,7 +3452,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Quads"
     ],
     "difficulties": [
       "intermediate"
@@ -3193,7 +3471,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Glutes"
     ],
     "difficulties": [
       "intermediate"
@@ -3212,7 +3490,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3226,7 +3504,7 @@
     "defaultSets": 3,
     "defaultReps": 10,
     "muscleGroups": [
-      "Legs"
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3245,7 +3523,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Upper back",
+      "Delts"
     ],
     "difficulties": [
       "beginner"
@@ -3264,7 +3543,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Upper back",
+      "Delts"
     ],
     "difficulties": [
       "advanced"
@@ -3283,7 +3563,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Shoulders"
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -3302,7 +3582,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Shoulders"
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -3321,7 +3601,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Upper back",
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -3340,7 +3621,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Upper back",
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -3359,7 +3641,9 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Legs"
+      "Lower back",
+      "Glutes",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3378,7 +3662,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -3397,7 +3682,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Chest"
     ],
     "difficulties": [
       "intermediate"
@@ -3416,7 +3701,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Chest"
     ],
     "difficulties": [
       "intermediate"
@@ -3435,7 +3720,9 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Chest",
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -3454,7 +3741,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Biceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3473,7 +3760,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Biceps",
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -3492,7 +3780,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Biceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3511,7 +3799,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Biceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3530,7 +3818,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Biceps"
     ],
     "difficulties": [
       "beginner"
@@ -3549,10 +3837,12 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Biceps",
+      "Forearms"
     ],
     "difficulties": [
       "beginner",
+      "intermediate",
       "advanced"
     ]
   },
@@ -3569,7 +3859,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3588,7 +3878,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3607,7 +3897,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3626,7 +3916,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3645,7 +3935,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Arms"
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3664,7 +3954,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3683,7 +3974,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Triceps",
+      "Forearms"
     ],
     "difficulties": [
       "intermediate"
@@ -3702,7 +3994,8 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Other"
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3721,7 +4014,7 @@
     ],
     "thumbnailPhotoIndex": 0,
     "muscleGroups": [
-      "Back"
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -3754,7 +4047,7 @@
     "defaultSets": 3,
     "defaultReps": 10,
     "muscleGroups": [
-      "Back"
+      "Triceps"
     ],
     "difficulties": [
       "beginner"
@@ -3774,7 +4067,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 reps each side",
     "muscleGroups": [
-      "Other"
+      "Delts",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -3795,7 +4089,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 repetitions",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -3815,7 +4110,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-8 reps per side",
     "muscleGroups": [
-      "Legs"
+      "Core",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -3835,7 +4132,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "2-3 series x 6-8 pages",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -3875,7 +4173,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "5-8 throws",
     "muscleGroups": [
-      "Shoulders"
+      "Delts",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -3896,7 +4195,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-16 reps",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -3957,7 +4256,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-12 repetitions",
     "muscleGroups": [
-      "Shoulders"
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -3979,7 +4278,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "2×20–30 s",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4000,7 +4299,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20–40 s each side",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4020,7 +4319,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-12 reps each side",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4060,7 +4359,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "8-10 reps each side",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4081,7 +4380,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-10 repetitions",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "advanced"
@@ -4121,7 +4420,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 repetitions",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4141,7 +4440,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 repetitions",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4198,7 +4497,7 @@
     "durationUnit": "sec",
     "startingWeightNote": "20–40 s",
     "muscleGroups": [
-      "Other"
+      "Core"
     ],
     "difficulties": [
       "advanced"
@@ -4218,7 +4517,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 repetitions",
     "muscleGroups": [
-      "Other"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4279,7 +4579,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-12 reps on each side",
     "muscleGroups": [
-      "Other"
+      "Glutes"
     ],
     "difficulties": [
       "intermediate"
@@ -4299,7 +4599,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 repetitions",
     "muscleGroups": [
-      "Other"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4319,7 +4621,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "6-8 reps each leg",
     "muscleGroups": [
-      "Other"
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4340,7 +4644,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20–30 s",
     "muscleGroups": [
-      "Other"
+      "Delts",
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -4361,7 +4667,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "10-15 seconds or 3-5 repetitions of the hold",
     "muscleGroups": [
-      "Other"
+      "Chest",
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -4397,7 +4704,7 @@
     "defaultReps": "2-3",
     "startingWeightNote": "2-3 sets x 10-15 repetitions with slow and controlled movement",
     "muscleGroups": [
-      "Other"
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -4417,7 +4724,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds on each side",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Lats",
+      "Upper back",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4437,7 +4747,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20–30 s",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -4457,7 +4768,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds on each side",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4477,7 +4790,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds on each side",
     "muscleGroups": [
-      "Full body"
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -4497,7 +4810,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds on each side",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Delts"
     ],
     "difficulties": [
       "intermediate"
@@ -4517,7 +4831,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20–30 s",
     "muscleGroups": [
-      "Full body"
+      "Chest"
     ],
     "difficulties": [
       "intermediate"
@@ -4537,7 +4851,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 s each hand",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Biceps",
+      "Triceps"
     ],
     "difficulties": [
       "intermediate"
@@ -4557,7 +4874,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Lower back"
     ],
     "difficulties": [
       "intermediate"
@@ -4577,7 +4896,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20-30 seconds on each side",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back"
     ],
     "difficulties": [
       "intermediate"
@@ -4597,7 +4917,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4617,7 +4938,7 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "20–30 s",
     "muscleGroups": [
-      "Full body"
+      "Core"
     ],
     "difficulties": [
       "intermediate"
@@ -4637,7 +4958,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4657,7 +4979,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4677,7 +5002,8 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4697,7 +5023,10 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30–60 s",
     "muscleGroups": [
-      "Full body"
+      "Chest",
+      "Lats",
+      "Upper back",
+      "Lower back"
     ],
     "difficulties": [
       "intermediate"
@@ -4717,7 +5046,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each side",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4737,7 +5070,11 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Lats",
+      "Upper back",
+      "Glutes",
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "intermediate"
@@ -4757,7 +5094,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings",
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -4777,7 +5116,9 @@
     "thumbnailPhotoIndex": 0,
     "startingWeightNote": "30 s each leg",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings",
+      "Calves"
     ],
     "difficulties": [
       "intermediate"
@@ -4793,7 +5134,8 @@
     "durationUnit": "sec",
     "startingWeightNote": "20–30 s",
     "muscleGroups": [
-      "Full body"
+      "Quads",
+      "Hamstrings"
     ],
     "difficulties": [
       "advanced"

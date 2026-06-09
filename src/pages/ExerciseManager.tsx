@@ -17,17 +17,20 @@ import {
   createEmptyExercise,
   exerciseSummaryLine,
   filterExercises,
-  formatExerciseMeta,
   isDurationExerciseType,
   getPlansUsingExercise,
+  normalizeDifficultyRange,
+  normalizeMuscleGroups,
   resolveExerciseDifficulties,
   resolveExerciseType,
   resolveMuscleGroups,
   uniqueExerciseId,
 } from '../lib/exercises'
 import { parseYoutubeUrl } from '../lib/youtube'
+import { ExerciseMetaRows } from '../components/ExerciseMetaRows'
 import { ExercisePhotoPicker } from '../components/ExercisePhotoPicker'
 import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
+import { DifficultyRangeSelect } from '../components/DifficultyRangeSelect'
 import { MultiSelectPills } from '../components/MultiSelectPills'
 
 export function ExerciseManager() {
@@ -142,6 +145,8 @@ export function ExerciseManager() {
     let record: Exercise = {
       ...editing,
       name: editing.name.trim(),
+      difficulties: normalizeDifficultyRange(resolveExerciseDifficulties(editing)),
+      muscleGroups: normalizeMuscleGroups(resolveMuscleGroups(editing)),
       instructionPhotos: editing.instructionPhotos ?? [],
       thumbnailPhotoIndex:
         (editing.instructionPhotos?.length ?? 0) > 0
@@ -335,17 +340,10 @@ export function ExerciseManager() {
             onChange={(muscleGroups) => updateField('muscleGroups', muscleGroups)}
           />
 
-          <MultiSelectPills
-            label="Difficulty"
-            hint="Tap every level this exercise suits."
-            options={EXERCISE_DIFFICULTIES.map((d) => d.value)}
-            values={resolveExerciseDifficulties(editing)}
+          <DifficultyRangeSelect
+            value={resolveExerciseDifficulties(editing)}
             onChange={(difficulties) =>
               updateField('difficulties', difficulties)
-            }
-            getLabel={(value) =>
-              EXERCISE_DIFFICULTIES.find((d) => d.value === value)?.label ??
-              value
             }
           />
 
@@ -654,15 +652,15 @@ export function ExerciseManager() {
                       startEdit(exercise)
                     }
                   }}
-                  className="flex cursor-pointer items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-emerald-300 hover:bg-emerald-50/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/20"
+                  className="flex cursor-pointer items-start gap-3 rounded-2xl border border-slate-200 bg-white p-3 transition hover:border-emerald-300 hover:bg-emerald-50/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/20"
                 >
-                  <ExerciseThumbnail exercise={exercise} className="h-14 w-14" />
+                  <ExerciseThumbnail exercise={exercise} className="h-12 w-12 shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <h2 className="font-bold">{exercise.name}</h2>
-                    <p className="text-sm text-slate-500">
-                      {formatExerciseMeta(exercise)}
-                    </p>
-                    <p className="text-xs text-slate-400">
+                    <h2 className="font-bold leading-tight break-words">
+                      {exercise.name}
+                    </h2>
+                    <ExerciseMetaRows exercise={exercise} className="mt-0.5" />
+                    <p className="mt-0.5 text-xs text-slate-400">
                       {exerciseSummaryLine(exercise)}
                     </p>
                   </div>

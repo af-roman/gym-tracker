@@ -7,20 +7,23 @@ import type {
 } from '../db/schema'
 import { db } from '../db/schema'
 import { assetUrl } from './assets'
+import {
+  isMuscleGroup,
+  type MuscleGroup,
+  normalizeMuscleGroups,
+} from './muscleGroups'
+
+export {
+  isMuscleGroup,
+  MUSCLE_GROUPS,
+  MUSCLE_GROUP_SHORT,
+  type MuscleGroup,
+  muscleGroupShortLabel,
+  normalizeMuscleGroups,
+} from './muscleGroups'
 
 export const MAX_INSTRUCTION_PHOTOS = 4
 export const MAX_INSTRUCTION_PHOTO_BYTES = 2 * 1024 * 1024
-
-export const MUSCLE_GROUPS = [
-  'Arms',
-  'Back',
-  'Chest',
-  'Core',
-  'Full body',
-  'Legs',
-  'Other',
-  'Shoulders',
-] as const
 
 export const EXERCISE_TYPES: { value: ExerciseType; label: string }[] = [
   { value: 'accessory', label: 'Accessory' },
@@ -48,7 +51,7 @@ export const EXERCISE_DIFFICULTIES: {
   { value: 'advanced', label: 'Advanced' },
 ]
 
-const DIFFICULTY_ORDER: ExerciseDifficulty[] = [
+export const DIFFICULTY_ORDER: ExerciseDifficulty[] = [
   'beginner',
   'intermediate',
   'advanced',
@@ -87,22 +90,61 @@ export function exerciseTypeLabel(type: ExerciseType): string {
   return EXERCISE_TYPES.find((t) => t.value === type)?.label ?? type
 }
 
-export function resolveMuscleGroups(exercise: ExerciseLike): string[] {
+export function resolveMuscleGroups(exercise: ExerciseLike): MuscleGroup[] {
   if (exercise.muscleGroups?.length) {
-    return [...exercise.muscleGroups]
+    return normalizeMuscleGroups(exercise.muscleGroups)
   }
   const legacy = exercise.muscleGroup
   if (legacy) {
-    return [legacy === 'Cardio' ? 'Other' : legacy]
+    return normalizeMuscleGroups([legacy === 'Cardio' ? 'Full body' : legacy])
   }
   return ['Other']
+}
+
+export function normalizeDifficultyRange(
+  difficulties: ExerciseDifficulty[],
+): ExerciseDifficulty[] {
+  const indices = [
+    ...new Set(
+      difficulties
+        .filter((level): level is ExerciseDifficulty =>
+          DIFFICULTY_ORDER.includes(level),
+        )
+        .map((level) => DIFFICULTY_ORDER.indexOf(level)),
+    ),
+  ].sort((a, b) => a - b)
+
+  if (indices.length === 0) return ['intermediate']
+
+  const min = indices[0]
+  const max = indices[indices.length - 1]
+  return DIFFICULTY_ORDER.slice(min, max + 1)
+}
+
+export function selectDifficultyRange(
+  current: ExerciseDifficulty[],
+  clicked: ExerciseDifficulty,
+): ExerciseDifficulty[] {
+  const range = normalizeDifficultyRange(current)
+  const clickedIndex = DIFFICULTY_ORDER.indexOf(clicked)
+
+  if (range.length === 1 && range[0] === clicked) {
+    return range
+  }
+  if (range.length === 1) {
+    const currentIndex = DIFFICULTY_ORDER.indexOf(range[0])
+    const min = Math.min(currentIndex, clickedIndex)
+    const max = Math.max(currentIndex, clickedIndex)
+    return DIFFICULTY_ORDER.slice(min, max + 1)
+  }
+  return [clicked]
 }
 
 export function resolveExerciseDifficulties(
   exercise: ExerciseLike,
 ): ExerciseDifficulty[] {
   if (exercise.difficulties?.length) {
-    return [...exercise.difficulties]
+    return normalizeDifficultyRange(exercise.difficulties)
   }
   const legacy = exercise.difficulty
   if (
@@ -134,20 +176,42 @@ export function formatMuscleGroups(groups: string[]): string {
 }
 
 export function formatDifficulties(difficulties: ExerciseDifficulty[]): string {
-  const sorted = [...difficulties].sort(
-    (a, b) => DIFFICULTY_ORDER.indexOf(a) - DIFFICULTY_ORDER.indexOf(b),
-  )
-  return sorted.map((d) => DIFFICULTY_SHORT[d]).join(' + ')
+  const range = normalizeDifficultyRange(difficulties)
+  if (range.length === 1) {
+    return DIFFICULTY_SHORT[range[0]]
+  }
+  return `${DIFFICULTY_SHORT[range[0]]}+`
+}
+
+export function formatExerciseMuscleLabel(
+  exercise: Exercise,
+  options?: { fullMuscles?: boolean },
+): string {
+  const groups = resolveMuscleGroups(exercise)
+  if (!options?.fullMuscles && groups.length > 3) {
+    return `${groups.slice(0, 3).join(' + ')}…`
+  }
+  return formatMuscleGroups(groups)
+}
+
+export function getExerciseMetaDisplay(
+  exercise: Exercise,
+  options?: { fullMuscles?: boolean },
+): {
+  type: string
+  muscles: string
+  level: string
+} {
+  return {
+    type: exerciseTypeLabel(resolveExerciseType(exercise)),
+    muscles: formatExerciseMuscleLabel(exercise, options),
+    level: formatDifficulties(resolveExerciseDifficulties(exercise)),
+  }
 }
 
 export function formatExerciseMeta(exercise: Exercise): string {
-  const groups = resolveMuscleGroups(exercise)
-  const groupLabel =
-    groups.length > 3
-      ? `${groups.slice(0, 3).join(' + ')}…`
-      : formatMuscleGroups(groups)
-
-  return `${exerciseTypeLabel(resolveExerciseType(exercise))} · ${groupLabel} · ${formatDifficulties(resolveExerciseDifficulties(exercise))}`
+  const { type, muscles, level } = getExerciseMetaDisplay(exercise)
+  return `${type} · ${muscles} · ${level}`
 }
 
 export function exerciseMatchesMuscleFilter(
@@ -155,6 +219,7 @@ export function exerciseMatchesMuscleFilter(
   filter: string,
 ): boolean {
   if (!filter) return true
+  if (!isMuscleGroup(filter)) return false
   return resolveMuscleGroups(exercise).includes(filter)
 }
 
@@ -260,7 +325,7 @@ export function createEmptyExercise(id: string): Exercise {
   return {
     id,
     name: '',
-    muscleGroups: ['Other'],
+    muscleGroups: ['Other'] satisfies MuscleGroup[],
     difficulties: ['intermediate'],
     instructions: '',
     instructionPhotos: [],
