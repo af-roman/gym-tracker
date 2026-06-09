@@ -1,8 +1,14 @@
-import type { DurationUnit, Exercise, ExerciseType, PlanExercise } from '../db/schema'
+import type {
+  DurationUnit,
+  Exercise,
+  ExerciseDifficulty,
+  ExerciseType,
+  PlanExercise,
+} from '../db/schema'
 import { db } from '../db/schema'
 import { assetUrl } from './assets'
 
-export const MAX_INSTRUCTION_PHOTOS = 3
+export const MAX_INSTRUCTION_PHOTOS = 4
 export const MAX_INSTRUCTION_PHOTO_BYTES = 2 * 1024 * 1024
 
 export const MUSCLE_GROUPS = [
@@ -14,7 +20,7 @@ export const MUSCLE_GROUPS = [
   'Legs',
   'Other',
   'Shoulders',
-]
+] as const
 
 export const EXERCISE_TYPES: { value: ExerciseType; label: string }[] = [
   { value: 'accessory', label: 'Accessory' },
@@ -33,11 +39,40 @@ export const EXERCISE_TYPES: { value: ExerciseType; label: string }[] = [
 
 export const DURATION_UNITS: DurationUnit[] = ['sec', 'min']
 
+export const EXERCISE_DIFFICULTIES: {
+  value: ExerciseDifficulty
+  label: string
+}[] = [
+  { value: 'beginner', label: 'Beginner' },
+  { value: 'intermediate', label: 'Intermediate' },
+  { value: 'advanced', label: 'Advanced' },
+]
+
+const DIFFICULTY_ORDER: ExerciseDifficulty[] = [
+  'beginner',
+  'intermediate',
+  'advanced',
+]
+
+const DIFFICULTY_SHORT: Record<ExerciseDifficulty, string> = {
+  beginner: 'Beg',
+  intermediate: 'Int',
+  advanced: 'Adv',
+}
+
 const LEGACY_TYPE_MAP: Record<string, ExerciseType> = {
   strength: 'accessory',
   bodyweight: 'core',
   cardio: 'cardio',
 }
+
+interface LegacyExerciseFields {
+  muscleGroup?: string
+  difficulty?: ExerciseDifficulty
+}
+
+type ExerciseLike = Pick<Exercise, 'muscleGroups' | 'difficulties'> &
+  LegacyExerciseFields
 
 export function isDurationExerciseType(type: ExerciseType): boolean {
   return (
@@ -52,8 +87,128 @@ export function exerciseTypeLabel(type: ExerciseType): string {
   return EXERCISE_TYPES.find((t) => t.value === type)?.label ?? type
 }
 
+export function resolveMuscleGroups(exercise: ExerciseLike): string[] {
+  if (exercise.muscleGroups?.length) {
+    return [...exercise.muscleGroups]
+  }
+  const legacy = exercise.muscleGroup
+  if (legacy) {
+    return [legacy === 'Cardio' ? 'Other' : legacy]
+  }
+  return ['Other']
+}
+
+export function resolveExerciseDifficulties(
+  exercise: ExerciseLike,
+): ExerciseDifficulty[] {
+  if (exercise.difficulties?.length) {
+    return [...exercise.difficulties]
+  }
+  const legacy = exercise.difficulty
+  if (
+    legacy === 'beginner' ||
+    legacy === 'intermediate' ||
+    legacy === 'advanced'
+  ) {
+    return [legacy]
+  }
+  return ['intermediate']
+}
+
+/** @deprecated use resolveExerciseDifficulties */
+export function resolveExerciseDifficulty(
+  exercise: ExerciseLike,
+): ExerciseDifficulty {
+  return resolveExerciseDifficulties(exercise)[0] ?? 'intermediate'
+}
+
+export function difficultyLabel(difficulty: ExerciseDifficulty): string {
+  return (
+    EXERCISE_DIFFICULTIES.find((d) => d.value === difficulty)?.label ??
+    difficulty
+  )
+}
+
+export function formatMuscleGroups(groups: string[]): string {
+  return groups.join(' + ')
+}
+
+export function formatDifficulties(difficulties: ExerciseDifficulty[]): string {
+  const sorted = [...difficulties].sort(
+    (a, b) => DIFFICULTY_ORDER.indexOf(a) - DIFFICULTY_ORDER.indexOf(b),
+  )
+  return sorted.map((d) => DIFFICULTY_SHORT[d]).join(' + ')
+}
+
 export function formatExerciseMeta(exercise: Exercise): string {
-  return `${exerciseTypeLabel(resolveExerciseType(exercise))} · ${exercise.muscleGroup}`
+  const groups = resolveMuscleGroups(exercise)
+  const groupLabel =
+    groups.length > 3
+      ? `${groups.slice(0, 3).join(' + ')}…`
+      : formatMuscleGroups(groups)
+
+  return `${exerciseTypeLabel(resolveExerciseType(exercise))} · ${groupLabel} · ${formatDifficulties(resolveExerciseDifficulties(exercise))}`
+}
+
+export function exerciseMatchesMuscleFilter(
+  exercise: Exercise,
+  filter: string,
+): boolean {
+  if (!filter) return true
+  return resolveMuscleGroups(exercise).includes(filter)
+}
+
+export function exerciseMatchesDifficultyFilter(
+  exercise: Exercise,
+  filter: ExerciseDifficulty,
+): boolean {
+  if (!filter) return true
+  return resolveExerciseDifficulties(exercise).includes(filter)
+}
+
+export interface ExerciseFilterOptions {
+  query?: string
+  type?: ExerciseType | ''
+  muscleGroup?: string
+  difficulty?: ExerciseDifficulty | ''
+}
+
+export function filterExercises(
+  exercises: Exercise[],
+  options: ExerciseFilterOptions,
+): Exercise[] {
+  const query = options.query?.trim().toLowerCase() ?? ''
+
+  return exercises
+    .filter((exercise) => {
+      if (options.type && resolveExerciseType(exercise) !== options.type) {
+        return false
+      }
+      if (!exerciseMatchesMuscleFilter(exercise, options.muscleGroup ?? '')) {
+        return false
+      }
+      if (
+        options.difficulty &&
+        !exerciseMatchesDifficultyFilter(exercise, options.difficulty)
+      ) {
+        return false
+      }
+      if (!query) return true
+
+      const haystack = [
+        exercise.name,
+        exercise.id,
+        ...resolveMuscleGroups(exercise),
+        exerciseTypeLabel(resolveExerciseType(exercise)),
+        ...resolveExerciseDifficulties(exercise).map(difficultyLabel),
+        exercise.instructions,
+      ]
+        .join(' ')
+        .toLowerCase()
+
+      return haystack.includes(query)
+    })
+    .sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export function instructionPhotoSrc(path: string): string {
@@ -105,7 +260,8 @@ export function createEmptyExercise(id: string): Exercise {
   return {
     id,
     name: '',
-    muscleGroup: 'Other',
+    muscleGroups: ['Other'],
+    difficulties: ['intermediate'],
     instructions: '',
     instructionPhotos: [],
     thumbnailPhotoIndex: 0,

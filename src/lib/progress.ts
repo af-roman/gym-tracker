@@ -1,6 +1,6 @@
 import { db } from '../db/schema'
 import type { SetLog } from '../db/schema'
-import { formatLoggedSet, MUSCLE_GROUPS } from './exercises'
+import { formatLoggedSet, MUSCLE_GROUPS, resolveMuscleGroups } from './exercises'
 
 export interface ExerciseProgressPoint {
   date: string
@@ -63,7 +63,10 @@ export async function getMuscleGroupStats(): Promise<MuscleGroupStat[]> {
   )
 
   const muscleByExercise = new Map(
-    (await db.exercises.toArray()).map((e) => [e.id, e.muscleGroup]),
+    (await db.exercises.toArray()).map((e) => [
+      e.id,
+      resolveMuscleGroups(e),
+    ]),
   )
 
   const volumes = new Map<string, number>(
@@ -74,13 +77,16 @@ export async function getMuscleGroupStats(): Promise<MuscleGroupStat[]> {
   for (const log of logs) {
     if (!completedSessionIds.has(log.sessionId)) continue
 
-    const group = muscleByExercise.get(log.exerciseId) ?? 'Other'
+    const groups = muscleByExercise.get(log.exerciseId) ?? ['Other']
     const effort =
       log.actualWeight != null && log.actualWeight > 0
         ? log.actualReps * log.actualWeight
         : log.actualReps
+    const share = effort / groups.length
 
-    volumes.set(group, (volumes.get(group) ?? 0) + effort)
+    for (const group of groups) {
+      volumes.set(group, (volumes.get(group) ?? 0) + share)
+    }
   }
 
   const maxVolume = Math.max(...MUSCLE_GROUPS.map((g) => volumes.get(g) ?? 0), 1)

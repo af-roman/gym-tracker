@@ -2,7 +2,6 @@
   {
     "id": "rowing",
     "name": "Rowing",
-    "muscleGroup": "Full body",
     "instructions": "Choose 1 of the following activities - according to taste or available equipment. The goal is to increase the heart rate, sweat slightly, move the whole body and prepare the muscles for the next part of the training (mobility, activation, main part).\n\nGreat for the whole body, engages arms, back, legs and core. Start slower and gradually increase the intensity.",
     "exerciseType": "cardio",
     "defaultSets": 1,
@@ -12,12 +11,17 @@
       "/exercise-photos/rowing/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-8 min"
+    "startingWeightNote": "5-8 min",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "treadmill",
     "name": "Treadmill",
-    "muscleGroup": "Full body",
     "instructions": "Suitable for complete beginners and advanced users. Adjust the incline or speed according to your fitness level.",
     "exerciseType": "cardio",
     "defaultSets": 1,
@@ -27,12 +31,18 @@
       "/exercise-photos/treadmill/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-10 min brisk walking or light jogging"
+    "startingWeightNote": "5-10 min brisk walking or light jogging",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "elliptical-trainer",
     "name": "Elliptical trainer",
-    "muscleGroup": "Full body",
     "instructions": "Gentle on the joints, excellent for warming up the legs and arms. Set a moderate resistance.",
     "exerciseType": "cardio",
     "defaultSets": 1,
@@ -42,12 +52,17 @@
       "/exercise-photos/elliptical-trainer/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-8 min"
+    "startingWeightNote": "5-8 min",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "fitness-stairs",
     "name": "Fitness stairs",
-    "muscleGroup": "Full body",
     "instructions": "Intensive heating of the lower body. Excellent for activating the buttocks and thighs. You can change the pace.",
     "exerciseType": "cardio",
     "defaultSets": 1,
@@ -57,12 +72,17 @@
       "/exercise-photos/fitness-stairs/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "3-6 min"
+    "startingWeightNote": "3-6 min",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "jump-lunges",
     "name": "Jump lunges",
-    "muscleGroup": "Full body",
     "instructions": "Dynamic exercise for the more advanced. Significantly activates the buttocks, legs and mid-body. For beginners, replace with classic lunges.",
     "exerciseType": "cardio",
     "defaultSets": 3,
@@ -72,23 +92,34 @@
       "/exercise-photos/jump-lunges/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "3×30 s (with pauses)"
+    "startingWeightNote": "3×30 s (with pauses)",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "exercise-with-ropes",
     "name": "Exercise with ropes",
-    "muscleGroup": "Full body",
     "instructions": "Explosive warm-up with an emphasis on the upper body. It engages the shoulders, back and mid-body. Excellent for circuit training.",
     "exerciseType": "cardio",
     "defaultSets": 3,
     "defaultDuration": 20.0,
     "durationUnit": "sec",
-    "startingWeightNote": "3×20–30 s"
+    "startingWeightNote": "3×20–30 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "foot-massage-activation-with-a-mini-roller-or-ball",
     "name": "Foot massage/activation with a mini roller or ball",
-    "muscleGroup": "Full body",
     "instructions": "Massage using a roller (so-called self-myofascial release) serves to:\n🌀 Release of muscle tension and fascia\n🌀Improving blood flow and faster muscle activation\n🌀Improving range of motion\n🌀Reducing the risk of injury during subsequent training\nIt is advisable to include it after a light warm-up and before dynamic mobility. It is a good idea to massage each area for about 30-60 seconds or until the tension is relieved.\n\nTarget area: Foot\n\nGreat for foot activation, relieves flat feet, hallux valgus, heel pain.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -98,12 +129,17 @@
       "/exercise-photos/foot-massage-activation-with-a-mini-roller-or-ball/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Each foot 30-60 s"
+    "startingWeightNote": "Each foot 30-60 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "calf-massage-activation",
     "name": "Calf massage/activation",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Calf\n\nRelieves tension after walking or running, often overloaded with a sedentary lifestyle.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -113,12 +149,17 @@
       "/exercise-photos/calf-massage-activation/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s each leg"
+    "startingWeightNote": "30–60 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "massage-activation-back-of-thigh-hamstrings",
     "name": "Massage/activation - back of thigh (hamstrings)",
-    "muscleGroup": "Full body",
     "instructions": "Target area: The back of the thighs / buttocks\n\nIt helps with mobility and prepares the legs for squats and pull-ups.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -128,12 +169,17 @@
       "/exercise-photos/massage-activation-back-of-thigh-hamstrings/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s each leg"
+    "startingWeightNote": "30–60 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "massage-activation-buttocks",
     "name": "Massage/activation - buttocks",
-    "muscleGroup": "Full body",
     "instructions": "Target area: The back of the thighs / buttocks\n\nRelaxing your glutes will improve activation in exercises like squats and hip thrusts.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -143,12 +189,17 @@
       "/exercise-photos/massage-activation-buttocks/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s each side"
+    "startingWeightNote": "30–60 s each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "massage-activation-shins",
     "name": "Massage/activation - shins",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Front of thighs\n\nHelps with shin splints, suitable for e.g. runners.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -158,12 +209,17 @@
       "/exercise-photos/massage-activation-shins/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each leg"
+    "startingWeightNote": "30 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "massage-activation-tfl-itb",
     "name": "Massage/Activation - TFL / ITB",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Front of thighs\n\nA frequent source of tension in women, overloaded with weak activation of the buttocks. Light pressure, not through pain!",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -173,12 +229,17 @@
       "/exercise-photos/massage-activation-tfl-itb/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s each leg"
+    "startingWeightNote": "30–60 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "massage-activation-front-thigh",
     "name": "Massage/activation - Front thigh",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Front of thighs\n\nQuadriceps release, suitable before squats or leg presses. If the area is very sensitive, start with less pressure.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -188,12 +249,17 @@
       "/exercise-photos/massage-activation-front-thigh/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s each leg"
+    "startingWeightNote": "30–60 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "inner-thigh-massage-activation",
     "name": "Inner thigh massage/activation",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Inner thighs\n\nSuitable for improving hip mobility and activating adductors. Take it slow and breathe deeply.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -203,12 +269,17 @@
       "/exercise-photos/inner-thigh-massage-activation/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s each leg"
+    "startingWeightNote": "30–60 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "lower-back-massage",
     "name": "Lower back massage",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Lower back\n\nCarefully! Rather use a soft roller, do not exercise through pain. The goal is gentle mobilization, not forceful pressure.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -218,12 +289,17 @@
       "/exercise-photos/lower-back-massage/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds, gently"
+    "startingWeightNote": "20-30 seconds, gently",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "massage-the-chest-part-of-the-back",
     "name": "Massage the chest part of the back",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Back\n\nExcellent for posture, relaxes the thoracic spine after long periods of sitting. You can bend your back slightly over the roller.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -233,23 +309,33 @@
       "/exercise-photos/massage-the-chest-part-of-the-back/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s"
+    "startingWeightNote": "30–60 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "neck-massage",
     "name": "Neck massage",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Neck\n\nGentle pressure with a ball or hands. Great for tension or headaches. Don't use too much pressure, avoid the spine.",
     "exerciseType": "stretch",
     "defaultSets": 3,
     "defaultDuration": 20.0,
     "durationUnit": "sec",
-    "startingWeightNote": "20-30 s each side"
+    "startingWeightNote": "20-30 s each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "extensions-with-an-emphasis-on-ankle-movement",
     "name": "Extensions with an emphasis on ankle movement",
-    "muscleGroup": "Full body",
     "instructions": "Sufficient range of motion in the ankle is key to:\n\n🦶 Correct technique of squatting, lunges and walking\n🦶Prevention of knee and back pain - with limited movement in the ankle, compensation occurs in another part of the body\n🦶Improving stability and balance\n🦶Reducing the risk of injury (e.g. sprain)\n\n➡️ It is recommended to include ankle mobility especially before lower body training. Perform the exercises slowly, with control and focus on forward movement (dorsal flexion).\n\nTarget area: ankle mobility\n\nExcellent for activating the ankles and calves. When lifting, focus on a slow, controlled movement. It will also help with balance and ankle stability. Can be performed on a mat or the edge of a step.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -259,12 +345,17 @@
       "/exercise-photos/extensions-with-an-emphasis-on-ankle-movement/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "2-3 sets x 12-15 reps"
+    "startingWeightNote": "2-3 sets x 12-15 reps",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "ankle-dorsiflexion-with-a-kettlebell",
     "name": "Ankle dorsiflexion with a kettlebell",
-    "muscleGroup": "Full body",
     "instructions": "Target area: ankle mobility\n\nPlace a barbell on your knee and gently push forward. Increases range of motion and stability. Pay attention to the correct axis of the foot.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -274,12 +365,17 @@
       "/exercise-photos/ankle-dorsiflexion-with-a-kettlebell/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 reps on each leg"
+    "startingWeightNote": "8-10 reps on each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "endurance-in-a-deep-squat",
     "name": "Endurance in a deep squat",
-    "muscleGroup": "Full body",
     "instructions": "Target area: ankle mobility\n\nCombines ankle and hip mobility. Make sure your heels stay on the ground. If range is limited, use a heel wedge. It will help improve your squatting position.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -289,23 +385,33 @@
       "/exercise-photos/endurance-in-a-deep-squat/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30-60 seconds"
+    "startingWeightNote": "30-60 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "toe-tapping-on-the-wall",
     "name": "Toe tapping on the wall",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Ankle (dorsiflexion)\n\nTry to keep the entire sole of your foot on the ground. Move only to the point where there is no heel lift. Gradually move your leg further away from the wall.",
     "exerciseType": "stretch",
     "defaultSets": 3,
     "defaultDuration": 30,
     "durationUnit": "sec",
-    "startingWeightNote": "8-10 reps on each leg"
+    "startingWeightNote": "8-10 reps on each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "deep-lunge",
     "name": "Deep lunge",
-    "muscleGroup": "Full body",
     "instructions": "Well-moving hips are the basis of healthy and efficient movement. With their limited mobility, they often compensate in the knees or hips, which can lead to overload and pain.\n\n💡 Benefits of hip mobilization:\n\n🦵Improving range of motion in the squat, lunge and deadlift\n🦵Better activation of the buttocks and reduced risk of lower back pain\n🦵 Greater stability and control in movement\n\nRecommended to include before lower body training or as part of a mobility routine.\n\nTarget area: hip mobility\n\nStretches the hip flexors (mainly the iliopsoas muscle). Leaning increases the intensity.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -316,12 +422,17 @@
       "/exercise-photos/deep-lunge/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "2-3 sets x 30-40 s each leg"
+    "startingWeightNote": "2-3 sets x 30-40 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seated-hip-rotation-hands-in-front",
     "name": "Seated hip rotation hands in front",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nExercise in the 90-90 position. Actively roll your legs from one side to the other - keep your chest upright. Suitable for checking rotation in the hip.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -331,12 +442,17 @@
       "/exercise-photos/seated-hip-rotation-hands-in-front/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 reps each side"
+    "startingWeightNote": "8-10 reps each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seated-hip-rotation-in-90-90-position-with-hand-support",
     "name": "Seated hip rotation In 90-90 position with hand support",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nHand support helps balance. Actively roll your legs from one side to the other - keep your chest upright",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -346,12 +462,17 @@
       "/exercise-photos/seated-hip-rotation-in-90-90-position-with-hand-support/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 reps each side"
+    "startingWeightNote": "8-10 reps each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "deep-squat-we-move-the-knees-apart-with-the-arms",
     "name": "Deep squat (we move the knees apart with the arms)",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nActively staying in the lower squat position, elbows gently push the knees apart. It helps loosen the hips while keeping the torso upright. The heels stay on the ground.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -361,12 +482,17 @@
       "/exercise-photos/deep-squat-we-move-the-knees-apart-with-the-arms/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30-60 seconds"
+    "startingWeightNote": "30-60 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "endurance-in-a-deep-squat-2",
     "name": "Endurance in a deep squat",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nThe exercise combines mobility of the hips, ankles and trunk stability. Make sure that the pelvis is not lowered, keep the natural curve of the back. It will help prepare the body for squats.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -376,12 +502,17 @@
       "/exercise-photos/endurance-in-a-deep-squat-2/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30-60 seconds"
+    "startingWeightNote": "30-60 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "trunk-rotation-in-a-deep-squat",
     "name": "Trunk rotation in a deep squat",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nStart in a deep squat, one hand resting on the ground, the other rotating upwards. Follow the hand with your eyes. Excellent for combining hip mobility and spine rotation. Breathe slowly and consciously.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -391,12 +522,17 @@
       "/exercise-photos/trunk-rotation-in-a-deep-squat/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-6 reps on each side"
+    "startingWeightNote": "5-6 reps on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "dynamic-frog-stretching-frog-rocking-i-move-forward-and-backward",
     "name": "Dynamic frog stretching (Frog Rocking) - I move forward and backward",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nGreat for opening the hips into abduction. Keep your knees wide, pelvis in neutral. Move in a controlled manner, it must not hurt in the groin.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -407,12 +543,17 @@
       "/exercise-photos/dynamic-frog-stretching-frog-rocking-i-move-forward-and-backward/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-12 slow forward/backward movements"
+    "startingWeightNote": "8-12 slow forward/backward movements",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "leg-swings",
     "name": "Leg swings",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nA dynamic movement that activates the hip joints and prepares them for running, squats or lunges. Keep your core tight.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -423,12 +564,17 @@
       "/exercise-photos/leg-swings/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 reps each leg"
+    "startingWeightNote": "10-15 reps each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "lunges-to-the-sides",
     "name": "Lunges to the sides",
-    "muscleGroup": "Full body",
     "instructions": "Target area: hip mobility\n\nOpens the inner thighs and improves control of movement in the lateral direction. Keep your torso straight and your knee over your toe. Slowly move from one side to the other.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -439,22 +585,32 @@
       "/exercise-photos/lunges-to-the-sides/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 reps on each side"
+    "startingWeightNote": "6-10 reps on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hip-mobility-cars-controlled-movements",
     "name": "Hip mobility, CARs controlled movements",
-    "muscleGroup": "Full body",
     "instructions": "2-3 reps each leg (1 slow circle forward and back)\nActive full rotation of the hip joint. Slowly, with maximum control and without trunk compensation. Improves coordination and activation.",
     "exerciseType": "stretch",
     "defaultSets": 1,
     "defaultDuration": 30,
-    "durationUnit": "sec"
+    "durationUnit": "sec",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "shoulder-rotation",
     "name": "Shoulder rotation",
-    "muscleGroup": "Full body",
     "instructions": "The shoulders and thoracic spine are key to:\n\n🤸‍♀️ Correct body posture and technique of push and pull exercises (e.g. push-ups, push-ups, pull-ups)\n🤸‍♀️Full range of motion when raising your arms above your head\n🤸 ♀️ Prevention of pain in the cervical spine, shoulder blades and shoulders\n🤸‍♀️Increasing the stability of the scapula and activating the deeper muscles of the torso\n\n⚠️ Most clients (especially those who work at the computer) have stiff shoulders and a blocked chest → before strength training, the area needs to be opened and moved.\n\nRecommended especially before upper body training, stretching and pressure exercises.\n\nTarget area: shoulder mobility\n\nA warming and relaxing movement. Perform to the full extent, slowly. Pay attention to the flexion of the shoulder blades.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -466,12 +622,17 @@
       "/exercise-photos/shoulder-rotation/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 repetitions"
+    "startingWeightNote": "10-15 repetitions",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "dislocation-of-the-shoulders-with-bar-or-rubber",
     "name": "Dislocation of the shoulders (with bar or rubber)",
-    "muscleGroup": "Full body",
     "instructions": "Target area: shoulder mobility\n\nKeep your back straight and your arms bent. Basic shoulder opening exercise, very effective before pressure exercises.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -483,12 +644,17 @@
       "/exercise-photos/dislocation-of-the-shoulders-with-bar-or-rubber/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 repetitions"
+    "startingWeightNote": "6-10 repetitions",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "arm-circling-against-the-wall",
     "name": "Arm circling against the wall",
-    "muscleGroup": "Full body",
     "instructions": "Target area: shoulder mobility\n\nFor the more advanced - activates the blade stabilizers. Keep your back and ribs against the wall, we guide your arms in an arc with minimal compensation. Great for push-ups and pull-ups.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -500,12 +666,17 @@
       "/exercise-photos/arm-circling-against-the-wall/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-6 rings each hand"
+    "startingWeightNote": "5-6 rings each hand",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "cars-controlled-shoulder-joint-rotations",
     "name": "CARs – controlled shoulder joint rotations",
-    "muscleGroup": "Full body",
     "instructions": "Target area: shoulder mobility\n\nSlowly guide the arm through the maximum possible range of motion, without compensating with the torso. Keep your core active. Excellent for conscious joint control.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -515,12 +686,17 @@
       "/exercise-photos/cars-controlled-shoulder-joint-rotations/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "1-2 slow circles in each direction / each arm"
+    "startingWeightNote": "1-2 slow circles in each direction / each arm",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "shoulder-mobilization-with-a-roller",
     "name": "Shoulder mobilization with a roller",
-    "muscleGroup": "Full body",
     "instructions": "Target area: shoulder mobility\n\nOpens the shoulder and chest area. Place your palms on the roller and move forward with exhalation.  Don't slouch at the hips. Also suitable as a recovery exercise.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -530,12 +706,17 @@
       "/exercise-photos/shoulder-mobilization-with-a-roller/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30-60 seconds"
+    "startingWeightNote": "30-60 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "shoulder-mobilization-with-bench-support",
     "name": "Shoulder mobilization with bench support",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Mobility of shoulders & thoracic spine\n\nResting her hands on a bench (or chair), she pressed her chest down towards the ground. You can hold a figure eight or a bar. Pay attention to an active abdomen and smooth breathing.",
     "exerciseType": "stretch",
     "defaultSets": 1,
@@ -545,12 +726,17 @@
       "/exercise-photos/shoulder-mobilization-with-bench-support/1.jpg",
       "/exercise-photos/shoulder-mobilization-with-bench-support/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "cat-s-back",
     "name": "Cat's back",
-    "muscleGroup": "Full body",
     "instructions": "Target area: mobility of the thoracic spine\n\nSlowly transition between slouching and arching your spine. Breathe deeply, move with the rhythm of your breath. It relaxes the spine from the neck to the hips.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -561,12 +747,17 @@
       "/exercise-photos/cat-s-back/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 slow reps"
+    "startingWeightNote": "6-10 slow reps",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "chest-rotation-on-all-fours-threading-the-needle",
     "name": "Chest rotation on all fours - Threading the needle",
-    "muscleGroup": "Full body",
     "instructions": "Target area: mobility of the thoracic spine\n\nActive trunk rotation, head follows movement. Improves rotation between shoulder blades. Move slowly, with control.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -577,12 +768,17 @@
       "/exercise-photos/chest-rotation-on-all-fours-threading-the-needle/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps on each side"
+    "startingWeightNote": "6-8 reps on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "torso-rotation-on-all-fours-from-head-to-neck",
     "name": "Torso rotation on all fours from head to neck",
-    "muscleGroup": "Full body",
     "instructions": "Target area: mobility of the thoracic spine\n\nOne hand behind the head, rotate the elbow upwards. Try to keep a stable pelvis. Suitable for pressures and pulls.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -593,12 +789,17 @@
       "/exercise-photos/torso-rotation-on-all-fours-from-head-to-neck/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps on each side"
+    "startingWeightNote": "6-8 reps on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "side-bows-with-a-foam-roller-pressed-under-the-chest",
     "name": "Side bows with a foam roller pressed under the chest",
-    "muscleGroup": "Full body",
     "instructions": "Target area: mobility of the thoracic spine\n\nThe roller fixes the chest - the movement comes from the torso. It helps to open the chest and improve the lateral bending of the spine. Breathe into the ribs, keep the center of the body active.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -608,23 +809,33 @@
       "/exercise-photos/side-bows-with-a-foam-roller-pressed-under-the-chest/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 bows to each side"
+    "startingWeightNote": "6-8 bows to each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "trunk-rotation-in-a-deep-squat-2",
     "name": "Trunk rotation in a deep squat",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Mobility of the thoracic spine and hips\n\nIt combines spine rotation and hip mobility. Make sure your heels stay on the ground. Follow the upper arm with your eyes, don't bend your hips. Excellent for squats, presses and pull-ups.",
     "exerciseType": "stretch",
     "defaultSets": 3,
     "defaultDuration": 30,
     "durationUnit": "sec",
-    "startingWeightNote": "5-6 reps on each side"
+    "startingWeightNote": "5-6 reps on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-forearms-on-all-fours",
     "name": "Stretching forearms on all fours",
-    "muscleGroup": "Full body",
     "instructions": "The wrists are often neglected, but in functional training and exercises with your own weight (push-ups, planks, pull-ups, presses) they carry a large load.\nIf their mobility is limited, there is an overload of the joints, compensation in the elbows, shoulders or cervical spine.\n\n🔎 What wrist mobility brings:\n\n✋Improve comfort and range when leaning on your palms\n✋ It will reduce the risk of pain and joint overload\n✋Enables safer execution of exercises on the ground (e.g. push-ups, planks)\n✋Supports grip strength and work with a barbell, barbell or kettlebell\n\n➡️ Include before upper body training, when working with your own weight or as part of preparation for handstands / gymnastics.\n\nTarget area: wrist mobility\n\nThe backs of the hands on the mat, gently push the elbows down. A slow, passive pull on the back of the wrist and forearm. Don't pull, it shouldn't hurt.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -635,12 +846,17 @@
       "/exercise-photos/stretching-forearms-on-all-fours/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds"
+    "startingWeightNote": "20-30 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-in-false-grip",
     "name": "Stretching in false grip",
-    "muscleGroup": "Full body",
     "instructions": "Target area: wrist mobility\n\nSuitable as a preparation for push-ups, pull-ups or exercises on circles. Wrists slightly bent, palms weighted. Keep your shoulders steady.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -651,12 +867,17 @@
       "/exercise-photos/stretching-in-false-grip/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds"
+    "startingWeightNote": "20-30 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "kneeling-wrist-extension-palms-turned-with-fingers-towards-the-body",
     "name": "Kneeling wrist extension - palms turned with fingers towards the body",
-    "muscleGroup": "Full body",
     "instructions": "Target area: wrist mobility\n\nA gentle pull on the wrist flexors. She pushed her torso back – the weight moves the body, not the wrist directly. Make sure your palms don't come off.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -667,12 +888,17 @@
       "/exercise-photos/kneeling-wrist-extension-palms-turned-with-fingers-towards-the-body/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds"
+    "startingWeightNote": "20-30 seconds",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "transferring-weight-to-the-sides",
     "name": "Transferring weight to the sides",
-    "muscleGroup": "Full body",
     "instructions": "Target area: wrist mobility\n\nActive exercise - dynamically transfer your body weight from one hand to the other. It will improve the natural load tolerance and get the joint fluid flowing.",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -683,12 +909,17 @@
       "/exercise-photos/transferring-weight-to-the-sides/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 reps on each side"
+    "startingWeightNote": "8-10 reps on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "denial-of-the-fist-mobility-of-the-wrist-extensors",
     "name": "Denial of the fist, Mobility of the wrist extensors",
-    "muscleGroup": "Full body",
     "instructions": "Target area: wrist mobility\n\nClose your fists, the backs of your wrists facing down. She hunched her shoulders slightly over her hands. Releases tension in the upper part of the forearms (extensors).",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -699,23 +930,33 @@
       "/exercise-photos/denial-of-the-fist-mobility-of-the-wrist-extensors/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 slow weight transfers"
+    "startingWeightNote": "8-10 slow weight transfers",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "denial-of-the-fist-mobility-of-the-wrist-extensors-2",
     "name": "Denial of the fist, Mobility of the wrist extensors",
-    "muscleGroup": "Full body",
     "instructions": "Target area: wrist mobility\n\nActive mobilization. Lean your body slightly forward/backward when pushing. Keep your fists firm, the movement should come from your body, not your wrists. Also great as a prevention during strength training.",
     "exerciseType": "stretch",
     "defaultSets": 3,
     "defaultDuration": 30,
     "durationUnit": "sec",
-    "startingWeightNote": "8-10 slow weight transfers"
+    "startingWeightNote": "8-10 slow weight transfers",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "breathing-while-lying-on-your-back-with-your-legs-bent",
     "name": "Breathing while lying on your back with your legs bent",
-    "muscleGroup": "Core",
     "instructions": "The core is not just the \"abdomen\", but the entire complex of muscles around the spine, ribs, pelvis and loins. It acts as a natural stabilizer that protects the spine and transfers power between the upper and lower body.\n\nIf the center of the body is inactive:\n\n🧍‍♀️ It's harder to maintain the correct technique (e.g. in a squat or deadlift)\n🧍‍♀️The body will compensate in the hips, hips or shoulders\n🧍‍♀️The risk of overload or injury will increase\n\n🌬️ Breathing activation exercises will improve the connection with the deep stabilization system (diaphragm, pelvic floor, deep abdominal muscles) and prepare the body for performance.\n\n✅ When to activate the center of the body?\n- After warm-up and mobility\n- Before the main part of the training\n- Or as part of a regular routine for back pain\n\nTarget area: Activating the center of the body\n\nPlace your hands on your lower ribs. During inhalation, the ribs open to the sides, exhalation activates the deep abdominal muscles. Basic breath activation (diaphragm + deep core).",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -724,12 +965,17 @@
       "/exercise-photos/breathing-while-lying-on-your-back-with-your-legs-bent/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 deep breaths"
+    "startingWeightNote": "6-10 deep breaths",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "breath-activation-while-lying-on-the-stomach-crocodile-breath",
     "name": "Breath activation while lying on the stomach - crocodile breath",
-    "muscleGroup": "Core",
     "instructions": "Target area: Activating the center of the body\n\nFeel the breath in your belly against the mat. A great way to engage the diaphragm.",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -738,12 +984,17 @@
       "/exercise-photos/breath-activation-while-lying-on-the-stomach-crocodile-breath/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 breath cycles"
+    "startingWeightNote": "6-10 breath cycles",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "position-of-the-child-with-breathing-to-the-hips",
     "name": "Position of the child with breathing to the hips",
-    "muscleGroup": "Core",
     "instructions": "Target area: Core + Chest Mobility + Trunk Fascia\n\nFrom the child's position, move the body to the side, extend the arms to the side. Inhale purposefully into your ribs and side, release tension with your exhale. Great at the end of activation or before an upper body workout.",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -752,12 +1003,17 @@
       "/exercise-photos/position-of-the-child-with-breathing-to-the-hips/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "3-5 breath cycles on each side"
+    "startingWeightNote": "3-5 breath cycles on each side",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "walking-on-all-fours-bear-walk",
     "name": "Walking on all fours, Bear walk",
-    "muscleGroup": "Core",
     "instructions": "Target area: Activation + core stability\n\nA more demanding stabilization exercise. Palms under the shoulders, knees under the hips - slow, smooth movement. Keep the tension in the abdomen and do not sag in the hips.",
     "exerciseType": "core",
     "defaultSets": 2,
@@ -766,12 +1022,17 @@
       "/exercise-photos/walking-on-all-fours-bear-walk/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "2x10-15 steps forward/backward"
+    "startingWeightNote": "2x10-15 steps forward/backward",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "dead-bug",
     "name": "Dead bug",
-    "muscleGroup": "Core",
     "instructions": "Target area: Activating the deep center of the body\n\nArms and legs at right angles, slowly lower the opposite arm and leg. Keep your hips pressed into the mat. Slowly, exhaling as you start.",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -780,12 +1041,17 @@
       "/exercise-photos/dead-bug/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps on each side"
+    "startingWeightNote": "6-8 reps on each side",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "active-rebellion-on-all-fours",
     "name": "Active rebellion on all fours",
-    "muscleGroup": "Core",
     "instructions": "Target area: Core stability + strength\n\nPalms under the shoulders, knees just above the ground. The whole body is active - shoulders, core, pelvis. Perfect before training with body weight or dumbbells.",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -795,12 +1061,17 @@
       "/exercise-photos/active-rebellion-on-all-fours/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "3×20–30 s"
+    "startingWeightNote": "3×20–30 s",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "pressure-of-the-palms-against-the-knees-on-the-back-activation-of-the-deep-abdomen-in-the-beetle-position",
     "name": "Pressure of the palms against the knees on the back, Activation of the deep abdomen in the beetle position",
-    "muscleGroup": "Core",
     "instructions": "Target area: Activating the center of the body\n\nHands and knees push against each other - no movement. Exhale to activate the abdominal wall. Also suitable for beginners and clients with back pain.",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -810,12 +1081,17 @@
       "/exercise-photos/pressure-of-the-palms-against-the-knees-on-the-back-activation-of-the-deep-abdomen-in-the-beetle-position/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "3×20 s static pressure"
+    "startingWeightNote": "3×20 s static pressure",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "toe-fat-from-without-lifting-arms",
     "name": "Toe Fat (from - without lifting arms)",
-    "muscleGroup": "Core",
     "instructions": "Target area: Activating the center of the body\n\nHands fixed, lower your legs alternately and lightly \"tap\" the toe on the ground. Don't stick your hips out. Excellent for mastering tension in the core.",
     "exerciseType": "core",
     "defaultSets": 3,
@@ -824,22 +1100,32 @@
       "/exercise-photos/toe-fat-from-without-lifting-arms/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps each leg"
+    "startingWeightNote": "6-8 reps each leg",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "lifting-limbs-on-all-fours-superman-arms-and-legs",
     "name": "Lifting limbs on all fours, Superman - arms and legs",
-    "muscleGroup": "Core",
     "instructions": "Target area: Activating the center of the body\n\nFrom a position on all fours, lift the opposite arm and leg. Pay attention to a stable pelvis, do not bend at the hips. Deep core and balance activation.",
     "exerciseType": "core",
     "defaultSets": 3,
     "defaultReps": "6-8",
-    "startingWeightNote": "6-8 reps each side"
+    "startingWeightNote": "6-8 reps each side",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "crate-squat",
     "name": "Crate squat",
-    "muscleGroup": "Legs",
     "instructions": "What is it:\nMovements such as squatting and lunging are among the basic human movement patterns. We use them every day – when getting up from a chair, lifting objects, walking up stairs or getting up from a squat.\n\n✅ Why include them in training:\nDevelops the strength of the lower half of the body (thighs, buttocks, calves)\n🏋️ They improve the stability of knees and hips\n🏋️ They support coordination, mobility and balance\n🏋️ They help prevent injuries (especially knees and back)\n🏋️ It teaches the body to manage the load in different levels of movement\n\n🔁 What they affect:\n🏋️Strength and volume of the muscles of the lower limbs\n🏋️ Mobility and mobility of hips, knees and ankles\n🏋️Postural stability and posture\n🏋️Ability to handle functional load in everyday life\n\n📌 Suitable for beginners and advanced, they can be easily adapted to individual fitness (e.g. using TRX, support, or adding weight).\n\n⚠️ What to watch out for when performing a squat:\n\n⚠️ Foot position:\nThe toes point slightly outwards, the feet remain in contact with the ground all the time (including the thumb, little finger and heel).\n⚠️ Knees:\nThey follow the direction of the tips - they do not sink in (valgus). In the lunge, the knee does not go beyond the toe significantly forward.\n⚠️ Pan:\nDo not lean or lean too much. The pelvis is neutral - we don't slouch, but we don't bend at the hips either.\n⚠️ Back:\nKeep your back straight, your core active, your head in an extension of your spine - don't look up or down.\n⚠️ Squat depth:\nThe squat should be as deep as the mobility of the hips and ankles will allow. Quality is preferred over quantity.\n⚠️ Breathing:\nInhale before moving, exhale when lifting up. Don't hold your breath.\n⚠️ Pace:\nKeep a controlled pace. You don't fall down, but you walk consciously and steadily.\n\nMuscles worked: Quadriceps, glutes, hamstrings, core\n\nLevel: Beginner, complete\n\nGreat for practicing proper range of motion, helps maintain control",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -849,12 +1135,18 @@
       "/exercise-photos/crate-squat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner, complete"
+    "startingWeightNote": "Beginner, complete",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "squats-with-trx",
     "name": "Squats with TRX",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, core\n\nLevel: Beginner, complete\n\nIt helps to stabilize the movement and strengthen the technique",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -864,12 +1156,17 @@
       "/exercise-photos/squats-with-trx/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner, complete"
+    "startingWeightNote": "Beginner, complete",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "so-far-on-one-leg",
     "name": "So far on one leg",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, hamstrings\n\nLevel: Beginner, complete\n\nBeginning of training on one leg, strengthens stability",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -878,12 +1175,17 @@
       "/exercise-photos/so-far-on-one-leg/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner, complete"
+    "startingWeightNote": "Beginner, complete",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "sit-by-the-wall",
     "name": "Sit by the wall",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, isometric activation of the buttocks\n\nLevel: Beginner, complete\n\nGreat at the end of training, activation without movement",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -893,12 +1195,17 @@
       "/exercise-photos/sit-by-the-wall/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner, complete"
+    "startingWeightNote": "Beginner, complete",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "wall-squat-hack-with-a-ball",
     "name": "Wall Squat Hack with a Ball",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes\n\nLevel: Beginner\n\nIt allows good range and stability",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -908,12 +1215,17 @@
       "/exercise-photos/wall-squat-hack-with-a-ball/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "goblet-squat",
     "name": "Goblet squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, core\n\nLevel: from Beginner to every level\n\nExcellent for learning proper weight technique",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -923,12 +1235,19 @@
       "/exercise-photos/goblet-squat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "sumo-goblet-squat",
     "name": "Sumo goblet squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, inner thighs, core\n\nLevel: from Beginner to every level\n\nSuitable for limited ankle mobility",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -937,12 +1256,19 @@
       "/exercise-photos/sumo-goblet-squat/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "lunges-while-walking",
     "name": "Lunges while walking",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, hamstrings, core\n\nLevel: from Beginner to every level\n\nCoordination more demanding, improves balance",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -951,12 +1277,19 @@
       "/exercise-photos/lunges-while-walking/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "lunges-forward-without-walking",
     "name": "Lunges forward without walking",
-    "muscleGroup": "Legs",
     "instructions": "Perform Lunges forward without walking with controlled form.",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -964,12 +1297,17 @@
     "instructionPhotos": [
       "/exercise-photos/lunges-forward-without-walking/1.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "back-lunges",
     "name": "Back lunges",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings\n\nLevel: from Beginner to every level\n\nMore gentle on the knees than classic forward lunges",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -979,12 +1317,19 @@
       "/exercise-photos/back-lunges/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "leg-press",
     "name": "Leg press",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes\n\nLevel: from Beginner to every level\n\nMachine - safe to start with heavier loads",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -994,12 +1339,19 @@
       "/exercise-photos/leg-press/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "leg-press-with-one-leg",
     "name": "Leg press with one leg",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes\n\nLevel: from Beginner to every level\n\nMachine - safe to start with heavier loads",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1008,12 +1360,19 @@
       "/exercise-photos/leg-press-with-one-leg/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "back-lunges-crosswise",
     "name": "Back lunges crosswise",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Glutes, quadriceps, obliques\n\nLevel: from Beginner to every level\n\nGreat for pelvic stability and glute activation",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1023,12 +1382,19 @@
       "/exercise-photos/back-lunges-crosswise/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "backward-lunges-with-weight-support",
     "name": "Backward lunges with weight support",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Glutes, quadriceps, obliques\n\nLevel: from Beginner to every level\n\nGreat for pelvic stability and glute activation",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1038,12 +1404,19 @@
       "/exercise-photos/backward-lunges-with-weight-support/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "lunges-to-the-side-with-weights",
     "name": "Lunges to the side with weights",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Inner and outer thighs, buttocks\n\nLevel: from Beginner to every level\n\nDevelops strength in other planes of motion",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1053,12 +1426,19 @@
       "/exercise-photos/lunges-to-the-side-with-weights/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "squat-machine-hack",
     "name": "Squat Machine Hack",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, hamstrings\n\nLevel: from Beginner to every level\n\nSuitable for maintaining technique and greater load on the lower limbs",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1068,12 +1448,19 @@
       "/exercise-photos/squat-machine-hack/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Beginner to every level"
+    "startingWeightNote": "from Beginner to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "squats-on-one-leg-with-support-e-g-trx",
     "name": "Squats on one leg with support (e.g. TRX)",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, core\n\nLevel: from Intermediate to every level\n\nExcellent for developing balance and single leg strength",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1083,12 +1470,19 @@
       "/exercise-photos/squats-on-one-leg-with-support-e-g-trx/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "bulgarian-squat",
     "name": "Bulgarian squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, hamstrings\n\nLevel: from Intermediate to every level\n\nExcellent for unilateral lower limb training",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1098,12 +1492,19 @@
       "/exercise-photos/bulgarian-squat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "jump-squats",
     "name": "Jump squats",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, calves\n\nLevel: from Intermediate to every level\n\nExplosive power, dynamics, excellent for HIIT",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1112,12 +1513,19 @@
       "/exercise-photos/jump-squats/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "jump-lunges-2",
     "name": "Jump lunges",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, core\n\nLevel: from Intermediate to every level\n\nExplosiveness, coordination, cardio effect",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1127,12 +1535,19 @@
       "/exercise-photos/jump-lunges-2/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "front-squat",
     "name": "Front squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, core, glutes\n\nLevel: from Intermediate to every level\n\nExcellent for frontal activation and posture",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1142,12 +1557,19 @@
       "/exercise-photos/front-squat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "squat",
     "name": "Squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, core, glutes\n\nLevel: from Intermediate to every level\n\nThe technique requires flexibility of the shoulders, a better hold of the trunk",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1157,12 +1579,19 @@
       "/exercise-photos/squat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "squat-low-bar-axis-below",
     "name": "Squat - low bar - axis below",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, quadriceps\n\nLevel: from Intermediate to every level\n\nShifting the center of gravity back, heavier weights",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1172,12 +1601,19 @@
       "/exercise-photos/squat-low-bar-axis-below/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "safety-bar-squat",
     "name": "Safety bar squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, core, glutes\n\nLevel: from Intermediate to every level\n\nSafe for shoulders and neck, more stable",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1187,12 +1623,19 @@
       "/exercise-photos/safety-bar-squat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "sumo-squat",
     "name": "Sumo squat",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, inner thighs\n\nLevel: from Intermediate to every level\n\nWide stance, suitable for limited ankle mobility",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1201,12 +1644,19 @@
       "/exercise-photos/sumo-squat/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "back-lunges-with-safety-bar",
     "name": "Back lunges with safety bar",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, hamstrings, core\n\nLevel: from Intermediate to every level\n\nOne-sided load with axis",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1216,12 +1666,19 @@
       "/exercise-photos/back-lunges-with-safety-bar/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "outlets-on-the-crate",
     "name": "Outlets on the crate",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes\n\nLevel: from Intermediate to every level\n\nFunctional strength, excellent for coordination",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1231,12 +1688,19 @@
       "/exercise-photos/outlets-on-the-crate/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "overhead-squat-unilateral",
     "name": "Overhead Squat (Unilateral)",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: Quadriceps, core, shoulders, stabilizers\n\nLevel: from Intermediate to every level\n\nGreat for trunk stability, coordination",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1245,12 +1709,19 @@
       "/exercise-photos/overhead-squat-unilateral/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Intermediate to every level"
+    "startingWeightNote": "from Intermediate to every level",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "squats-on-one-leg",
     "name": "Squats on one leg",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, core\n\nLevel: from Advanced to every level\n\nVery demanding on strength, mobility and balance",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1260,12 +1731,19 @@
       "/exercise-photos/squats-on-one-leg/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Advanced to every level"
+    "startingWeightNote": "from Advanced to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "squats-on-one-leg-on-a-crate",
     "name": "Squats on one leg on a crate",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Quadriceps, glutes, core\n\nLevel: from Advanced to every level\n\nHigher difficulty, transition from the classic pistol squat",
     "exerciseType": "squat",
     "defaultSets": 3,
@@ -1275,22 +1753,36 @@
       "/exercise-photos/squats-on-one-leg-on-a-crate/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "from Advanced to every level"
+    "startingWeightNote": "from Advanced to every level",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "sissy-squat-with-weights",
     "name": "Sissy squat with weights",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Quadriceps, core, knee stabilizers, small muscles of the foot and ankle\n\nLevel: From advanced to every level (recommended for those who can do basic squats without difficulty and have good knee and trunk control)\n\nA very demanding quadriceps isolation exercise, especially during the eccentric phase.\nNot suitable for knee pain or poor stabilization.\nIdeal as a supplement to regular squats, not as the main volume exercise.",
     "exerciseType": "squat",
     "defaultSets": 3,
     "defaultReps": 10,
-    "startingWeightNote": "From advanced to every level (recommended for those who can do basic squats without difficulty and have good knee and trunk control)"
+    "startingWeightNote": "From advanced to every level (recommended for those who can do basic squats without difficulty and have good knee and trunk control)",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "good-morning-biceps-with-a-barbell-behind-the-head",
     "name": "Good morning (Biceps with a barbell behind the head)",
-    "muscleGroup": "Legs",
     "instructions": "What is a hip flexor?\nHip flexion is a basic movement pattern in which the torso leans forward with minimal knee bend while the hips move backward. The spine remains in a neutral position. A typical exercise is the Romanian deadlift (RDL), swing or \"good morning\".\n\nWhy is it important?\n\n🍑 Strengthens the buttocks and the back of the thighs (hamstrings), which are key for pelvic stability and back pain prevention.\n🍑 Teaches the correct movement when lifting loads - i.e. instead of bending at the back, bends at the hip.\n🍑 Helps improve posture and movement efficiency.\n🍑 It also strengthens the deep stabilization muscles of the trunk (core).\n\n Muscles involved:\n\nGluteus maximus, Hamstrings, Erector spinae, Core, Adductors and Calves\n\n❗ What to watch out for when exercising with hip flexion\n❗Keep your back straight (do not slouch) - maintain a neutral spine without rounding or bending at the hips.\n❗The movement comes from the hips, not the knees - the knees bend slightly, but the torso leans forward due to the movement in the hips.\n❗Tense your stomach (core activation) - this will protect your lumbar area.\n❗Movement Control – No quick or jerky movements, especially when coming back up.\n❗Squeeze your buttocks when returning to the starting position - this will engage the right muscles.\n❗Inhale when going down, exhale when returning up.\n\nMuscles worked: Buttocks, hamstrings, spine erectors, core\n\nLevel: Intermediate and above\n\nPay attention to technique - appropriate weight, straight back, smooth movement.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1300,12 +1792,17 @@
       "/exercise-photos/good-morning-biceps-with-a-barbell-behind-the-head/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate and above"
+    "startingWeightNote": "Intermediate and above",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "good-morning-sitting",
     "name": "Good Morning sitting",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, spine erectors\n\nLevel: Intermediate\n\nSmaller range, good for practice.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1315,12 +1812,17 @@
       "/exercise-photos/good-morning-sitting/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "romanian-deadlift-rdl-with-big-axis",
     "name": "Romanian Deadlift (RDL) with big axis",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, spine erectors, core\n\nLevel: Intermediate-Advanced\n\nExcellent complex exercise, keep the spine neutral, barbell close to the thighs.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1330,12 +1832,18 @@
       "/exercise-photos/romanian-deadlift-rdl-with-big-axis/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate-Advanced"
+    "startingWeightNote": "Intermediate-Advanced",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "romanian-deadlift-rdl-with-one-arm",
     "name": "Romanian deadlift (RDL) with one arm",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, spine erectors\n\nLevel: Beginner-Advanced\n\nA lighter option, also suitable for beginners.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1345,12 +1853,18 @@
       "/exercise-photos/romanian-deadlift-rdl-with-one-arm/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner-Advanced"
+    "startingWeightNote": "Beginner-Advanced",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "landmine-romanian-deadlift",
     "name": "Landmine Romanian Deadlift",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, spine erectors\n\nLevel: Beginner-intermediate\n\nStable trajectory thanks to the landmine - suitable for learning the technique.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1360,12 +1874,18 @@
       "/exercise-photos/landmine-romanian-deadlift/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner-intermediate"
+    "startingWeightNote": "Beginner-intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate"
+    ]
   },
   {
     "id": "romanian-big-axis-deadlift-with-support-on-the-back-leg",
     "name": "Romanian big axis deadlift with support on the back leg",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, core, lower limb stabilizers\n\nLevel: Intermediate\n\nUnilateral variant - helps balance muscle imbalances.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1375,12 +1895,17 @@
       "/exercise-photos/romanian-big-axis-deadlift-with-support-on-the-back-leg/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "romanian-deadlift-rdl-with-one-arm-supported-on-the-back-leg",
     "name": "Romanian deadlift (RDL) with one arm supported on the back leg",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, core\n\nLevel: Intermediate\n\nSuitable for training movement control for each leg separately.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1389,12 +1914,17 @@
       "/exercise-photos/romanian-deadlift-rdl-with-one-arm-supported-on-the-back-leg/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "romanian-deadlift-rdl-with-one-arm-on-one-leg",
     "name": "Romanian deadlift (RDL) with one arm on one leg",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, core, ankle and knee stabilization\n\nLevel: Advanced\n\nVery demanding on balance and stability.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1404,12 +1934,17 @@
       "/exercise-photos/romanian-deadlift-rdl-with-one-arm-on-one-leg/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "kettlebell-deadlift-classic",
     "name": "Kettlebell Deadlift, Classic",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, back muscles\n\nLevel: Beginner-intermediate\n\nSuitable for learning to move and activate the posterior chain.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1419,12 +1954,18 @@
       "/exercise-photos/kettlebell-deadlift-classic/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner-intermediate"
+    "startingWeightNote": "Beginner-intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate"
+    ]
   },
   {
     "id": "classic-deadlift",
     "name": "Classic deadlift",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: The entire posterior chain (buttocks, hamstrings, back), quadriceps, core\n\nLevel: Intermediate-Advanced\n\nExcellent strength exercise - pay attention to the correct starting position.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1434,12 +1975,18 @@
       "/exercise-photos/classic-deadlift/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate-Advanced"
+    "startingWeightNote": "Intermediate-Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "trap-bar-deadlift",
     "name": "Trap bar deadlift",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Glutes, hamstrings, quadriceps, core\n\nLevel: Intermediate\n\nA light learning option, convenient position of the handles - less strain on the back.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1449,12 +1996,17 @@
       "/exercise-photos/trap-bar-deadlift/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "sumo-deadlift",
     "name": "Sumo deadlift",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Adductors, glutes, hamstrings, spine erectors, core\n\nLevel: Intermediate\n\nWider stance – greater engagement of the inner thighs.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1464,12 +2016,17 @@
       "/exercise-photos/sumo-deadlift/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "kettlebell-swing",
     "name": "Kettlebell swing",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Buttocks, hamstrings, core, cardiovascular system\n\nLevel: Advanced\n\nDynamic movement - an exercise for explosiveness and endurance.",
     "exerciseType": "hinge",
     "defaultSets": 3,
@@ -1479,22 +2036,32 @@
       "/exercise-photos/kettlebell-swing/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "one-handed-kettlebell-swing",
     "name": "One-handed kettlebell swing",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: Buttocks, hamstrings, core, shoulders (stabilization), bilateral balance\n\nLevel: Advanced\n\nSuitable for advanced - more demanding on coordination and stability.",
     "exerciseType": "hinge",
     "defaultSets": 3,
     "defaultReps": 10,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "attachments-to-trx",
     "name": "Attachments to trx",
-    "muscleGroup": "Arms",
     "instructions": "What is it:\nThe horizontal pull is a group of exercises in which we pull the weight towards the torso in a horizontal plane - typically from front to back. This mainly includes pull-ups in a forward bend, on the TRX, rowing machines or pull-ups in a seated position.\n\nWhy include this movement in training:\n◀️ Strong back = healthy back. The horizontal pull strengthens the interscapular muscles and lower trapezius, which help maintain a healthy posture.\n◀️ Compensates chest dominance. Most people have overloaded pectoral muscles - horizontal pulls compensate for this imbalance.\n◀️ Shoulder and shoulder blade stability support. A strong upper back improves arm control and protects the shoulder joint.\n◀️ Basic movement pattern. Along with squats, presses and pull-ups, they are among the main patterns that should be part of any balanced strength program.\n\nMuscles involved:\nPrimary: latissimus dorsi, trapezius, rear deltoids, rhomboids\nSecondary: biceps, deep back muscles, forearm muscles, core\n\nWhat to watch out for when performing:\n\n⚠️ Keep your back straight (don't slouch).\n⚠️ Do not extend your shoulders excessively forward.\n⚠️ Consciously activate the shoulder blades - pull them towards you and down.\n⚠️ When doing TRX or rowing, keep your body in a straight line.\n⚠️ The wrists remain in a neutral position, do not break them.\n⚠️Don't use inertia - movement should be controlled.\n\nMuscles worked: back muscles, interscapularis, biceps, mid-body\n\nLevel: Beginner\n\nThe more vertical the position, the harder",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1504,12 +2071,17 @@
       "/exercise-photos/attachments-to-trx/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "one-arm-trx-pull-ups",
     "name": "One arm trx pull ups",
-    "muscleGroup": "Arms",
     "instructions": "Muscles worked: back muscles, biceps, core stabilization\n\nLevel: Slightly advanced\n\nGreater demands on balance",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1519,12 +2091,17 @@
       "/exercise-photos/one-arm-trx-pull-ups/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "dumbbell-pull-ups-in-a-forward-bend",
     "name": "Dumbbell pull-ups in a forward bend",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: latissimus, trapezius, rhomboids, rear delts, biceps\n\nLevel: Moderately advanced - advanced\n\nFocus on spinal fixation",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1534,12 +2111,17 @@
       "/exercise-photos/dumbbell-pull-ups-in-a-forward-bend/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Moderately advanced - advanced"
+    "startingWeightNote": "Moderately advanced - advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "one-arm-pull-ups-in-a-forward-bend",
     "name": "One-arm pull-ups in a forward bend",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: same as above\n\nLevel: Slightly advanced\n\nUnilateral loading - suitable for balancing imbalances",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1549,12 +2131,17 @@
       "/exercise-photos/one-arm-pull-ups-in-a-forward-bend/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "trx-pull-ups-elevated-legs",
     "name": "Trx pull-ups (elevated legs)",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: back muscles, core\n\nLevel: Advanced\n\nMore demanding due to stabilization",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1564,12 +2151,17 @@
       "/exercise-photos/trx-pull-ups-elevated-legs/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "seated-back-pull-ups-lower-pulley-pull-ups",
     "name": "Seated back pull-ups / Lower pulley pull-ups",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: latissimus dorsi, interscapularis, trapezius, biceps\n\nLevel: Beginner - Advanced\n\nIdeal for controlled execution",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1579,12 +2171,18 @@
       "/exercise-photos/seated-back-pull-ups-lower-pulley-pull-ups/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - Advanced"
+    "startingWeightNote": "Beginner - Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "seated-back-pull-ups-wide-grip",
     "name": "Seated back pull-ups wide grip",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: they engage the upper back and rear delts more\n\nLevel: Advanced\n\nIdeal for controlled execution",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1594,12 +2192,17 @@
       "/exercise-photos/seated-back-pull-ups-wide-grip/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "half-kneeling-back-pull-ups-one-arm-kneeling-lower-pulley-pull-ups",
     "name": "Half-kneeling back pull-ups / One-arm kneeling lower pulley pull-ups",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: unilateral activation of the back, core\n\nLevel: Slightly advanced\n\nTorso rotation must not be excessive",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1609,12 +2212,17 @@
       "/exercise-photos/half-kneeling-back-pull-ups-one-arm-kneeling-lower-pulley-pull-ups/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "back-pull-ups-with-landmine",
     "name": "Back pull-ups with Landmine",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: posterior chain, center of body\n\nLevel: Intermediate",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1624,12 +2232,17 @@
       "/exercise-photos/back-pull-ups-with-landmine/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "gorilla-pull-ups",
     "name": "Gorilla pull-ups",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: back muscles, lower back, deep stabilization system\n\nLevel: Advanced\n\nExcellent for developing brute strength",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1639,12 +2252,17 @@
       "/exercise-photos/gorilla-pull-ups/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "one-arm-rows-on-an-incline-bench",
     "name": "One-arm rows on an incline bench",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: rear delts, interscapular muscles, biceps\n\nLevel: Beginner - slightly advanced\n\nMinimizes the involvement of the lower back",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1654,12 +2272,18 @@
       "/exercise-photos/one-arm-rows-on-an-incline-bench/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - slightly advanced"
+    "startingWeightNote": "Beginner - slightly advanced",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "one-arm-rows-on-an-inclined-bench-unilaterally",
     "name": "One-arm rows on an inclined bench unilaterally",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: same as above, with an emphasis on unilateral stabilization\n\nLevel: Slightly advanced\n\nCore must remain engaged",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1669,12 +2293,17 @@
       "/exercise-photos/one-arm-rows-on-an-inclined-bench-unilaterally/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "rowing-machine",
     "name": "Rowing machine",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: latissimus dorsi, trapezius, rhomboids, biceps\n\nLevel: Beginner - everyone\n\nA smooth stroke, not a jerk",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1684,12 +2313,17 @@
       "/exercise-photos/rowing-machine/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - everyone"
+    "startingWeightNote": "Beginner - everyone",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "unilateral-rowing-machine",
     "name": "Unilateral rowing machine",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: same as above, with asymmetric loading\n\nLevel: Slightly advanced",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1699,12 +2333,17 @@
       "/exercise-photos/unilateral-rowing-machine/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "dumbbell-pull-ups-in-a-forward-bend-unilaterally",
     "name": "Dumbbell pull-ups in a forward bend unilaterally",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: as with a classic pull-up in a forward bend\n\nLevel: Advanced\n\nOne-sided loading, greater stabilization requirements",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
@@ -1714,22 +2353,32 @@
       "/exercise-photos/dumbbell-pull-ups-in-a-forward-bend-unilaterally/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "pull-ups-with-rubber-in-a-sitting-position",
     "name": "Pull-ups with rubber in a sitting position",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: upper back, interscapular muscles, biceps\n\nLevel: Beginner\n\nSuitable as compensation or warm-up",
     "exerciseType": "horizontal-pull",
     "defaultSets": 3,
     "defaultReps": 10,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "overhand-push-ups",
     "name": "Overhand push-ups",
-    "muscleGroup": "Back",
     "instructions": "A vertical pull is one of the basic movement patterns in which we pull or pull resistance from top to bottom. It is one of the most effective exercises for developing the back muscles, especially the latissimus dorsi, but it also strengthens the arms, grip and core.\n\n👉 As part of strength training, it helps:\n⬇️ improve posture (e.g. extended shoulders),\n⬇️ compensate for a sedentary lifestyle (hunched over the computer),\n⬇️ increase functional strength for normal daily movements (e.g. lifting a child),\n⬇️ prepare the body for more demanding exercises (e.g. push-ups, pull-ups on the bar).\n\nWhat to watch out for when performing:\n⚠️ The shoulders should be pulled down and back (not pulled towards the neck).\n⚠️ Do not sag at the hips (active center of the body).\n⚠️ Movement starts from the shoulder blades, not just the arms.\n⚠️ When pulling the pulley: do not bend the elbows back, but towards the torso.\n\nChoose a grip according to your abilities - a wider grip engages more of the back, a narrower more biceps.\n\nMuscles worked: Latissimus dorsi, interscapular muscles, trapezius, biceps\n\nLevel: Advanced\n\nThe back is involved more, the grip is more demanding on strength",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1739,12 +2388,17 @@
       "/exercise-photos/overhand-push-ups/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "shyby-by-touch",
     "name": "Shyby by touch",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus dorsi, biceps more than back\n\nLevel: Advanced\n\nSuitable for beginners to strengthen their arms",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1754,12 +2408,18 @@
       "/exercise-photos/shyby-by-touch/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "push-ups-with-a-neutral-grip",
     "name": "Push-ups with a neutral grip",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus dorsi, interscapular muscles, biceps\n\nLevel: Intermediate\n\nGentlest on the shoulders, recommended for beginners",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1769,12 +2429,18 @@
       "/exercise-photos/push-ups-with-a-neutral-grip/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate"
+    ]
   },
   {
     "id": "push-ups-on-the-machine-with-assistance-on-the-knees",
     "name": "Push-ups on the machine with assistance on the knees",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus dorsi, biceps\n\nLevel: Beginner\n\nHelp with lifting your own weight - builds a foundation",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1784,12 +2450,17 @@
       "/exercise-photos/push-ups-on-the-machine-with-assistance-on-the-knees/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "push-ups-with-the-help-of-a-rubber-band",
     "name": "Push-ups with the help of a rubber band",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus dorsi, biceps\n\nLevel: Beginner - Intermediate\n\nThe rubber band relieves the lower part of the movement",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1799,12 +2470,18 @@
       "/exercise-photos/push-ups-with-the-help-of-a-rubber-band/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - Intermediate"
+    "startingWeightNote": "Beginner - Intermediate",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate"
+    ]
   },
   {
     "id": "lowering-the-top-pulley-with-one-arm-kneels",
     "name": "Lowering the top pulley with one arm kneels",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus, interscapular muscles, mid-body\n\nLevel: Beginner - Advanced\n\nUnilateral – helps reveal muscle imbalances",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1814,12 +2491,18 @@
       "/exercise-photos/lowering-the-top-pulley-with-one-arm-kneels/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - Advanced"
+    "startingWeightNote": "Beginner - Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "wide-grip-seated-upper-pulley-pull-down",
     "name": "Wide grip seated upper pulley pull-down",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus dorsi (more), trapezius\n\nLevel: Beginner - Advanced\n\nWider grip = emphasis on back muscles",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1829,12 +2512,18 @@
       "/exercise-photos/wide-grip-seated-upper-pulley-pull-down/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - Advanced"
+    "startingWeightNote": "Beginner - Advanced",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "parallel-grip-pull-down-pulley",
     "name": "Parallel grip pull down pulley",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus, biceps\n\nLevel: Beginner\n\nA neutral (narrow) grip saves the shoulders",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1844,12 +2533,17 @@
       "/exercise-photos/parallel-grip-pull-down-pulley/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "pulling-the-pulley-by-underhand-grip",
     "name": "Pulling the pulley by underhand grip",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus, biceps (more)\n\nLevel: Beginner\n\nThe touch will highlight the engagement of the biceps",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
@@ -1859,22 +2553,32 @@
       "/exercise-photos/pulling-the-pulley-by-underhand-grip/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "pulling-the-v-holder-pulley",
     "name": "Pulling the V-holder pulley",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: Latissimus, mid back, biceps\n\nLevel: Beginner\n\nGood ratio between back and arm work",
     "exerciseType": "vertical-pull",
     "defaultSets": 3,
     "defaultReps": 10,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "cranks",
     "name": "Cranks",
-    "muscleGroup": "Chest",
     "instructions": "What is horizontal pressure?\nA horizontal press is a movement where you push a weight forward from your chest – either standing, sitting or lying down. This includes, for example, push-ups, bench press or machine presses. The main difference with vertical pressures (overhead pressures) is the direction of movement.\n\nWhy is it important:\n➡️ Strengthens pectoral muscles, triceps and the front part of the shoulders.\n➡️ Helps improve posture, especially if you have a weak upper body.\n➡️ It is essential for the overall strength of the upper half of the body and for balance with stretching exercises (e.g. pull-ups).\n\nMuscles involved:\nChest muscles (pectoralis major and minor), Triceps brachii, Anterior deltoid (front part of the shoulders), Stabilization: core, shoulder blades\n\nWhat to watch out for when performing:\n⚠️ Pull your shoulders down and back to avoid overloading the shoulder joint.\n⚠️ Strengthen the center of the body - you will prevent sagging in the hips.\n⚠️ Elbows do not point too high (ideally approx. 45° from the body during bench press).\n⚠️ Breathe smoothly - inhale when starting, exhale when pressing.\n\nMuscles worked: Pectorals, triceps, anterior deltoid, core\n\nLevel: From a beginner\n\nKeep your body straight, don't bend your hips.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1884,12 +2588,17 @@
       "/exercise-photos/cranks/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "From a beginner"
+    "startingWeightNote": "From a beginner",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "knee-push-ups",
     "name": "Knee push ups",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: The same, but with a lower intensity\n\nLevel: Beginner\n\nSuitable as a first step to the classic handle.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1899,12 +2608,17 @@
       "/exercise-photos/knee-push-ups/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "push-up-with-raised-arms",
     "name": "Push up with raised arms",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Pectoral muscles (greater involvement of the upper part), triceps, shoulders\n\nLevel: Beginner\n\nSuitable for reducing difficulty.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1914,12 +2628,17 @@
       "/exercise-photos/push-up-with-raised-arms/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "seated-chest-presses",
     "name": "Seated chest presses",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Chest muscles, triceps, shoulders\n\nLevel: From beginner to every level\n\nStable movement path, less demanding on coordination.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1929,12 +2648,19 @@
       "/exercise-photos/seated-chest-presses/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "From beginner to every level"
+    "startingWeightNote": "From beginner to every level",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "unilateral-seated-chest-presses",
     "name": "Unilateral seated chest presses",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: The same, increased activation of the center of the body\n\nLevel: Slightly advanced\n\nIt helps to detect and balance muscle imbalances.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1944,12 +2670,17 @@
       "/exercise-photos/unilateral-seated-chest-presses/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "bench-press-on-a-horizontal-bench",
     "name": "Bench press on a horizontal bench",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Pectoral muscles, triceps, anterior deltoid\n\nLevel: Moderately advanced to advanced\n\nClassic strength exercise, pay attention to stable shoulder blades and range of motion.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1959,12 +2690,17 @@
       "/exercise-photos/bench-press-on-a-horizontal-bench/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Moderately advanced to advanced"
+    "startingWeightNote": "Moderately advanced to advanced",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "bench-press-on-an-inclined-bench",
     "name": "Bench press on an inclined bench",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Chest muscles - upper part, triceps, shoulders\n\nLevel: Slightly advanced\n\nMore emphasis on the upper part of the breast.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1974,12 +2710,17 @@
       "/exercise-photos/bench-press-on-an-inclined-bench/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "horizontal-chest-press",
     "name": "Horizontal chest press",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Chest muscles, triceps, core stabilization\n\nLevel: Slightly advanced\n\nFreer path of movement, greater activation of stabilizers.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -1989,12 +2730,17 @@
       "/exercise-photos/horizontal-chest-press/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Slightly advanced"
+    "startingWeightNote": "Slightly advanced",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "bench-press-with-one-arms",
     "name": "Bench press with one arms",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Pectorals, triceps, shoulders, core\n\nLevel: Moderately advanced to advanced\n\nIt requires stability and coordination.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -2004,12 +2750,17 @@
       "/exercise-photos/bench-press-with-one-arms/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Moderately advanced to advanced"
+    "startingWeightNote": "Moderately advanced to advanced",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "one-arm-bench-press",
     "name": "One arm bench press",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: The same + significant activation of the center of the body\n\nLevel: Advanced\n\nIdeal for developing unilateral strength and stabilization.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
@@ -2019,22 +2770,32 @@
       "/exercise-photos/one-arm-bench-press/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Advanced"
+    "startingWeightNote": "Advanced",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "flat-press-chest-presses",
     "name": "Flat Press Chest Presses",
-    "muscleGroup": "Chest",
     "instructions": "Muscles worked: Chest muscles, triceps, shoulders\n\nLevel: From moderately advanced\n\nAn alternative to the classic bench press.",
     "exerciseType": "horizontal-push",
     "defaultSets": 3,
     "defaultReps": 10,
-    "startingWeightNote": "From moderately advanced"
+    "startingWeightNote": "From moderately advanced",
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "landmine-shoulder-presses-with-the-axis-in-a-semi-kneeling-position",
     "name": "Landmine shoulder presses with the axis in a semi-kneeling position",
-    "muscleGroup": "Shoulders",
     "instructions": "Why include vertical presses in training?\nOverhead presses are a fundamental movement for developing shoulder strength, core stability and proper shoulder blade function. We use this movement in everyday life - from putting things on top shelves to handling heavy loads. At the same time, it tests shoulder mobility, thoracic spine and trunk stability.\n\nBy regularly including overhead presses:\n⬆️ you will strengthen the deltoid muscles, trapezius and deep stabilizers of the shoulder blades,\n⬆️ you will improve shoulder position and body posture,\n⬆️ you will increase the functional strength of the upper half of the body.\n\nWhat to watch out for when performing:\n\n⚠️ Avoid bending in the hips - activate the abdominal muscles and lower the pelvis.\n⚠️ Keep your elbows under the axis/handles - don't tilt them to the sides.\n⚠️ The wrist should remain in a neutral position (do not fall back).\n⚠️ Don't push the range - start in a position where you are in control.\n⚠️ Breathe: exhale when pressing up, inhale when lowering.\n\nMuscles worked: anterior and middle deltoids, triceps, body collision, scapular stabilizers\n\nLevel: Beginner - Intermediate\n\nGreat for beginners - less range of motion and more control",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2044,12 +2805,18 @@
       "/exercise-photos/landmine-shoulder-presses-with-the-axis-in-a-semi-kneeling-position/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - Intermediate"
+    "startingWeightNote": "Beginner - Intermediate",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate"
+    ]
   },
   {
     "id": "landmine-pressures-with-vertical-axis",
     "name": "Landmine pressures with vertical axis",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: deltoids, core, shoulder rotators\n\nLevel: Intermediate\n\nAn excellent transitional exercise between machine and free presses",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2059,12 +2826,17 @@
       "/exercise-photos/landmine-pressures-with-vertical-axis/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "shoulder-presses-on-the-machine",
     "name": "Shoulder presses on the machine",
-    "muscleGroup": "Back",
     "instructions": "Muscles worked: front delts, triceps, upper trapezius\n\nLevel: Beginner\n\nStable guided movement, suitable for building strength in beginners",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2074,12 +2846,17 @@
       "/exercise-photos/shoulder-presses-on-the-machine/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner"
+    "startingWeightNote": "Beginner",
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "shoulder-presses-on-a-unilateral-machine",
     "name": "Shoulder presses on a unilateral machine",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: the same + more emphasis on torso stability and asymmetry\n\nLevel: Beginner - Intermediate\n\nIt helps balance muscle imbalances",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2089,12 +2866,18 @@
       "/exercise-photos/shoulder-presses-on-a-unilateral-machine/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Beginner - Intermediate"
+    "startingWeightNote": "Beginner - Intermediate",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "beginner",
+      "intermediate"
+    ]
   },
   {
     "id": "overhead-pressures-with-axis",
     "name": "Overhead pressures with axis",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: whole deltas, triceps, core, shoulder blade stabilizers\n\nLevel: Intermediate to advanced\n\nBe sure to activate the center and control the lumbar region",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2104,12 +2887,18 @@
       "/exercise-photos/overhead-pressures-with-axis/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate to advanced"
+    "startingWeightNote": "Intermediate to advanced",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "seated-shoulder-presses",
     "name": "Seated shoulder presses",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: front and middle delts, triceps\n\nLevel: Intermediate\n\nLess demands on balance, more isolates the shoulders",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2119,12 +2908,17 @@
       "/exercise-photos/seated-shoulder-presses/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seated-unilateral-shoulder-presses",
     "name": "Seated unilateral shoulder presses",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: same + body clash, obliques\n\nLevel: Intermediate\n\nExcellent for eliminating power imbalances between parties",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
@@ -2134,22 +2928,33 @@
       "/exercise-photos/seated-unilateral-shoulder-presses/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "Intermediate"
+    "startingWeightNote": "Intermediate",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "standing-shoulder-presses",
     "name": "Standing shoulder presses",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: deltoids, triceps, mid-body, back stabilizers\n\nLevel: Intermediate to advanced\n\nMore technically demanding - a good test of strength and mobility",
     "exerciseType": "vertical-push",
     "defaultSets": 3,
     "defaultReps": 10,
-    "startingWeightNote": "Intermediate to advanced"
+    "startingWeightNote": "Intermediate to advanced",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate",
+      "advanced"
+    ]
   },
   {
     "id": "kneeling-on-a-pulley-kneeling-in-a-forward-bend-glute-kickbacks-on-a-pulley",
     "name": "Kneeling on a pulley / Kneeling in a forward bend / glute kickbacks on a pulley",
-    "muscleGroup": "Legs",
     "instructions": "Why include lower body isolation exercises:\n\nIsolated exercises target specific muscle groups, helping to:\n🦵Improve the activation of weakened or less involved muscles (e.g. hamstrings, buttocks, calves).\n🦵 Increase the volume or shape of specific parts (e.g. shaped butt, round calves).\n🦵 To promote a healthy movement pattern and balance between the quadriceps, hamstrings and gluteal muscles.\n🦵 Reduce the risk of overload or pain in dominant muscles during complex movements.\n🦵They are ideal as supplementary exercises after the main multi-joint exercises or at the end of training.\n\nTarget area: Hamstrings\n\nMuscles worked: Gluteus maximus (large gluteal muscle) – the main target muscle\nHamstrings – as auxiliary muscles when putting on shoes\nThe center of the body (core) – stabilization of the trunk and pelvis during movement)\n\nPay attention to the firm strengthening of the trunk, do not sag in the hips. The movement should come from the hip, not the lower back or hips. Higher engagement does not mean better activation - conscious engagement of the buttocks and controlled movement is important. Can be performed with hands resting on the machine or in a slightly forward position. Ideal at the end of training to activate the buttocks or as an isolated exercise on lower body days.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2158,12 +2963,17 @@
       "/exercise-photos/kneeling-on-a-pulley-kneeling-in-a-forward-bend-glute-kickbacks-on-a-pulley/1.jpg",
       "/exercise-photos/kneeling-on-a-pulley-kneeling-in-a-forward-bend-glute-kickbacks-on-a-pulley/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "standing-calf-raises-on-a-machine",
     "name": "Standing calf raises on a machine",
-    "muscleGroup": "Other",
     "instructions": "Target area: Calf\n\nMuscles worked: Gastrocnemius (mainly)\n\nIt is important to keep the knees bent to engage the superficial calf muscles.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2172,12 +2982,17 @@
       "/exercise-photos/standing-calf-raises-on-a-machine/1.jpg",
       "/exercise-photos/standing-calf-raises-on-a-machine/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seated-calf-raises-on-a-machine",
     "name": "Seated calf raises on a machine",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Calf\n\nMuscles worked: Soleus (deep calf muscle)\n\nFor better results, I recommend a larger number of repetitions (12-20).",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2186,12 +3001,17 @@
       "/exercise-photos/seated-calf-raises-on-a-machine/1.jpg",
       "/exercise-photos/seated-calf-raises-on-a-machine/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "standing-calf-raises",
     "name": "Standing calf raises",
-    "muscleGroup": "Other",
     "instructions": "Target area: Calf\n\nMuscles worked: Gastrocnemius\n\nIt can also be performed without a machine - with your own weight, e.g. on a step.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2200,12 +3020,17 @@
       "/exercise-photos/standing-calf-raises/1.jpg",
       "/exercise-photos/standing-calf-raises/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hyperextension-back-and-hamstrings",
     "name": "Hyperextension, back and hamstrings",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Hamstrings, buttocks\n\nMuscles worked: Hamstrings, glutes, spinal extensors\n\nIf we want to engage more glutes, a round back (torso flexion) is needed.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2214,12 +3039,17 @@
       "/exercise-photos/hyperextension-back-and-hamstrings/1.jpg",
       "/exercise-photos/hyperextension-back-and-hamstrings/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hip-thrust-with-axis",
     "name": "Hip thrust with axis",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Buttocks\n\nMuscles worked: Gluteus maximus, hamstrings\n\nAn excellent basic exercise for building the volume of the buttocks. Pelvic inspection required.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2228,12 +3058,17 @@
       "/exercise-photos/hip-thrust-with-axis/1.jpg",
       "/exercise-photos/hip-thrust-with-axis/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hip-thrust-with-one-arm",
     "name": "Hip thrust with one arm",
-    "muscleGroup": "Other",
     "instructions": "Target area: Buttocks\n\nMuscles worked: Gluteus maximus\n\nAlso suitable for home training. Possible to alternate legs.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2242,12 +3077,17 @@
       "/exercise-photos/hip-thrust-with-one-arm/1.jpg",
       "/exercise-photos/hip-thrust-with-one-arm/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hip-thrust-with-one-arm-on-one-leg",
     "name": "Hip thrust with one arm on one leg",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Buttocks\n\nMuscles worked: Gluteus maximus, hamstrings, trunk stabilization\n\nAdvanced variant. Emphasis on pelvic axis control.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2256,12 +3096,17 @@
       "/exercise-photos/hip-thrust-with-one-arm-on-one-leg/1.jpg",
       "/exercise-photos/hip-thrust-with-one-arm-on-one-leg/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "hip-thrust-on-one-leg",
     "name": "Hip thrust on one leg",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Buttocks\n\nMuscles worked: Gluteus maximus, hamstrings\n\nHigh difficulty - ideal for the end of training.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2270,12 +3115,17 @@
       "/exercise-photos/hip-thrust-on-one-leg/1.jpg",
       "/exercise-photos/hip-thrust-on-one-leg/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "pre-digging-on-a-seated-machine",
     "name": "Pre-digging on a seated machine",
-    "muscleGroup": "Other",
     "instructions": "Target area: Quadriceps\n\nMuscles worked: Quadriceps (especially rectus femoris)\n\nDo not lift your butt from the bench - risk of overloading the knee.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2284,12 +3134,17 @@
       "/exercise-photos/pre-digging-on-a-seated-machine/1.jpg",
       "/exercise-photos/pre-digging-on-a-seated-machine/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "casting-with-a-pulley",
     "name": "Casting with a pulley",
-    "muscleGroup": "Other",
     "instructions": "Target area: Abductors (outer thighs)\n\nMuscles worked: Gluteus medius, gluteus minimus\n\nIt helps shape the outer part of the buttocks.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2298,12 +3153,17 @@
       "/exercise-photos/casting-with-a-pulley/1.jpg",
       "/exercise-photos/casting-with-a-pulley/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "cutting-on-the-machine",
     "name": "Cutting on the machine",
-    "muscleGroup": "Other",
     "instructions": "Target area: Adductors (inner thighs)\n\nMuscles worked: Adductors\n\nWith regular exercise, it improves the tone and firmness of the inner thighs. For women - Don't be afraid of this exercise - it won't make your thighs bigger unless you train with heavy weight and high volume. Keep your back supported, control the movement.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2312,12 +3172,17 @@
       "/exercise-photos/cutting-on-the-machine/1.jpg",
       "/exercise-photos/cutting-on-the-machine/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "spreading-on-the-machine",
     "name": "Spreading on the machine",
-    "muscleGroup": "Other",
     "instructions": "Target area: Abductors\n\nMuscles worked: Gluteus medius/minimus\n\nPay attention to the slow return - movement control.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2326,12 +3191,17 @@
       "/exercise-photos/spreading-on-the-machine/1.jpg",
       "/exercise-photos/spreading-on-the-machine/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stomping-while-lying-on-stomach",
     "name": "Stomping while lying on stomach",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Hamstrings\n\nMuscles worked: Hamstrings\n\nEmphasis on full range of motion and tempo control.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2340,21 +3210,31 @@
       "/exercise-photos/stomping-while-lying-on-stomach/1.jpg",
       "/exercise-photos/stomping-while-lying-on-stomach/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "tripping-on-the-seated-machine",
     "name": "Tripping on the seated machine",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Hamstrings\n\nMuscles worked: Hamstrings\n\nMore gentle on the lumbar spine than the supine option.",
     "exerciseType": "accessory",
     "defaultSets": 3,
-    "defaultReps": 10
+    "defaultReps": 10,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "face-pulls",
     "name": "Face pulls",
-    "muscleGroup": "Back",
     "instructions": "Isolated exercises target one specific muscle or a small group of muscles and minimize the involvement of others. They are ideal for:\n💪 Targeting weak or lagging muscle parts\n💪 Improvement of muscle symmetry (e.g. right vs. left hand)\n💪 Increase in muscle volume (hypertrophy due to higher isolated load)\n💪 Prehabilitation and rehabilitation\n💪 Beginners as a transition between body weight and complex exercises\n\nIsolated exercises are not the basis of training, but are a supplement to complex movement stereotypes (squat, pull, press, hip flexion, rotation, core stability).\n\n💡 Recommended categories for clarity:\n💪 Shoulders (deltoids)\n💪 Back (especially interscapulars and erectors)\n💪 Chest (less movement isolation of the chest)\n💪 Biceps\n💪Triceps - note: you can distinguish between short vs. long head according to arm position\n\nTarget area: Shoulders / Interscapular muscles\n\nMuscles worked: Rear delts, trapezius, rhomboids, rotators\n\nGreat for posture, to include at the end of a back or shoulder workout",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2363,12 +3243,17 @@
       "/exercise-photos/face-pulls/1.jpg",
       "/exercise-photos/face-pulls/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "trx-reverse-fly",
     "name": "TRX Reverse Fly",
-    "muscleGroup": "Back",
     "instructions": "Target area: Shoulders / Back\n\nMuscles worked: Rear delts, rhomboids\n\nMore demanding on stability, suitable for advanced users",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2377,12 +3262,17 @@
       "/exercise-photos/trx-reverse-fly/1.jpg",
       "/exercise-photos/trx-reverse-fly/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "playing-with-one-handers",
     "name": "Playing with one-handers",
-    "muscleGroup": "Shoulders",
     "instructions": "Target area: Shoulders\n\nMuscles worked: Middle head of the deltoid muscle\n\nLight weight, slow execution, goal: hypertrophy",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2391,12 +3281,17 @@
       "/exercise-photos/playing-with-one-handers/1.jpg",
       "/exercise-photos/playing-with-one-handers/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "pulley-application",
     "name": "Pulley application",
-    "muscleGroup": "Shoulders",
     "instructions": "Target area: Shoulders\n\nMuscles worked: Middle head of the deltoid muscle\n\nContinuous resistance, also suitable for super series",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2405,12 +3300,17 @@
       "/exercise-photos/pulley-application/1.jpg",
       "/exercise-photos/pulley-application/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "dumbbell-pull-ups-in-front-of-the-body",
     "name": "Dumbbell pull-ups in front of the body",
-    "muscleGroup": "Back",
     "instructions": "Target area: Shoulders\n\nMuscles worked: Front delts, upper trapezius\n\nNecessary caution - do not perform too high due to the shoulders",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2419,12 +3319,17 @@
       "/exercise-photos/dumbbell-pull-ups-in-front-of-the-body/1.jpg",
       "/exercise-photos/dumbbell-pull-ups-in-front-of-the-body/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "inverted-furnace-deck",
     "name": "Inverted furnace deck",
-    "muscleGroup": "Back",
     "instructions": "Target area: Back\n\nMuscles worked: Rear delts, rhomboids, trapezius\n\nSuitable for insulating the back of the shoulders",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2433,12 +3338,17 @@
       "/exercise-photos/inverted-furnace-deck/1.jpg",
       "/exercise-photos/inverted-furnace-deck/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hyperextension",
     "name": "Hyperextension",
-    "muscleGroup": "Legs",
     "instructions": "Target area: Back\n\nMuscles worked: Spine erectors, glutes, hamstrings\n\nCan be performed with or without weights",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2447,12 +3357,17 @@
       "/exercise-photos/hyperextension/1.jpg",
       "/exercise-photos/hyperextension/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "lowering-the-upper-pulley-with-extended-arms",
     "name": "Lowering the upper pulley with extended arms",
-    "muscleGroup": "Back",
     "instructions": "Target area: Back\n\nMuscles worked: Broad back muscle (latissimus), teres major\n\nGreat for mind-muscle connection",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2461,12 +3376,17 @@
       "/exercise-photos/lowering-the-upper-pulley-with-extended-arms/1.jpg",
       "/exercise-photos/lowering-the-upper-pulley-with-extended-arms/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "bake-the-deck",
     "name": "Bake the deck",
-    "muscleGroup": "Other",
     "instructions": "Target area: Thorax\n\nMuscles worked: Chest muscles - mainly the inner part\n\nAn alternative to spreads",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2475,12 +3395,17 @@
       "/exercise-photos/bake-the-deck/1.jpg",
       "/exercise-photos/bake-the-deck/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "spreaders-on-a-pulley",
     "name": "Spreaders on a pulley",
-    "muscleGroup": "Other",
     "instructions": "Target area: Thorax\n\nMuscles worked: Chest - outer area\n\nSlower execution increases efficiency",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2489,12 +3414,17 @@
       "/exercise-photos/spreaders-on-a-pulley/1.jpg",
       "/exercise-photos/spreaders-on-a-pulley/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "pullover",
     "name": "Pullover",
-    "muscleGroup": "Other",
     "instructions": "Target area: Chest / Back\n\nMuscles worked: Big chest, broad back muscle\n\nOne of the few isolated exercises for both muscles",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2503,12 +3433,17 @@
       "/exercise-photos/pullover/1.jpg",
       "/exercise-photos/pullover/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "biceps-lifts",
     "name": "Biceps lifts",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Biceps\n\nMuscles worked: Long and short head of the biceps\n\nBasic isolated exercise",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2517,12 +3452,17 @@
       "/exercise-photos/biceps-lifts/1.jpg",
       "/exercise-photos/biceps-lifts/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "biceps-hammer-raise",
     "name": "Biceps Hammer Raise",
-    "muscleGroup": "Other",
     "instructions": "Target area: Biceps\n\nMuscles worked: Brachialis, brachioradialis\n\nIt thickens the arms and engages the forearms",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2531,12 +3471,17 @@
       "/exercise-photos/biceps-hammer-raise/1.jpg",
       "/exercise-photos/biceps-hammer-raise/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "standing-lower-pulley-biceps-lift",
     "name": "Standing lower pulley biceps lift",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Biceps\n\nMuscles worked: Biceps brachii (long and short head), brachialis\n\nConstant tension thanks to the pulley, suitable for hypertrophy",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2545,12 +3490,17 @@
       "/exercise-photos/standing-lower-pulley-biceps-lift/1.jpg",
       "/exercise-photos/standing-lower-pulley-biceps-lift/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "unilateral-pulley-biceps-lifts",
     "name": "Unilateral pulley biceps lifts",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Biceps\n\nMuscles worked: Biceps brachii, brachialis\n\nFocus on the weaker hand, isolation and symmetry",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2559,12 +3509,17 @@
       "/exercise-photos/unilateral-pulley-biceps-lifts/1.jpg",
       "/exercise-photos/unilateral-pulley-biceps-lifts/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "biceps-lifts-on-the-machine",
     "name": "Biceps lifts on the machine",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Biceps\n\nMuscles worked: Biceps brachii\n\nStable position, ideal for beginners or the end of training",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2573,12 +3528,17 @@
       "/exercise-photos/biceps-lifts-on-the-machine/1.jpg",
       "/exercise-photos/biceps-lifts-on-the-machine/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "trx-bicep-lifts",
     "name": "TRX Bicep Lifts",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Biceps\n\nMuscles worked: Biceps brachii, brachialis, forearm\n\nSuitable for beginners and advanced, depends on the angle of the body",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2587,12 +3547,18 @@
       "/exercise-photos/trx-bicep-lifts/1.jpg",
       "/exercise-photos/trx-bicep-lifts/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "beginner",
+      "advanced"
+    ]
   },
   {
     "id": "overhead-elbow-extension-pulley",
     "name": "Overhead Elbow Extension (Pulley)",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Triceps\n\nMuscles worked: Long head of the triceps\n\nSuitable for greater range and stretching",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2601,12 +3567,17 @@
       "/exercise-photos/overhead-elbow-extension-pulley/1.jpg",
       "/exercise-photos/overhead-elbow-extension-pulley/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "overhead-elbow-extension-pulley-unilateral",
     "name": "Overhead elbow extension (pulley) unilateral",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Triceps\n\nMuscles worked: Long head of the triceps\n\nKeep your elbow steady above your head. The long head works more when the arm is raised.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2615,12 +3586,17 @@
       "/exercise-photos/overhead-elbow-extension-pulley-unilateral/1.jpg",
       "/exercise-photos/overhead-elbow-extension-pulley-unilateral/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seated-french-presses",
     "name": "Seated French Presses",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Triceps\n\nMuscles worked: Long head of the triceps\n\nWide range of motion, elbow fixation is key.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2629,12 +3605,17 @@
       "/exercise-photos/seated-french-presses/1.jpg",
       "/exercise-photos/seated-french-presses/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "french-supine-presses",
     "name": "French supine presses",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Triceps\n\nMuscles worked: Short and long head of the triceps\n\nDo not go too deep - we protect the elbows",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2643,12 +3624,17 @@
       "/exercise-photos/french-supine-presses/1.jpg",
       "/exercise-photos/french-supine-presses/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "one-arm-elbow-extension",
     "name": "One-arm elbow extension",
-    "muscleGroup": "Arms",
     "instructions": "Target area: Triceps\n\nMuscles worked: Long head of the triceps\n\nSlow pace, isolation. Keep your elbow close to your body",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2657,12 +3643,17 @@
       "/exercise-photos/one-arm-elbow-extension/1.jpg",
       "/exercise-photos/one-arm-elbow-extension/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Arms"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "two-handed-standing-one-handed-kickback",
     "name": "Two-handed standing one-handed kickback",
-    "muscleGroup": "Back",
     "instructions": "Target area: Triceps\n\nMuscles worked: Lateral, medial head\n\nArms higher than torso, maximum contraction at the top.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2671,12 +3662,17 @@
       "/exercise-photos/two-handed-standing-one-handed-kickback/1.jpg",
       "/exercise-photos/two-handed-standing-one-handed-kickback/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "upper-pulley-tricep-pulldown",
     "name": "Upper pulley tricep pulldown",
-    "muscleGroup": "Other",
     "instructions": "Target area: Triceps\n\nMuscles worked: All heads\n\nClassic design. Elbows close to the body, wrists straight.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2685,12 +3681,17 @@
       "/exercise-photos/upper-pulley-tricep-pulldown/1.jpg",
       "/exercise-photos/upper-pulley-tricep-pulldown/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "unilateral-upper-pulley-tricep-pulldown",
     "name": "Unilateral upper pulley tricep pulldown",
-    "muscleGroup": "Other",
     "instructions": "Target area: Triceps\n\nMuscles worked: All heads\n\nGreat accessory for left/right arm control.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2699,12 +3700,17 @@
       "/exercise-photos/unilateral-upper-pulley-tricep-pulldown/1.jpg",
       "/exercise-photos/unilateral-upper-pulley-tricep-pulldown/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "upper-pulley-tricep-pulldown-2",
     "name": "Upper pulley tricep pulldown",
-    "muscleGroup": "Back",
     "instructions": "Target area: Triceps\n\nMuscles worked: Especially the lateral head\n\nAt the end, stretch the rope to the sides for maximum activation.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2713,12 +3719,17 @@
       "/exercise-photos/upper-pulley-tricep-pulldown-2/1.jpg",
       "/exercise-photos/upper-pulley-tricep-pulldown-2/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "triceps-push-ups-on-parallel-bars",
     "name": "Triceps push-ups on parallel bars",
-    "muscleGroup": "Chest",
     "instructions": "Target area: Triceps\n\nMuscles worked: long head + pectoral muscles\n\nBody upright, do not lean forward - otherwise the chest is more involved.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2727,21 +3738,31 @@
       "/exercise-photos/triceps-push-ups-on-parallel-bars/1.jpg",
       "/exercise-photos/triceps-push-ups-on-parallel-bars/2.jpg"
     ],
-    "thumbnailPhotoIndex": 0
+    "thumbnailPhotoIndex": 0,
+    "muscleGroups": [
+      "Chest"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seated-triceps-presses-on-a-machine",
     "name": "Seated triceps presses on a machine",
-    "muscleGroup": "Back",
     "instructions": "Target area: Triceps\n\nMuscles worked: Lateral + medial head\n\nSteady movement. Suitable for beginners.",
     "exerciseType": "accessory",
     "defaultSets": 3,
-    "defaultReps": 10
+    "defaultReps": 10,
+    "muscleGroups": [
+      "Back"
+    ],
+    "difficulties": [
+      "beginner"
+    ]
   },
   {
     "id": "slanted-pulls-on-the-pulley-downwards",
     "name": "Slanted pulls on the pulley downwards",
-    "muscleGroup": "Other",
     "instructions": "Why include rotation exercises in training?\nRotational and dynamic core exercises engage the center of the body in functional movements – power transmission, trunk stabilization, spinal rotation and movement control in various planes.\nWhile classic \"core\" exercises often target static stability, these movements teach the body to work in motion, respond to changes in direction, and transfer power from the lower body to the upper body - which is key both in sports and in everyday life.\n\nRecommendations:\nInclude them at the end of training or as a separate core/conditioning block\nWork in lower sets (2-4) and higher effort or dynamics\nAlternate rotation directions, stances, and different implements (ball, disc, cable, body)\n\nMuscles worked: Oblique abdominal muscles, serratus, shoulder blades\n\nStanding, trunk rotation against pulley resistance, check hips",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2751,12 +3772,17 @@
       "/exercise-photos/slanted-pulls-on-the-pulley-downwards/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 reps each side"
+    "startingWeightNote": "8-10 reps each side",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "incline-pulls-on-the-pulley-upwards",
     "name": "Incline pulls on the pulley upwards",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: Abdominal obliques, shoulders, mid-body\n\nStroke diagonally across the body, exhale at the top",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2767,12 +3793,17 @@
       "/exercise-photos/incline-pulls-on-the-pulley-upwards/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 repetitions"
+    "startingWeightNote": "8-10 repetitions",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "landmine-rotation-while-standing",
     "name": "Landmine rotation while standing",
-    "muscleGroup": "Legs",
     "instructions": "Muscles worked: Core + legs + torso rotation\n\nBasic rotation through the hips, do not rotate the knees",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2782,12 +3813,17 @@
       "/exercise-photos/landmine-rotation-while-standing/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps per side"
+    "startingWeightNote": "6-8 reps per side",
+    "muscleGroups": [
+      "Legs"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "board-with-rotation",
     "name": "Board with rotation",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: Core, obliques, shoulder stabilizers\n\nThe shoulder goes under the body and up, keeping the hips high",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2797,12 +3833,17 @@
       "/exercise-photos/board-with-rotation/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "2-3 series x 6-8 pages"
+    "startingWeightNote": "2-3 series x 6-8 pages",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "throwing-the-ball-against-the-wall-with-spin",
     "name": "throwing the ball against the wall with spin",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Core, explosiveness, trunk rotators\n\nDynamic movement from rotation, suitable for the end of training",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2812,12 +3853,17 @@
       "/exercise-photos/throwing-the-ball-against-the-wall-with-spin/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-8 throws each side"
+    "startingWeightNote": "5-8 throws each side",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "throwing-the-ball-against-the-wall-from-the-front",
     "name": "Throwing the ball against the wall from the front",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: Core + shoulders + timing\n\nExplosive involvement of the whole torso, breath in preparation",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2827,12 +3873,17 @@
       "/exercise-photos/throwing-the-ball-against-the-wall-from-the-front/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "5-8 throws"
+    "startingWeightNote": "5-8 throws",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "torso-rotation-with-weights-russian-twist",
     "name": "Torso rotation (with weights), Russian twist",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Oblique abdominal muscles\n\nCan also be performed with feet on the ground (for stability)",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2843,12 +3894,17 @@
       "/exercise-photos/torso-rotation-with-weights-russian-twist/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-16 reps"
+    "startingWeightNote": "10-16 reps",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "carrying-weights-farmer-s-walk",
     "name": "Carrying weights (farmer's walk)",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Abs, deep core, grip\n\nOne-sided load, maintain an upright posture",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2859,12 +3915,17 @@
       "/exercise-photos/carrying-weights-farmer-s-walk/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20–30 m / 30 s"
+    "startingWeightNote": "20–30 m / 30 s",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "abdominal-strengthening-with-a-wheel",
     "name": "Abdominal strengthening with a wheel",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Rectus abdominis, deep core\n\nChallenging - start with only a small range of motion",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2874,12 +3935,17 @@
       "/exercise-photos/abdominal-strengthening-with-a-wheel/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-12 repetitions"
+    "startingWeightNote": "8-12 repetitions",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "trx-leg-pulls",
     "name": "TRX leg pulls",
-    "muscleGroup": "Shoulders",
     "instructions": "Muscles worked: Lower abdomen, shoulder stability\n\nHold the tension in the abdomen, do not sag in the hips",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2889,12 +3955,17 @@
       "/exercise-photos/trx-leg-pulls/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-12 repetitions"
+    "startingWeightNote": "8-12 repetitions",
+    "muscleGroups": [
+      "Shoulders"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "climber",
     "name": "Climber",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: rectus abdominis, oblique abdominis, transverse abdominis\n\nDynamic core exercise - alternately pull your knees under your chest. Don't raise your hips, keep the tension in your stomach. Activates the center of the body + increases heart rate.",
     "exerciseType": "accessory",
     "defaultSets": 2,
@@ -2906,12 +3977,17 @@
       "/exercise-photos/climber/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "2×20–30 s"
+    "startingWeightNote": "2×20–30 s",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "side-plank",
     "name": "Side plank",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Abdominal obliques, trunk stabilization\n\nKeep body level, hips up",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2922,12 +3998,17 @@
       "/exercise-photos/side-plank/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20–40 s each side"
+    "startingWeightNote": "20–40 s each side",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "weighted-side-bows",
     "name": "Weighted Side Bows",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Abdominal obliques, quadratus lumborum\n\nSlowly, exhaling in the extreme position",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2937,12 +4018,17 @@
       "/exercise-photos/weighted-side-bows/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-12 reps each side"
+    "startingWeightNote": "10-12 reps each side",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "ball-throw",
     "name": "Ball throw",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Whole core, explosiveness, coordination\n\nActively engage the abdominal muscles during the swing",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2952,12 +4038,17 @@
       "/exercise-photos/ball-throw/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 repetitions"
+    "startingWeightNote": "6-10 repetitions",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "paloff-pressures",
     "name": "Paloff pressures",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Transversus, trunk stability\n\nPalms in front of the body, pulling the pulley into rotation",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2967,12 +4058,17 @@
       "/exercise-photos/paloff-pressures/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "8-10 reps each side"
+    "startingWeightNote": "8-10 reps each side",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "flag",
     "name": "Flag",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Rectus abdominis, oblique muscles\n\nAdvanced, check the lumbar spine",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2983,12 +4079,17 @@
       "/exercise-photos/flag/3.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-10 repetitions"
+    "startingWeightNote": "6-10 repetitions",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "inverted-shortcuts",
     "name": "Inverted Shortcuts",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Lower abdomen\n\nDo not allow the trunk to sway",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -2998,12 +4099,17 @@
       "/exercise-photos/inverted-shortcuts/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 repetitions"
+    "startingWeightNote": "10-15 repetitions",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "shortening-machines-kneel-on-the-pulley",
     "name": "Shortening machines kneel on the pulley",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Rectus abdominis\n\nDo not move the pelvis, exhalation in the extreme phase",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3013,12 +4119,17 @@
       "/exercise-photos/shortening-machines-kneel-on-the-pulley/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 repetitions"
+    "startingWeightNote": "10-15 repetitions",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "lehsedy-on-an-inclined-bench",
     "name": "Lehsedy on an inclined bench",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Rectus abdominis\n\nPay attention to the control of the pace of movement",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3028,12 +4139,17 @@
       "/exercise-photos/lehsedy-on-an-inclined-bench/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 repetitions"
+    "startingWeightNote": "10-15 repetitions",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "moving-the-weight-in-the-plank-position",
     "name": "Moving the weight in the plank position",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Core + stability + asymmetry\n\nMove slowly - don't raise your hips",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3043,12 +4159,17 @@
       "/exercise-photos/moving-the-weight-in-the-plank-position/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10 transfers per side"
+    "startingWeightNote": "10 transfers per side",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "elbow-plank",
     "name": "Elbow plank",
-    "muscleGroup": "Core",
     "instructions": "Muscles worked: Transversus, rectus abdominis, entire core\n\nDo not slouch, active exhalation into the abdomen",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3059,23 +4180,33 @@
       "/exercise-photos/elbow-plank/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s"
+    "startingWeightNote": "30–60 s",
+    "muscleGroups": [
+      "Core"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "endurance-in-the-hollow-position",
     "name": "Endurance in the hollow position",
-    "muscleGroup": "Other",
     "instructions": "Muscles worked: Rectus abdominis, trunk stability\n\nAdvanced exercise - push your hips into the ground",
     "exerciseType": "accessory",
     "defaultSets": 3,
     "defaultDuration": 20.0,
     "durationUnit": "sec",
-    "startingWeightNote": "20–40 s"
+    "startingWeightNote": "20–40 s",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   },
   {
     "id": "tibialis-raises",
     "name": "Tibialis Raises",
-    "muscleGroup": "Other",
     "instructions": "This section contains a selection of exercises that may not be part of every training session, but are very important in specific situations – such as pain prevention, unilateral load compensation, or targeted activation of weakened muscles.\n\n🔹 They are suitable as:\n🧩 supplement to the main strength training (e.g. at the beginning or end of the lesson)\n🧩 part of rehabilitation or postural care\n🧩 targeted activation of muscles that the client does not normally \"feel\"\n🧩 compensation for a sedentary lifestyle\n\n🛠 Each of these exercises has its specific place in training - if correctly included, it can significantly improve technique, stability and long-term performance.\n\nI recommend choosing according to the needs of a specific client - for some they will be ideal as part of a warm-up, for others as regeneration or targeted activation.\n\nTarget area: Prevention of shin pain, strengthening of the front side of the lower leg\n\nSuitable for runners, with weak tibialis anterior. Slowly lift your toes, keeping your heels on the ground.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3085,12 +4216,17 @@
       "/exercise-photos/tibialis-raises/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 repetitions"
+    "startingWeightNote": "10-15 repetitions",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "exercise-with-a-rubber-band-on-your-fingers",
     "name": "Exercise with a rubber band on your fingers",
-    "muscleGroup": "Other",
     "instructions": "Target area: Activating the feet, improving arch control\n\nSpread your fingers against the resistance of the rubber band. Prevention of flat feet, suitable for people with hallux valgus, for example",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3100,12 +4236,17 @@
       "/exercise-photos/exercise-with-a-rubber-band-on-your-fingers/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-12 repetitions"
+    "startingWeightNote": "10-12 repetitions",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-the-fingers-without-an-aid",
     "name": "Stretching the fingers without an aid",
-    "muscleGroup": "Other",
     "instructions": "Target area: Foot mobility and proprioception\n\nToe awareness and activation – helps with arch elevation and stability while standing.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3116,12 +4257,17 @@
       "/exercise-photos/stretching-the-fingers-without-an-aid/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 s hold or 10 reps"
+    "startingWeightNote": "10-15 s hold or 10 reps",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "seashells-activation",
     "name": "Seashells, activation",
-    "muscleGroup": "Other",
     "instructions": "Target area: Activation of the middle gluteal muscles\n\nImportant for pelvic and knee stability, especially for women. Knees apart without pelvic rotation.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3131,12 +4277,17 @@
       "/exercise-photos/seashells-activation/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-12 reps on each side"
+    "startingWeightNote": "10-12 reps on each side",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "bridge-glute-bridge",
     "name": "Bridge (glute bridge)",
-    "muscleGroup": "Other",
     "instructions": "Target area: Activation of the buttocks and stability of the pelvis\n\nA basic exercise to engage the glutes before training the legs. Don't slouch at the hips.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3146,12 +4297,17 @@
       "/exercise-photos/bridge-glute-bridge/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 repetitions"
+    "startingWeightNote": "10-15 repetitions",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "bridge-glute-bridge-on-one-leg",
     "name": "Bridge (glute bridge) on one leg",
-    "muscleGroup": "Other",
     "instructions": "Target area: Asymmetric activation of the buttocks and hamstrings\n\nKeep the pelvis straight, the knee of the other leg extended. It can serve as an imbalance test.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3161,12 +4317,17 @@
       "/exercise-photos/bridge-glute-bridge-on-one-leg/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps each leg"
+    "startingWeightNote": "6-8 reps each leg",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hang-on-the-trapeze-passive",
     "name": "Hang on the trapeze (passive)",
-    "muscleGroup": "Other",
     "instructions": "Target area: Release of the spine, shoulders, decompression\n\nIdeal after sitting, improves posture. Arms free, relax shoulder blades.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3177,12 +4338,17 @@
       "/exercise-photos/hang-on-the-trapeze-passive/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20–30 s"
+    "startingWeightNote": "20–30 s",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hang-on-the-crossbar-active",
     "name": "Hang on the crossbar (active)",
-    "muscleGroup": "Other",
     "instructions": "Target area: Activation of shoulder blades, preparation for push-ups\n\nLift your chest, pull your shoulder blades down and towards you. Teaches basic upper body control.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3193,12 +4359,17 @@
       "/exercise-photos/hang-on-the-crossbar-active/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "10-15 seconds or 3-5 repetitions of the hold"
+    "startingWeightNote": "10-15 seconds or 3-5 repetitions of the hold",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "chin-tuck-on-mat",
     "name": "Chin tuck on mat",
-    "muscleGroup": "Other",
     "instructions": "Target area: Postural correction of the head and neck\n\nImproves head and spine alignment. Suitable for slouching or neck pain. Do not push with force, just a slight backward movement of the chin.",
     "exerciseType": "accessory",
     "defaultSets": 3,
@@ -3209,22 +4380,32 @@
       "/exercise-photos/chin-tuck-on-mat/2.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "6-8 reps or 20s hold"
+    "startingWeightNote": "6-8 reps or 20s hold",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "external-rotation-both-hands-at-the-same-time-with-strength-rubber",
     "name": "External rotation both hands at the same time with strength rubber",
-    "muscleGroup": "Other",
     "instructions": "Target area: Activation of deep shoulder stabilizers (rotator cuff). It helps to improve the position of the shoulders, prevents overloading and injuries, especially in pulling and pressing exercises. Also suitable for a sedentary lifestyle.\n\nInclude at the beginning of training as an activation and stabilization exercise before pulling or pressing exercises for the upper half of the body (e.g. push-ups, bench press). Don't use heavy resistance - the goal is control, not power.",
     "exerciseType": "accessory",
     "defaultSets": 3,
     "defaultReps": "2-3",
-    "startingWeightNote": "2-3 sets x 10-15 repetitions with slow and controlled movement"
+    "startingWeightNote": "2-3 sets x 10-15 repetitions with slow and controlled movement",
+    "muscleGroups": [
+      "Other"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "head-bows-stretching-of-the-upper-part-of-the-trapezius-muscle",
     "name": "Head bows, Stretching of the upper part of the trapezius muscle",
-    "muscleGroup": "Full body",
     "instructions": "Static stretching involves a slow, controlled stretch held in a given position, usually 30-60 seconds. Unlike a dynamic warm-up, the goal is not to prepare the body for performance, but rather to calm it down, relax overworked muscles and promote regeneration.\n\n💡 It is important to know that static stretching is not always necessary immediately after strength training. In many cases, it is more effective and pleasant to perform it later — for example, in the evening at home, or the next day as part of a recovery routine (eg after a walk, shower or mobilization exercises). This not only helps with muscle recovery, but also improves flexibility and prevents overuse.\n\nWhen to recommend static stretching:\n\n🧘‍♀️ when the client is extremely tight (e.g. hamstrings, hips, chest),\n🧘‍♀️as part of an evening routine or a day without strength training,\n🧘‍♀️after long sitting, traveling or one-sided load,\n🧘‍♀️ during the period of increased regeneration (e.g. after a demanding training block).\n\nTarget area: Neck, back - relaxation of the upper back, prevention of neck pain\n\nPerform slowly, without pulling the head",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3234,12 +4415,17 @@
       "/exercise-photos/head-bows-stretching-of-the-upper-part-of-the-trapezius-muscle/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds on each side"
+    "startingWeightNote": "20-30 seconds on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "approaching-the-chin-to-the-sternum",
     "name": "Approaching the chin to the sternum)",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Neck, back - relief for the cervical spine, stiff trapezius\n\nCan be combined with deep breathing",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3249,12 +4435,17 @@
       "/exercise-photos/approaching-the-chin-to-the-sternum/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20–30 s"
+    "startingWeightNote": "20–30 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "rotation-of-the-head-to-the-sides-with-a-sideways-look-up",
     "name": "Rotation of the head to the sides with a sideways look up",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Neck, back – stretching the oblique muscles of the neck and improving rotation\n\nSuitable for pain from working on the PC",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3264,12 +4455,17 @@
       "/exercise-photos/rotation-of-the-head-to-the-sides-with-a-sideways-look-up/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds on each side"
+    "startingWeightNote": "20-30 seconds on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "shoulder-stretch",
     "name": "Shoulder stretch",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Shoulders – relief of tension in the shoulder girdle\n\nActive exhalation into the pose",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3279,12 +4475,17 @@
       "/exercise-photos/shoulder-stretch/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds on each side"
+    "startingWeightNote": "20-30 seconds on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-the-pectoral-muscles-against-the-wall",
     "name": "Stretching the pectoral muscles against the wall",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Chest - opening of the chest, support of correct posture\n\nDo not rotate the torso, only the shoulder",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3294,12 +4495,17 @@
       "/exercise-photos/stretching-the-pectoral-muscles-against-the-wall/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds on each side"
+    "startingWeightNote": "20-30 seconds on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-of-the-pectoral-muscles",
     "name": "Stretching of the pectoral muscles",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Chest – alleviation of shortening, suitable after pressures\n\nAlso suitable during the day by the wall",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3309,12 +4515,17 @@
       "/exercise-photos/stretching-of-the-pectoral-muscles/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20–30 s"
+    "startingWeightNote": "20–30 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "triceps-stretch",
     "name": "Triceps stretch",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Triceps – relaxation of the back of the arm, prevention of withdrawal after push-ups\n\nThe elbow points straight up",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3324,12 +4535,17 @@
       "/exercise-photos/triceps-stretch/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 s each hand"
+    "startingWeightNote": "20-30 s each hand",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "position-of-the-child",
     "name": "Position of the child",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Back – relaxation of the lumbar region and the entire torso\n\nBreathe freely, calm position",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3339,12 +4555,17 @@
       "/exercise-photos/position-of-the-child/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s"
+    "startingWeightNote": "30–60 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "position-of-the-child-with-lateral-bending",
     "name": "Position of the child with lateral bending",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Back – lateral release of the torso, especially the broad back muscle\n\nBreathe into the side",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3354,12 +4575,17 @@
       "/exercise-photos/position-of-the-child-with-lateral-bending/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20-30 seconds on each side"
+    "startingWeightNote": "20-30 seconds on each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hip-flexors",
     "name": "Hip flexors",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Front of thighs - prevention of shortening, important when sitting for a long time\n\nPelvis low, torso upright",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3369,12 +4595,17 @@
       "/exercise-photos/hip-flexors/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each leg"
+    "startingWeightNote": "30 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-in-cobra",
     "name": "Stretching in cobra",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Abdomen/Core – gentle stretching of the abdominal muscles, mobility of the spine\n\nDon't tilt your head, breathe",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3384,12 +4615,17 @@
       "/exercise-photos/stretching-in-cobra/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "20–30 s"
+    "startingWeightNote": "20–30 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "inner-thighs-2",
     "name": "Inner thighs 2",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Inner thighs - release of adductors, suitable after squats and lunges\n\nStraight spine, slight forward bending",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3399,12 +4635,17 @@
       "/exercise-photos/inner-thighs-2/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s"
+    "startingWeightNote": "30–60 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "cross-legged-seat-lean-forward-pancake",
     "name": "Cross-legged seat\nlean forward, Pancake",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Inner thighs - intensive stretching in a deeper range\n\nDon't hunch your back, rather breathe into the tension",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3414,12 +4655,17 @@
       "/exercise-photos/cross-legged-seat-lean-forward-pancake/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s"
+    "startingWeightNote": "30 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "quadriceps-lying-on-side",
     "name": "Quadriceps lying on side",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Front of thighs - release after squats, lunges, running\n\nLower the pelvis, align the knees",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3429,12 +4675,17 @@
       "/exercise-photos/quadriceps-lying-on-side/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each leg"
+    "startingWeightNote": "30 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "stretching-the-back-on-the-ball",
     "name": "Stretching the back on the ball",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Chest + spine mobility - release after pressure or a sedentary day\n\nBreathe freely, watch out for overloading the lumbar part",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3444,12 +4695,17 @@
       "/exercise-photos/stretching-the-back-on-the-ball/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30–60 s"
+    "startingWeightNote": "30–60 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "buttock-recumbent",
     "name": "Buttock recumbent",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Back of thighs / buttocks - prevention of stiffness after lunges and squats\n\nAnkle over knee, push knee out",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3459,12 +4715,17 @@
       "/exercise-photos/buttock-recumbent/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each side"
+    "startingWeightNote": "30 s each side",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "hamstring-stretch-with-the-help-of-a-belt-rubber-band",
     "name": "Hamstring stretch with the help of a belt/rubber band",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Back of Thighs / Buttocks – improving flexibility and reducing the risk of injury\n\nDo not raise the pelvis, the heel is directed to the ceiling",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3474,12 +4735,17 @@
       "/exercise-photos/hamstring-stretch-with-the-help-of-a-belt-rubber-band/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each leg"
+    "startingWeightNote": "30 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "standing-calf-stretch",
     "name": "Standing calf stretch",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Calves - release after running, jumping or strength training\n\nHeels on the ground, body straight",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3489,12 +4755,17 @@
       "/exercise-photos/standing-calf-stretch/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each leg"
+    "startingWeightNote": "30 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "calf-stretch-against-the-wall",
     "name": "Calf stretch against the wall",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Calves - more intensive stretching with support\n\nToes on the wall, heel on the ground",
     "exerciseType": "stretch",
     "defaultSets": 3,
@@ -3504,17 +4775,28 @@
       "/exercise-photos/calf-stretch-against-the-wall/1.jpg"
     ],
     "thumbnailPhotoIndex": 0,
-    "startingWeightNote": "30 s each leg"
+    "startingWeightNote": "30 s each leg",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "intermediate"
+    ]
   },
   {
     "id": "double-knee-shin-stretch",
     "name": "Double knee shin stretch",
-    "muscleGroup": "Full body",
     "instructions": "Target area: Front of thighs / shins - suitable for runners or tendon overload\n\nMore advanced, not for everyone - pay attention to the knee joints",
     "exerciseType": "stretch",
     "defaultSets": 3,
     "defaultDuration": 20.0,
     "durationUnit": "sec",
-    "startingWeightNote": "20–30 s"
+    "startingWeightNote": "20–30 s",
+    "muscleGroups": [
+      "Full body"
+    ],
+    "difficulties": [
+      "advanced"
+    ]
   }
 ]

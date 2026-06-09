@@ -216,7 +216,7 @@ export function ExerciseDetail() {
           {exercise.instructions}
         </p>
         {instructionPhotos.length > 0 && (
-          <div className="mt-4 grid grid-cols-3 gap-2">
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
             {instructionPhotos.map((photo, index) => (
               <button
                 key={index}
@@ -297,17 +297,18 @@ export function ExerciseDetail() {
                 Swap exercise
               </h2>
               <p className="mt-1 text-sm text-slate-500">
-                Choose a substitute with the same type and muscle group (
-                {swapMeta}). Your plan targets stay the same. Logged sets for
-                the current exercise will be cleared.
+                Choose a substitute with the same type, overlapping muscle
+                groups, and difficulty ({swapMeta}). Your plan targets stay the
+                same. Logged sets for the current exercise will be cleared.
               </p>
             </div>
 
             <div className="min-h-0 flex-1 overflow-y-auto p-3">
               {swapAlternatives.length === 0 ? (
                 <p className="px-2 py-6 text-center text-sm text-slate-500">
-                  No other exercises match this type and muscle group, or all
-                  matches are already in today&apos;s workout.
+                  No other exercises match this type, muscle groups, and
+                  difficulty, or all matches are already in today&apos;s
+                  workout.
                 </p>
               ) : (
                 <div className="space-y-2">

@@ -13,11 +13,13 @@ JSON_PATH = ROOT / 'src' / 'data' / 'exercises.json'
 DEFAULT_CSV = ROOT / 'src' / 'data' / 'exercises.csv'
 
 PHOTO_SEP = ' | '
+LIST_SEP = ' + '
 
 COLUMNS = [
     'id',
     'name',
-    'muscleGroup',
+    'muscleGroups',
+    'difficulties',
     'exerciseType',
     'defaultSets',
     'defaultReps',
@@ -30,6 +32,8 @@ COLUMNS = [
     'thumbnailPhotoIndex',
     'instructions',
 ]
+
+DIFFICULTIES = {'beginner', 'intermediate', 'advanced'}
 
 EXERCISE_TYPES = {
     'squat',
@@ -51,12 +55,41 @@ def load_json() -> list[dict]:
     return json.loads(JSON_PATH.read_text(encoding='utf-8'))
 
 
+def list_to_cell(values: list[str]) -> str:
+    return LIST_SEP.join(values)
+
+
+def parse_list_cell(value: str) -> list[str]:
+    return [part.strip() for part in value.split('+') if part.strip()]
+
+
+def muscle_groups_from_exercise(ex: dict) -> list[str]:
+    groups = ex.get('muscleGroups')
+    if isinstance(groups, list) and groups:
+        return [str(group).strip() for group in groups if str(group).strip()]
+    legacy = ex.get('muscleGroup')
+    if legacy:
+        return [str(legacy).strip()]
+    return ['Other']
+
+
+def difficulties_from_exercise(ex: dict) -> list[str]:
+    levels = ex.get('difficulties')
+    if isinstance(levels, list) and levels:
+        return [str(level).strip() for level in levels if str(level).strip()]
+    legacy = ex.get('difficulty')
+    if legacy:
+        return [str(legacy).strip()]
+    return ['intermediate']
+
+
 def exercise_to_row(ex: dict) -> dict[str, str]:
     photos = ex.get('instructionPhotos') or []
     return {
         'id': ex.get('id', ''),
         'name': ex.get('name', ''),
-        'muscleGroup': ex.get('muscleGroup', ''),
+        'muscleGroups': list_to_cell(muscle_groups_from_exercise(ex)),
+        'difficulties': list_to_cell(difficulties_from_exercise(ex)),
         'exerciseType': ex.get('exerciseType', ''),
         'defaultSets': '' if ex.get('defaultSets') is None else str(ex['defaultSets']),
         'defaultReps': '' if ex.get('defaultReps') is None else str(ex['defaultReps']),
@@ -102,10 +135,31 @@ def parse_optional_reps(value: str) -> int | str | None:
 
 
 def row_to_exercise(row: dict[str, str]) -> dict:
+    muscle_groups = parse_list_cell(
+        row.get('muscleGroups', '') or row.get('muscleGroup', '')
+    )
+    if not muscle_groups:
+        raise ValueError(f"Missing muscle groups for id {row['id']!r}")
+
+    difficulties = [
+        part.lower()
+        for part in parse_list_cell(
+            row.get('difficulties', '') or row.get('difficulty', 'intermediate')
+        )
+    ]
+    if not difficulties:
+        difficulties = ['intermediate']
+    for difficulty in difficulties:
+        if difficulty not in DIFFICULTIES:
+            raise ValueError(
+                f"Invalid difficulty {difficulty!r} for id {row['id']!r}"
+            )
+
     ex: dict = {
         'id': row['id'].strip(),
         'name': row['name'].strip(),
-        'muscleGroup': row['muscleGroup'].strip(),
+        'muscleGroups': muscle_groups,
+        'difficulties': difficulties,
         'instructions': row['instructions'],
         'exerciseType': row['exerciseType'].strip(),
         'defaultSets': parse_optional_int(row['defaultSets']) or 3,
@@ -169,7 +223,8 @@ def import_csv(path: Path) -> None:
     with path.open('r', encoding='utf-8-sig', newline='') as f:
         reader = csv.DictReader(f)
         missing = set(COLUMNS) - set(reader.fieldnames or [])
-        if missing:
+        legacy_ok = {'muscleGroup', 'difficulty'}
+        if missing and not missing.issubset(legacy_ok):
             raise SystemExit(f'Missing CSV columns: {", ".join(sorted(missing))}')
 
         exercises = [row_to_exercise(row) for row in reader]

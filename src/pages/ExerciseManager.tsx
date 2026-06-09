@@ -4,25 +4,31 @@ import { db } from '../db/schema'
 import type {
   DurationUnit,
   Exercise,
+  ExerciseDifficulty,
   ExerciseType,
   WorkoutPlan,
 } from '../db/schema'
 import {
   DURATION_UNITS,
+  EXERCISE_DIFFICULTIES,
   EXERCISE_TYPES,
   MUSCLE_GROUPS,
   addExerciseToPlan,
   createEmptyExercise,
   exerciseSummaryLine,
+  filterExercises,
   formatExerciseMeta,
   isDurationExerciseType,
   getPlansUsingExercise,
+  resolveExerciseDifficulties,
   resolveExerciseType,
+  resolveMuscleGroups,
   uniqueExerciseId,
 } from '../lib/exercises'
 import { parseYoutubeUrl } from '../lib/youtube'
 import { ExercisePhotoPicker } from '../components/ExercisePhotoPicker'
 import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
+import { MultiSelectPills } from '../components/MultiSelectPills'
 
 export function ExerciseManager() {
   const [exercises, setExercises] = useState<Exercise[]>([])
@@ -30,8 +36,12 @@ export function ExerciseManager() {
   const [isNew, setIsNew] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState<ExerciseType | ''>('')
   const [muscleGroupFilter, setMuscleGroupFilter] = useState('')
+  const [difficultyFilter, setDifficultyFilter] = useState<
+    ExerciseDifficulty | ''
+  >('')
   const [plans, setPlans] = useState<WorkoutPlan[]>([])
   const [addToPlanExercise, setAddToPlanExercise] = useState<Exercise | null>(
     null,
@@ -65,6 +75,8 @@ export function ExerciseManager() {
     setEditing({
       ...exercise,
       exerciseType: resolveExerciseType(exercise),
+      muscleGroups: resolveMuscleGroups(exercise),
+      difficulties: resolveExerciseDifficulties(exercise),
       instructionPhotos: exercise.instructionPhotos ?? [],
       thumbnailPhotoIndex: exercise.thumbnailPhotoIndex ?? 0,
     })
@@ -96,6 +108,14 @@ export function ExerciseManager() {
     }
     if (!editing.instructions.trim()) {
       setError('Instructions are required.')
+      return
+    }
+    if (resolveMuscleGroups(editing).length === 0) {
+      setError('Select at least one muscle group.')
+      return
+    }
+    if (resolveExerciseDifficulties(editing).length === 0) {
+      setError('Select at least one difficulty level.')
       return
     }
 
@@ -231,17 +251,16 @@ export function ExerciseManager() {
     setEditing({ ...editing, [field]: value })
   }
 
-  const filteredExercises = useMemo(() => {
-    return exercises.filter((exercise) => {
-      if (typeFilter && resolveExerciseType(exercise) !== typeFilter) {
-        return false
-      }
-      if (muscleGroupFilter && exercise.muscleGroup !== muscleGroupFilter) {
-        return false
-      }
-      return true
-    })
-  }, [exercises, typeFilter, muscleGroupFilter])
+  const filteredExercises = useMemo(
+    () =>
+      filterExercises(exercises, {
+        query: searchQuery,
+        type: typeFilter,
+        muscleGroup: muscleGroupFilter,
+        difficulty: difficultyFilter,
+      }),
+    [exercises, searchQuery, typeFilter, muscleGroupFilter, difficultyFilter],
+  )
 
   if (editing) {
     const type = resolveExerciseType(editing)
@@ -308,20 +327,27 @@ export function ExerciseManager() {
             </select>
           </label>
 
-          <label className="block">
-            <span className="text-sm font-medium">Muscle group</span>
-            <select
-              value={editing.muscleGroup}
-              onChange={(e) => updateField('muscleGroup', e.target.value)}
-              className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
-            >
-              {MUSCLE_GROUPS.map((g) => (
-                <option key={g} value={g}>
-                  {g}
-                </option>
-              ))}
-            </select>
-          </label>
+          <MultiSelectPills
+            label="Muscle groups"
+            hint="Tap all muscle groups this exercise works."
+            options={MUSCLE_GROUPS}
+            values={resolveMuscleGroups(editing)}
+            onChange={(muscleGroups) => updateField('muscleGroups', muscleGroups)}
+          />
+
+          <MultiSelectPills
+            label="Difficulty"
+            hint="Tap every level this exercise suits."
+            options={EXERCISE_DIFFICULTIES.map((d) => d.value)}
+            values={resolveExerciseDifficulties(editing)}
+            onChange={(difficulties) =>
+              updateField('difficulties', difficulties)
+            }
+            getLabel={(value) =>
+              EXERCISE_DIFFICULTIES.find((d) => d.value === value)?.label ??
+              value
+            }
+          />
 
           <label className="block">
             <span className="text-sm font-medium">Instructions</span>
@@ -526,7 +552,18 @@ export function ExerciseManager() {
         </div>
       ) : (
         <>
-          <div className="mb-4 grid grid-cols-2 gap-3">
+          <label className="mb-4 block">
+            <span className="text-xs font-medium text-slate-500">Search</span>
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by name..."
+              className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900"
+            />
+          </label>
+
+          <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <label className="block">
               <span className="text-xs font-medium text-slate-500">
                 Exercise type
@@ -563,6 +600,25 @@ export function ExerciseManager() {
                 ))}
               </select>
             </label>
+            <label className="block">
+              <span className="text-xs font-medium text-slate-500">
+                Difficulty
+              </span>
+              <select
+                value={difficultyFilter}
+                onChange={(e) =>
+                  setDifficultyFilter(e.target.value as ExerciseDifficulty | '')
+                }
+                className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900"
+              >
+                <option value="">All levels</option>
+                {EXERCISE_DIFFICULTIES.map((d) => (
+                  <option key={d.value} value={d.value}>
+                    {d.label}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
 
           {filteredExercises.length === 0 ? (
@@ -571,8 +627,10 @@ export function ExerciseManager() {
               <button
                 type="button"
                 onClick={() => {
+                  setSearchQuery('')
                   setTypeFilter('')
                   setMuscleGroupFilter('')
+                  setDifficultyFilter('')
                 }}
                 className="mt-3 text-sm font-medium text-emerald-600"
               >

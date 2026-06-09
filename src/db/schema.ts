@@ -14,11 +14,13 @@ export type ExerciseType =
   | 'joint-mobility'
   | 'roller-massage'
 export type DurationUnit = 'sec' | 'min'
+export type ExerciseDifficulty = 'beginner' | 'intermediate' | 'advanced'
 
 export interface Exercise {
   id: string
   name: string
-  muscleGroup: string
+  muscleGroups: string[]
+  difficulties: ExerciseDifficulty[]
   instructions: string
   instructionPhotos?: string[]
   thumbnailPhotoIndex?: number
@@ -282,7 +284,7 @@ class GymTrackerDB extends Dexie {
               ex.instructionPhotos = [
                 ex.illustration,
                 ...ex.instructionPhotos,
-              ].slice(0, 3)
+              ].slice(0, 4)
               ex.thumbnailPhotoIndex = 0
             }
 
@@ -301,7 +303,7 @@ class GymTrackerDB extends Dexie {
         await tx
           .table('exercises')
           .toCollection()
-          .modify((ex: Exercise) => {
+          .modify((ex: Exercise & { muscleGroup?: string }) => {
             if (ex.muscleGroup === 'Cardio') {
               ex.muscleGroup = 'Other'
             }
@@ -314,6 +316,77 @@ class GymTrackerDB extends Dexie {
       setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
       bodyMetrics: '++id, date',
     })
+    this.version(7)
+      .stores({
+        exercises: 'id, name, muscleGroup, difficulty',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify(
+            (
+              ex: Exercise & {
+                muscleGroup?: string
+                difficulty?: ExerciseDifficulty
+              },
+            ) => {
+              if (ex.difficulty) return
+              const text =
+                `${ex.instructions} ${ex.startingWeightNote ?? ''}`.toLowerCase()
+              if (
+                text.includes('advanced') &&
+                !text.includes('beginner') &&
+                !text.includes('from beginner')
+              ) {
+                ex.difficulty = 'advanced'
+              } else if (
+                text.includes('beginner') ||
+                text.includes('from beginner to every level')
+              ) {
+                ex.difficulty = 'beginner'
+              } else {
+                ex.difficulty = 'intermediate'
+              }
+            },
+          )
+      })
+    this.version(8)
+      .stores({
+        exercises: 'id, name',
+        workoutPlans: 'id, name',
+        sessions: '++id, planId, startedAt, completed',
+        setLogs: '++id, sessionId, exerciseId, [sessionId+exerciseId]',
+        bodyMetrics: '++id, date',
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table('exercises')
+          .toCollection()
+          .modify(
+            (
+              ex: Exercise & {
+                muscleGroup?: string
+                difficulty?: ExerciseDifficulty
+              },
+            ) => {
+              if (!ex.muscleGroups?.length) {
+                const legacy = ex.muscleGroup === 'Cardio' ? 'Other' : ex.muscleGroup
+                ex.muscleGroups = legacy ? [legacy] : ['Other']
+              }
+              delete ex.muscleGroup
+
+              if (!ex.difficulties?.length) {
+                ex.difficulties = ex.difficulty ? [ex.difficulty] : ['intermediate']
+              }
+              delete ex.difficulty
+            },
+          )
+      })
   }
 }
 

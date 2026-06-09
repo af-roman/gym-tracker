@@ -95,6 +95,22 @@ def slugify(name: str, used: set[str]) -> str:
     return slug
 
 
+def infer_difficulties(level: str, instructions: str, starting_note: str = '') -> list[str]:
+    text = f'{level} {instructions} {starting_note}'.lower()
+    levels: list[str] = []
+    if 'beginner' in text or 'from beginner' in text:
+        levels.append('beginner')
+    if 'intermediate' in text:
+        levels.append('intermediate')
+    if 'advanced' in text:
+        levels.append('advanced')
+    if not levels:
+        return ['intermediate']
+    if 'from beginner to every level' in text or 'every level' in text:
+        return ['beginner', 'intermediate', 'advanced']
+    return levels
+
+
 def infer_muscle_group(muscles: str, exercise_type: str) -> str:
     text = normalize(muscles or '')
     if any(k in text for k in ['prs', 'pect']):
@@ -464,15 +480,21 @@ def main() -> None:
         prescription = parse_prescription(item['prescription'] or prescription_en, exercise_type)
         images_by_row = drawing_images_for_sheet(zf, item['sheet_index'])
         photo_paths: list[str] = []
-        for photo_index, media_path in enumerate(images_by_row.get(item['row_idx'], [])[:3], start=1):
+        for photo_index, media_path in enumerate(images_by_row.get(item['row_idx'], [])[:4], start=1):
             dest = PHOTOS_DIR / exercise_id / f'{photo_index}.jpg'
             save_resized_image(zf, media_path, dest)
             photo_paths.append(f'/exercise-photos/{exercise_id}/{photo_index}.jpg')
 
+        starting_note = prescription_en or level_en
         exercise: dict = {
             'id': exercise_id,
             'name': name_en,
-            'muscleGroup': muscle_group,
+            'muscleGroups': [muscle_group],
+            'difficulties': infer_difficulties(
+                level_en,
+                '\n\n'.join(instruction_parts),
+                starting_note,
+            ),
             'instructions': '\n\n'.join(instruction_parts) or f'Perform {name_en} with controlled form.',
             'exerciseType': exercise_type,
             **prescription,
@@ -480,10 +502,8 @@ def main() -> None:
         if photo_paths:
             exercise['instructionPhotos'] = photo_paths
             exercise['thumbnailPhotoIndex'] = 0
-        if prescription_en:
-            exercise['startingWeightNote'] = prescription_en
-        elif level_en:
-            exercise['startingWeightNote'] = level_en
+        if starting_note:
+            exercise['startingWeightNote'] = starting_note
         exercises.append(exercise)
 
     OUT_JSON.write_text(json.dumps(exercises, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

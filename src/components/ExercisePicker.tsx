@@ -1,0 +1,213 @@
+import { useMemo, useState } from 'react'
+import { useBodyScrollLock } from '../lib/useBodyScrollLock'
+import type { Exercise, ExerciseDifficulty, ExerciseType } from '../db/schema'
+import {
+  EXERCISE_DIFFICULTIES,
+  EXERCISE_TYPES,
+  MUSCLE_GROUPS,
+  filterExercises,
+  formatExerciseMeta,
+} from '../lib/exercises'
+import { ExerciseThumbnail } from './ExerciseThumbnail'
+
+interface ExercisePickerProps {
+  open: boolean
+  title: string
+  description?: string
+  exercises: Exercise[]
+  selectedId?: string
+  excludeIds?: Set<string>
+  onSelect: (exercise: Exercise) => void
+  onClose: () => void
+}
+
+export function ExercisePicker({
+  open,
+  title,
+  description,
+  exercises,
+  selectedId,
+  excludeIds,
+  onSelect,
+  onClose,
+}: ExercisePickerProps) {
+  const [query, setQuery] = useState('')
+  const [typeFilter, setTypeFilter] = useState<ExerciseType | ''>('')
+  const [muscleGroupFilter, setMuscleGroupFilter] = useState('')
+  const [difficultyFilter, setDifficultyFilter] = useState<
+    ExerciseDifficulty | ''
+  >('')
+
+  const filtered = useMemo(() => {
+    const matches = filterExercises(exercises, {
+      query,
+      type: typeFilter,
+      muscleGroup: muscleGroupFilter,
+      difficulty: difficultyFilter,
+    })
+    if (!excludeIds?.size) return matches
+    return matches.filter((exercise) => !excludeIds.has(exercise.id))
+  }, [
+    exercises,
+    query,
+    typeFilter,
+    muscleGroupFilter,
+    difficultyFilter,
+    excludeIds,
+  ])
+
+  const clearFilters = () => {
+    setQuery('')
+    setTypeFilter('')
+    setMuscleGroupFilter('')
+    setDifficultyFilter('')
+  }
+
+  useBodyScrollLock(open)
+
+  if (!open) return null
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="exercise-picker-title"
+    >
+      <div
+        className="flex max-h-[90dvh] w-full max-w-lg flex-col rounded-2xl border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="border-b border-slate-200 p-5 dark:border-slate-800">
+          <h2 id="exercise-picker-title" className="text-lg font-bold">
+            {title}
+          </h2>
+          {description && (
+            <p className="mt-1 text-sm text-slate-500">{description}</p>
+          )}
+
+          <label className="mt-4 block">
+            <span className="sr-only">Search exercises</span>
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by name..."
+              autoFocus
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm dark:border-slate-700 dark:bg-slate-800"
+            />
+          </label>
+
+          <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <select
+              value={typeFilter}
+              onChange={(e) =>
+                setTypeFilter(e.target.value as ExerciseType | '')
+              }
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
+            >
+              <option value="">All types</option>
+              {EXERCISE_TYPES.map((t) => (
+                <option key={t.value} value={t.value}>
+                  {t.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={muscleGroupFilter}
+              onChange={(e) => setMuscleGroupFilter(e.target.value)}
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
+            >
+              <option value="">All muscles</option>
+              {MUSCLE_GROUPS.map((g) => (
+                <option key={g} value={g}>
+                  {g}
+                </option>
+              ))}
+            </select>
+            <select
+              value={difficultyFilter}
+              onChange={(e) =>
+                setDifficultyFilter(e.target.value as ExerciseDifficulty | '')
+              }
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
+            >
+              <option value="">All levels</option>
+              {EXERCISE_DIFFICULTIES.map((d) => (
+                <option key={d.value} value={d.value}>
+                  {d.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-y-auto p-3">
+          {filtered.length === 0 ? (
+            <div className="px-2 py-8 text-center text-sm text-slate-500">
+              <p>No exercises match your search.</p>
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="mt-3 font-medium text-emerald-600"
+              >
+                Clear filters
+              </button>
+            </div>
+          ) : (
+            <>
+              <p className="mb-2 px-1 text-xs text-slate-500">
+                {filtered.length} exercise
+                {filtered.length === 1 ? '' : 's'}
+              </p>
+              <div className="space-y-2">
+                {filtered.map((exercise) => {
+                  const isSelected = exercise.id === selectedId
+                  return (
+                    <button
+                      key={exercise.id}
+                      type="button"
+                      onClick={() => onSelect(exercise)}
+                      className={`flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition ${
+                        isSelected
+                          ? 'border-emerald-400 bg-emerald-50 dark:border-emerald-700 dark:bg-emerald-950/30'
+                          : 'border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 dark:border-slate-800 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/20'
+                      }`}
+                    >
+                      <ExerciseThumbnail
+                        exercise={exercise}
+                        className="h-12 w-12"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium">{exercise.name}</p>
+                        <p className="text-xs text-slate-500">
+                          {formatExerciseMeta(exercise)}
+                        </p>
+                      </div>
+                      {isSelected && (
+                        <span className="shrink-0 text-xs font-medium text-emerald-600">
+                          Current
+                        </span>
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="border-t border-slate-200 p-4 dark:border-slate-800">
+          <button
+            type="button"
+            onClick={onClose}
+            className="w-full rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}

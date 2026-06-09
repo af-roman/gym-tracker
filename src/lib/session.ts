@@ -1,6 +1,10 @@
 import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
 import { db } from '../db/schema'
-import { resolveExerciseType } from './exercises'
+import {
+  resolveExerciseDifficulties,
+  resolveExerciseType,
+  resolveMuscleGroups,
+} from './exercises'
 
 export function resolveSessionExerciseId(
   planExerciseId: string,
@@ -37,14 +41,21 @@ export function findSwapAlternatives(
   excludeIds: Set<string>,
 ): Exercise[] {
   const type = resolveExerciseType(exercise)
+  const muscleGroups = new Set(resolveMuscleGroups(exercise))
+  const difficulties = new Set(resolveExerciseDifficulties(exercise))
+
   return allExercises
-    .filter(
-      (e) =>
-        e.id !== exercise.id &&
-        !excludeIds.has(e.id) &&
-        resolveExerciseType(e) === type &&
-        e.muscleGroup === exercise.muscleGroup,
-    )
+    .filter((e) => {
+      if (e.id === exercise.id || excludeIds.has(e.id)) return false
+      if (resolveExerciseType(e) !== type) return false
+      const sharesMuscle = resolveMuscleGroups(e).some((group) =>
+        muscleGroups.has(group),
+      )
+      const sharesDifficulty = resolveExerciseDifficulties(e).some((level) =>
+        difficulties.has(level),
+      )
+      return sharesMuscle && sharesDifficulty
+    })
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 

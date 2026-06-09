@@ -31,7 +31,7 @@ export function ExercisePhotoPicker({
       return
     }
     if (photos.length >= MAX_INSTRUCTION_PHOTOS) {
-      onError?.('You can add up to 3 photos.')
+      onError?.(`You can add up to ${MAX_INSTRUCTION_PHOTOS} photos.`)
       return
     }
 
@@ -63,10 +63,11 @@ export function ExercisePhotoPicker({
     <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
       <span className="text-sm font-medium">Instruction photos</span>
       <p className="mt-1 text-xs text-slate-500">
-        Add up to 3 step-by-step photos. Tap a photo to set it as the thumbnail.
+        Add up to {MAX_INSTRUCTION_PHOTOS} step-by-step photos. Tap a photo to
+        set it as the thumbnail.
       </p>
 
-      <div className="mt-3 grid grid-cols-3 gap-2">
+      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {photos.map((photo, index) => (
           <div key={index} className="flex flex-col gap-1">
             <button

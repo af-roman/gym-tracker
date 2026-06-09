@@ -1,13 +1,27 @@
-import { Fragment, useEffect, useRef, useState, type PointerEvent } from 'react'
+import {
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type PointerEvent,
+} from 'react'
 import { Link } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
+import { ExercisePicker } from '../components/ExercisePicker'
+import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
 import {
   formatExerciseMeta,
   isDurationExerciseType,
   planExerciseFromTemplate,
   resolveExerciseType,
 } from '../lib/exercises'
+
+type PickerTarget =
+  | { mode: 'change'; index: number }
+  | { mode: 'add' }
+  | null
 
 const AUTO_SCROLL_EDGE_PX = 72
 const AUTO_SCROLL_MAX_SPEED = 16
@@ -74,6 +88,30 @@ function normalizeInsertSlot(
   return slot
 }
 
+function staticifyFormControls(root: HTMLElement) {
+  root.querySelectorAll('input').forEach((input) => {
+    const div = document.createElement('div')
+    div.className = `${input.className} flex min-h-[2.5rem] items-center text-sm`
+    div.textContent = input.value
+    input.replaceWith(div)
+  })
+
+  root.querySelectorAll('select').forEach((select) => {
+    const div = document.createElement('div')
+    div.className = `${select.className} flex min-h-[2.5rem] items-center text-sm`
+    div.textContent =
+      select.options[select.selectedIndex]?.text ?? select.value
+    select.replaceWith(div)
+  })
+
+  root.querySelectorAll('textarea').forEach((textarea) => {
+    const div = document.createElement('div')
+    div.className = textarea.className
+    div.textContent = textarea.value
+    textarea.replaceWith(div)
+  })
+}
+
 function createDragGhost(
   row: HTMLElement,
   clientX: number,
@@ -81,9 +119,21 @@ function createDragGhost(
 ): HTMLElement {
   const clone = row.cloneNode(true) as HTMLElement
   clone.setAttribute('data-drag-ghost', 'true')
-  clone.querySelectorAll('input, select, textarea, button').forEach((el) => {
-    el.remove()
+
+  clone.querySelectorAll('button').forEach((button) => {
+    const label = button.getAttribute('aria-label') ?? ''
+    if (label.startsWith('Reorder') || button.textContent?.trim() === 'Delete') {
+      button.remove()
+      return
+    }
+
+    const div = document.createElement('div')
+    div.className = button.className
+    div.innerHTML = button.innerHTML
+    button.replaceWith(div)
   })
+
+  staticifyFormControls(clone)
 
   const rect = row.getBoundingClientRect()
   clone.style.position = 'fixed'
@@ -125,6 +175,7 @@ export function PlanEditor() {
   const [saving, setSaving] = useState(false)
   const [dragIndex, setDragIndex] = useState<number | null>(null)
   const [insertSlot, setInsertSlot] = useState<number | null>(null)
+  const [pickerTarget, setPickerTarget] = useState<PickerTarget>(null)
 
   const dragIndexRef = useRef<number | null>(null)
   const insertSlotRef = useRef<number | null>(null)
@@ -339,16 +390,45 @@ export function PlanEditor() {
     setEditing(updated)
   }
 
-  const addExercise = () => {
+  const openAddExercisePicker = () => {
     if (!editing || exercises.length === 0) return
-    setEditing({
-      ...editing,
-      exercises: [
-        ...editing.exercises,
-        planExerciseFromTemplate(exercises[0]),
-      ],
-    })
+    setPickerTarget({ mode: 'add' })
   }
+
+  const handlePickerSelect = (exercise: Exercise) => {
+    if (!editing || !pickerTarget) return
+
+    if (pickerTarget.mode === 'add') {
+      setEditing({
+        ...editing,
+        exercises: [
+          ...editing.exercises,
+          planExerciseFromTemplate(exercise),
+        ],
+      })
+    } else {
+      updateExerciseInPlan(pickerTarget.index, 'exerciseId', exercise.id)
+    }
+
+    setPickerTarget(null)
+  }
+
+  const pickerExcludeIds = useMemo(() => {
+    if (!editing) return new Set<string>()
+    if (pickerTarget?.mode === 'change') {
+      return new Set(
+        editing.exercises
+          .filter((_, index) => index !== pickerTarget.index)
+          .map((pe) => pe.exerciseId),
+      )
+    }
+    return new Set(editing.exercises.map((pe) => pe.exerciseId))
+  }, [editing, pickerTarget])
+
+  const pickerSelectedId =
+    pickerTarget?.mode === 'change' && editing
+      ? editing.exercises[pickerTarget.index]?.exerciseId
+      : undefined
 
   const removeExercise = (index: number) => {
     if (!editing) return
@@ -557,23 +637,44 @@ export function PlanEditor() {
                   Exercise
                 </span>
                 {dragIndex !== null ? (
-                  <div className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900">
-                    {template?.name ?? 'Exercise'}
+                  <div className="mt-1 flex w-full items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900">
+                    {template ? (
+                      <>
+                        <ExerciseThumbnail
+                          exercise={template}
+                          className="h-10 w-10 shrink-0"
+                        />
+                        <span className="min-w-0 flex-1 font-medium">
+                          {template.name}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-slate-500">Exercise</span>
+                    )}
                   </div>
                 ) : (
-                  <select
-                    value={pe.exerciseId}
-                    onChange={(e) =>
-                      updateExerciseInPlan(index, 'exerciseId', e.target.value)
-                    }
-                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 dark:border-slate-700 dark:bg-slate-900"
+                  <button
+                    type="button"
+                    onClick={() => setPickerTarget({ mode: 'change', index })}
+                    className="mt-1 flex w-full items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-left text-sm transition hover:border-emerald-300 hover:bg-emerald-50/50 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/20"
                   >
-                    {exercises.map((ex) => (
-                      <option key={ex.id} value={ex.id}>
-                        {ex.name}
-                      </option>
-                    ))}
-                  </select>
+                    {template ? (
+                      <>
+                        <ExerciseThumbnail
+                          exercise={template}
+                          className="h-10 w-10 shrink-0"
+                        />
+                        <span className="min-w-0 flex-1 font-medium">
+                          {template.name}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-slate-500">Choose exercise</span>
+                    )}
+                    <span className="shrink-0 text-xs text-emerald-600">
+                      Change
+                    </span>
+                  </button>
                 )}
               </label>
               <div className="grid grid-cols-3 gap-3">
@@ -690,12 +791,25 @@ export function PlanEditor() {
         </div>
 
         <button
-          onClick={addExercise}
+          onClick={openAddExercisePicker}
           disabled={exercises.length === 0}
           className="mt-3 w-full rounded-xl border-2 border-dashed border-slate-300 py-2 text-sm disabled:opacity-50 dark:border-slate-700"
         >
           + Add exercise
         </button>
+
+        <ExercisePicker
+          open={pickerTarget !== null}
+          title={
+            pickerTarget?.mode === 'add' ? 'Add exercise' : 'Change exercise'
+          }
+          description="Search and filter by type, muscle group, and difficulty."
+          exercises={exercises}
+          selectedId={pickerSelectedId}
+          excludeIds={pickerExcludeIds}
+          onSelect={handlePickerSelect}
+          onClose={() => setPickerTarget(null)}
+        />
 
         {exercises.length === 0 && (
           <p className="mt-2 text-center text-sm text-slate-500">
