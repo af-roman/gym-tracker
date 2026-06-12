@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Exercise, PlanExercise } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 import { ExerciseThumbnail } from './ExerciseThumbnail'
 import { formatExerciseMeta, formatPlanTarget } from '../lib/exercises'
 
@@ -18,6 +19,8 @@ export function ExerciseCard({
   sessionId,
   swappedFromName,
 }: ExerciseCardProps) {
+  const { t } = useTranslation()
+
   return (
     <Link
       to={`/session/${sessionId}/exercise/${exercise.id}`}
@@ -33,17 +36,17 @@ export function ExerciseCard({
           <h3 className="font-semibold">{exercise.name}</h3>
           {completed && (
             <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-xs text-white">
-              Done
+              {t('common.done')}
             </span>
           )}
         </div>
         <p className="text-sm text-slate-500 dark:text-slate-400">
           {formatPlanTarget(exercise, planExercise)}
         </p>
-        <p className="text-xs text-slate-400">{formatExerciseMeta(exercise)}</p>
+        <p className="text-xs text-slate-400">{formatExerciseMeta(exercise, t)}</p>
         {swappedFromName && (
           <p className="mt-0.5 text-xs text-amber-700 dark:text-amber-400">
-            Swapped from {swappedFromName}
+            {t('session.swappedFrom', { name: swappedFromName })}
           </p>
         )}
       </div>

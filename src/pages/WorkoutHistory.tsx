@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Session } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 
 interface HistoryEntry {
   session: Session
@@ -10,6 +11,7 @@ interface HistoryEntry {
 }
 
 export function WorkoutHistory() {
+  const { t, locale } = useTranslation()
   const [entries, setEntries] = useState<HistoryEntry[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -34,7 +36,7 @@ export function WorkoutHistory() {
           const loggedExercises = new Set(logs.map((l) => l.exerciseId)).size
           return {
             session,
-            planName: plan?.name ?? 'Workout',
+            planName: plan?.name ?? t('app.workout'),
             loggedExercises,
           }
         }),
@@ -43,11 +45,11 @@ export function WorkoutHistory() {
       setLoading(false)
     }
     load()
-  }, [])
+  }, [t])
 
   const formatDate = (session: Session) => {
     const d = session.completedAt ?? session.startedAt
-    return d.toLocaleDateString(undefined, {
+    return d.toLocaleDateString(locale, {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
@@ -58,18 +60,16 @@ export function WorkoutHistory() {
   return (
     <div>
       <Link to="/" className="mb-4 inline-block text-sm text-emerald-600">
-        ← Home
+        {t('common.home')}
       </Link>
-      <h1 className="mb-2 text-2xl font-bold">Workout history</h1>
-      <p className="mb-6 text-sm text-slate-500">
-        Browse past completed workouts
-      </p>
+      <h1 className="mb-2 text-2xl font-bold">{t('history.title')}</h1>
+      <p className="mb-6 text-sm text-slate-500">{t('history.subtitle')}</p>
 
       {loading ? (
-        <p className="text-center text-slate-500">Loading...</p>
+        <p className="text-center text-slate-500">{t('common.loading')}</p>
       ) : entries.length === 0 ? (
         <p className="rounded-2xl border border-dashed border-slate-300 px-4 py-8 text-center text-sm text-slate-500 dark:border-slate-700">
-          No completed workouts yet. Finish a session to see it here.
+          {t('history.empty')}
         </p>
       ) : (
         <div className="space-y-3">
@@ -82,14 +82,11 @@ export function WorkoutHistory() {
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <h2 className="font-bold">{planName}</h2>
-                  <p className="text-sm text-slate-500">
-                    {formatDate(session)}
-                  </p>
+                  <p className="text-sm text-slate-500">{formatDate(session)}</p>
                   <p className="mt-1 text-xs text-slate-400">
-                    {loggedExercises} exercise
-                    {loggedExercises === 1 ? '' : 's'} logged
+                    {t('common.exercisesLogged', { count: loggedExercises })}
                     {session.overallRpe != null
-                      ? ` · RPE ${session.overallRpe}`
+                      ? ` · ${t('common.rpe', { value: session.overallRpe })}`
                       : ''}
                   </p>
                   {session.notes?.trim() && (

@@ -1,12 +1,32 @@
+import { loadSettings, applySettings } from './lib/settings'
+
 function applyStoredTheme() {
-  const stored = localStorage.getItem('theme')
-  const dark =
-    stored === 'dark' ||
-    (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  document.documentElement.classList.toggle('dark', dark)
+  applySettings(loadSettings())
 }
 
 applyStoredTheme()
+
+function lockZoom() {
+  const blockGesture = (event: Event) => {
+    event.preventDefault()
+  }
+
+  document.addEventListener('gesturestart', blockGesture, { passive: false })
+  document.addEventListener('gesturechange', blockGesture, { passive: false })
+  document.addEventListener('gestureend', blockGesture, { passive: false })
+
+  document.addEventListener(
+    'wheel',
+    (event) => {
+      if (event.ctrlKey) {
+        event.preventDefault()
+      }
+    },
+    { passive: false },
+  )
+}
+
+lockZoom()
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

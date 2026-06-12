@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from '../context/SettingsContext'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -6,6 +7,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export function InstallPrompt() {
+  const { t } = useTranslation()
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null)
   const [dismissed, setDismissed] = useState(
@@ -47,12 +49,10 @@ export function InstallPrompt() {
   return (
     <div className="mb-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-900 dark:bg-emerald-950/50">
       <p className="text-sm font-medium text-emerald-900 dark:text-emerald-100">
-        Install Gym Tracker
+        {t('install.title')}
       </p>
       <p className="mt-1 text-sm text-emerald-800/80 dark:text-emerald-200/80">
-        {isIOS
-          ? 'Tap Share, then "Add to Home Screen" to use offline at the gym.'
-          : 'Add to your home screen for quick access and offline use.'}
+        {isIOS ? t('install.ios') : t('install.default')}
       </p>
       <div className="mt-3 flex gap-2">
         {!isIOS && deferredPrompt && (
@@ -60,14 +60,14 @@ export function InstallPrompt() {
             onClick={install}
             className="rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white"
           >
-            Install
+            {t('common.install')}
           </button>
         )}
         <button
           onClick={dismiss}
           className="rounded-xl px-4 py-2 text-sm font-medium text-emerald-700 dark:text-emerald-300"
         >
-          Dismiss
+          {t('common.dismiss')}
         </button>
       </div>
     </div>

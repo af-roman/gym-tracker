@@ -1,4 +1,11 @@
-import type { DurationUnit, Exercise, ExerciseType, PlanExercise, SetLog } from '../db/schema'
+import type {
+  DurationUnit,
+  Exercise,
+  ExerciseType,
+  PlanExercise,
+  SetLog,
+} from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 import {
   getPlanDuration,
   isDurationExerciseType,
@@ -31,6 +38,8 @@ export function SetLogger({
   onChange,
   onAddSet,
 }: SetLoggerProps) {
+  const { t } = useTranslation()
+
   const updateSet = (index: number, patch: Partial<SetDraft>) => {
     const next = sets.map((s, i) => (i === index ? { ...s, ...patch } : s))
     onChange(next)
@@ -48,9 +57,9 @@ export function SetLogger({
 
   const valueLabel = durationType
     ? durationUnit === 'min'
-      ? 'Minutes'
-      : 'Seconds'
-    : 'Reps'
+      ? t('common.minutes')
+      : t('common.seconds')
+    : t('common.reps')
 
   return (
     <div className="space-y-4">
@@ -60,14 +69,16 @@ export function SetLogger({
           className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
         >
           <div className="mb-3 flex items-center justify-between gap-2">
-            <span className="font-semibold">Set {set.setNumber}</span>
+            <span className="font-semibold">
+              {t('common.set', { number: set.setNumber })}
+            </span>
             <div className="flex items-center gap-3">
               <span className="text-sm text-slate-500">
-                Target:{' '}
+                {t('common.target')}:{' '}
                 {durationType
                   ? `${set.targetReps} ${durationUnit}`
                   : set.targetWeight != null
-                    ? `${set.targetReps} @ ${set.targetWeight} kg`
+                    ? `${set.targetReps} @ ${set.targetWeight} ${t('common.kg')}`
                     : set.targetReps}
               </span>
               {sets.length > 1 && (
@@ -76,7 +87,7 @@ export function SetLogger({
                   onClick={() => removeSet(index)}
                   className="rounded-xl border border-red-200 px-3 py-1.5 text-sm text-red-600 dark:border-red-900 dark:text-red-400"
                 >
-                  Delete
+                  {t('common.delete')}
                 </button>
               )}
             </div>
@@ -103,7 +114,7 @@ export function SetLogger({
 
             {!durationType && (
               <label className="block">
-                <span className="text-xs text-slate-500">Weight (kg)</span>
+                <span className="text-xs text-slate-500">{t('common.weightKg')}</span>
                 <input
                   type="number"
                   inputMode="decimal"
@@ -124,9 +135,9 @@ export function SetLogger({
 
           <label className="mt-3 block">
             <div className="flex justify-between text-xs text-slate-500">
-              <span>Difficulty (RPE)</span>
+              <span>{t('exerciseDetail.difficultyRpe')}</span>
               <span>
-                {set.rpe} — {rpeLabel(set.rpe)}
+                {set.rpe} — {rpeLabel(set.rpe, t)}
               </span>
             </div>
             <input
@@ -142,12 +153,12 @@ export function SetLogger({
           </label>
 
           <label className="mt-3 block">
-            <span className="text-xs text-slate-500">Notes (optional)</span>
+            <span className="text-xs text-slate-500">{t('common.notesOptional')}</span>
             <input
               type="text"
               value={set.notes}
               onChange={(e) => updateSet(index, { notes: e.target.value })}
-              placeholder="e.g. felt heavy on last rep"
+              placeholder={t('exerciseDetail.notesPlaceholder')}
               className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-800"
             />
           </label>
@@ -158,7 +169,7 @@ export function SetLogger({
         onClick={onAddSet}
         className="w-full rounded-2xl border-2 border-dashed border-slate-300 py-3 text-sm font-medium text-slate-600 dark:border-slate-700 dark:text-slate-400"
       >
-        + Add set
+        {t('exerciseDetail.addSet')}
       </button>
     </div>
   )

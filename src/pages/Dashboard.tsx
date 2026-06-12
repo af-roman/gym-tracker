@@ -3,18 +3,15 @@ import { db } from '../db/schema'
 import type { Exercise } from '../db/schema'
 import { MuscleGroupRadarChart } from '../components/MuscleGroupRadarChart'
 import { ProgressChart } from '../components/ProgressChart'
+import { useTranslation } from '../context/SettingsContext'
 import { getExerciseProgress, getMuscleGroupStats } from '../lib/progress'
 import type { MuscleGroupStat } from '../lib/progress'
 import { exportAllData, importAllData } from '../lib/export'
 
 type Tab = 'exercises' | 'body'
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'exercises', label: 'Exercises' },
-  { id: 'body', label: 'Body' },
-]
-
 export function Dashboard() {
+  const { t } = useTranslation()
   const [tab, setTab] = useState<Tab>('exercises')
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [selectedExercise, setSelectedExercise] = useState('')
@@ -25,6 +22,11 @@ export function Dashboard() {
     { date: string; weightKg: number; waistCm: number }[]
   >([])
   const [muscleGroupData, setMuscleGroupData] = useState<MuscleGroupStat[]>([])
+
+  const tabs: { id: Tab; label: string }[] = [
+    { id: 'exercises', label: t('dashboard.tabExercises') },
+    { id: 'body', label: t('dashboard.tabBody') },
+  ]
 
   useEffect(() => {
     async function load() {
@@ -76,12 +78,7 @@ export function Dashboard() {
       if (!file) return
       const text = await file.text()
       const data = JSON.parse(text)
-      if (
-        !confirm(
-          'Import will replace all current data. Continue?',
-        )
-      )
-        return
+      if (!confirm(t('dashboard.importConfirm'))) return
       await importAllData(data)
       window.location.reload()
     }
@@ -90,23 +87,21 @@ export function Dashboard() {
 
   return (
     <div>
-      <h1 className="mb-2 text-2xl font-bold">Progress</h1>
-      <p className="mb-6 text-sm text-slate-500">
-        Track your exercises and body metrics over time
-      </p>
+      <h1 className="mb-2 text-2xl font-bold">{t('dashboard.title')}</h1>
+      <p className="mb-6 text-sm text-slate-500">{t('dashboard.subtitle')}</p>
 
       <div className="mb-6 flex rounded-xl bg-slate-100 p-1 dark:bg-slate-800">
-        {TABS.map((t) => (
+        {tabs.map((item) => (
           <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
+            key={item.id}
+            onClick={() => setTab(item.id)}
             className={`flex-1 rounded-lg py-2 text-sm font-medium transition-colors ${
-              tab === t.id
+              tab === item.id
                 ? 'bg-white text-emerald-700 shadow dark:bg-slate-900 dark:text-emerald-400'
                 : 'text-slate-500'
             }`}
           >
-            {t.label}
+            {item.label}
           </button>
         ))}
       </div>
@@ -116,7 +111,7 @@ export function Dashboard() {
           <MuscleGroupRadarChart data={muscleGroupData} />
 
           <label className="mb-4 block">
-            <span className="text-sm font-medium">Exercise</span>
+            <span className="text-sm font-medium">{t('dashboard.selectExercise')}</span>
             <select
               value={selectedExercise}
               onChange={(e) => setSelectedExercise(e.target.value)}
@@ -132,23 +127,23 @@ export function Dashboard() {
 
           <div className="space-y-4">
             <ProgressChart
-              title="Max weight per session (kg)"
+              title={t('dashboard.maxWeightChart')}
               data={liftData}
               lines={[
                 {
                   key: 'maxWeight',
-                  label: 'Max weight',
+                  label: t('dashboard.chartMaxWeight'),
                   color: '#10b981',
                 },
               ]}
             />
             <ProgressChart
-              title="Total volume per session"
+              title={t('dashboard.volumeChart')}
               data={liftData}
               lines={[
                 {
                   key: 'totalVolume',
-                  label: 'Volume',
+                  label: t('dashboard.chartVolume'),
                   color: '#6366f1',
                 },
               ]}
@@ -160,36 +155,36 @@ export function Dashboard() {
       {tab === 'body' && (
         <div className="space-y-4">
           <ProgressChart
-            title="Body weight (kg)"
+            title={t('dashboard.bodyWeight')}
             data={bodyData}
             lines={[
-              { key: 'weightKg', label: 'Weight', color: '#10b981' },
+              { key: 'weightKg', label: t('dashboard.chartWeight'), color: '#10b981' },
             ]}
           />
           <ProgressChart
-            title="Waist circumference (cm)"
+            title={t('dashboard.waistChart')}
             data={bodyData.filter((d) => d.waistCm > 0)}
             lines={[
-              { key: 'waistCm', label: 'Waist', color: '#f59e0b' },
+              { key: 'waistCm', label: t('dashboard.chartWaist'), color: '#f59e0b' },
             ]}
           />
         </div>
       )}
 
       <div className="mt-8 border-t border-slate-200 pt-6 dark:border-slate-800">
-        <h2 className="mb-3 font-semibold">Data backup</h2>
+        <h2 className="mb-3 font-semibold">{t('dashboard.dataBackup')}</h2>
         <div className="flex gap-3">
           <button
             onClick={handleExport}
             className="flex-1 rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
           >
-            Export JSON
+            {t('dashboard.exportJson')}
           </button>
           <button
             onClick={handleImport}
             className="flex-1 rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
           >
-            Import JSON
+            {t('dashboard.importJson')}
           </button>
         </div>
       </div>

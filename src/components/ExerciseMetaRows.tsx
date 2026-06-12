@@ -1,4 +1,5 @@
 import type { Exercise } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 import { getExerciseMetaDisplay } from '../lib/exercises'
 
 interface ExerciseMetaRowsProps {
@@ -7,7 +8,11 @@ interface ExerciseMetaRowsProps {
 }
 
 export function ExerciseMetaRows({ exercise, className = '' }: ExerciseMetaRowsProps) {
-  const { type, muscles, level } = getExerciseMetaDisplay(exercise, { fullMuscles: true })
+  const { t } = useTranslation()
+  const { type, muscles, level } = getExerciseMetaDisplay(exercise, {
+    fullMuscles: true,
+    t,
+  })
 
   return (
     <p

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTranslation } from '../context/SettingsContext'
 
 interface PhotoLightboxProps {
   photos: string[]
@@ -15,6 +16,7 @@ export function PhotoLightbox({
   onClose,
   onChangeIndex,
 }: PhotoLightboxProps) {
+  const { t } = useTranslation()
   const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
@@ -56,18 +58,18 @@ export function PhotoLightbox({
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label={`Step ${index + 1} photo`}
+      aria-label={t('exercises.stepAlt', { step: index + 1 })}
     >
       <div className="flex items-center justify-between px-4 py-3 text-white">
         <span className="text-sm font-medium">
-          Step {index + 1} of {photos.length}
+          {t('exercises.stepOf', { step: index + 1, total: photos.length })}
         </span>
         <button
           type="button"
           onClick={onClose}
           className="rounded-lg px-3 py-1 text-sm font-medium text-white/90"
         >
-          Close
+          {t('common.close')}
         </button>
       </div>
 
@@ -79,7 +81,7 @@ export function PhotoLightbox({
       >
         <img
           src={photos[index]}
-          alt={`Step ${index + 1}`}
+          alt={t('exercises.stepAlt', { step: index + 1 })}
           className="max-h-[80vh] max-w-full select-none rounded-xl object-contain"
           draggable={false}
           onClick={onClose}

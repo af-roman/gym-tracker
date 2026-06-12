@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
 import { ExerciseCard } from '../components/ExerciseCard'
+import { useTranslation } from '../context/SettingsContext'
 import { resolveSessionExerciseId } from '../lib/session'
 
 interface SessionExerciseEntry {
@@ -14,6 +15,7 @@ interface SessionExerciseEntry {
 export function Session() {
   const { sessionId } = useParams<{ sessionId: string }>()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [plan, setPlan] = useState<WorkoutPlan | null>(null)
   const [entries, setEntries] = useState<SessionExerciseEntry[]>([])
   const [completedIds, setCompletedIds] = useState<string[]>([])
@@ -56,13 +58,7 @@ export function Session() {
   }, [id, navigate])
 
   const cancelSession = async () => {
-    if (
-      !confirm(
-        'Cancel this workout? All progress logged in this session will be deleted.',
-      )
-    ) {
-      return
-    }
+    if (!confirm(t('session.cancelConfirm'))) return
     await db.setLogs.where('sessionId').equals(id).delete()
     await db.sessions.delete(id)
     navigate('/')
@@ -73,26 +69,26 @@ export function Session() {
   const allDone = total > 0 && done === total
 
   if (loading || !plan) {
-    return <p className="text-center text-slate-500">Loading session...</p>
+    return <p className="text-center text-slate-500">{t('common.loadingSession')}</p>
   }
 
   return (
     <div>
       <Link to="/" className="mb-4 inline-block text-sm text-emerald-600">
-        ← Home
+        {t('common.home')}
       </Link>
       <div className="mb-4 flex items-start justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold">{plan.name}</h1>
           <p className="text-sm text-slate-500">
-            {done} of {total} exercises complete
+            {t('session.exercisesComplete', { done, total })}
           </p>
         </div>
         <button
           onClick={cancelSession}
           className="shrink-0 rounded-xl border border-red-200 px-3 py-2 text-sm font-medium text-red-600 dark:border-red-900 dark:text-red-400"
         >
-          Cancel
+          {t('session.cancel')}
         </button>
       </div>
 
@@ -121,14 +117,14 @@ export function Session() {
           to={`/session/${id}/summary`}
           className="mt-6 block rounded-2xl bg-emerald-600 py-4 text-center font-semibold text-white"
         >
-          Finish workout →
+          {t('session.finishWorkout')}
         </Link>
       ) : (
         <Link
           to={`/session/${id}/summary`}
           className="mt-6 block text-center text-sm text-slate-500"
         >
-          Finish early (save what you have)
+          {t('session.finishEarly')}
         </Link>
       )}
     </div>

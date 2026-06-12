@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { db } from '../db/schema'
 import type { BodyMetric } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 
 export function BodyMetrics() {
+  const { t } = useTranslation()
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10))
   const [weightKg, setWeightKg] = useState('')
   const [waistCm, setWaistCm] = useState('')
@@ -60,7 +62,7 @@ export function BodyMetrics() {
         .filter((m) => m.id !== editingId)
         .first()
       if (conflict) {
-        setError('Another record already exists for this date.')
+        setError(t('bodyMetrics.dateConflict'))
         setSaving(false)
         return
       }
@@ -84,7 +86,7 @@ export function BodyMetrics() {
 
   const deleteEntry = async () => {
     if (editingId == null) return
-    if (!confirm('Delete this body metrics record?')) return
+    if (!confirm(t('bodyMetrics.deleteConfirm'))) return
 
     setDeleting(true)
     await db.bodyMetrics.delete(editingId)
@@ -93,22 +95,28 @@ export function BodyMetrics() {
     setDeleting(false)
   }
 
+  const saveLabel = saving
+    ? t('common.saving')
+    : saved
+      ? t('bodyMetrics.savedCheck')
+      : editingId
+        ? t('bodyMetrics.updateRecord')
+        : t('bodyMetrics.saveMetrics')
+
   return (
     <div>
-      <h1 className="mb-2 text-2xl font-bold">Body metrics</h1>
-      <p className="mb-6 text-sm text-slate-500">
-        Log weight and measurements on rest days
-      </p>
+      <h1 className="mb-2 text-2xl font-bold">{t('bodyMetrics.title')}</h1>
+      <p className="mb-6 text-sm text-slate-500">{t('bodyMetrics.subtitle')}</p>
 
       <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         {editingId != null && (
           <p className="rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200">
-            Editing a history record
+            {t('bodyMetrics.editingRecord')}
           </p>
         )}
 
         <label className="block min-w-0">
-          <span className="text-sm font-medium">Date</span>
+          <span className="text-sm font-medium">{t('bodyMetrics.date')}</span>
           <input
             type="date"
             value={date}
@@ -118,33 +126,33 @@ export function BodyMetrics() {
         </label>
 
         <label className="block">
-          <span className="text-sm font-medium">Weight (kg)</span>
+          <span className="text-sm font-medium">{t('bodyMetrics.weight')}</span>
           <input
             type="number"
             inputMode="decimal"
             step="0.1"
             value={weightKg}
             onChange={(e) => setWeightKg(e.target.value)}
-            placeholder="e.g. 78.5"
+            placeholder={t('bodyMetrics.weightPlaceholder')}
             className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-lg dark:border-slate-700 dark:bg-slate-800"
           />
         </label>
 
         <label className="block">
-          <span className="text-sm font-medium">Waist (cm)</span>
+          <span className="text-sm font-medium">{t('bodyMetrics.waist')}</span>
           <input
             type="number"
             inputMode="decimal"
             step="0.5"
             value={waistCm}
             onChange={(e) => setWaistCm(e.target.value)}
-            placeholder="e.g. 85"
+            placeholder={t('bodyMetrics.waistPlaceholder')}
             className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-lg dark:border-slate-700 dark:bg-slate-800"
           />
         </label>
 
         <label className="block">
-          <span className="text-sm font-medium">Notes (optional)</span>
+          <span className="text-sm font-medium">{t('common.notesOptional')}</span>
           <input
             type="text"
             value={notes}
@@ -164,7 +172,7 @@ export function BodyMetrics() {
           disabled={saving || (!weightKg && !waistCm)}
           className="w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white disabled:opacity-50"
         >
-          {saving ? 'Saving...' : saved ? 'Saved ✓' : editingId ? 'Update record' : 'Save metrics'}
+          {saveLabel}
         </button>
 
         {editingId != null && (
@@ -174,7 +182,7 @@ export function BodyMetrics() {
               onClick={resetForm}
               className="flex-1 rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
             >
-              New entry
+              {t('bodyMetrics.newEntry')}
             </button>
             <button
               type="button"
@@ -182,7 +190,7 @@ export function BodyMetrics() {
               disabled={deleting}
               className="flex-1 rounded-xl border border-red-200 py-3 text-sm font-medium text-red-600 dark:border-red-900 dark:text-red-400"
             >
-              {deleting ? 'Deleting...' : 'Delete'}
+              {deleting ? t('common.deleting') : t('common.delete')}
             </button>
           </div>
         )}
@@ -190,10 +198,8 @@ export function BodyMetrics() {
 
       {history.length > 0 && (
         <div className="mt-8">
-          <h2 className="mb-3 font-semibold">History</h2>
-          <p className="mb-3 text-xs text-slate-500">
-            Tap a record to edit it
-          </p>
+          <h2 className="mb-3 font-semibold">{t('bodyMetrics.history')}</h2>
+          <p className="mb-3 text-xs text-slate-500">{t('bodyMetrics.tapToEdit')}</p>
           <div className="space-y-2">
             {history.map((m) => {
               const isSelected = editingId === m.id
@@ -212,9 +218,11 @@ export function BodyMetrics() {
                   <span className="font-medium">{m.date}</span>
                   <div className="text-right">
                     <span className="text-slate-500">
-                      {m.weightKg != null ? `${m.weightKg} kg` : ''}
+                      {m.weightKg != null ? `${m.weightKg} ${t('common.kg')}` : ''}
                       {m.weightKg != null && m.waistCm != null ? ' · ' : ''}
-                      {m.waistCm != null ? `${m.waistCm} cm waist` : ''}
+                      {m.waistCm != null
+                        ? t('bodyMetrics.waistValue', { value: m.waistCm })
+                        : ''}
                     </span>
                     {m.notes?.trim() && (
                       <p className="mt-0.5 line-clamp-2 text-xs text-slate-400">

@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { WorkoutPlan } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 
 export function PlanPicker() {
   const navigate = useNavigate()
+  const { t, locale } = useTranslation()
   const [plans, setPlans] = useState<
     (WorkoutPlan & { lastCompleted?: string; exerciseCount: number })[]
   >([])
@@ -26,7 +28,7 @@ export function PlanPicker() {
             ...plan,
             exerciseCount: plan.exercises.length,
             lastCompleted: last
-              ? last.startedAt.toLocaleDateString()
+              ? last.startedAt.toLocaleDateString(locale)
               : undefined,
           }
         }),
@@ -35,7 +37,7 @@ export function PlanPicker() {
       setLoading(false)
     }
     load()
-  }, [])
+  }, [locale])
 
   const startPlan = async (planId: string) => {
     const id = await db.sessions.add({
@@ -48,18 +50,16 @@ export function PlanPicker() {
   }
 
   if (loading) {
-    return <p className="text-center text-slate-500">Loading plans...</p>
+    return <p className="text-center text-slate-500">{t('common.loadingPlans')}</p>
   }
 
   return (
     <div>
       <Link to="/" className="mb-4 inline-block text-sm text-emerald-600">
-        ← Back
+        {t('common.back')}
       </Link>
-      <h1 className="mb-2 text-2xl font-bold">Choose a plan</h1>
-      <p className="mb-6 text-sm text-slate-500">
-        Alternate Full Body A and B on gym days.
-      </p>
+      <h1 className="mb-2 text-2xl font-bold">{t('planPicker.title')}</h1>
+      <p className="mb-6 text-sm text-slate-500">{t('planPicker.subtitle')}</p>
 
       <div className="space-y-4">
         {plans.map((plan) => (
@@ -71,9 +71,9 @@ export function PlanPicker() {
             <h2 className="text-lg font-bold">{plan.name}</h2>
             <p className="mt-1 text-sm text-slate-500">{plan.description}</p>
             <div className="mt-3 flex gap-4 text-xs text-slate-400">
-              <span>{plan.exerciseCount} exercises</span>
+              <span>{t('common.exerciseCount', { count: plan.exerciseCount })}</span>
               {plan.lastCompleted && (
-                <span>Last done: {plan.lastCompleted}</span>
+                <span>{t('common.lastDone', { date: plan.lastCompleted })}</span>
               )}
             </div>
           </button>

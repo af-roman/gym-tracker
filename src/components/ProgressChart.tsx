@@ -10,6 +10,8 @@ import {
   Legend,
 } from 'recharts'
 
+import { useTranslation } from '../context/SettingsContext'
+
 interface DataPoint {
   date: string
   [key: string]: string | number
@@ -41,6 +43,7 @@ function useDarkMode(): boolean {
 }
 
 export function ProgressChart({ data, lines, title }: ProgressChartProps) {
+  const { t } = useTranslation()
   const dark = useDarkMode()
   const labelColor = dark ? '#f8fafc' : '#0f172a'
   const gridColor = dark ? '#334155' : '#e2e8f0'
@@ -49,7 +52,7 @@ export function ProgressChart({ data, lines, title }: ProgressChartProps) {
   if (data.length === 0) {
     return (
       <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-900">
-        No data yet — complete a few workouts to see progress.
+        {t('dashboard.noChartData')}
       </div>
     )
   }

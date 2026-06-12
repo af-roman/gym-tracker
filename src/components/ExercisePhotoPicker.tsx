@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { useTranslation } from '../context/SettingsContext'
 import {
   instructionPhotoSrc,
   MAX_INSTRUCTION_PHOTO_BYTES,
@@ -18,20 +19,21 @@ export function ExercisePhotoPicker({
   onChange,
   onError,
 }: ExercisePhotoPickerProps) {
+  const { t } = useTranslation()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const addPhoto = (file: File | undefined) => {
     if (!file) return
     if (!file.type.startsWith('image/')) {
-      onError?.('Please choose an image file.')
+      onError?.(t('exercises.photoInvalidType'))
       return
     }
     if (file.size > MAX_INSTRUCTION_PHOTO_BYTES) {
-      onError?.('Each photo must be under 2 MB.')
+      onError?.(t('exercises.photoTooLarge'))
       return
     }
     if (photos.length >= MAX_INSTRUCTION_PHOTOS) {
-      onError?.(`You can add up to ${MAX_INSTRUCTION_PHOTOS} photos.`)
+      onError?.(t('exercises.photoMaxCount', { max: MAX_INSTRUCTION_PHOTOS }))
       return
     }
 
@@ -41,7 +43,7 @@ export function ExercisePhotoPicker({
       const next = [...photos, reader.result]
       onChange(next, photos.length === 0 ? 0 : thumbnailIndex)
     }
-    reader.onerror = () => onError?.('Could not read the image.')
+    reader.onerror = () => onError?.(t('exercises.photoReadError'))
     reader.readAsDataURL(file)
   }
 
@@ -61,10 +63,9 @@ export function ExercisePhotoPicker({
 
   return (
     <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-      <span className="text-sm font-medium">Instruction photos</span>
+      <span className="text-sm font-medium">{t('exercises.photos')}</span>
       <p className="mt-1 text-xs text-slate-500">
-        Add up to {MAX_INSTRUCTION_PHOTOS} step-by-step photos. Tap a photo to
-        set it as the thumbnail.
+        {t('exercises.photosHint', { max: MAX_INSTRUCTION_PHOTOS })}
       </p>
 
       <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -78,17 +79,17 @@ export function ExercisePhotoPicker({
                   ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900'
                   : ''
               }`}
-              aria-label={`Set step ${index + 1} as thumbnail`}
+              aria-label={t('exercises.setThumbAria', { step: index + 1 })}
               aria-pressed={thumbnailIndex === index}
             >
               <img
                 src={instructionPhotoSrc(photo)}
-                alt={`Step ${index + 1}`}
+                alt={t('exercises.stepAlt', { step: index + 1 })}
                 className="h-full w-full object-cover"
               />
               {thumbnailIndex === index && (
                 <span className="absolute left-1 top-1 rounded bg-emerald-600 px-1.5 py-0.5 text-[10px] font-semibold text-white">
-                  Thumb
+                  {t('exercises.photoThumb')}
                 </span>
               )}
             </button>
@@ -97,7 +98,7 @@ export function ExercisePhotoPicker({
               onClick={() => removePhoto(index)}
               className="w-full rounded-lg border border-red-200 px-1 py-1 text-[10px] font-medium text-red-600 dark:border-red-900 dark:text-red-400"
             >
-              Remove
+              {t('exercises.removePhoto')}
             </button>
           </div>
         ))}
@@ -109,7 +110,7 @@ export function ExercisePhotoPicker({
             className="flex aspect-square flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-300 text-xs text-slate-500 dark:border-slate-700"
           >
             <span className="text-lg">+</span>
-            Add photo
+            {t('exercises.addPhoto')}
           </button>
         )}
       </div>

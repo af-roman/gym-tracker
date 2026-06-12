@@ -171,46 +171,73 @@ export function difficultyLabel(difficulty: ExerciseDifficulty): string {
   )
 }
 
-export function formatMuscleGroups(groups: string[]): string {
-  return groups.join(' + ')
+export type TranslateFn = (
+  key: string,
+  params?: Record<string, string | number>,
+) => string
+
+export function formatMuscleGroups(
+  groups: string[],
+  t?: TranslateFn,
+): string {
+  const labels = groups.map((group) =>
+    t ? t(`muscleGroup.${group}`) : group,
+  )
+  return labels.join(' + ')
 }
 
-export function formatDifficulties(difficulties: ExerciseDifficulty[]): string {
+export function formatDifficulties(
+  difficulties: ExerciseDifficulty[],
+  t?: TranslateFn,
+): string {
   const range = normalizeDifficultyRange(difficulties)
   if (range.length === 1) {
-    return DIFFICULTY_SHORT[range[0]]
+    return t
+      ? t(`difficulty.short.${range[0]}`)
+      : DIFFICULTY_SHORT[range[0]]
   }
-  return `${DIFFICULTY_SHORT[range[0]]}+`
+  const short = t
+    ? t(`difficulty.short.${range[0]}`)
+    : DIFFICULTY_SHORT[range[0]]
+  return `${short}+`
 }
 
 export function formatExerciseMuscleLabel(
   exercise: Exercise,
-  options?: { fullMuscles?: boolean },
+  options?: { fullMuscles?: boolean; t?: TranslateFn },
 ): string {
   const groups = resolveMuscleGroups(exercise)
-  if (!options?.fullMuscles && groups.length > 3) {
-    return `${groups.slice(0, 3).join(' + ')}…`
-  }
-  return formatMuscleGroups(groups)
+  const visible = !options?.fullMuscles && groups.length > 3
+    ? groups.slice(0, 3)
+    : groups
+  const label = formatMuscleGroups(visible, options?.t)
+  if (visible && groups.length > 3) return `${label}…`
+  return label
 }
 
 export function getExerciseMetaDisplay(
   exercise: Exercise,
-  options?: { fullMuscles?: boolean },
+  options?: { fullMuscles?: boolean; t?: TranslateFn },
 ): {
   type: string
   muscles: string
   level: string
 } {
+  const type = resolveExerciseType(exercise)
   return {
-    type: exerciseTypeLabel(resolveExerciseType(exercise)),
+    type: options?.t
+      ? options.t(`exerciseType.${type}`)
+      : exerciseTypeLabel(type),
     muscles: formatExerciseMuscleLabel(exercise, options),
-    level: formatDifficulties(resolveExerciseDifficulties(exercise)),
+    level: formatDifficulties(resolveExerciseDifficulties(exercise), options?.t),
   }
 }
 
-export function formatExerciseMeta(exercise: Exercise): string {
-  const { type, muscles, level } = getExerciseMetaDisplay(exercise)
+export function formatExerciseMeta(
+  exercise: Exercise,
+  t?: TranslateFn,
+): string {
+  const { type, muscles, level } = getExerciseMetaDisplay(exercise, { t })
   return `${type} · ${muscles} · ${level}`
 }
 

@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { db } from '../db/schema'
 import type { Exercise, Session, SetLog, WorkoutPlan } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 import { formatLoggedSet } from '../lib/exercises'
 import { resolveSessionExerciseId } from '../lib/session'
 
 export function WorkoutRecord() {
   const { sessionId } = useParams<{ sessionId: string }>()
   const navigate = useNavigate()
+  const { t, locale } = useTranslation()
   const [session, setSession] = useState<Session | null>(null)
   const [plan, setPlan] = useState<WorkoutPlan | null>(null)
   const [swaps, setSwaps] = useState<Record<string, string>>({})
@@ -41,11 +43,11 @@ export function WorkoutRecord() {
   }, [sid, navigate])
 
   if (loading || !session || !plan) {
-    return <p className="text-center text-slate-500">Loading...</p>
+    return <p className="text-center text-slate-500">{t('common.loading')}</p>
   }
 
   const when = (session.completedAt ?? session.startedAt).toLocaleDateString(
-    undefined,
+    locale,
     {
       weekday: 'long',
       month: 'long',
@@ -67,14 +69,14 @@ export function WorkoutRecord() {
   return (
     <div>
       <Link to="/history" className="mb-4 inline-block text-sm text-emerald-600">
-        ← Workout history
+        {t('history.backToHistory')}
       </Link>
       <h1 className="mb-1 text-2xl font-bold">{plan.name}</h1>
       <p className="mb-6 text-sm text-slate-500">{when}</p>
 
       {session.overallRpe != null && (
         <p className="mb-4 rounded-xl bg-slate-100 px-3 py-2 text-sm dark:bg-slate-800">
-          Overall RPE: <span className="font-semibold">{session.overallRpe}</span>
+          {t('history.overallRpeValue', { value: session.overallRpe })}
         </p>
       )}
 
@@ -90,14 +92,16 @@ export function WorkoutRecord() {
             key={resolvedId}
             className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
           >
-            <h3 className="font-semibold">{exercise?.name ?? 'Exercise'}</h3>
+            <h3 className="font-semibold">
+              {exercise?.name ?? t('common.exercise')}
+            </h3>
             {swapped && (
               <p className="text-xs text-amber-700 dark:text-amber-400">
-                Substituted for this session
+                {t('sessionSummary.substituted')}
               </p>
             )}
             {sets.length === 0 ? (
-              <p className="text-sm text-slate-400">Not logged</p>
+              <p className="text-sm text-slate-400">{t('common.notLogged')}</p>
             ) : exercise ? (
               <ul className="mt-2 space-y-1 text-sm">
                 {sets.map((s) => (
@@ -105,9 +109,11 @@ export function WorkoutRecord() {
                     key={s.id}
                     className="text-slate-600 dark:text-slate-300"
                   >
-                    Set {s.setNumber}:{' '}
-                    {formatLoggedSet(exercise, s.actualReps, s.actualWeight)}
-                    {s.rpe ? ` · RPE ${s.rpe}` : ''}
+                    {t('common.setLine', {
+                      number: s.setNumber,
+                      value: formatLoggedSet(exercise, s.actualReps, s.actualWeight),
+                    })}
+                    {s.rpe ? ` · ${t('common.rpe', { value: s.rpe })}` : ''}
                     {s.notes ? ` · ${s.notes}` : ''}
                   </li>
                 ))}

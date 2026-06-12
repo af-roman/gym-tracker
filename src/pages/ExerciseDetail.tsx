@@ -10,6 +10,7 @@ import {
 } from '../components/SetLogger'
 import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
 import { PhotoLightbox } from '../components/PhotoLightbox'
+import { useTranslation } from '../context/SettingsContext'
 import { getLastSessionSummary, isPersonalBest } from '../lib/progress'
 import {
   formatExerciseMeta,
@@ -30,6 +31,7 @@ export function ExerciseDetail() {
     exerciseId: string
   }>()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [exercise, setExercise] = useState<Exercise | null>(null)
   const [planExercise, setPlanExercise] = useState<PlanExercise | null>(null)
   const [planSlotExerciseId, setPlanSlotExerciseId] = useState<string | null>(
@@ -69,7 +71,7 @@ export function ExerciseDetail() {
       setExercise(ex)
       setPlanExercise(pe)
       setSets(setsToDrafts(existingLogs, ex, pe))
-      setLastSummary(await getLastSessionSummary(exerciseId, sid))
+      setLastSummary(await getLastSessionSummary(exerciseId, sid, t))
 
       if (pe.exerciseId !== exerciseId) {
         const original = await db.exercises.get(pe.exerciseId)
@@ -79,7 +81,7 @@ export function ExerciseDetail() {
       }
     }
     load()
-  }, [sid, exerciseId])
+  }, [sid, exerciseId, t])
 
   const openSwapModal = async () => {
     if (!exercise) return
@@ -160,11 +162,11 @@ export function ExerciseDetail() {
 
   const swapMeta = useMemo(() => {
     if (!exercise) return ''
-    return formatExerciseMeta(exercise)
-  }, [exercise])
+    return formatExerciseMeta(exercise, t)
+  }, [exercise, t])
 
   if (!exercise || !planExercise) {
-    return <p className="text-center text-slate-500">Loading...</p>
+    return <p className="text-center text-slate-500">{t('common.loading')}</p>
   }
 
   const exerciseType = resolveExerciseType(exercise)
@@ -176,12 +178,12 @@ export function ExerciseDetail() {
         to={`/session/${sid}`}
         className="mb-4 inline-block text-sm text-emerald-600"
       >
-        ← Back to checklist
+        ← {t('common.backToChecklist')}
       </Link>
 
       {showPb && (
         <div className="mb-4 rounded-2xl bg-amber-400 p-4 text-center font-bold text-amber-950">
-          🏆 New personal best!
+          🏆 {t('exerciseDetail.personalBest')}
         </div>
       )}
 
@@ -191,7 +193,7 @@ export function ExerciseDetail() {
           <p className="text-sm text-slate-500">{swapMeta}</p>
           {originalExerciseName && (
             <p className="mt-1 text-xs text-amber-700 dark:text-amber-400">
-              Swapped from {originalExerciseName} for this workout
+              {t('session.swappedFrom', { name: originalExerciseName })}
             </p>
           )}
         </div>
@@ -200,7 +202,7 @@ export function ExerciseDetail() {
           onClick={openSwapModal}
           className="shrink-0 rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium dark:border-slate-700"
         >
-          Swap
+          {t('exerciseDetail.swapExercise')}
         </button>
       </div>
 
@@ -211,7 +213,7 @@ export function ExerciseDetail() {
       )}
 
       <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-        <h2 className="mb-2 font-semibold">How to perform</h2>
+        <h2 className="mb-2 font-semibold">{t('exerciseDetail.howToPerform')}</h2>
         <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
           {exercise.instructions}
         </p>
@@ -226,11 +228,11 @@ export function ExerciseDetail() {
               >
                 <img
                   src={instructionPhotoSrc(photo)}
-                  alt={`Step ${index + 1}`}
+                  alt={t('common.step', { number: index + 1 })}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
                 <p className="mt-1 text-center text-xs text-slate-500">
-                  Step {index + 1}
+                  {t('common.step', { number: index + 1 })}
                 </p>
               </button>
             ))}
@@ -244,7 +246,7 @@ export function ExerciseDetail() {
             className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-3 text-sm font-semibold text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
           >
             <span aria-hidden>▶</span>
-            Watch tutorial on YouTube
+            {t('exerciseDetail.watchTutorial')}
           </a>
         )}
         {exercise.startingWeightNote && (
@@ -263,7 +265,9 @@ export function ExerciseDetail() {
         />
       )}
 
-      <h2 className="mb-3 mt-6 text-lg font-semibold">Log your sets</h2>
+      <h2 className="mb-3 mt-6 text-lg font-semibold">
+        {t('exerciseDetail.logSets')}
+      </h2>
       <SetLogger
         sets={sets}
         exerciseType={exerciseType}
@@ -277,7 +281,7 @@ export function ExerciseDetail() {
         disabled={saving}
         className="mt-6 w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white disabled:opacity-50"
       >
-        {saving ? 'Saving...' : 'Mark exercise done'}
+        {saving ? t('common.saving') : t('exerciseDetail.markDone')}
       </button>
 
       {showSwapModal && (
@@ -294,21 +298,17 @@ export function ExerciseDetail() {
           >
             <div className="border-b border-slate-200 p-5 dark:border-slate-800">
               <h2 id="swap-exercise-title" className="text-lg font-bold">
-                Swap exercise
+                {t('exerciseDetail.swapTitle')}
               </h2>
               <p className="mt-1 text-sm text-slate-500">
-                Choose a substitute with the same type, overlapping muscle
-                groups, and difficulty ({swapMeta}). Your plan targets stay the
-                same. Logged sets for the current exercise will be cleared.
+                {t('exerciseDetail.swapDescription')} ({swapMeta})
               </p>
             </div>
 
             <div className="min-h-0 flex-1 overflow-y-auto p-3">
               {swapAlternatives.length === 0 ? (
                 <p className="px-2 py-6 text-center text-sm text-slate-500">
-                  No other exercises match this type, muscle groups, and
-                  difficulty, or all matches are already in today&apos;s
-                  workout.
+                  {t('exerciseDetail.noAlternatives')}
                 </p>
               ) : (
                 <div className="space-y-2">
@@ -340,7 +340,7 @@ export function ExerciseDetail() {
                 disabled={swapping}
                 className="w-full rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
             </div>
           </div>

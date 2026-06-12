@@ -101,9 +101,15 @@ export async function getMuscleGroupStats(): Promise<MuscleGroupStat[]> {
   }).filter((stat) => stat.volume > 0)
 }
 
+type TranslateFn = (
+  key: string,
+  params?: Record<string, string | number>,
+) => string
+
 export async function getLastSessionSummary(
   exerciseId: string,
   beforeSessionId?: number,
+  t?: TranslateFn,
 ): Promise<string | null> {
   const completedSessions = (
     await db.sessions.filter((s) => s.completed).toArray()
@@ -122,6 +128,9 @@ export async function getLastSessionSummary(
     const details = logs
       .map((l) => formatLoggedSet(exercise, l.actualReps, l.actualWeight))
       .join(', ')
+    if (t) {
+      return t('progress.lastTime', { count: logs.length, summary: details })
+    }
     return `Last time: ${logs.length} sets (${details})`
   }
 

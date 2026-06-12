@@ -1,4 +1,5 @@
 import type { ExerciseDifficulty } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 import {
   EXERCISE_DIFFICULTIES,
   formatDifficulties,
@@ -15,17 +16,15 @@ export function DifficultyRangeSelect({
   value,
   onChange,
 }: DifficultyRangeSelectProps) {
+  const { t } = useTranslation()
   const range = normalizeDifficultyRange(value)
   const rangeStart = range[0]
   const rangeEnd = range[range.length - 1]
 
   return (
     <div className="block">
-      <span className="text-sm font-medium">Difficulty</span>
-      <p className="mt-0.5 text-xs text-slate-500">
-        Tap one level, or tap another to span consecutive levels (e.g. Intermediate
-        → Advanced).
-      </p>
+      <span className="text-sm font-medium">{t('exercises.difficulty')}</span>
+      <p className="mt-0.5 text-xs text-slate-500">{t('exercises.difficultyHint')}</p>
       <div className="mt-2 flex flex-wrap gap-1">
         {EXERCISE_DIFFICULTIES.map((option, index) => {
           const inRange = range.includes(option.value)
@@ -57,13 +56,16 @@ export function DifficultyRangeSelect({
               } ${index > 0 && inRange ? '-ml-px' : ''}`}
               aria-pressed={inRange}
             >
-              {option.label}
+              {t(`difficulty.${option.value}`)}
             </button>
           )
         })}
       </div>
       <p className="mt-1.5 text-xs text-slate-500">
-        Shows as: <span className="font-medium text-slate-700 dark:text-slate-300">{formatDifficulties(range)}</span>
+        {t('exercises.difficultyShowsAs')}:{' '}
+        <span className="font-medium text-slate-700 dark:text-slate-300">
+          {formatDifficulties(range, t)}
+        </span>
       </p>
     </div>
   )

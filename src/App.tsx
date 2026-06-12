@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { SettingsProvider } from './context/SettingsContext'
+import { useTranslation } from './context/SettingsContext'
 import { initDatabase } from './db/seed'
 import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
@@ -13,6 +15,16 @@ import { PlanEditor } from './pages/PlanEditor'
 import { ExerciseManager } from './pages/ExerciseManager'
 import { WorkoutHistory } from './pages/WorkoutHistory'
 import { WorkoutRecord } from './pages/WorkoutRecord'
+import { Settings } from './pages/Settings'
+
+function LoadingScreen() {
+  const { t } = useTranslation()
+  return (
+    <div className="flex min-h-dvh items-center justify-center">
+      <p className="text-slate-500">{t('app.loading')}</p>
+    </div>
+  )
+}
 
 function App() {
   const [ready, setReady] = useState(false)
@@ -23,36 +35,39 @@ function App() {
 
   if (!ready) {
     return (
-      <div className="flex min-h-dvh items-center justify-center">
-        <p className="text-slate-500">Loading Gym Tracker...</p>
-      </div>
+      <SettingsProvider>
+        <LoadingScreen />
+      </SettingsProvider>
     )
   }
 
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/start" element={<PlanPicker />} />
-          <Route path="/session/:sessionId" element={<Session />} />
-          <Route
-            path="/session/:sessionId/exercise/:exerciseId"
-            element={<ExerciseDetail />}
-          />
-          <Route
-            path="/session/:sessionId/summary"
-            element={<SessionSummary />}
-          />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/metrics" element={<BodyMetrics />} />
-          <Route path="/history" element={<WorkoutHistory />} />
-          <Route path="/history/:sessionId" element={<WorkoutRecord />} />
-          <Route path="/plans" element={<PlanEditor />} />
-          <Route path="/plans/exercises" element={<ExerciseManager />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <SettingsProvider>
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/start" element={<PlanPicker />} />
+            <Route path="/session/:sessionId" element={<Session />} />
+            <Route
+              path="/session/:sessionId/exercise/:exerciseId"
+              element={<ExerciseDetail />}
+            />
+            <Route
+              path="/session/:sessionId/summary"
+              element={<SessionSummary />}
+            />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/metrics" element={<BodyMetrics />} />
+            <Route path="/history" element={<WorkoutHistory />} />
+            <Route path="/history/:sessionId" element={<WorkoutRecord />} />
+            <Route path="/plans" element={<PlanEditor />} />
+            <Route path="/plans/exercises" element={<ExerciseManager />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </SettingsProvider>
   )
 }
 

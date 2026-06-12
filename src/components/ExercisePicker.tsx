@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useBodyScrollLock } from '../lib/useBodyScrollLock'
 import type { Exercise, ExerciseDifficulty, ExerciseType } from '../db/schema'
+import { useTranslation } from '../context/SettingsContext'
 import {
   EXERCISE_DIFFICULTIES,
   EXERCISE_TYPES,
@@ -31,6 +32,7 @@ export function ExercisePicker({
   onSelect,
   onClose,
 }: ExercisePickerProps) {
+  const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState<ExerciseType | ''>('')
   const [muscleGroupFilter, setMuscleGroupFilter] = useState('')
@@ -88,13 +90,12 @@ export function ExercisePicker({
           )}
 
           <label className="mt-4 block">
-            <span className="sr-only">Search exercises</span>
+            <span className="sr-only">{t('exercises.searchExercises')}</span>
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by name..."
-              autoFocus
+              placeholder={t('common.searchByName')}
               className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm dark:border-slate-700 dark:bg-slate-800"
             />
           </label>
@@ -107,10 +108,10 @@ export function ExercisePicker({
               }
               className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
             >
-              <option value="">All types</option>
-              {EXERCISE_TYPES.map((t) => (
-                <option key={t.value} value={t.value}>
-                  {t.label}
+              <option value="">{t('common.allTypes')}</option>
+              {EXERCISE_TYPES.map((type) => (
+                <option key={type.value} value={type.value}>
+                  {t(`exerciseType.${type.value}`)}
                 </option>
               ))}
             </select>
@@ -119,10 +120,10 @@ export function ExercisePicker({
               onChange={(e) => setMuscleGroupFilter(e.target.value)}
               className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
             >
-              <option value="">All muscles</option>
-              {MUSCLE_GROUPS.map((g) => (
-                <option key={g} value={g}>
-                  {g}
+              <option value="">{t('common.allMuscleGroups')}</option>
+              {MUSCLE_GROUPS.map((group) => (
+                <option key={group} value={group}>
+                  {t(`muscleGroup.${group}`)}
                 </option>
               ))}
             </select>
@@ -133,10 +134,10 @@ export function ExercisePicker({
               }
               className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
             >
-              <option value="">All levels</option>
-              {EXERCISE_DIFFICULTIES.map((d) => (
-                <option key={d.value} value={d.value}>
-                  {d.label}
+              <option value="">{t('common.allLevels')}</option>
+              {EXERCISE_DIFFICULTIES.map((level) => (
+                <option key={level.value} value={level.value}>
+                  {t(`difficulty.${level.value}`)}
                 </option>
               ))}
             </select>
@@ -146,20 +147,19 @@ export function ExercisePicker({
         <div className="min-h-0 flex-1 overflow-y-auto p-3">
           {filtered.length === 0 ? (
             <div className="px-2 py-8 text-center text-sm text-slate-500">
-              <p>No exercises match your search.</p>
+              <p>{t('exercises.noPickerResults')}</p>
               <button
                 type="button"
                 onClick={clearFilters}
                 className="mt-3 font-medium text-emerald-600"
               >
-                Clear filters
+                {t('common.clearFilters')}
               </button>
             </div>
           ) : (
             <>
               <p className="mb-2 px-1 text-xs text-slate-500">
-                {filtered.length} exercise
-                {filtered.length === 1 ? '' : 's'}
+                {t('exercises.pickerCount', { count: filtered.length })}
               </p>
               <div className="space-y-2">
                 {filtered.map((exercise) => {
@@ -187,7 +187,7 @@ export function ExercisePicker({
                       </div>
                       {isSelected && (
                         <span className="shrink-0 text-xs font-medium text-emerald-600">
-                          Current
+                          {t('common.current')}
                         </span>
                       )}
                     </button>
@@ -204,7 +204,7 @@ export function ExercisePicker({
             onClick={onClose}
             className="w-full rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
           >
-            Cancel
+            {t('common.cancel')}
           </button>
         </div>
       </div>

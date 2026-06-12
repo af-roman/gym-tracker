@@ -11,6 +11,7 @@ import { db } from '../db/schema'
 import type { Exercise, PlanExercise, WorkoutPlan } from '../db/schema'
 import { ExercisePicker } from '../components/ExercisePicker'
 import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
+import { useTranslation } from '../context/SettingsContext'
 import {
   formatExerciseMeta,
   isDurationExerciseType,
@@ -121,8 +122,10 @@ function createDragGhost(
   clone.setAttribute('data-drag-ghost', 'true')
 
   clone.querySelectorAll('button').forEach((button) => {
-    const label = button.getAttribute('aria-label') ?? ''
-    if (label.startsWith('Reorder') || button.textContent?.trim() === 'Delete') {
+    if (
+      button.dataset.action === 'reorder' ||
+      button.dataset.action === 'delete'
+    ) {
       button.remove()
       return
     }
@@ -169,6 +172,7 @@ function DropPlaceholder() {
 }
 
 export function PlanEditor() {
+  const { t } = useTranslation()
   const [plans, setPlans] = useState<WorkoutPlan[]>([])
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [editing, setEditing] = useState<WorkoutPlan | null>(null)
@@ -322,7 +326,7 @@ export function PlanEditor() {
     const copy: WorkoutPlan = {
       ...plan,
       id: `${plan.id}-copy-${Date.now()}`,
-      name: `${plan.name} (Copy)`,
+      name: `${plan.name}${t('plans.copySuffix')}`,
       exercises: [...plan.exercises],
     }
     await db.workoutPlans.add(copy)
@@ -331,11 +335,7 @@ export function PlanEditor() {
   }
 
   const removePlan = async (plan: WorkoutPlan) => {
-    if (
-      !confirm(
-        `Delete "${plan.name}"? This cannot be undone. Past workout sessions using this plan will be kept.`,
-      )
-    ) {
+    if (!confirm(t('plans.deletePlanConfirmNamed', { name: plan.name }))) {
       return
     }
     await db.workoutPlans.delete(plan.id)
@@ -563,14 +563,14 @@ export function PlanEditor() {
           onClick={() => setEditing(null)}
           className="mb-4 text-sm text-emerald-600"
         >
-          ← Back to plans
+          {t('common.backToPlans')}
         </button>
         <h1 className="mb-4 text-2xl font-bold">
-          {editing.name ? 'Edit plan' : 'New plan'}
+          {editing.name ? t('plans.editPlan') : t('plans.newPlan')}
         </h1>
 
         <label className="mb-4 block">
-          <span className="text-sm font-medium">Plan name</span>
+          <span className="text-sm font-medium">{t('plans.planName')}</span>
           <input
             value={editing.name}
             onChange={(e) =>
@@ -581,22 +581,20 @@ export function PlanEditor() {
         </label>
 
         <label className="mb-4 block">
-          <span className="text-sm font-medium">Description</span>
+          <span className="text-sm font-medium">{t('plans.description')}</span>
           <textarea
             value={editing.description}
             onChange={(e) =>
               setEditing({ ...editing, description: e.target.value })
             }
             rows={3}
-            placeholder="What is this plan for?"
+            placeholder={t('plans.descriptionPlaceholder')}
             className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
           />
         </label>
 
-        <h2 className="mb-1 font-semibold">Exercises</h2>
-        <p className="mb-3 text-xs text-slate-500">
-          Drag the handle to reorder exercises
-        </p>
+        <h2 className="mb-1 font-semibold">{t('plans.exercisesHeading')}</h2>
+        <p className="mb-3 text-xs text-slate-500">{t('plans.dragHint')}</p>
         <div ref={exerciseListRef} className="flex flex-col gap-3">
           {editing.exercises.map((pe, index) => {
             const template = exercises.find((e) => e.id === pe.exerciseId)
@@ -619,22 +617,23 @@ export function PlanEditor() {
               <div className="mb-2 flex items-start justify-between gap-2">
                 {template ? (
                   <p className="text-xs text-slate-500">
-                    {formatExerciseMeta(template)}
+                    {formatExerciseMeta(template, t)}
                   </p>
                 ) : (
                   <span />
                 )}
                 <button
                   type="button"
+                  data-action="delete"
                   onClick={() => removeExercise(index)}
                   className="shrink-0 rounded-lg border border-red-200 px-2 py-0.5 text-xs text-red-600 dark:border-red-900 dark:text-red-400"
                 >
-                  Delete
+                  {t('common.delete')}
                 </button>
               </div>
               <label className="mb-2 block">
                 <span className="text-xs font-medium text-slate-500">
-                  Exercise
+                  {t('common.exercise')}
                 </span>
                 {dragIndex !== null ? (
                   <div className="mt-1 flex w-full items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-900">
@@ -649,7 +648,7 @@ export function PlanEditor() {
                         </span>
                       </>
                     ) : (
-                      <span className="text-slate-500">Exercise</span>
+                      <span className="text-slate-500">{t('common.exercise')}</span>
                     )}
                   </div>
                 ) : (
@@ -669,10 +668,12 @@ export function PlanEditor() {
                         </span>
                       </>
                     ) : (
-                      <span className="text-slate-500">Choose exercise</span>
+                      <span className="text-slate-500">
+                        {t('plans.chooseExercise')}
+                      </span>
                     )}
                     <span className="shrink-0 text-xs text-emerald-600">
-                      Change
+                      {t('plans.change')}
                     </span>
                   </button>
                 )}
@@ -680,7 +681,7 @@ export function PlanEditor() {
               <div className="grid grid-cols-3 gap-3">
                 <label className="block">
                   <span className="text-xs font-medium text-slate-500">
-                    Sets
+                    {t('common.sets')}
                   </span>
                   <input
                     type="number"
@@ -699,7 +700,7 @@ export function PlanEditor() {
                   <>
                     <label className="block">
                       <span className="text-xs font-medium text-slate-500">
-                        Duration
+                        {t('common.duration')}
                       </span>
                       <input
                         type="number"
@@ -716,7 +717,7 @@ export function PlanEditor() {
                     </label>
                     <label className="block">
                       <span className="text-xs font-medium text-slate-500">
-                        Unit
+                        {t('common.unit')}
                       </span>
                       <select
                         value={pe.durationUnit ?? 'sec'}
@@ -729,8 +730,8 @@ export function PlanEditor() {
                         }
                         className="mt-1 w-full rounded-xl border border-slate-200 px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-900"
                       >
-                        <option value="sec">sec</option>
-                        <option value="min">min</option>
+                        <option value="sec">{t('common.sec')}</option>
+                        <option value="min">{t('common.min')}</option>
                       </select>
                     </label>
                   </>
@@ -738,7 +739,7 @@ export function PlanEditor() {
                   <>
                     <label className="block">
                       <span className="text-xs font-medium text-slate-500">
-                        Reps
+                        {t('common.reps')}
                       </span>
                       <input
                         value={pe.defaultReps ?? ''}
@@ -754,7 +755,7 @@ export function PlanEditor() {
                     </label>
                     <label className="block">
                       <span className="text-xs font-medium text-slate-500">
-                        Weight (kg)
+                        {t('common.weightKg')}
                       </span>
                       <input
                         type="number"
@@ -775,10 +776,13 @@ export function PlanEditor() {
               </div>
               <button
                 type="button"
+                data-action="reorder"
                 onPointerDown={(e) => startDragFromHandle(e, index)}
                 style={{ touchAction: 'none' }}
                 className="flex w-11 shrink-0 cursor-grab touch-none items-center justify-center self-stretch border-l border-slate-200 bg-slate-50 text-slate-400 active:cursor-grabbing dark:border-slate-700 dark:bg-slate-800/50"
-                aria-label={`Reorder ${template?.name ?? 'exercise'}`}
+                aria-label={t('plans.reorderExercise', {
+                  name: template?.name ?? t('common.exercise'),
+                })}
               >
                 ⠿
               </button>
@@ -795,15 +799,17 @@ export function PlanEditor() {
           disabled={exercises.length === 0}
           className="mt-3 w-full rounded-xl border-2 border-dashed border-slate-300 py-2 text-sm disabled:opacity-50 dark:border-slate-700"
         >
-          + Add exercise
+          + {t('plans.addExercise')}
         </button>
 
         <ExercisePicker
           open={pickerTarget !== null}
           title={
-            pickerTarget?.mode === 'add' ? 'Add exercise' : 'Change exercise'
+            pickerTarget?.mode === 'add'
+              ? t('plans.pickerAdd')
+              : t('plans.pickerChange')
           }
-          description="Search and filter by type, muscle group, and difficulty."
+          description={t('plans.pickerDescription')}
           exercises={exercises}
           selectedId={pickerSelectedId}
           excludeIds={pickerExcludeIds}
@@ -814,9 +820,9 @@ export function PlanEditor() {
         {exercises.length === 0 && (
           <p className="mt-2 text-center text-sm text-slate-500">
             <Link to="/plans/exercises" className="text-emerald-600">
-              Create exercises
+              {t('plans.manageExercises')}
             </Link>{' '}
-            before adding them to this plan.
+            {t('plans.createExercisesBefore')}
           </p>
         )}
 
@@ -825,7 +831,7 @@ export function PlanEditor() {
           disabled={saving}
           className="mt-6 w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white"
         >
-          {saving ? 'Saving...' : 'Save plan'}
+          {saving ? t('common.saving') : t('plans.savePlan')}
         </button>
       </div>
     )
@@ -835,16 +841,14 @@ export function PlanEditor() {
     <div>
       <div className="mb-4 flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold">Workout plans</h1>
-          <p className="text-sm text-slate-500">
-            Build plans from your exercise library
-          </p>
+          <h1 className="text-2xl font-bold">{t('plans.title')}</h1>
+          <p className="text-sm text-slate-500">{t('plans.subtitle')}</p>
         </div>
         <button
           onClick={startNewPlan}
           className="shrink-0 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white"
         >
-          + New plan
+          + {t('plans.newPlan')}
         </button>
       </div>
 
@@ -853,10 +857,8 @@ export function PlanEditor() {
         className="mb-6 flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
       >
         <div>
-          <p className="font-semibold">Manage exercises</p>
-          <p className="text-sm text-slate-500">
-            Add, edit, or remove exercises in your library
-          </p>
+          <p className="font-semibold">{t('plans.manageExercises')}</p>
+          <p className="text-sm text-slate-500">{t('plans.manageSubtitle')}</p>
         </div>
         <span className="text-slate-400">›</span>
       </Link>
@@ -880,7 +882,7 @@ export function PlanEditor() {
               <h2 className="font-bold">{plan.name}</h2>
               <p className="text-sm text-slate-500">{plan.description}</p>
               <p className="mt-1 text-xs text-slate-400">
-                {plan.exercises.length} exercises
+                {t('common.exerciseCount', { count: plan.exercises.length })}
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2">
@@ -892,7 +894,7 @@ export function PlanEditor() {
                 }}
                 className="rounded-xl border border-slate-200 px-3 py-1.5 text-sm dark:border-slate-700"
               >
-                Duplicate
+                {t('plans.duplicate')}
               </button>
               <button
                 type="button"
@@ -902,7 +904,7 @@ export function PlanEditor() {
                 }}
                 className="rounded-xl border border-red-200 px-3 py-1.5 text-sm text-red-600 dark:border-red-900 dark:text-red-400"
               >
-                Delete
+                {t('common.delete')}
               </button>
             </div>
           </div>

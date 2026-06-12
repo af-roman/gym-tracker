@@ -32,8 +32,10 @@ import { ExercisePhotoPicker } from '../components/ExercisePhotoPicker'
 import { ExerciseThumbnail } from '../components/ExerciseThumbnail'
 import { DifficultyRangeSelect } from '../components/DifficultyRangeSelect'
 import { MultiSelectPills } from '../components/MultiSelectPills'
+import { useTranslation } from '../context/SettingsContext'
 
 export function ExerciseManager() {
+  const { t } = useTranslation()
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [editing, setEditing] = useState<Exercise | null>(null)
   const [isNew, setIsNew] = useState(false)
@@ -52,7 +54,7 @@ export function ExerciseManager() {
   const [selectedPlanId, setSelectedPlanId] = useState('')
   const [addToPlanError, setAddToPlanError] = useState('')
   const [addingToPlan, setAddingToPlan] = useState(false)
-  const [planAddedMessage, setPlanAddedMessage] = useState('')
+  const [planAddedPlanName, setPlanAddedPlanName] = useState('')
 
   const load = async () => {
     const [all, allPlans] = await Promise.all([
@@ -106,25 +108,25 @@ export function ExerciseManager() {
   const save = async () => {
     if (!editing) return
     if (!editing.name.trim()) {
-      setError('Name is required.')
+      setError('exercises.nameRequired')
       return
     }
     if (!editing.instructions.trim()) {
-      setError('Instructions are required.')
+      setError('exercises.instructionsRequired')
       return
     }
     if (resolveMuscleGroups(editing).length === 0) {
-      setError('Select at least one muscle group.')
+      setError('exercises.muscleRequired')
       return
     }
     if (resolveExerciseDifficulties(editing).length === 0) {
-      setError('Select at least one difficulty level.')
+      setError('exercises.difficultyRequired')
       return
     }
 
     const type = resolveExerciseType(editing)
     if (isDurationExerciseType(type) && !editing.defaultDuration) {
-      setError('Default duration is required for this exercise type.')
+      setError('exercises.durationRequired')
       return
     }
 
@@ -133,7 +135,7 @@ export function ExerciseManager() {
     if (videoUrl) {
       const parsed = parseYoutubeUrl(videoUrl)
       if (!parsed) {
-        setError('Please enter a valid YouTube link.')
+        setError('exercises.youtubeInvalid')
         return
       }
       tutorialVideoUrl = parsed
@@ -211,33 +213,34 @@ export function ExerciseManager() {
     if (!result.ok) {
       setAddToPlanError(
         result.reason === 'duplicate'
-          ? `"${addToPlanExercise.name}" is already in "${plan.name}".`
-          : 'Could not find that plan. Try again.',
+          ? 'exercises.alreadyInPlan'
+          : 'exercises.notFound',
       )
       setAddingToPlan(false)
       return
     }
 
     await load()
-    setPlanAddedMessage(
-      `Added "${addToPlanExercise.name}" to "${plan.name}".`,
-    )
+    setPlanAddedPlanName(plan.name)
     closeAddToPlan()
     setAddingToPlan(false)
   }
 
   const remove = async (exercise: Exercise) => {
-    const plans = await getPlansUsingExercise(exercise.id)
-    if (plans.length > 0) {
+    const usedInPlans = await getPlansUsingExercise(exercise.id)
+    if (usedInPlans.length > 0) {
       alert(
-        `Cannot delete "${exercise.name}" — it is used in: ${plans.join(', ')}. Remove it from those plans first.`,
+        t('exercises.cannotDeleteInPlans', {
+          name: exercise.name,
+          plans: usedInPlans.join(', '),
+        }),
       )
       return
     }
 
     if (
       !confirm(
-        `Delete "${exercise.name}"? Past workout logs referencing this exercise may not display correctly.`,
+        t('exercises.deleteConfirmNamed', { name: exercise.name }),
       )
     ) {
       return
@@ -280,33 +283,33 @@ export function ExerciseManager() {
           }}
           className="mb-4 text-sm text-emerald-600"
         >
-          ← Back to exercises
+          {t('exercises.backToList')}
         </button>
 
         <h1 className="mb-4 text-2xl font-bold">
-          {isNew ? 'New exercise' : 'Edit exercise'}
+          {isNew ? t('exercises.newExercise') : t('exercises.editExercise')}
         </h1>
 
         {error && (
           <p className="mb-4 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700 dark:bg-red-950/50 dark:text-red-300">
-            {error}
+            {t(error)}
           </p>
         )}
 
         <div className="space-y-4">
           <label className="block">
-            <span className="text-sm font-medium">Name</span>
+            <span className="text-sm font-medium">{t('exercises.name')}</span>
             <input
               value={editing.name}
               onChange={(e) => updateField('name', e.target.value)}
-              placeholder="e.g. Goblet Squat"
+              placeholder={t('exercises.namePlaceholder')}
               className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
             />
           </label>
 
           {!isNew && (
             <label className="block">
-              <span className="text-sm font-medium">ID</span>
+              <span className="text-sm font-medium">{t('exercises.id')}</span>
               <input
                 value={editing.id}
                 readOnly
@@ -316,7 +319,7 @@ export function ExerciseManager() {
           )}
 
           <label className="block">
-            <span className="text-sm font-medium">Exercise type</span>
+            <span className="text-sm font-medium">{t('exercises.type')}</span>
             <select
               value={type}
               onChange={(e) =>
@@ -324,20 +327,21 @@ export function ExerciseManager() {
               }
               className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
             >
-              {EXERCISE_TYPES.map((t) => (
-                <option key={t.value} value={t.value}>
-                  {t.label}
+              {EXERCISE_TYPES.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {t(`exerciseType.${opt.value}`)}
                 </option>
               ))}
             </select>
           </label>
 
           <MultiSelectPills
-            label="Muscle groups"
-            hint="Tap all muscle groups this exercise works."
+            label={t('exercises.muscleGroups')}
+            hint={t('exercises.muscleGroupsHint')}
             options={MUSCLE_GROUPS}
             values={resolveMuscleGroups(editing)}
             onChange={(muscleGroups) => updateField('muscleGroups', muscleGroups)}
+            getLabel={(group) => t(`muscleGroup.${group}`)}
           />
 
           <DifficultyRangeSelect
@@ -348,12 +352,14 @@ export function ExerciseManager() {
           />
 
           <label className="block">
-            <span className="text-sm font-medium">Instructions</span>
+            <span className="text-sm font-medium">
+              {t('exercises.instructions')}
+            </span>
             <textarea
               value={editing.instructions}
               onChange={(e) => updateField('instructions', e.target.value)}
               rows={5}
-              placeholder="How to perform this exercise..."
+              placeholder={t('exercises.instructionsPlaceholder')}
               className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
             />
           </label>
@@ -374,7 +380,7 @@ export function ExerciseManager() {
 
           <label className="block">
             <span className="text-sm font-medium">
-              YouTube tutorial (optional)
+              {t('exercises.youtubeUrl')} ({t('common.optional')})
             </span>
             <input
               type="url"
@@ -388,7 +394,9 @@ export function ExerciseManager() {
           </label>
 
           <label className="block">
-            <span className="text-sm font-medium">Default sets</span>
+            <span className="text-sm font-medium">
+              {t('exercises.defaultSets')}
+            </span>
             <input
               type="number"
               min={1}
@@ -403,7 +411,9 @@ export function ExerciseManager() {
           {isDurationExerciseType(type) && (
             <div className="grid grid-cols-2 gap-3">
               <label className="block">
-                <span className="text-sm font-medium">Default duration</span>
+                <span className="text-sm font-medium">
+                  {t('exercises.defaultDuration')}
+                </span>
                 <input
                   type="number"
                   min={1}
@@ -419,7 +429,9 @@ export function ExerciseManager() {
                 />
               </label>
               <label className="block">
-                <span className="text-sm font-medium">Duration unit</span>
+                <span className="text-sm font-medium">
+                  {t('exercises.durationUnit')}
+                </span>
                 <select
                   value={editing.durationUnit ?? 'sec'}
                   onChange={(e) =>
@@ -427,9 +439,9 @@ export function ExerciseManager() {
                   }
                   className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
                 >
-                  {DURATION_UNITS.map((u) => (
-                    <option key={u} value={u}>
-                      {u}
+                  {DURATION_UNITS.map((unit) => (
+                    <option key={unit} value={unit}>
+                      {t(`common.${unit}`)}
                     </option>
                   ))}
                 </select>
@@ -439,7 +451,9 @@ export function ExerciseManager() {
 
           {!isDurationExerciseType(type) && (
             <label className="block">
-              <span className="text-sm font-medium">Default reps</span>
+              <span className="text-sm font-medium">
+                {t('exercises.defaultReps')}
+              </span>
               <input
                 value={editing.defaultReps ?? ''}
                 onChange={(e) => {
@@ -459,7 +473,9 @@ export function ExerciseManager() {
           {!isDurationExerciseType(type) && (
             <>
               <label className="block">
-                <span className="text-sm font-medium">Default weight (kg)</span>
+                <span className="text-sm font-medium">
+                  {t('exercises.defaultWeight')}
+                </span>
                 <input
                   type="number"
                   step="0.5"
@@ -470,14 +486,14 @@ export function ExerciseManager() {
                       e.target.value ? parseFloat(e.target.value) : undefined,
                     )
                   }
-                  placeholder="Optional starting weight"
+                  placeholder={t('exercises.weightPlaceholder')}
                   className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
                 />
               </label>
 
               <label className="block">
                 <span className="text-sm font-medium">
-                  Starting weight note (optional)
+                  {t('exercises.startingWeightNote')} ({t('common.optional')})
                 </span>
                 <textarea
                   value={editing.startingWeightNote ?? ''}
@@ -485,7 +501,7 @@ export function ExerciseManager() {
                     updateField('startingWeightNote', e.target.value || undefined)
                   }
                   rows={3}
-                  placeholder="e.g. Start with 8–12 kg"
+                  placeholder={t('exercises.startingWeightPlaceholder')}
                   className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-3 dark:border-slate-700 dark:bg-slate-900"
                 />
               </label>
@@ -498,7 +514,11 @@ export function ExerciseManager() {
           disabled={saving}
           className="mt-6 w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white disabled:opacity-50"
         >
-          {saving ? 'Saving...' : isNew ? 'Create exercise' : 'Save exercise'}
+          {saving
+            ? t('common.saving')
+            : isNew
+              ? t('exercises.createExercise')
+              : t('exercises.saveExercise')}
         </button>
       </div>
     )
@@ -507,56 +527,56 @@ export function ExerciseManager() {
   return (
     <div>
       <Link to="/plans" className="mb-4 inline-block text-sm text-emerald-600">
-        ← Back to plans
+        {t('common.backToPlans')}
       </Link>
 
-      {planAddedMessage && (
+      {planAddedPlanName && (
         <p className="mb-4 rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
-          {planAddedMessage}
+          {t('exercises.addedToPlan', { plan: planAddedPlanName })}
           <button
             type="button"
-            onClick={() => setPlanAddedMessage('')}
+            onClick={() => setPlanAddedPlanName('')}
             className="ml-2 font-medium underline"
           >
-            Dismiss
+            {t('common.dismiss')}
           </button>
         </p>
       )}
 
       <div className="mb-6 flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold">Exercises</h1>
-          <p className="text-sm text-slate-500">
-            Manage the exercise library used in your workout plans
-          </p>
+          <h1 className="text-2xl font-bold">{t('exercises.title')}</h1>
+          <p className="text-sm text-slate-500">{t('exercises.subtitle')}</p>
         </div>
         <button
           onClick={startNew}
           className="shrink-0 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white"
         >
-          + New
+          {t('common.newButton')}
         </button>
       </div>
 
       {exercises.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-slate-300 p-8 text-center dark:border-slate-700">
-          <p className="text-slate-500">No exercises yet.</p>
+          <p className="text-slate-500">{t('exercises.noExercisesYet')}</p>
           <button
             onClick={startNew}
             className="mt-3 text-sm font-medium text-emerald-600"
           >
-            Create your first exercise
+            {t('exercises.createFirst')}
           </button>
         </div>
       ) : (
         <>
           <label className="mb-4 block">
-            <span className="text-xs font-medium text-slate-500">Search</span>
+            <span className="text-xs font-medium text-slate-500">
+              {t('common.search')}
+            </span>
             <input
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by name..."
+              placeholder={t('common.searchByName')}
               className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900"
             />
           </label>
@@ -564,7 +584,7 @@ export function ExerciseManager() {
           <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <label className="block">
               <span className="text-xs font-medium text-slate-500">
-                Exercise type
+                {t('exercises.type')}
               </span>
               <select
                 value={typeFilter}
@@ -573,34 +593,34 @@ export function ExerciseManager() {
                 }
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900"
               >
-                <option value="">All types</option>
-                {EXERCISE_TYPES.map((t) => (
-                  <option key={t.value} value={t.value}>
-                    {t.label}
+                <option value="">{t('common.allTypes')}</option>
+                {EXERCISE_TYPES.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {t(`exerciseType.${opt.value}`)}
                   </option>
                 ))}
               </select>
             </label>
             <label className="block">
               <span className="text-xs font-medium text-slate-500">
-                Muscle group
+                {t('exercises.muscleGroup')}
               </span>
               <select
                 value={muscleGroupFilter}
                 onChange={(e) => setMuscleGroupFilter(e.target.value)}
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900"
               >
-                <option value="">All groups</option>
-                {MUSCLE_GROUPS.map((g) => (
-                  <option key={g} value={g}>
-                    {g}
+                <option value="">{t('common.allMuscleGroups')}</option>
+                {MUSCLE_GROUPS.map((group) => (
+                  <option key={group} value={group}>
+                    {t(`muscleGroup.${group}`)}
                   </option>
                 ))}
               </select>
             </label>
             <label className="block">
               <span className="text-xs font-medium text-slate-500">
-                Difficulty
+                {t('exercises.difficulty')}
               </span>
               <select
                 value={difficultyFilter}
@@ -609,10 +629,10 @@ export function ExerciseManager() {
                 }
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900"
               >
-                <option value="">All levels</option>
+                <option value="">{t('common.allLevels')}</option>
                 {EXERCISE_DIFFICULTIES.map((d) => (
                   <option key={d.value} value={d.value}>
-                    {d.label}
+                    {t(`difficulty.${d.value}`)}
                   </option>
                 ))}
               </select>
@@ -621,7 +641,7 @@ export function ExerciseManager() {
 
           {filteredExercises.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-slate-300 p-8 text-center dark:border-slate-700">
-              <p className="text-slate-500">No exercises match these filters.</p>
+              <p className="text-slate-500">{t('exercises.noMatch')}</p>
               <button
                 type="button"
                 onClick={() => {
@@ -632,13 +652,16 @@ export function ExerciseManager() {
                 }}
                 className="mt-3 text-sm font-medium text-emerald-600"
               >
-                Clear filters
+                {t('common.clearFilters')}
               </button>
             </div>
           ) : (
             <div className="space-y-3">
               <p className="text-xs text-slate-500">
-                {filteredExercises.length} of {exercises.length} exercises
+                {t('exercises.count', {
+                  count: filteredExercises.length,
+                  total: exercises.length,
+                })}
               </p>
               {filteredExercises.map((exercise) => (
                 <div
@@ -673,7 +696,7 @@ export function ExerciseManager() {
                       }}
                       className="rounded-xl border border-slate-200 px-3 py-1.5 text-sm dark:border-slate-700"
                     >
-                      Add to Plan
+                      {t('exercises.addToPlan')}
                     </button>
                     <button
                       type="button"
@@ -683,7 +706,7 @@ export function ExerciseManager() {
                       }}
                       className="rounded-xl border border-red-200 px-3 py-1.5 text-sm text-red-600 dark:border-red-900 dark:text-red-400"
                     >
-                      Delete
+                      {t('exercises.deleteExercise')}
                     </button>
                   </div>
                 </div>
@@ -706,24 +729,27 @@ export function ExerciseManager() {
             onClick={(e) => e.stopPropagation()}
           >
             <h2 id="add-to-plan-title" className="text-lg font-bold">
-              Add to plan
+              {t('exercises.addToPlanTitle')}
             </h2>
             <p className="mt-1 text-sm text-slate-500">
-              Add <span className="font-medium">{addToPlanExercise.name}</span>{' '}
-              as the last exercise in a workout plan.
+              {t('exercises.addToPlanDescription', {
+                name: addToPlanExercise.name,
+              })}
             </p>
 
             {plans.length === 0 ? (
               <p className="mt-4 text-sm text-slate-500">
-                No workout plans yet.{' '}
+                {t('exercises.noPlansYet')}{' '}
                 <Link to="/plans" className="font-medium text-emerald-600">
-                  Create a plan
+                  {t('plans.newPlan')}
                 </Link>{' '}
-                first.
+                {t('exercises.createPlanFirst')}
               </p>
             ) : (
               <label className="mt-4 block">
-                <span className="text-sm font-medium">Workout plan</span>
+                <span className="text-sm font-medium">
+                  {t('exercises.workoutPlan')}
+                </span>
                 <select
                   value={selectedPlanId}
                   onChange={(e) => {
@@ -743,7 +769,7 @@ export function ExerciseManager() {
 
             {addToPlanError && (
               <p className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700 dark:bg-red-950/50 dark:text-red-300">
-                {addToPlanError}
+                {t(addToPlanError)}
               </p>
             )}
 
@@ -753,7 +779,7 @@ export function ExerciseManager() {
                 onClick={closeAddToPlan}
                 className="flex-1 rounded-xl border border-slate-200 py-3 text-sm font-medium dark:border-slate-700"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 type="button"
@@ -761,7 +787,7 @@ export function ExerciseManager() {
                 disabled={plans.length === 0 || !selectedPlanId || addingToPlan}
                 className="flex-1 rounded-xl bg-emerald-600 py-3 text-sm font-semibold text-white disabled:opacity-50"
               >
-                {addingToPlan ? 'Adding...' : 'Add'}
+                {addingToPlan ? t('exercises.adding') : t('common.add')}
               </button>
             </div>
           </div>
